@@ -150,12 +150,9 @@ impl Entry {
         self.icon.as_ref()
     }
 }
-/// Icon used when an application ships nothing the current theme can resolve.
-/// Symbolic, so it stays neutral next to real application icons.
+
 const FALLBACK_ICON: &str = "application-x-executable-symbolic";
 
-/// Resolves the icon once, at load time, so a row never renders GTK's
-/// broken-image placeholder mid-list.
 fn resolve_icon(app: &gio::AppInfo) -> Option<gio::Icon> {
     let display = gdk::Display::default()?;
     let theme = IconTheme::for_display(&display);
