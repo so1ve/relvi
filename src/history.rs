@@ -52,7 +52,7 @@ impl History {
             .name("relvi-history".into())
             .spawn(move || {
                 for contents in receiver {
-                    let directory = history_path.parent().expect("history path has a parent");
+                    let directory = history_path.parent().unwrap();
                     if let Err(error) = DirBuilder::new()
                         .recursive(true)
                         .mode(0o700)
@@ -95,12 +95,9 @@ impl History {
         usage.last_used = glib::real_time();
 
         if let Some((sender, _)) = &self.writer {
-            let contents =
-                serde_json::to_string(&self.entries).expect("launch history is serializable");
+            let contents = serde_json::to_string(&self.entries).unwrap();
 
-            sender
-                .send(contents)
-                .expect("history writer stopped unexpectedly");
+            sender.send(contents).unwrap();
         }
     }
 
@@ -131,7 +128,7 @@ impl Drop for History {
     fn drop(&mut self) {
         if let Some((sender, writer)) = self.writer.take() {
             drop(sender);
-            writer.join().expect("history writer panicked");
+            writer.join().unwrap();
         }
     }
 }

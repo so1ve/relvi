@@ -84,7 +84,7 @@ impl Entry {
                 return;
             }
 
-            let id = u32::try_from(*next_field).expect("too many application search fields");
+            let id = u32::try_from(*next_field).unwrap();
             *next_field += 1;
             fields.push(Field {
                 id,
