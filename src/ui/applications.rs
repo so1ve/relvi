@@ -33,6 +33,7 @@ impl Applications {
         list.add_css_class("results-list");
 
         let viewport = Viewport::builder().child(&list).build();
+
         let frame = ScrolledWindow::builder()
             .child(&viewport)
             .propagate_natural_height(true)
@@ -59,6 +60,7 @@ impl Applications {
                 row
             })
             .collect();
+
         let applications = Rc::new(Self {
             root,
             list,
@@ -67,21 +69,24 @@ impl Applications {
             empty,
             state: RefCell::new(Results {
                 catalog,
-                history: History::load(&gtk::glib::user_state_dir().join("relvi/history.ini")),
+                history: History::load(&gtk::glib::user_state_dir().join("relvi/history.json")),
                 rows,
                 matches: Vec::new(),
             }),
         });
+
         let weak = Rc::downgrade(&applications);
         applications.frame.hadjustment().connect_changed(move |_| {
             if let Some(applications) = weak.upgrade() {
                 applications.update_height();
+
                 // Width changes arrive during allocation; resize once it
                 // finishes.
                 let frame = applications.frame.clone();
                 gtk::glib::idle_add_local_once(move || frame.queue_resize());
             }
         });
+
         applications.set_query("");
 
         applications
@@ -99,6 +104,7 @@ impl Applications {
         let Some(id) = entry.id() else {
             return;
         };
+
         self.state.borrow_mut().history.record(id.as_str());
 
         if query.trim().is_empty() {
@@ -109,19 +115,23 @@ impl Applications {
     pub fn replace_catalog(&self, catalog: Catalog, query: &str) {
         let selected = self.selected_entry().and_then(|entry| entry.id());
         let count = catalog.search("").len();
+
         {
             let mut state = self.state.borrow_mut();
             state.catalog = catalog;
+
             while state.rows.len() < count {
                 let row = ResultRow::new();
                 self.list.append(&row.widget);
                 state.rows.push(row);
             }
+
             while state.rows.len() > count {
                 let row = state.rows.pop().unwrap();
                 self.list.remove(&row.widget);
             }
         }
+
         self.update_results(query, selected.as_deref());
     }
 
@@ -131,10 +141,12 @@ impl Applications {
         if query.trim().is_empty() {
             state.history.sort(&mut matches);
         }
+
         state.matches = matches;
         for (index, row) in state.rows.iter().enumerate() {
             row.bind(state.matches.get(index).map(Rc::as_ref));
         }
+
         let selected = selected_id.and_then(|id| {
             state
                 .matches
@@ -148,6 +160,7 @@ impl Applications {
         self.update_height();
         self.frame.set_visible(row.is_some());
         self.empty.set_visible(row.is_none());
+
         self.list.select_row(row.as_ref());
         if selected.is_some() {
             self.viewport.scroll_to(row.as_ref().unwrap(), None);
@@ -160,6 +173,7 @@ impl Applications {
         // The viewport's page width already excludes CSS edges and scrollbars.
         let width = self.frame.hadjustment().page_size() as i32;
         let width = if width > 0 { width } else { -1 };
+
         // ListBox allocates each row at its measured minimum height.
         let height = self
             .state
@@ -169,6 +183,7 @@ impl Applications {
             .take(VISIBLE_ROWS)
             .map(|row| row.widget.measure(Orientation::Vertical, width).0)
             .sum();
+
         self.frame.set_max_content_height(height);
     }
 
@@ -182,11 +197,14 @@ impl Applications {
 
     pub fn connect_activate(self: &Rc<Self>, activate: impl Fn(Rc<Entry>) + 'static) {
         let applications = Rc::downgrade(self);
+
         self.list.connect_row_activated(move |_, row| {
             let Some(applications) = applications.upgrade() else {
                 return;
             };
+
             let entry = Rc::clone(&applications.state.borrow().matches[row.index() as usize]);
+
             activate(entry);
         });
     }
@@ -206,6 +224,7 @@ impl Applications {
         let next = (current + offset).rem_euclid(count as i32) as usize;
         let row = state.rows[next].widget.clone();
         drop(state);
+
         self.list.select_row(Some(&row));
         self.viewport.scroll_to(&row, None);
     }
@@ -263,6 +282,7 @@ impl ResultRow {
         content.append(&icon);
         content.append(&title);
         content.append(&kind);
+
         row.set_child(Some(&content));
 
         Self {
@@ -284,6 +304,7 @@ impl ResultRow {
             Some(icon) => self.icon.set_from_gicon(icon),
             None => self.icon.set_icon_name(Some("application-x-executable")),
         }
+
         self.title.set_text(entry.title());
         self.kind.set_text(entry.kind());
         self.widget.set_visible(true);

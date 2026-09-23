@@ -19,7 +19,9 @@ fn main() -> glib::ExitCode {
     });
 
     let exit_code = application.run();
+
     // Release the retained UI and finish pending history writes on shutdown.
     application.disconnect(activate);
+
     exit_code
 }

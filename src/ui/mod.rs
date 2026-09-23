@@ -67,10 +67,12 @@ impl Ui {
         let overlay = Overlay::new();
         overlay.set_child(Some(&backdrop));
         overlay.add_overlay(&views);
+
         let expanded_height = OnceCell::new();
         overlay.connect_get_child_position(move |overlay, child| {
             let width = VIEW_WIDTH.min(overlay.width());
             let height = child.measure(Orientation::Vertical, width).1;
+
             // Keep the initial height as the anchor once wrapped rows
             // have been allocated the actual viewport width.
             let full_height = if child.width() > 0 {
@@ -87,6 +89,7 @@ impl Ui {
                 height.min(overlay.height() - top),
             ))
         });
+
         window.set_child(Some(&overlay));
 
         Self { window, palette }

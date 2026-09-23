@@ -1,10 +1,13 @@
 use std::collections::BTreeMap;
-use std::fs::DirBuilder;
+use std::fs::{self, DirBuilder};
+use std::io;
 use std::os::unix::fs::DirBuilderExt;
 use std::path::Path;
 use std::rc::Rc;
 use std::sync::mpsc::{self, Sender};
 use std::thread::{self, JoinHandle};
+
+use serde::{Deserialize, Serialize};
 
 use crate::catalog::Entry;
 
@@ -16,32 +19,16 @@ pub struct History {
 
 impl History {
     pub fn load(path: &Path) -> Self {
-        let read = || -> Result<BTreeMap<String, Usage>, glib::Error> {
-            let file = glib::KeyFile::new();
-            if let Err(error) = file.load_from_file(path, glib::KeyFileFlags::NONE) {
-                return if error.matches(glib::FileError::Noent) {
-                    Ok(BTreeMap::new())
-                } else {
-                    Err(error)
-                };
-            }
+        let read = || -> io::Result<_> {
+            let entries: BTreeMap<String, Usage> = match fs::read(path) {
+                Ok(contents) => serde_json::from_slice(&contents)?,
+                Err(error) if error.kind() == io::ErrorKind::NotFound => BTreeMap::new(),
+                Err(error) => return Err(error),
+            };
 
-            let mut entries = BTreeMap::new();
-            for group in file.groups().iter() {
-                let id = file.string(group, "id")?;
-                let count = file.uint64(group, "count")?;
-                let last_used = file.int64(group, "last_used")?;
-                if id.is_empty() || count == 0 || last_used < 0 || entries.contains_key(id.as_str())
-                {
-                    return Err(glib::Error::new(
-                        glib::KeyFileError::InvalidValue,
-                        "Invalid or duplicate launch history record",
-                    ));
-                }
-                entries.insert(id.to_string(), Usage { count, last_used });
-            }
             Ok(entries)
         };
+
         let entries = match read() {
             Ok(entries) => entries,
             Err(error) => {
@@ -50,6 +37,7 @@ impl History {
                     "Could not read {}: {error}; history will remain in memory",
                     path.display()
                 );
+
                 return Self {
                     entries: BTreeMap::new(),
                     writer: None,
@@ -59,6 +47,7 @@ impl History {
 
         let (sender, receiver) = mpsc::channel::<String>();
         let history_path = path.to_owned();
+
         let writer = match thread::Builder::new()
             .name("relvi-history".into())
             .spawn(move || {
@@ -72,6 +61,7 @@ impl History {
                         eprintln!("Could not create {}: {error}", directory.display());
                         continue;
                     }
+
                     if let Err(error) = glib::file_set_contents_full(
                         &history_path,
                         contents.as_bytes(),
@@ -88,6 +78,7 @@ impl History {
                     "Could not start writer for {}: {error}; history will remain in memory",
                     path.display()
                 );
+
                 None
             }
         };
@@ -104,16 +95,11 @@ impl History {
         usage.last_used = glib::real_time();
 
         if let Some((sender, _)) = &self.writer {
-            let file = glib::KeyFile::new();
-            for (index, (id, usage)) in self.entries.iter().enumerate() {
-                // IDs are string values so KeyFile handles escaping them.
-                let group = index.to_string();
-                file.set_string(&group, "id", id);
-                file.set_uint64(&group, "count", usage.count);
-                file.set_int64(&group, "last_used", usage.last_used);
-            }
+            let contents =
+                serde_json::to_string(&self.entries).expect("launch history is serializable");
+
             sender
-                .send(file.to_data().to_string())
+                .send(contents)
                 .expect("history writer stopped unexpectedly");
         }
     }
@@ -127,10 +113,12 @@ impl History {
                 .map(|usage| (usage.score(now), usage.last_used))
                 .unwrap_or((0.0, 0))
         };
+
         // Stable sorting retains the catalog's name order for equal ranks.
         entries.sort_by(|left, right| {
             let left = rank(left);
             let right = rank(right);
+
             right
                 .0
                 .total_cmp(&left.0)
@@ -148,6 +136,7 @@ impl Drop for History {
     }
 }
 
+#[derive(Deserialize, Serialize)]
 struct Usage {
     count: u64,
     // Microseconds since the Unix epoch, retaining order for quick launches.
@@ -157,6 +146,7 @@ struct Usage {
 impl Usage {
     fn score(&self, now: i64) -> f64 {
         let age = now.saturating_sub(self.last_used).max(0) as f64;
+
         // Logarithmic frequency prevents lifetime counts from dominating;
         // an application's score halves after a week without use.
         (self.count as f64).ln_1p() * (-age / (7.0 * 24.0 * 60.0 * 60.0 * 1_000_000.0)).exp2()
@@ -165,81 +155,89 @@ impl Usage {
 
 #[cfg(test)]
 mod tests {
-    use std::fs;
     use std::os::unix::fs::PermissionsExt;
 
     use super::*;
 
     #[test]
     fn successful_records_survive_restart_and_keep_ids_intact() {
-        let directory =
-            std::env::temp_dir().join(format!("relvi-history-{}", glib::uuid_string_random()));
-        let path = directory.join("history.ini");
+        let directory = tempfile::tempdir().unwrap();
+        let path = directory.path().join("state/history.json");
         let id = "org.example.[Editor]\\中文.desktop";
+
         {
             let mut history = History::load(&path);
             history.record(id);
             history.record("org.example.Browser.desktop");
             history.record(id);
         }
-        let file = glib::KeyFile::new();
-        file.load_from_file(&path, glib::KeyFileFlags::NONE)
-            .unwrap();
-        assert_eq!(file.groups().len(), 2);
+
+        let records: BTreeMap<String, Usage> =
+            serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+
+        assert_eq!(records.len(), 2);
+        assert_eq!(records[id].count, 2);
+        assert!(records[id].last_used > 0);
         assert_eq!(
             fs::metadata(&path).unwrap().permissions().mode() & 0o777,
             0o600
         );
         assert_eq!(
-            fs::metadata(&directory).unwrap().permissions().mode() & 0o777,
+            fs::metadata(path.parent().unwrap())
+                .unwrap()
+                .permissions()
+                .mode()
+                & 0o777,
             0o700
         );
+
         {
             let mut history = History::load(&path);
-            assert_eq!(history.entries[id].count, 2);
-            assert!(history.entries[id].last_used > 0);
             history.record(id);
         }
+
         let history = History::load(&path);
         assert_eq!(history.entries[id].count, 3);
-        drop(history);
-        fs::remove_dir_all(directory).unwrap();
     }
 
     #[test]
-    fn invalid_history_is_preserved_and_recording_continues_in_memory() {
-        let directory =
-            std::env::temp_dir().join(format!("relvi-history-{}", glib::uuid_string_random()));
-        fs::create_dir(&directory).unwrap();
-        let path = directory.join("history.ini");
+    fn invalid_json_is_preserved_and_recording_continues_in_memory() {
+        let directory = tempfile::tempdir().unwrap();
+        let path = directory.path().join("history.json");
+
         for contents in [
             "broken history",
-            "[0]\nid=editor.desktop\ncount=1\n",
-            "[0]\nid=editor.desktop\ncount=0\nlast_used=1\n",
+            r#"{"editor.desktop":{"count":1}}"#,
+            r#"{"editor.desktop":{"count":0,"last_used":1}}"#,
+            r#"{"editor.desktop":{"count":1,"last_used":-1}}"#,
+            r#"{"":{"count":1,"last_used":1}}"#,
         ] {
             fs::write(&path, contents).unwrap();
+
             let mut history = History::load(&path);
+            assert!(history.entries.is_empty());
+
             history.record("browser.desktop");
             assert_eq!(history.entries["browser.desktop"].count, 1);
+
             drop(history);
             assert_eq!(fs::read_to_string(&path).unwrap(), contents);
         }
-        fs::remove_dir_all(directory).unwrap();
     }
 
     #[test]
     fn failed_save_keeps_in_memory_counts() {
-        let directory =
-            std::env::temp_dir().join(format!("relvi-history-{}", glib::uuid_string_random()));
-        fs::create_dir(&directory).unwrap();
-        let path = directory.join("history.ini");
+        let directory = tempfile::tempdir().unwrap();
+        let path = directory.path().join("history.json");
         let mut history = History::load(&path);
+
         // A directory in place of the file makes the atomic replacement fail.
         fs::create_dir(&path).unwrap();
+
         history.record("editor.desktop");
         assert_eq!(history.entries["editor.desktop"].count, 1);
         drop(history);
+
         assert!(path.is_dir());
-        fs::remove_dir_all(directory).unwrap();
     }
 }

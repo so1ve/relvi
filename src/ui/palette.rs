@@ -23,6 +23,7 @@ impl Palette {
     pub fn new(window: &ApplicationWindow) -> Self {
         let monitor = gio::AppInfoMonitor::get();
         let applications = Applications::new(Catalog::load());
+
         let search = SearchEntry::builder().placeholder_text("Search…").build();
         search.set_search_delay(0);
         search.add_css_class("palette-search");
@@ -47,6 +48,7 @@ impl Palette {
             error,
             monitor,
         };
+
         let applications = &palette.applications;
         let search = &palette.search;
         let error = &palette.error;
@@ -61,6 +63,7 @@ impl Palette {
                 applications.set_query(entry.text().as_str());
             }
         ));
+
         // Let GtkText handle IME confirmation before SearchEntry activates.
         palette.search.connect_activate(glib::clone!(
             #[weak]
@@ -81,6 +84,7 @@ impl Palette {
                 }
             }
         ));
+
         palette.applications.connect_activate(glib::clone!(
             #[weak]
             applications,
@@ -129,6 +133,7 @@ impl Palette {
 
         let key_controller = EventControllerKey::new();
         key_controller.set_propagation_phase(PropagationPhase::Capture);
+
         key_controller.connect_key_pressed(glib::clone!(
             #[weak]
             window,
@@ -148,6 +153,7 @@ impl Palette {
                     }
                     _ => return Propagation::Proceed,
                 };
+
                 applications.move_selection(offset);
 
                 Propagation::Stop
@@ -181,6 +187,7 @@ fn launch(
         Ok(()) => {
             error.set_visible(false);
             window.set_visible(false);
+
             applications.record_launch(entry, query);
         }
         Err(reason) => {
