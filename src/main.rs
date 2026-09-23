@@ -3,6 +3,7 @@ mod history;
 mod ui;
 
 use std::cell::OnceCell;
+use std::rc::Rc;
 
 use gtk::prelude::*;
 use gtk::{Application, gio, glib};
@@ -15,14 +16,15 @@ fn main() -> glib::ExitCode {
         .flags(gio::ApplicationFlags::HANDLES_COMMAND_LINE)
         .build();
 
-    let ui = OnceCell::<ui::Ui>::new();
+    let ui = Rc::new(OnceCell::<ui::Ui>::new());
+    let activation_ui = Rc::clone(&ui);
 
     let activate = application.connect_activate(move |application| {
-        let instance = ui.get_or_init(|| ui::Ui::new(application));
+        let instance = activation_ui.get_or_init(|| ui::Ui::new(application));
         instance.present();
     });
 
-    application.connect_command_line(|application, command_line| {
+    application.connect_command_line(move |application, command_line| {
         let arguments = command_line.arguments();
 
         match &arguments[1..] {
@@ -37,6 +39,13 @@ fn main() -> glib::ExitCode {
                     application.activate();
                 }
             }
+            [command] if command == "clear-history" => {
+                if let Some(instance) = ui.get() {
+                    instance.clear_history();
+                } else {
+                    history::History::load().clear();
+                }
+            }
             _ => return glib::ExitCode::from(2),
         }
 
@@ -48,7 +57,7 @@ fn main() -> glib::ExitCode {
     application.disconnect(activate);
 
     if exit_code.get() == 2 {
-        eprintln!("Usage: relvi [toggle]");
+        eprintln!("Usage: relvi [toggle|clear-history]");
     }
 
     exit_code
