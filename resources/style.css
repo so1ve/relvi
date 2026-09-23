@@ -1,33 +1,38 @@
-/* Relvi launcher — matte black, warm hairlines, one champagne accent.
-   Palette follows Vicinae's default dark theme. */
+/* Relvi launcher — a translucent command palette floating over the desktop.
+   Warm hairlines, one champagne accent, depth from the compositor's blur. */
 
 window.relvi-window {
-  color: #e7e5e4;
+  color: #e8e4e0;
   background-color: transparent;
 }
 
+/* Opaque on purpose: niri cannot blur layer surfaces (its layer-rule has no
+   blur), so any transparency just leaves the desktop legible through the
+   panel. Depth comes from the shadow and the inset top highlight instead. */
 .palette {
-  border: 1px solid #2a241c;
-  border-radius: 8px;
-  background-color: #0f1014;
+  border: 1px solid rgba(255, 246, 232, 0.10);
+  border-radius: 12px;
+  background-color: #17171c;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07),
+              0 24px 60px rgba(0, 0, 0, 0.55),
+              0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
 /* Search field is a full-bleed row ruled off by a hairline, not a pill.
    The theme's focus ring is an outline, so it has to be cancelled explicitly
-   or it pops up as a blue frame the moment the field is clicked. That hairline
-   is the only place the accent colour appears. */
+   or it pops up as a blue frame the moment the field is clicked. */
 .palette-search {
-  min-height: 46px;
-  padding: 0 14px;
+  min-height: 52px;
+  padding: 0 16px;
   border: none;
-  border-bottom: 1px solid #2a241c;
+  border-bottom: 1px solid rgba(255, 246, 232, 0.09);
   border-radius: 0;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
   outline-style: none;
-  color: #e7e5e4;
-  font-size: 15px;
+  color: #f2efec;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -43,19 +48,37 @@ window.relvi-window {
 }
 
 .palette-search image {
-  color: #78716c;
+  color: #b8944e;
 }
 
 .results-frame {
-  margin: 5px 6px;
+  margin: 6px;
   border: none;
   background-color: transparent;
   box-shadow: none;
 }
 
+/* The default Adwaita scrollbar is a light pill that reads as a stock widget on
+   a matte panel. Keep it a hairline in the panel's own palette. */
+.results-frame scrollbar.vertical,
+.results-frame scrollbar.vertical trough {
+  border: none;
+  background-color: transparent;
+  background-image: none;
+}
+
 /* Keep the scrollbar minimum smaller than a single result row. */
 .results-frame scrollbar.vertical slider {
+  min-width: 3px;
   min-height: 32px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.16);
+  background-image: none;
+}
+
+.results-frame scrollbar.vertical slider:hover {
+  background-color: rgba(184, 148, 78, 0.55);
 }
 
 .results-list {
@@ -64,52 +87,54 @@ window.relvi-window {
 }
 
 .results-list > row {
-  min-height: 38px;
+  min-height: 40px;
   margin: 1px 0;
-  padding: 0 8px;
-  border-radius: 6px;
-  color: #b5b1ac;
+  padding: 0 10px;
+  border-radius: 8px;
+  color: #ddd8d3;
   background-color: transparent;
   box-shadow: none;
   outline-style: none;
 }
 
 .results-list > row:hover:not(:selected) {
-  color: #e7e5e4;
-  background-color: #17181d;
+  color: #f4f1ee;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Selection is surface and type only: no ring, no accent, and never the icon —
    real app icons keep their own colours and cannot carry the selected state. */
 .results-list > row:selected {
-  color: #f5f3f1;
-  background-color: #23242c;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 /* Keep application icon colours stable when the row is selected. */
 .app-icon {
-  min-width: 26px;
-  min-height: 26px;
-  color: #9c968e;
+  min-width: 28px;
+  min-height: 28px;
+  color: #a8a29e;
 }
 
 .result-title {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
 }
 
-.result-kind {
-  color: #78716c;
-  font-size: 11px;
+.result-subtitle {
+  color: #8b847b;
+  font-size: 11.5px;
 }
 
-.results-list > row:selected .result-kind {
-  color: #a8a29e;
+.results-list > row:selected .result-subtitle {
+  color: #b3aca3;
 }
 
 .empty-state {
   margin: 36px 14px;
-  color: #78716c;
+  color: #8b847b;
   font-size: 12.5px;
 }
 
