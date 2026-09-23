@@ -39,8 +39,8 @@ the initial full result height to place it at screen center, so filtering only
 changes the bottom edge and leaves the search anchor in place.
 
 The result viewport fits up to nine complete rows without limiting result count.
-Names and descriptions wrap at the available width rather than ellipsizing. The
-height limit sums the first nine visible rows' GTK measurements, including CSS
+Names stay on one line; descriptions use the remaining width and ellipsize.
+The height limit sums the first nine visible rows' GTK measurements, including CSS
 margins. It is recalculated when results or the viewport width change. GTK scrolls
 selected rows into view; outer spacing keeps rows and the scrollbar clear of the
 panel border.
@@ -48,14 +48,14 @@ panel border.
 Search indexes the display name, additional standard names, generic name, desktop
 keywords, description, desktop ID, and executable basename with their respective
 polysearch roles. Display names still follow Gio's locale selection. Empty and
-duplicate fields are omitted; the generic UI description is not indexed.
+duplicate fields are omitted.
 
 SearchEntry activation (Enter after IME processing) and single-clicking a result
 share the same launch path. Gio handles desktop Exec expansion, terminal requests,
 and D-Bus activation. A GDK launch context supplies desktop activation information;
 the launcher hides only after Gio accepts the launch. Errors stay in the palette
-and clear on another query or activation. Rows hold references to entries in their
-snapshot, so refreshing the catalog cannot redirect a pending launch to another app.
+and clear on another query or activation. The results retain their snapshot
+entries, so refreshing the catalog cannot redirect a pending launch to another app.
 
 Launch history is loaded once from `$XDG_STATE_HOME/relvi/history.json` (normally
 `~/.local/state/relvi/history.json`). Only launches accepted by Gio update the

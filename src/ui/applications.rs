@@ -50,9 +50,7 @@ impl Applications {
         root.append(&frame);
         root.append(&empty);
 
-        let rows = catalog
-            .search("")
-            .iter()
+        let rows = (0..catalog.len())
             .map(|_| {
                 let row = ResultRow::new();
                 list.append(&row.widget);
@@ -114,7 +112,7 @@ impl Applications {
 
     pub fn replace_catalog(&self, catalog: Catalog, query: &str) {
         let selected = self.selected_entry().and_then(|entry| entry.id());
-        let count = catalog.search("").len();
+        let count = catalog.len();
 
         {
             let mut state = self.state.borrow_mut();

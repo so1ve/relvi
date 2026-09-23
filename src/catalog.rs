@@ -33,6 +33,10 @@ impl Catalog {
         Self { entries, searcher }
     }
 
+    pub const fn len(&self) -> usize {
+        self.entries.len()
+    }
+
     pub fn search(&self, query: &str) -> Vec<Rc<Entry>> {
         let query = query.trim();
         if query.is_empty() {
@@ -51,14 +55,14 @@ impl Catalog {
 
 pub struct Entry {
     app: gio::AppInfo,
-    title: String,
+    title: glib::GString,
     subtitle: Option<glib::GString>,
     icon: Option<gio::Icon>,
 }
 
 impl Entry {
     fn from_app_info(app: gio::AppInfo) -> Self {
-        let title = app.display_name().to_string();
+        let title = app.display_name();
         let subtitle = app.description();
         let icon = resolve_icon(&app);
 
