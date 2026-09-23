@@ -4,6 +4,12 @@ Relvi keeps one GTK application process and one launcher window alive. Activatin
 it again presents the existing window and focuses the search field; dismissing
 the launcher hides the window instead of destroying it.
 
+Run `relvi` to show and focus the launcher. Run `relvi toggle` to hide it when
+visible or show it when hidden; the first `relvi toggle` also starts the launcher.
+Bind a desktop shortcut to `relvi toggle` to use the same key to open and dismiss
+it. Command lines are forwarded to the primary process through GApplication, so
+toggling reuses the existing window and catalog.
+
 The first activation of the primary process builds `Catalog` from
 `gio::AppInfo::all()`. Display metadata and the original Gio launch handles are
 retained in an immutable in-memory snapshot owned by the UI, and polysearch builds
@@ -50,3 +56,22 @@ and D-Bus activation. A GDK launch context supplies desktop activation informati
 the launcher hides only after Gio accepts the launch. Errors stay in the palette
 and clear on another query or activation. Rows hold references to entries in their
 snapshot, so refreshing the catalog cannot redirect a pending launch to another app.
+
+Launch history is loaded once from `$XDG_STATE_HOME/relvi/history.json` (normally
+`~/.local/state/relvi/history.json`). Only launches accepted by Gio update the
+desktop ID's count and last-use timestamp (Unix microseconds). Empty queries rank
+installed applications by `ln(1 + count) × 2^(-days_since_use / 7)`, with recent
+use breaking ties and catalog name order retained otherwise. Typed queries keep polysearch's relevance
+order. Catalog refreshes preserve history; remembered IDs never add applications
+that are absent from the current catalog.
+
+Snapshots are written by one background thread using atomic file replacement,
+with private directory/file permissions. Search and presentation do not read or
+write the history file. Pending saves finish when history is dropped. Read errors
+or invalid history preserve the original file and use memory only for that session;
+write errors are reported to stderr without affecting launch success or in-memory
+ordering.
+
+JSON is the only history format. It maps desktop IDs directly to their count and
+last-use timestamp, with Serde handling encoding and decoding. A missing JSON file
+starts an empty history.
