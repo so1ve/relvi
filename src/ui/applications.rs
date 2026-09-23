@@ -9,6 +9,7 @@ use gtk::{
 };
 
 use crate::catalog::{Catalog, Entry};
+use crate::history::History;
 
 const VISIBLE_ROWS: usize = 9;
 
@@ -66,6 +67,7 @@ impl Applications {
             empty,
             state: RefCell::new(Results {
                 catalog,
+                history: History::load(&gtk::glib::user_state_dir().join("relvi/history.ini")),
                 rows,
                 matches: Vec::new(),
             }),
@@ -93,6 +95,17 @@ impl Applications {
         self.update_results(query, None);
     }
 
+    pub fn record_launch(&self, entry: &Entry, query: &str) {
+        let Some(id) = entry.id() else {
+            return;
+        };
+        self.state.borrow_mut().history.record(id.as_str());
+
+        if query.trim().is_empty() {
+            self.set_query(query);
+        }
+    }
+
     pub fn replace_catalog(&self, catalog: Catalog, query: &str) {
         let selected = self.selected_entry().and_then(|entry| entry.id());
         let count = catalog.search("").len();
@@ -114,7 +127,11 @@ impl Applications {
 
     fn update_results(&self, query: &str, selected_id: Option<&str>) {
         let mut state = self.state.borrow_mut();
-        state.matches = state.catalog.search(query);
+        let mut matches = state.catalog.search(query);
+        if query.trim().is_empty() {
+            state.history.sort(&mut matches);
+        }
+        state.matches = matches;
         for (index, row) in state.rows.iter().enumerate() {
             row.bind(state.matches.get(index).map(Rc::as_ref));
         }
@@ -196,6 +213,7 @@ impl Applications {
 
 struct Results {
     catalog: Catalog,
+    history: History,
     rows: Vec<ResultRow>,
     matches: Vec<Rc<Entry>>,
 }

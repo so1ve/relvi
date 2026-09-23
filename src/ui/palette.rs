@@ -69,18 +69,36 @@ impl Palette {
             window,
             #[weak]
             error,
-            move |_| {
+            move |search| {
                 if let Some(entry) = applications.selected_entry() {
-                    launch(&entry, &window, &error);
+                    launch(
+                        &entry,
+                        &applications,
+                        search.text().as_str(),
+                        &window,
+                        &error,
+                    );
                 }
             }
         ));
         palette.applications.connect_activate(glib::clone!(
             #[weak]
+            applications,
+            #[weak]
+            search,
+            #[weak]
             window,
             #[weak]
             error,
-            move |entry| launch(&entry, &window, &error)
+            move |entry| {
+                launch(
+                    &entry,
+                    &applications,
+                    search.text().as_str(),
+                    &window,
+                    &error,
+                );
+            }
         ));
 
         // Gio coalesces changes until AppInfo::all() rearms the monitor.
@@ -150,13 +168,20 @@ impl Palette {
     }
 }
 
-fn launch(entry: &Entry, window: &ApplicationWindow, error: &Label) {
+fn launch(
+    entry: &Entry,
+    applications: &Applications,
+    query: &str,
+    window: &ApplicationWindow,
+    error: &Label,
+) {
     let context = WidgetExt::display(window).app_launch_context();
 
     match entry.launch(&context) {
         Ok(()) => {
             error.set_visible(false);
             window.set_visible(false);
+            applications.record_launch(entry, query);
         }
         Err(reason) => {
             error.set_text(&format!("Could not launch {}: {reason}", entry.title()));

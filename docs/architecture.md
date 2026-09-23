@@ -50,3 +50,18 @@ and D-Bus activation. A GDK launch context supplies desktop activation informati
 the launcher hides only after Gio accepts the launch. Errors stay in the palette
 and clear on another query or activation. Rows hold references to entries in their
 snapshot, so refreshing the catalog cannot redirect a pending launch to another app.
+
+Launch history is loaded once from `$XDG_STATE_HOME/relvi/history.ini` (normally
+`~/.local/state/relvi/history.ini`). Only launches accepted by Gio update the
+desktop ID's count and last-use timestamp (Unix microseconds). Empty queries rank installed applications
+by `ln(1 + count) × 2^(-days_since_use / 7)`, with recent use breaking ties and
+catalog name order retained otherwise. Typed queries keep polysearch's relevance
+order. Catalog refreshes preserve history; remembered IDs never add applications
+that are absent from the current catalog.
+
+Snapshots are written by one background thread using atomic file replacement,
+with private directory/file permissions. Search and presentation do not read or
+write the history file. Pending saves finish when history is dropped. Read errors
+or invalid history preserve the original file and use memory only for that session;
+write errors are reported to stderr without affecting launch success or in-memory
+ordering.

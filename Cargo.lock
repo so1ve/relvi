@@ -654,6 +654,7 @@ name = "relvi"
 version = "0.1.0"
 dependencies = [
  "gio-unix",
+ "glib",
  "gtk4",
  "gtk4-layer-shell",
  "polysearch",
