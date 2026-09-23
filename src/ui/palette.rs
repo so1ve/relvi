@@ -23,6 +23,7 @@ impl Palette {
     pub fn new(window: &ApplicationWindow) -> Self {
         let monitor = gio::AppInfoMonitor::get();
         let applications = Applications::new(Catalog::load());
+
         let search = SearchEntry::builder().placeholder_text("Search…").build();
         search.set_search_delay(0);
         search.add_css_class("palette-search");
@@ -47,6 +48,7 @@ impl Palette {
             error,
             monitor,
         };
+
         let applications = &palette.applications;
         let search = &palette.search;
         let error = &palette.error;
@@ -61,6 +63,7 @@ impl Palette {
                 applications.set_query(entry.text().as_str());
             }
         ));
+
         // Let GtkText handle IME confirmation before SearchEntry activates.
         palette.search.connect_activate(glib::clone!(
             #[weak]
@@ -69,18 +72,37 @@ impl Palette {
             window,
             #[weak]
             error,
-            move |_| {
+            move |search| {
                 if let Some(entry) = applications.selected_entry() {
-                    launch(&entry, &window, &error);
+                    launch(
+                        &entry,
+                        &applications,
+                        search.text().as_str(),
+                        &window,
+                        &error,
+                    );
                 }
             }
         ));
+
         palette.applications.connect_activate(glib::clone!(
+            #[weak]
+            applications,
+            #[weak]
+            search,
             #[weak]
             window,
             #[weak]
             error,
-            move |entry| launch(&entry, &window, &error)
+            move |entry| {
+                launch(
+                    &entry,
+                    &applications,
+                    search.text().as_str(),
+                    &window,
+                    &error,
+                );
+            }
         ));
 
         // Gio coalesces changes until AppInfo::all() rearms the monitor.
@@ -111,6 +133,7 @@ impl Palette {
 
         let key_controller = EventControllerKey::new();
         key_controller.set_propagation_phase(PropagationPhase::Capture);
+
         key_controller.connect_key_pressed(glib::clone!(
             #[weak]
             window,
@@ -130,6 +153,7 @@ impl Palette {
                     }
                     _ => return Propagation::Proceed,
                 };
+
                 applications.move_selection(offset);
 
                 Propagation::Stop
@@ -150,13 +174,21 @@ impl Palette {
     }
 }
 
-fn launch(entry: &Entry, window: &ApplicationWindow, error: &Label) {
+fn launch(
+    entry: &Entry,
+    applications: &Applications,
+    query: &str,
+    window: &ApplicationWindow,
+    error: &Label,
+) {
     let context = WidgetExt::display(window).app_launch_context();
 
     match entry.launch(&context) {
         Ok(()) => {
             error.set_visible(false);
             window.set_visible(false);
+
+            applications.record_launch(entry, query);
         }
         Err(reason) => {
             error.set_text(&format!("Could not launch {}: {reason}", entry.title()));
