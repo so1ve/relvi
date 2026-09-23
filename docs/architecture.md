@@ -4,6 +4,12 @@ Relvi keeps one GTK application process and one launcher window alive. Activatin
 it again presents the existing window and focuses the search field; dismissing
 the launcher hides the window instead of destroying it.
 
+Run `relvi` to show and focus the launcher. Run `relvi toggle` to hide it when
+visible or show it when hidden; the first `relvi toggle` also starts the launcher.
+Bind a desktop shortcut to `relvi toggle` to use the same key to open and dismiss
+it. Command lines are forwarded to the primary process through GApplication, so
+toggling reuses the existing window and catalog.
+
 The first activation of the primary process builds `Catalog` from
 `gio::AppInfo::all()`. Display metadata and the original Gio launch handles are
 retained in an immutable in-memory snapshot owned by the UI, and polysearch builds
