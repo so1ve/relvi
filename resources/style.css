@@ -1,0 +1,120 @@
+/* Relvi launcher — matte black, warm hairlines, one champagne accent.
+   Palette follows Vicinae's default dark theme. */
+
+window.relvi-window {
+  color: #e7e5e4;
+  background-color: transparent;
+}
+
+.palette {
+  border: 1px solid #2a241c;
+  border-radius: 8px;
+  background-color: #0f1014;
+}
+
+/* Search field is a full-bleed row ruled off by a hairline, not a pill.
+   The theme's focus ring is an outline, so it has to be cancelled explicitly
+   or it pops up as a blue frame the moment the field is clicked. That hairline
+   is the only place the accent colour appears. */
+.palette-search {
+  min-height: 46px;
+  padding: 0 14px;
+  border: none;
+  border-bottom: 1px solid #2a241c;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  outline-style: none;
+  color: #e7e5e4;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.palette-search:focus,
+.palette-search:focus-within,
+.palette-search:focus-visible {
+  border: none;
+  border-bottom: 1px solid #b8944e;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  outline-style: none;
+}
+
+.palette-search image {
+  color: #78716c;
+}
+
+.results-frame {
+  margin: 5px 6px;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* Keep the scrollbar minimum smaller than a single result row. */
+.results-frame scrollbar.vertical slider {
+  min-height: 32px;
+}
+
+.results-list {
+  padding: 0;
+  background-color: transparent;
+}
+
+.results-list > row {
+  min-height: 38px;
+  margin: 1px 0;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: #b5b1ac;
+  background-color: transparent;
+  box-shadow: none;
+  outline-style: none;
+}
+
+.results-list > row:hover:not(:selected) {
+  color: #e7e5e4;
+  background-color: #17181d;
+}
+
+/* Selection is surface and type only: no ring, no accent, and never the icon —
+   real app icons keep their own colours and cannot carry the selected state. */
+.results-list > row:selected {
+  color: #f5f3f1;
+  background-color: #23242c;
+}
+
+/* Keep application icon colours stable when the row is selected. */
+.app-icon {
+  min-width: 26px;
+  min-height: 26px;
+  color: #9c968e;
+}
+
+.result-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.result-kind {
+  color: #78716c;
+  font-size: 11px;
+}
+
+.results-list > row:selected .result-kind {
+  color: #a8a29e;
+}
+
+.empty-state {
+  margin: 36px 14px;
+  color: #78716c;
+  font-size: 12.5px;
+}
+
+.launch-error {
+  margin: 8px 14px 12px;
+  color: #e6a09a;
+  font-size: 12px;
+}
