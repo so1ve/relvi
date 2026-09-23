@@ -168,6 +168,10 @@ impl Palette {
         &self.root
     }
 
+    pub fn clear_history(&self) {
+        self.applications.clear_history(self.search.text().as_str());
+    }
+
     pub fn focus(&self) {
         self.error.set_visible(false);
         self.search.grab_focus();

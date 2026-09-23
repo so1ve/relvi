@@ -95,6 +95,10 @@ impl Ui {
         Self { window, palette }
     }
 
+    pub fn clear_history(&self) {
+        self.palette.clear_history();
+    }
+
     pub fn present(&self) {
         self.window.present();
         self.palette.focus();

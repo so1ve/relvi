@@ -67,7 +67,7 @@ impl Applications {
             empty,
             state: RefCell::new(Results {
                 catalog,
-                history: History::load(&gtk::glib::user_state_dir().join("relvi/history.json")),
+                history: History::load(),
                 rows,
                 matches: Vec::new(),
             }),
@@ -103,11 +103,14 @@ impl Applications {
             return;
         };
 
-        self.state.borrow_mut().history.record(id.as_str());
+        self.state.borrow_mut().history.record(id.as_str(), query);
 
-        if query.trim().is_empty() {
-            self.set_query(query);
-        }
+        self.set_query(query);
+    }
+
+    pub fn clear_history(&self, query: &str) {
+        self.state.borrow_mut().history.clear();
+        self.set_query(query);
     }
 
     pub fn replace_catalog(&self, catalog: Catalog, query: &str) {
@@ -136,9 +139,7 @@ impl Applications {
     fn update_results(&self, query: &str, selected_id: Option<&str>) {
         let mut state = self.state.borrow_mut();
         let mut matches = state.catalog.search(query);
-        if query.trim().is_empty() {
-            state.history.sort(&mut matches);
-        }
+        state.history.sort(&mut matches, query);
 
         state.matches = matches;
         for (index, row) in state.rows.iter().enumerate() {
