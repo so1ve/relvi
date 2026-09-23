@@ -45,10 +45,8 @@ fn main() -> glib::ExitCode {
 
     let exit_code = application.run();
 
-    // Release the retained UI and finish pending history writes on shutdown.
     application.disconnect(activate);
 
-    // Print in the invoking process, including for forwarded commands.
     if exit_code.get() == 2 {
         eprintln!("Usage: relvi [toggle]");
     }

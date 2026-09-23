@@ -1,7 +1,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use gtk::pango::{AttrInt, AttrList, WrapMode};
+use gtk::pango::EllipsizeMode;
 use gtk::prelude::*;
 use gtk::{
     Align, Box as GtkBox, Image, Label, ListBox, ListBoxRow, Orientation, PolicyType,
@@ -50,9 +50,7 @@ impl Applications {
         root.append(&frame);
         root.append(&empty);
 
-        let rows = catalog
-            .search("")
-            .iter()
+        let rows = (0..catalog.len())
             .map(|_| {
                 let row = ResultRow::new();
                 list.append(&row.widget);
@@ -114,7 +112,7 @@ impl Applications {
 
     pub fn replace_catalog(&self, catalog: Catalog, query: &str) {
         let selected = self.selected_entry().and_then(|entry| entry.id());
-        let count = catalog.search("").len();
+        let count = catalog.len();
 
         {
             let mut state = self.state.borrow_mut();
@@ -216,12 +214,11 @@ impl Applications {
             return;
         }
 
-        let current = self
-            .list
-            .selected_row()
-            .map(|row| row.index())
-            .unwrap_or(-1);
-        let next = (current + offset).rem_euclid(count as i32) as usize;
+        let next = match self.list.selected_row() {
+            Some(row) => (row.index() + offset).rem_euclid(count as i32) as usize,
+            None if offset > 0 => 0,
+            None => count - 1,
+        };
         let row = state.rows[next].widget.clone();
         drop(state);
 
@@ -241,7 +238,7 @@ struct ResultRow {
     widget: ListBoxRow,
     icon: Image,
     title: Label,
-    kind: Label,
+    subtitle: Label,
 }
 
 impl ResultRow {
@@ -253,35 +250,27 @@ impl ResultRow {
         row.set_focus_on_click(false);
 
         let icon = Image::new();
-        icon.set_pixel_size(26);
+        icon.set_pixel_size(28);
         icon.add_css_class("app-icon");
-        icon.set_halign(Align::Center);
         icon.set_valign(Align::Center);
-
-        // Wrap text without inserting extra hyphens.
-        let text_attributes = AttrList::new();
-        text_attributes.insert(AttrInt::new_insert_hyphens(false));
 
         let title = Label::new(None);
         title.add_css_class("result-title");
-        title.set_attributes(Some(&text_attributes));
         title.set_xalign(0.0);
-        title.set_hexpand(true);
-        title.set_wrap(true);
-        title.set_wrap_mode(WrapMode::WordChar);
+        title.set_valign(Align::Center);
 
-        let kind = Label::new(None);
-        kind.add_css_class("result-kind");
-        kind.set_attributes(Some(&text_attributes));
-        kind.set_xalign(1.0);
-        kind.set_wrap(true);
-        kind.set_wrap_mode(WrapMode::WordChar);
+        let subtitle = Label::new(None);
+        subtitle.add_css_class("result-subtitle");
+        subtitle.set_xalign(0.0);
+        subtitle.set_hexpand(true);
+        subtitle.set_ellipsize(EllipsizeMode::End);
+        subtitle.set_valign(Align::Center);
 
         let content = GtkBox::new(Orientation::Horizontal, 10);
         content.set_valign(Align::Center);
         content.append(&icon);
         content.append(&title);
-        content.append(&kind);
+        content.append(&subtitle);
 
         row.set_child(Some(&content));
 
@@ -289,7 +278,7 @@ impl ResultRow {
             widget: row,
             icon,
             title,
-            kind,
+            subtitle,
         }
     }
 
@@ -302,11 +291,16 @@ impl ResultRow {
 
         match entry.icon() {
             Some(icon) => self.icon.set_from_gicon(icon),
-            None => self.icon.set_icon_name(Some("application-x-executable")),
+            None => self.icon.clear(),
         }
 
         self.title.set_text(entry.title());
-        self.kind.set_text(entry.kind());
+        if let Some(subtitle) = entry.subtitle() {
+            self.subtitle.set_text(subtitle);
+            self.subtitle.set_visible(true);
+        } else {
+            self.subtitle.set_visible(false);
+        }
         self.widget.set_visible(true);
     }
 }
