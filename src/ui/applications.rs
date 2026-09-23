@@ -216,12 +216,11 @@ impl Applications {
             return;
         }
 
-        let current = self
-            .list
-            .selected_row()
-            .map(|row| row.index())
-            .unwrap_or(-1);
-        let next = (current + offset).rem_euclid(count as i32) as usize;
+        let next = match self.list.selected_row() {
+            Some(row) => (row.index() + offset).rem_euclid(count as i32) as usize,
+            None if offset > 0 => 0,
+            None => count - 1,
+        };
         let row = state.rows[next].widget.clone();
         drop(state);
 
