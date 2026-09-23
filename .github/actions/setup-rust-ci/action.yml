@@ -1,0 +1,11 @@
+name: Setup Rust CI
+description: Install native build dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: Install GTK dependencies
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes libgtk-4-dev libgtk4-layer-shell-dev pkg-config
