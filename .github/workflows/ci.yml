@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rust:
+    name: Rust
+    uses: so1ve/workflows/.github/workflows/rust-ci.yml@v1
+    with:
+      toolchain: nightly
+      runs-on: ubuntu-26.04
+      setup: .github/actions/setup-rust-ci
+      test: false
+
+  binary:
+    name: Binary ${{ matrix.target }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            runner: ubuntu-26.04
+          - target: aarch64-unknown-linux-gnu
+            runner: ubuntu-26.04-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: so1ve/workflows/setup-rust@v1
+        with:
+          toolchain: nightly
+      - uses: ./.github/actions/setup-rust-ci
+      - run: cargo build --locked --release
+      - run: mv target/release/relvi "relvi-${{ matrix.target }}"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: relvi-${{ matrix.target }}
+          path: relvi-${{ matrix.target }}
+          if-no-files-found: error

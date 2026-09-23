@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-pr:
+    name: Create Release PR
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: so1ve/workflows/setup-rust@v1
+        with:
+          toolchain: nightly
+          fetch-all: "true"
+      - uses: ./.github/actions/setup-rust-ci
+      - uses: release-plz/action@v0.5
+        with:
+          command: release-pr
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    name: Release
+    runs-on: ubuntu-26.04
+    outputs:
+      releases: ${{ steps.release-plz.outputs.releases }}
+    steps:
+      - uses: so1ve/workflows/setup-rust@v1
+        with:
+          toolchain: nightly
+          fetch-all: "true"
+      - uses: ./.github/actions/setup-rust-ci
+      - uses: release-plz/action@v0.5
+        id: release-plz
+        with:
+          command: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-binary:
+    name: Release Binary ${{ matrix.target }}
+    needs: release
+    if: ${{ needs.release.outputs.releases != '' && needs.release.outputs.releases != '[]' }}
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            runner: ubuntu-26.04
+          - target: aarch64-unknown-linux-gnu
+            runner: ubuntu-26.04-arm
+    runs-on: ${{ matrix.runner }}
+    env:
+      RELEASE_TAG: ${{ fromJSON(needs.release.outputs.releases)[0].tag }}
+    steps:
+      - uses: so1ve/workflows/setup-rust@v1
+        with:
+          toolchain: nightly
+      - uses: ./.github/actions/setup-rust-ci
+      - run: cargo build --locked --release
+      - run: mv target/release/relvi "relvi-${{ matrix.target }}"
+      - name: Upload binary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$RELEASE_TAG" "relvi-${{ matrix.target }}" --clobber
