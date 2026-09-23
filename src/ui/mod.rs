@@ -73,8 +73,8 @@ impl Ui {
             let width = VIEW_WIDTH.min(overlay.width());
             let height = child.measure(Orientation::Vertical, width).1;
 
-            // Keep the initial height as the anchor once wrapped rows
-            // have been allocated the actual viewport width.
+            // Keep the initial height as the anchor once rows have been
+            // allocated at the actual viewport width.
             let full_height = if child.width() > 0 {
                 *expanded_height.get_or_init(|| height)
             } else {

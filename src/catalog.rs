@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 use gio_unix::DesktopAppInfo;
 use gtk::gio::prelude::{AppInfoExt, Cast, IsA};
-use gtk::{gio, glib};
+use gtk::{IconTheme, gdk, gio, glib};
 use polysearch::{
     ALIAS, Config, Entry as SearchEntry, Field, IDENTIFIER, KEYWORD, LOCALIZED_NAME, PRIMARY_NAME,
     SearchResult, Searcher,
@@ -33,6 +33,10 @@ impl Catalog {
         Self { entries, searcher }
     }
 
+    pub const fn len(&self) -> usize {
+        self.entries.len()
+    }
+
     pub fn search(&self, query: &str) -> Vec<Rc<Entry>> {
         let query = query.trim();
         if query.is_empty() {
@@ -51,25 +55,21 @@ impl Catalog {
 
 pub struct Entry {
     app: gio::AppInfo,
-    title: String,
-    kind: String,
+    title: glib::GString,
+    subtitle: Option<glib::GString>,
     icon: Option<gio::Icon>,
 }
 
 impl Entry {
     fn from_app_info(app: gio::AppInfo) -> Self {
-        let title = app.display_name().to_string();
-        let kind = app
-            .description()
-            .filter(|description| !description.trim().is_empty())
-            .map(|description| description.to_string())
-            .unwrap_or_else(|| "Application".to_owned());
-        let icon = app.icon();
+        let title = app.display_name();
+        let subtitle = app.description();
+        let icon = resolve_icon(&app);
 
         Self {
             app,
             title,
-            kind,
+            subtitle,
             icon,
         }
     }
@@ -110,8 +110,8 @@ impl Entry {
             }
         }
 
-        if let Some(description) = self.app.description() {
-            add(KEYWORD, &description);
+        if let Some(description) = self.subtitle.as_deref() {
+            add(KEYWORD, description);
         }
 
         if let Some(id) = self.app.id() {
@@ -142,11 +142,28 @@ impl Entry {
         &self.title
     }
 
-    pub fn kind(&self) -> &str {
-        &self.kind
+    pub fn subtitle(&self) -> Option<&str> {
+        self.subtitle.as_deref()
     }
 
     pub const fn icon(&self) -> Option<&gio::Icon> {
         self.icon.as_ref()
     }
+}
+
+const FALLBACK_ICON: &str = "application-x-executable-symbolic";
+
+fn resolve_icon(app: &gio::AppInfo) -> Option<gio::Icon> {
+    let display = gdk::Display::default()?;
+    let theme = IconTheme::for_display(&display);
+
+    if let Some(icon) = app.icon()
+        && theme.has_gicon(&icon)
+    {
+        return Some(icon);
+    }
+
+    theme
+        .has_icon(FALLBACK_ICON)
+        .then(|| gio::ThemedIcon::new(FALLBACK_ICON).upcast())
 }
