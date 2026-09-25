@@ -8,7 +8,7 @@ use std::rc::Rc;
 use gtk::prelude::*;
 use gtk::{Application, gio, glib};
 
-const APP_ID: &str = "io.so1ve.Relvi";
+const APP_ID: &str = "dev.so1ve.Relvi";
 
 fn main() -> glib::ExitCode {
     let application = Application::builder()
@@ -17,6 +17,7 @@ fn main() -> glib::ExitCode {
         .build();
 
     let ui = Rc::new(OnceCell::<ui::Ui>::new());
+    let hold = OnceCell::new();
     let activation_ui = Rc::clone(&ui);
 
     let activate = application.connect_activate(move |application| {
@@ -39,6 +40,11 @@ fn main() -> glib::ExitCode {
                     application.activate();
                 }
             }
+            [command] if command == "daemon" => {
+                ui.get_or_init(|| ui::Ui::new(application));
+                hold.get_or_init(|| application.hold());
+            }
+            [command] if command == "quit" => application.quit(),
             [command] if command == "clear-history" => {
                 if let Some(instance) = ui.get() {
                     instance.clear_history();
@@ -57,7 +63,7 @@ fn main() -> glib::ExitCode {
     application.disconnect(activate);
 
     if exit_code.get() == 2 {
-        eprintln!("Usage: relvi [toggle|clear-history]");
+        eprintln!("Usage: relvi [toggle|daemon|quit|clear-history]");
     }
 
     exit_code

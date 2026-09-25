@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Relvi
+Comment=Search and launch applications
+Exec=relvi
+TryExec=relvi
+Icon=system-search-symbolic
+Terminal=false
+Categories=Utility;
+StartupNotify=false

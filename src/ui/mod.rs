@@ -1,12 +1,13 @@
 mod applications;
+mod list;
 mod palette;
 
 use std::cell::OnceCell;
+use std::rc::Rc;
 
 use gtk::prelude::*;
 use gtk::{
-    Application, ApplicationWindow, Box as GtkBox, GestureClick, Orientation, Overlay, Stack, gdk,
-    glib,
+    Application, ApplicationWindow, Box as GtkBox, GestureClick, Orientation, Overlay, gdk, glib,
 };
 use gtk4_layer_shell::{Edge, KeyboardMode, Layer, LayerShell};
 
@@ -17,7 +18,7 @@ const VIEW_WIDTH: i32 = 540;
 /// The long-lived launcher window and its view host.
 pub struct Ui {
     window: ApplicationWindow,
-    palette: Palette,
+    palette: Rc<Palette>,
 }
 
 impl Ui {
@@ -44,12 +45,6 @@ impl Ui {
 
         let palette = Palette::new(&window);
 
-        // The stack is the extension point for additional launcher views.
-        // The application palette is the first view; future views can be
-        // added here without changing the window or layer-shell plumbing.
-        let views = Stack::new();
-        views.add_named(palette.widget(), Some("applications"));
-
         // The layer surface covers the whole output, so a click that misses
         // the active view lands on this backdrop and dismisses the launcher.
         let backdrop = GtkBox::new(gtk::Orientation::Vertical, 0);
@@ -66,20 +61,13 @@ impl Ui {
 
         let overlay = Overlay::new();
         overlay.set_child(Some(&backdrop));
-        overlay.add_overlay(&views);
+        overlay.add_overlay(palette.widget());
 
-        let expanded_height = OnceCell::new();
+        let anchor_height = OnceCell::new();
         overlay.connect_get_child_position(move |overlay, child| {
             let width = VIEW_WIDTH.min(overlay.width());
             let height = child.measure(Orientation::Vertical, width).1;
-
-            // Keep the initial height as the anchor once rows have been
-            // allocated at the actual viewport width.
-            let full_height = if child.width() > 0 {
-                *expanded_height.get_or_init(|| height)
-            } else {
-                height
-            };
+            let full_height = *anchor_height.get_or_init(|| height);
             let top = ((overlay.height() - full_height) / 2).max(0);
 
             Some(gdk::Rectangle::new(

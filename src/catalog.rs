@@ -2,7 +2,8 @@ use std::collections::HashSet;
 use std::rc::Rc;
 
 use gio_unix::DesktopAppInfo;
-use gtk::gio::prelude::{AppInfoExt, Cast, IsA};
+use gtk::gdk::prelude::{DisplayExt, MonitorExt};
+use gtk::gio::prelude::{AppInfoExt, Cast, IsA, ListModelExtManual};
 use gtk::{IconTheme, gdk, gio, glib};
 use polysearch::{
     ALIAS, Config, Entry as SearchEntry, Field, IDENTIFIER, KEYWORD, LOCALIZED_NAME, PRIMARY_NAME,
@@ -17,10 +18,20 @@ pub struct Catalog {
 
 impl Catalog {
     pub fn load() -> Self {
+        let display = gdk::Display::default().unwrap();
+        let theme = IconTheme::for_display(&display);
+        let scale = display
+            .monitors()
+            .iter::<gdk::Monitor>()
+            .filter_map(Result::ok)
+            .map(|monitor| monitor.scale_factor())
+            .max()
+            .unwrap_or(1);
+
         let mut entries: Vec<_> = gio::AppInfo::all()
             .into_iter()
             .filter(AppInfoExt::should_show)
-            .map(|app| Rc::new(Entry::from_app_info(app)))
+            .map(|app| Rc::new(Entry::from_app_info(app, &theme, scale)))
             .collect();
         entries.sort_unstable_by(|left, right| left.title.cmp(&right.title));
 
@@ -31,10 +42,6 @@ impl Catalog {
         let searcher = Searcher::new(search_entries, Config::default());
 
         Self { entries, searcher }
-    }
-
-    pub const fn len(&self) -> usize {
-        self.entries.len()
     }
 
     pub fn search(&self, query: &str) -> Vec<Rc<Entry>> {
@@ -56,19 +63,22 @@ impl Catalog {
 pub struct Entry {
     app: gio::AppInfo,
     title: glib::GString,
+    id: Option<glib::GString>,
     subtitle: Option<glib::GString>,
-    icon: Option<gio::Icon>,
+    icon: Option<gtk::IconPaintable>,
 }
 
 impl Entry {
-    fn from_app_info(app: gio::AppInfo) -> Self {
+    fn from_app_info(app: gio::AppInfo, theme: &IconTheme, scale: i32) -> Self {
         let title = app.display_name();
+        let id = app.id();
         let subtitle = app.description();
-        let icon = resolve_icon(&app);
+        let icon = resolve_icon(&app, theme, scale);
 
         Self {
             app,
             title,
+            id,
             subtitle,
             icon,
         }
@@ -114,8 +124,8 @@ impl Entry {
             add(KEYWORD, description);
         }
 
-        if let Some(id) = self.app.id() {
-            add(IDENTIFIER, &id);
+        if let Some(id) = self.id.as_deref() {
+            add(IDENTIFIER, id);
         }
 
         if let Some(executable) = self
@@ -130,8 +140,8 @@ impl Entry {
         SearchEntry { id, fields }
     }
 
-    pub fn id(&self) -> Option<glib::GString> {
-        self.app.id()
+    pub fn id(&self) -> Option<&str> {
+        self.id.as_deref()
     }
 
     pub fn launch(&self, context: &impl IsA<gio::AppLaunchContext>) -> Result<(), glib::Error> {
@@ -146,24 +156,29 @@ impl Entry {
         self.subtitle.as_deref()
     }
 
-    pub const fn icon(&self) -> Option<&gio::Icon> {
+    pub const fn icon(&self) -> Option<&gtk::IconPaintable> {
         self.icon.as_ref()
     }
 }
 
 const FALLBACK_ICON: &str = "application-x-executable-symbolic";
 
-fn resolve_icon(app: &gio::AppInfo) -> Option<gio::Icon> {
-    let display = gdk::Display::default()?;
-    let theme = IconTheme::for_display(&display);
-
-    if let Some(icon) = app.icon()
+fn resolve_icon(app: &gio::AppInfo, theme: &IconTheme, scale: i32) -> Option<gtk::IconPaintable> {
+    let icon = if let Some(icon) = app.icon()
         && theme.has_gicon(&icon)
     {
-        return Some(icon);
-    }
+        icon
+    } else if theme.has_icon(FALLBACK_ICON) {
+        gio::ThemedIcon::new(FALLBACK_ICON).upcast()
+    } else {
+        return None;
+    };
 
-    theme
-        .has_icon(FALLBACK_ICON)
-        .then(|| gio::ThemedIcon::new(FALLBACK_ICON).upcast())
+    Some(theme.lookup_by_gicon(
+        &icon,
+        28,
+        scale,
+        gtk::TextDirection::None,
+        gtk::IconLookupFlags::empty(),
+    ))
 }

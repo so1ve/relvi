@@ -153,13 +153,13 @@ impl History {
     fn app_rank(&self, entry: &Entry, now: i64) -> (f64, i64) {
         entry
             .id()
-            .and_then(|id| self.entries.get(id.as_str()))
+            .and_then(|id| self.entries.get(id))
             .map(|usage| (score(usage.count, usage.last_used, now), usage.last_used))
             .unwrap_or((0.0, 0))
     }
 
     fn query_rank(&self, entry: &Entry, query: &str, now: i64) -> (u8, f64, i64) {
-        let Some(usage) = entry.id().and_then(|id| self.entries.get(id.as_str())) else {
+        let Some(usage) = entry.id().and_then(|id| self.entries.get(id)) else {
             return (0, 0.0, 0);
         };
 
