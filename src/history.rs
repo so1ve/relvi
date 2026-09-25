@@ -1,87 +1,33 @@
 use std::collections::BTreeMap;
-use std::fs::{self, DirBuilder};
-use std::io;
-use std::os::unix::fs::DirBuilderExt;
 use std::rc::Rc;
-use std::sync::mpsc::{self, Sender};
-use std::thread::{self, JoinHandle};
 
 use serde::{Deserialize, Serialize};
 
 use crate::catalog::Entry;
+use crate::store::JsonStore;
 
 const MAX_LEARNED_QUERIES: usize = 256;
 const PROMOTION_WINDOW: usize = 12;
 
-/// Launch statistics, loaded once and saved outside the GTK thread.
 pub struct History {
     entries: BTreeMap<String, Usage>,
-    writer: Option<(Sender<String>, JoinHandle<()>)>,
+    store: JsonStore<BTreeMap<String, Usage>>,
 }
 
 impl History {
     pub fn load() -> Self {
         let path = glib::user_state_dir().join("relvi/history.json");
-        let read = || -> io::Result<_> {
-            let entries = match fs::read(&path) {
-                Ok(contents) => serde_json::from_slice(&contents)?,
-                Err(error) if error.kind() == io::ErrorKind::NotFound => BTreeMap::new(),
-                Err(error) => return Err(error),
-            };
-
-            Ok(entries)
-        };
-
-        let entries = match read() {
-            Ok(entries) => entries,
+        let store = JsonStore::new(path.clone());
+        let entries = match store.load() {
+            Ok(Some(entries)) => entries,
+            Ok(None) => BTreeMap::new(),
             Err(error) => {
-                // Never overwrite unreadable history with an empty snapshot.
-                eprintln!(
-                    "Could not read {}: {error}; history will remain in memory",
-                    path.display()
-                );
-
-                return Self {
-                    entries: BTreeMap::new(),
-                    writer: None,
-                };
+                eprintln!("Could not read {}: {error}", path.display());
+                BTreeMap::new()
             }
         };
 
-        let (sender, receiver) = mpsc::channel::<String>();
-        let writer = match thread::Builder::new()
-            .name("relvi-history".into())
-            .spawn(move || {
-                for contents in receiver {
-                    let directory = path.parent().unwrap();
-                    if let Err(error) = DirBuilder::new()
-                        .recursive(true)
-                        .mode(0o700)
-                        .create(directory)
-                    {
-                        eprintln!("Could not create {}: {error}", directory.display());
-                        continue;
-                    }
-
-                    if let Err(error) = glib::file_set_contents_full(
-                        &path,
-                        contents.as_bytes(),
-                        glib::FileSetContentsFlags::CONSISTENT,
-                        0o600,
-                    ) {
-                        eprintln!("Could not save {}: {error}", path.display());
-                    }
-                }
-            }) {
-            Ok(thread) => Some((sender, thread)),
-            Err(error) => {
-                eprintln!("Could not start history writer: {error}; history will remain in memory");
-
-                None
-            }
-        };
-
-        Self { entries, writer }
+        Self { entries, store }
     }
 
     pub fn record(&mut self, id: &str, query: &str) {
@@ -98,22 +44,12 @@ impl History {
             self.prune_queries();
         }
 
-        self.save();
+        self.store.save(self.entries.clone());
     }
 
     pub fn clear(&mut self) {
         self.entries.clear();
-
-        if self.writer.is_some() {
-            self.save();
-        } else {
-            let path = glib::user_state_dir().join("relvi/history.json");
-            if let Err(error) = fs::remove_file(&path)
-                && error.kind() != io::ErrorKind::NotFound
-            {
-                eprintln!("Could not clear {}: {error}", path.display());
-            }
-        }
+        self.store.save(BTreeMap::new());
     }
 
     pub fn sort(&self, entries: &mut [Rc<Entry>], query: &str) {
@@ -186,15 +122,15 @@ impl History {
     }
 
     fn prune_queries(&mut self) {
-        while self
-            .entries
+        let entries = &mut self.entries;
+
+        while entries
             .values()
             .map(|usage| usage.queries.len())
             .sum::<usize>()
             > MAX_LEARNED_QUERIES
         {
-            let oldest = self
-                .entries
+            let oldest = entries
                 .iter()
                 .flat_map(|(id, usage)| {
                     usage
@@ -205,33 +141,16 @@ impl History {
                 .min_by_key(|(_, _, last_used)| *last_used)
                 .map(|(id, query, _)| (id.clone(), query.clone()))
                 .unwrap();
-            self.entries
+            entries
                 .get_mut(&oldest.0)
                 .unwrap()
                 .queries
                 .remove(&oldest.1);
         }
     }
-
-    fn save(&self) {
-        if let Some((sender, _)) = &self.writer {
-            let contents = serde_json::to_string(&self.entries).unwrap();
-
-            sender.send(contents).unwrap();
-        }
-    }
 }
 
-impl Drop for History {
-    fn drop(&mut self) {
-        if let Some((sender, writer)) = self.writer.take() {
-            drop(sender);
-            writer.join().unwrap();
-        }
-    }
-}
-
-#[derive(Default, Deserialize, Serialize)]
+#[derive(Clone, Default, Deserialize, Serialize)]
 struct Usage {
     count: u64,
     // Microseconds since the Unix epoch, retaining order for quick launches.
@@ -240,7 +159,7 @@ struct Usage {
     queries: BTreeMap<String, QueryUsage>,
 }
 
-#[derive(Default, Deserialize, Serialize)]
+#[derive(Clone, Default, Deserialize, Serialize)]
 struct QueryUsage {
     count: u64,
     last_used: i64,
