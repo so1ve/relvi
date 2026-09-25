@@ -1,5 +1,6 @@
 mod catalog;
 mod history;
+mod store;
 mod ui;
 
 use std::cell::OnceCell;
