@@ -21,11 +21,18 @@ window.relvi-window {
 /* Search field is a full-bleed row ruled off by a hairline, not a pill.
    The theme's focus ring is an outline, so it has to be cancelled explicitly
    or it pops up as a blue frame the moment the field is clicked. */
+.palette-header {
+  border-bottom: 1px solid rgba(255, 246, 232, 0.09);
+}
+
+.palette-header:focus-within {
+  border-bottom-color: #b8944e;
+}
+
 .palette-search {
   min-height: 52px;
   padding: 0 16px;
   border: none;
-  border-bottom: 1px solid rgba(255, 246, 232, 0.09);
   border-radius: 0;
   background-color: transparent;
   background-image: none;
@@ -40,7 +47,6 @@ window.relvi-window {
 .palette-search:focus-within,
 .palette-search:focus-visible {
   border: none;
-  border-bottom: 1px solid #b8944e;
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
@@ -87,14 +93,18 @@ window.relvi-window {
 }
 
 .results-list > row {
-  min-height: 40px;
-  margin: 1px 0;
-  padding: 0 10px;
+  padding: 0;
   border-radius: 8px;
   color: #ddd8d3;
   background-color: transparent;
   box-shadow: none;
   outline-style: none;
+}
+
+.application-result {
+  min-height: 40px;
+  margin: 1px 0;
+  padding: 0 10px;
 }
 
 .results-list > row:hover:not(:selected) {
