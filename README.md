@@ -4,7 +4,7 @@ Relvi is a small Wayland application launcher. It keeps an application catalog i
 
 ## Install
 
-Build with nightly Rust and the GTK 4, gtk4-layer-shell, and pkg-config development packages installed:
+Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
 
 ```sh
 cargo build --locked --release
@@ -12,7 +12,7 @@ install -Dm755 target/release/relvi "$HOME/.local/bin/relvi"
 install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev.so1ve.Relvi.desktop"
 ```
 
-Ensure `~/.local/bin` is on the graphical session's `PATH`. The released Linux binaries also need GTK 4 and gtk4-layer-shell at runtime; if those system libraries are unavailable or incompatible, build locally.
+Ensure `~/.local/bin` is on the graphical session's `PATH`. The released Linux binaries also need GTK 4, gtk4-layer-shell, and libadwaita at runtime; if those system libraries are unavailable or incompatible, build locally.
 
 ## Use
 
@@ -48,3 +48,5 @@ bindsym $mod+space exec relvi toggle
 ```
 
 Run `relvi` to show the launcher directly, `relvi quit` to stop the resident process, or `relvi clear-history` to erase launch and query history. `Enter` or a single click opens the selected app. Use the arrow keys or `Ctrl+J/K` and `Ctrl+N/P` to change the selection.
+
+Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Tab` / `Shift+Tab` (or `Ctrl+Tab` / `Ctrl+Shift+Tab`) to cycle through them while keeping the search field focused. `Escape` hides the launcher.

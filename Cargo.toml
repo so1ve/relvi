@@ -6,6 +6,7 @@ publish = false
 license = "MIT"
 
 [dependencies]
+adw = { package = "libadwaita", version = "0.9", features = ["v1_2"] }
 glib = { version = "0.22", features = ["v2_72"] }
 gtk = { package = "gtk4", version = "0.11", features = ["v4_12"] }
 gtk4-layer-shell = "0.8.1"

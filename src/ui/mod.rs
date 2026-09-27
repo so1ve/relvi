@@ -1,28 +1,30 @@
 mod applications;
-mod list;
-mod palette;
+mod scroll;
 
 use std::cell::OnceCell;
 use std::rc::Rc;
 
 use gtk::prelude::*;
 use gtk::{
-    Application, ApplicationWindow, Box as GtkBox, GestureClick, Orientation, Overlay, gdk, glib,
+    Application, ApplicationWindow, Box as GtkBox, EventControllerKey, GestureClick, Orientation,
+    Overlay, PropagationPhase, gdk, glib,
 };
 use gtk4_layer_shell::{Edge, KeyboardMode, Layer, LayerShell};
 
-use self::palette::Palette;
+use self::applications::ApplicationsView;
 
 const VIEW_WIDTH: i32 = 540;
 
 /// The long-lived launcher window and its view host.
 pub struct Ui {
     window: ApplicationWindow,
-    palette: Rc<Palette>,
+    applications: Rc<ApplicationsView>,
 }
 
 impl Ui {
     pub fn new(application: &Application) -> Self {
+        adw::init().unwrap();
+
         let window = ApplicationWindow::builder()
             .application(application)
             .decorated(false)
@@ -43,7 +45,39 @@ impl Ui {
         window.add_css_class("relvi-window");
         configure_layer_surface(&window);
 
-        let palette = Palette::new(&window);
+        let applications = ApplicationsView::new(
+            &WidgetExt::display(&window),
+            glib::clone!(
+                #[weak]
+                window,
+                move || window.set_visible(false)
+            ),
+        );
+
+        let keys = EventControllerKey::new();
+        keys.set_propagation_phase(PropagationPhase::Capture);
+        keys.connect_key_pressed(glib::clone!(
+            #[weak]
+            window,
+            #[upgrade_or]
+            glib::Propagation::Proceed,
+            move |_, key, _, modifiers| {
+                let modifiers = modifiers
+                    & (gdk::ModifierType::CONTROL_MASK
+                        | gdk::ModifierType::SHIFT_MASK
+                        | gdk::ModifierType::ALT_MASK
+                        | gdk::ModifierType::SUPER_MASK);
+
+                if key == gdk::Key::Escape && modifiers.is_empty() {
+                    window.set_visible(false);
+
+                    return glib::Propagation::Stop;
+                }
+
+                glib::Propagation::Proceed
+            }
+        ));
+        window.add_controller(keys);
 
         // The layer surface covers the whole output, so a click that misses
         // the active view lands on this backdrop and dismisses the launcher.
@@ -61,7 +95,7 @@ impl Ui {
 
         let overlay = Overlay::new();
         overlay.set_child(Some(&backdrop));
-        overlay.add_overlay(palette.widget());
+        overlay.add_overlay(applications.widget());
 
         let anchor_height = OnceCell::new();
         overlay.connect_get_child_position(move |overlay, child| {
@@ -80,16 +114,27 @@ impl Ui {
 
         window.set_child(Some(&overlay));
 
-        Self { window, palette }
+        Self {
+            window,
+            applications,
+        }
     }
 
     pub fn clear_history(&self) {
-        self.palette.clear_history();
+        self.applications.clear_history();
+    }
+
+    pub fn toggle(&self) {
+        if self.window.is_visible() {
+            self.window.set_visible(false);
+        } else {
+            self.present();
+        }
     }
 
     pub fn present(&self) {
         self.window.present();
-        self.palette.focus();
+        self.applications.focus();
     }
 }
 

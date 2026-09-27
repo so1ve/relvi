@@ -8,4 +8,4 @@ runs:
       shell: bash
       run: |
         sudo apt-get update
-        sudo apt-get install --yes libgtk-4-dev libgtk4-layer-shell-dev pkg-config
+        sudo apt-get install --yes libgtk-4-dev libgtk4-layer-shell-dev libadwaita-1-dev pkg-config
