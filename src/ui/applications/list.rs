@@ -1,14 +1,15 @@
-use std::cell::RefCell;
 use std::rc::Rc;
 
+use adw::TimedAnimation;
+use adw::prelude::*;
 use gtk::pango::EllipsizeMode;
-use gtk::prelude::*;
 use gtk::{
     Align, Box as GtkBox, Image, Label, ListItem, ListScrollFlags, ListView, Orientation,
     PolicyType, ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
-use crate::catalog::Entry;
+use super::super::scroll::smooth_scroll;
+use crate::applications::Entry;
 
 const VISIBLE_ROWS: usize = 9;
 const MAX_CONTENT_HEIGHT: i32 = 400;
@@ -17,14 +18,14 @@ pub struct ApplicationList {
     root: GtkBox,
     list: ListView,
     frame: ScrolledWindow,
+    scroll: TimedAnimation,
     model: gio::ListStore,
     selection: SingleSelection,
     empty: Label,
-    entries: RefCell<Vec<Rc<Entry>>>,
 }
 
 impl ApplicationList {
-    pub fn new() -> Rc<Self> {
+    pub fn new() -> Self {
         let model = gio::ListStore::new::<glib::BoxedAnyObject>();
         let selection = SingleSelection::new(Some(model.clone()));
         selection.set_autoselect(false);
@@ -42,6 +43,7 @@ impl ApplicationList {
             .focusable(false)
             .build();
         frame.add_css_class("results-frame");
+        let scroll = smooth_scroll(&frame, Orientation::Vertical);
 
         let empty = Label::new(Some("No result"));
         empty.add_css_class("empty-state");
@@ -63,19 +65,20 @@ impl ApplicationList {
 
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
                 let entry = object.borrow::<Rc<Entry>>();
+
                 row.update(&entry);
             });
         });
 
-        Rc::new(Self {
+        Self {
             root,
             list,
             frame,
+            scroll,
             model,
             selection,
             empty,
-            entries: RefCell::new(Vec::new()),
-        })
+        }
     }
 
     pub const fn widget(&self) -> &GtkBox {
@@ -83,33 +86,41 @@ impl ApplicationList {
     }
 
     pub fn set_entries(&self, entries: Vec<Rc<Entry>>, selected_id: Option<&str>) {
+        self.scroll.pause();
+
         let selected = selected_id
             .and_then(|id| entries.iter().position(|entry| entry.id() == Some(id)))
             .or_else(|| (!entries.is_empty()).then_some(0));
         let has_entries = !entries.is_empty();
+        self.update_height(&entries);
 
-        let (prefix, removed, inserted) = {
-            let mut current = self.entries.borrow_mut();
-            let old = std::mem::replace(&mut *current, entries);
-            let prefix = old
-                .iter()
-                .zip(current.iter())
-                .take_while(|(left, right)| Rc::ptr_eq(left, right))
-                .count();
-            let suffix = old[prefix..]
-                .iter()
-                .rev()
-                .zip(current[prefix..].iter().rev())
-                .take_while(|(left, right)| Rc::ptr_eq(left, right))
-                .count();
-            let inserted = current[prefix..current.len() - suffix]
-                .iter()
-                .cloned()
-                .map(glib::BoxedAnyObject::new)
-                .collect::<Vec<_>>();
+        let previous_len = self.model.n_items() as usize;
+        let unchanged = |index, entry: &Rc<Entry>| {
+            let object = self.model.item(index as u32).unwrap();
+            let previous = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
 
-            (prefix, old.len() - prefix - suffix, inserted)
+            Rc::ptr_eq(&previous.borrow::<Rc<Entry>>(), entry)
         };
+        let prefix = entries
+            .iter()
+            .take(previous_len)
+            .enumerate()
+            .take_while(|(index, entry)| unchanged(*index, entry))
+            .count();
+        let suffix = entries[prefix..]
+            .iter()
+            .rev()
+            .zip((prefix..previous_len).rev())
+            .take_while(|(entry, index)| unchanged(*index, entry))
+            .count();
+        let removed = previous_len - prefix - suffix;
+        let inserted_count = entries.len() - prefix - suffix;
+        let inserted = entries
+            .into_iter()
+            .skip(prefix)
+            .take(inserted_count)
+            .map(glib::BoxedAnyObject::new)
+            .collect::<Vec<_>>();
 
         if removed != 0 || !inserted.is_empty() {
             self.model.splice(prefix as u32, removed as u32, &inserted);
@@ -117,7 +128,6 @@ impl ApplicationList {
 
         self.empty.set_visible(!has_entries);
         self.frame.set_visible(has_entries);
-        self.update_height();
         self.selection
             .set_selected(selected.map_or(gtk::INVALID_LIST_POSITION, |index| index as u32));
 
@@ -130,14 +140,17 @@ impl ApplicationList {
     }
 
     pub fn selected(&self) -> Option<Rc<Entry>> {
-        self.entries
-            .borrow()
-            .get(self.selection.selected() as usize)
-            .cloned()
+        self.selection.selected_item().map(|object| {
+            let entry = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
+
+            Rc::clone(&entry.borrow::<Rc<Entry>>())
+        })
     }
 
     pub fn move_selection(&self, offset: i32) {
-        let count = self.entries.borrow().len() as i32;
+        self.scroll.pause();
+
+        let count = self.model.n_items() as i32;
         if count == 0 {
             return;
         }
@@ -153,22 +166,19 @@ impl ApplicationList {
             .scroll_to(next as u32, ListScrollFlags::NONE, None);
     }
 
-    pub fn connect_activate(self: &Rc<Self>, activate: impl Fn(Rc<Entry>) + 'static) {
-        self.list.connect_activate(glib::clone!(
-            #[weak(rename_to = results)]
-            self,
-            move |_, position| {
-                if let Some(entry) = results.entries.borrow().get(position as usize).cloned() {
-                    activate(entry);
-                }
-            }
-        ));
+    pub fn connect_activate(&self, activate: impl Fn(Rc<Entry>) + 'static) {
+        self.list.connect_activate(move |list, position| {
+            let object = list.model().unwrap().item(position).unwrap();
+            let entry = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
+
+            activate(Rc::clone(&entry.borrow::<Rc<Entry>>()));
+        });
     }
 
-    fn update_height(&self) {
-        let entries = self.entries.borrow();
+    fn update_height(&self, entries: &[Rc<Entry>]) {
         let Some(first) = entries.first() else {
             self.frame.set_min_content_height(0);
+
             return;
         };
 

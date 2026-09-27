@@ -1,17 +1,18 @@
+use std::cmp::Ordering;
 use std::collections::BTreeMap;
 use std::rc::Rc;
 
 use serde::{Deserialize, Serialize};
 
-use crate::catalog::Entry;
+use super::Entry;
 use crate::store::JsonStore;
 
 const MAX_LEARNED_QUERIES: usize = 256;
 const PROMOTION_WINDOW: usize = 12;
 
 pub struct History {
-    entries: BTreeMap<String, Usage>,
-    store: JsonStore<BTreeMap<String, Usage>>,
+    entries: BTreeMap<String, AppUsage>,
+    store: JsonStore<BTreeMap<String, AppUsage>>,
 }
 
 impl History {
@@ -23,6 +24,7 @@ impl History {
             Ok(None) => BTreeMap::new(),
             Err(error) => {
                 eprintln!("Could not read {}: {error}", path.display());
+
                 BTreeMap::new()
             }
         };
@@ -33,14 +35,11 @@ impl History {
     pub fn record(&mut self, id: &str, query: &str) {
         let now = glib::real_time();
         let usage = self.entries.entry(id.to_owned()).or_default();
-        usage.count = usage.count.saturating_add(1);
-        usage.last_used = now;
+        usage.total.record(now);
 
         let query = normalize_query(query);
         if !query.is_empty() {
-            let learned = usage.queries.entry(query).or_default();
-            learned.count = learned.count.saturating_add(1);
-            learned.last_used = now;
+            usage.queries.entry(query).or_default().record(now);
             self.prune_queries();
         }
 
@@ -55,70 +54,39 @@ impl History {
     pub fn sort(&self, entries: &mut [Rc<Entry>], query: &str) {
         let query = normalize_query(query);
         let now = glib::real_time();
-
-        if query.is_empty() {
-            // Stable sorting retains the catalog's name order for equal ranks.
-            entries.sort_by(|left, right| {
-                let left = self.app_rank(left, now);
-                let right = self.app_rank(right, now);
-
-                right
-                    .0
-                    .total_cmp(&left.0)
-                    .then_with(|| right.1.cmp(&left.1))
-            });
-
-            return;
-        }
-
-        // Learning only reorders good matches; polysearch alone chooses which
-        // applications match and the rest keep their original ranking.
-        let limit = entries.len().min(PROMOTION_WINDOW);
+        // Learning reorders only the best matches; it never introduces results.
+        let limit = if query.is_empty() {
+            entries.len()
+        } else {
+            entries.len().min(PROMOTION_WINDOW)
+        };
         entries[..limit].sort_by(|left, right| {
-            let left = self.query_rank(left, &query, now);
-            let right = self.query_rank(right, &query, now);
+            let left = self.rank(left.id(), &query, now);
+            let right = self.rank(right.id(), &query, now);
 
-            right
-                .0
-                .cmp(&left.0)
-                .then_with(|| right.1.total_cmp(&left.1))
-                .then_with(|| right.2.cmp(&left.2))
+            right.compare(&left)
         });
     }
 
-    fn app_rank(&self, entry: &Entry, now: i64) -> (f64, i64) {
-        entry
-            .id()
-            .and_then(|id| self.entries.get(id))
-            .map(|usage| (score(usage.count, usage.last_used, now), usage.last_used))
-            .unwrap_or((0.0, 0))
-    }
-
-    fn query_rank(&self, entry: &Entry, query: &str, now: i64) -> (u8, f64, i64) {
-        let Some(usage) = entry.id().and_then(|id| self.entries.get(id)) else {
-            return (0, 0.0, 0);
+    fn rank(&self, id: Option<&str>, query: &str, now: i64) -> Rank {
+        let Some(usage) = id.and_then(|id| self.entries.get(id)) else {
+            return Rank::default();
         };
+
+        if query.is_empty() {
+            return usage.total.rank(0, now);
+        }
 
         usage
             .queries
             .iter()
-            .filter_map(|(learned, use_count)| {
+            .filter_map(|(learned, usage)| {
                 let strength = query_strength(query, learned);
-                (strength != 0).then(|| {
-                    (
-                        strength,
-                        score(use_count.count, use_count.last_used, now),
-                        use_count.last_used,
-                    )
-                })
+
+                (strength != 0).then(|| usage.rank(strength, now))
             })
-            .max_by(|left, right| {
-                left.0
-                    .cmp(&right.0)
-                    .then_with(|| left.1.total_cmp(&right.1))
-                    .then_with(|| left.2.cmp(&right.2))
-            })
-            .unwrap_or((0, 0.0, 0))
+            .max_by(Rank::compare)
+            .unwrap_or_default()
     }
 
     fn prune_queries(&mut self) {
@@ -151,25 +119,54 @@ impl History {
 }
 
 #[derive(Clone, Default, Deserialize, Serialize)]
+struct AppUsage {
+    #[serde(flatten)]
+    total: Usage,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    queries: BTreeMap<String, Usage>,
+}
+
+#[derive(Clone, Default, Deserialize, Serialize)]
 struct Usage {
     count: u64,
     // Microseconds since the Unix epoch, retaining order for quick launches.
     last_used: i64,
-    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
-    queries: BTreeMap<String, QueryUsage>,
 }
 
-#[derive(Clone, Default, Deserialize, Serialize)]
-struct QueryUsage {
-    count: u64,
+impl Usage {
+    const fn record(&mut self, now: i64) {
+        self.count = self.count.saturating_add(1);
+        self.last_used = now;
+    }
+
+    fn rank(&self, strength: u8, now: i64) -> Rank {
+        let age = now.saturating_sub(self.last_used).max(0) as f64;
+        // Frequency grows logarithmically and the score halves after a week.
+        let score =
+            (self.count as f64).ln_1p() * (-age / (7.0 * 24.0 * 60.0 * 60.0 * 1_000_000.0)).exp2();
+
+        Rank {
+            strength,
+            score,
+            last_used: self.last_used,
+        }
+    }
+}
+
+#[derive(Default)]
+struct Rank {
+    strength: u8,
+    score: f64,
     last_used: i64,
 }
 
-fn score(count: u64, last_used: i64, now: i64) -> f64 {
-    let age = now.saturating_sub(last_used).max(0) as f64;
-
-    // Frequency grows logarithmically and the score halves after a week.
-    (count as f64).ln_1p() * (-age / (7.0 * 24.0 * 60.0 * 60.0 * 1_000_000.0)).exp2()
+impl Rank {
+    fn compare(&self, other: &Self) -> Ordering {
+        self.strength
+            .cmp(&other.strength)
+            .then_with(|| self.score.total_cmp(&other.score))
+            .then_with(|| self.last_used.cmp(&other.last_used))
+    }
 }
 
 fn normalize_query(query: &str) -> String {
