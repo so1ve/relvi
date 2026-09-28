@@ -3,9 +3,7 @@
 </p>
 
 <h1 align="center">Relvi</h1>
-<h4 align="center">A small Wayland application launcher</h4>
-
-Relvi keeps an application catalog in memory, searches names, keywords and desktop IDs with [polysearch](https://github.com/so1ve/polysearch), and learns which apps you choose for a query.
+<h4 align="center">A small Wayland application fuzzy launcher</h4>
 
 ## Install
 
