@@ -1,92 +1,73 @@
-/* Relvi launcher — a translucent command palette floating over the desktop.
-   Warm hairlines, one champagne accent, depth from the compositor's blur. */
-
 window.relvi-window {
-  color: #e8e4e0;
+  color: #e2e2e5;
   background-color: transparent;
 }
 
-/* Opaque on purpose: niri cannot blur layer surfaces (its layer-rule has no
-   blur), so any transparency just leaves the desktop legible through the
-   panel. Depth comes from the shadow and the inset top highlight instead. */
 .palette {
-  border: 1px solid rgba(255, 246, 232, 0.10);
-  border-radius: 12px;
-  background-color: #17171c;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07),
-              0 24px 60px rgba(0, 0, 0, 0.55),
-              0 2px 10px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background-color: #1b1b1e;
+  box-shadow: none;
 }
 
-/* Search field is a full-bleed row ruled off by a hairline, not a pill.
-   The theme's focus ring is an outline, so it has to be cancelled explicitly
-   or it pops up as a blue frame the moment the field is clicked. */
-.palette-header {
-  border-bottom: 1px solid rgba(255, 246, 232, 0.09);
-}
-
+.palette-header,
 .palette-header:focus-within {
-  border-bottom-color: #b8944e;
+  border: none;
 }
 
-.palette-search {
-  min-height: 52px;
-  padding: 0 16px;
+.palette-search,
+.palette-search:focus,
+.palette-search:focus-within,
+.palette-search:focus-visible {
+  min-height: 40px;
+  padding: 0 12px;
   border: none;
   border-radius: 0;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
   outline-style: none;
-  color: #f2efec;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.palette-search:focus,
-.palette-search:focus-within,
-.palette-search:focus-visible {
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  box-shadow: none;
-  outline-style: none;
+  color: #f0f0f2;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .palette-search image {
-  color: #b8944e;
+  color: #96969e;
 }
 
 .category-bar {
-  padding: 6px 8px;
-  border-bottom: 1px solid rgba(255, 246, 232, 0.06);
+  padding: 0 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   background-color: transparent;
 }
 
 .category-tab {
   min-width: 0;
-  min-height: 26px;
-  padding: 0 10px;
-  border: 1px solid transparent;
-  border-radius: 6px;
+  min-height: 24px;
+  padding: 0 8px;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
   outline-style: none;
-  color: #a8a29e;
-  font-size: 11.5px;
-  font-weight: 500;
+  color: #8e8e96;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .category-tab:hover {
-  color: #f2efec;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: #dedee2;
+  background-color: transparent;
 }
 
 .category-tab:checked {
-  border-color: rgba(184, 148, 78, 0.20);
-  background-color: rgba(184, 148, 78, 0.12);
-  color: #dbc294;
+  border-color: transparent;
+  border-bottom-color: #8e8e96;
+  background-color: transparent;
+  color: #d6d6dc;
 }
 
 .results-frame {
@@ -96,8 +77,6 @@ window.relvi-window {
   box-shadow: none;
 }
 
-/* The default Adwaita scrollbar is a light pill that reads as a stock widget on
-   a matte panel. Keep it a hairline in the panel's own palette. */
 .results-frame scrollbar.vertical,
 .results-frame scrollbar.vertical trough {
   border: none;
@@ -111,7 +90,6 @@ window.relvi-window {
   margin-right: 4px;
 }
 
-/* Keep the scrollbar minimum smaller than a single result row. */
 .results-frame scrollbar.vertical slider {
   min-width: 3px;
   min-height: 32px;
@@ -119,7 +97,7 @@ window.relvi-window {
   border: none;
   outline: none;
   border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: rgba(255, 255, 255, 0.18);
   background-image: none;
 }
 
@@ -129,7 +107,7 @@ window.relvi-window {
 }
 
 .results-frame scrollbar.vertical slider:hover {
-  background-color: rgba(184, 148, 78, 0.55);
+  background-color: rgba(255, 255, 255, 0.32);
 }
 
 .results-list {
@@ -139,56 +117,53 @@ window.relvi-window {
 
 .results-list > row {
   padding: 0;
-  border-radius: 8px;
-  color: #ddd8d3;
+  border-radius: 3px;
+  color: #dedee2;
   background-color: transparent;
   box-shadow: none;
   outline-style: none;
 }
 
 .application-result {
-  min-height: 40px;
+  min-height: 32px;
   margin: 1px 0;
   padding: 0 10px;
 }
 
 .results-list > row:hover:not(:selected) {
-  color: #f4f1ee;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: #f0f0f2;
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
-/* Selection is surface and type only: no ring, no accent, and never the icon —
-   real app icons keep their own colours and cannot carry the selected state. */
 .results-list > row:selected {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.10);
+  color: #f5f5f7;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Keep application icon colours stable when the row is selected. */
 .app-icon {
-  min-width: 28px;
-  min-height: 28px;
-  color: #a8a29e;
+  min-width: 24px;
+  min-height: 24px;
+  color: #96969e;
 }
 
 .result-title {
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .result-subtitle {
-  color: #8b847b;
-  font-size: 11.5px;
+  color: #96969e;
+  font-size: 12px;
 }
 
 .results-list > row:selected .result-subtitle {
-  color: #b3aca3;
+  color: #b0b0b8;
 }
 
 .empty-state {
   margin: 36px 14px;
-  color: #8b847b;
-  font-size: 12.5px;
+  color: #96969e;
+  font-size: 12px;
 }
 
 .launch-error {
