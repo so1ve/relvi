@@ -53,29 +53,10 @@
         "type": "github"
       }
     },
-    "ray-devenv": {
-      "flake": false,
-      "locked": {
-        "dir": "dotfiles/devenv",
-        "lastModified": 1789981579,
-        "narHash": "sha256-AjMjnsROigVzZgC0F+6kDyz0+vZKnwZO7/QMhVyAmew=",
-        "owner": "so1ve",
-        "repo": "nix-config",
-        "rev": "cd281136b5184a7fca9a3a9b19e4f68849555ed1",
-        "type": "github"
-      },
-      "original": {
-        "dir": "dotfiles/devenv",
-        "owner": "so1ve",
-        "repo": "nix-config",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "devenv": "devenv",
         "nixpkgs": "nixpkgs",
-        "ray-devenv": "ray-devenv",
         "rust-overlay": "rust-overlay"
       }
     },

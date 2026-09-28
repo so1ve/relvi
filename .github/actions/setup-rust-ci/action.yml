@@ -1,5 +1,5 @@
 name: Setup Rust CI
-description: Install native build dependencies
+description: Install Native Dependencies
 
 runs:
   using: composite
