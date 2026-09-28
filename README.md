@@ -3,7 +3,19 @@
 </p>
 
 <h1 align="center">Relvi</h1>
-<h4 align="center">A small Wayland application fuzzy launcher</h4>
+<h4 align="center">A focused application launcher for Wayland</h4>
+
+Open Relvi with a shortcut, type what you remember, and press Enter to launch an app.
+
+Relvi deliberately keeps its scope small: application search and launching. The goal is to make finding the app you want straightforward, with useful defaults and forgiving matching.
+
+- **Forgiving search:** find apps by partial names, keywords, or executable names, even with typos.
+- **Pinyin input:** find Chinese apps using their names, full Pinyin, or initials.
+- **Relevant results:** exact matches take priority; history helps order similarly matched results. An empty search shows frequent and recent apps first.
+- **Resident mode:** keep the app catalog in memory between uses, with automatic updates when installed apps change.
+- **Keyboard navigation:** move through results and categories without leaving the search field.
+
+Search is powered by [Polysearch](https://github.com/so1ve/polysearch), a practical mix of matching and ranking heuristics, not a single rigid algorithm. I refine its behavior based on real searches and everyday use, so matches and their order may change between releases. Examples of unexpected results help guide those changes.
 
 ## Install
 
@@ -82,10 +94,6 @@ bindsym $mod+space exec relvi toggle
 Run `relvi` to show the launcher directly, `relvi quit` to stop the resident process, or `relvi clear-history` to erase launch and query history. `Enter` or a single click opens the selected app. Use the arrow keys or `Ctrl+J/K` and `Ctrl+N/P` to change the selection.
 
 Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Ctrl+H` / `Ctrl+L` or `Shift+Tab` / `Tab` to select the previous / next category while keeping the search field focused. `Escape` hides the launcher.
-
-## I18N
-
-By default, Relvi supports English and Chinese Pinyin as search input. This ability is provided by [polysearch](https://github.com/so1ve/polysearch). Create a feature request or PR there if you want to add more languages.
 
 ## LICENSE
 
