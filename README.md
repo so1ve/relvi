@@ -44,7 +44,7 @@ Then install its package:
 
 ## Use
 
-Run `relvi daemon` once after the Wayland session starts. It loads the catalog without showing a window and stays resident. Then bind `relvi toggle` to a compositor shortcut. Repeated toggles use the same process and in-memory catalog; installed applications are refreshed when GIO reports changes.
+Run `relvi daemon` once after the Wayland session starts. Then bind `relvi toggle` to a compositor shortcut.
 
 For example, add one of the following to your compositor configuration (adjust `Mod`/`SUPER` to your preferred shortcut):
 
@@ -58,7 +58,7 @@ binds {
 }
 ```
 
-**Hyprland** (current Lua configuration):
+**Hyprland**
 
 ```lua
 hl.on("hyprland.start", function()
@@ -79,4 +79,10 @@ Run `relvi` to show the launcher directly, `relvi quit` to stop the resident pro
 
 Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Ctrl+H` / `Ctrl+L` or `Shift+Tab` / `Tab` to select the previous / next category while keeping the search field focused. `Escape` hides the launcher.
 
-Search for `reboot` / `restart`, `poweroff` / `shutdown`, or `suspend` / `sleep` to run a system action. Chinese aliases (`重启`, `关机`, `挂起`, `睡眠`) work too. These actions are also available under **System**. Restart and power off ask for confirmation; `Escape` cancels and returns to the search field. System actions use [systemd-logind](https://www.freedesktop.org/software/systemd/man/latest/org.freedesktop.login1.html), including its permission and inhibitor checks.
+## I18N
+
+By default, Reslvi supports English and Chinese Pinyin as search input. This ability is provided by [polysearch](https://github.com/so1ve/polysearch). Create a feature request or PR there if you want to add more languages.
+
+## LICENSE
+
+[MIT](LICENSE). Made with ❤️ by [Ray](https://github.com/so1ve)
