@@ -50,3 +50,5 @@ bindsym $mod+space exec relvi toggle
 Run `relvi` to show the launcher directly, `relvi quit` to stop the resident process, or `relvi clear-history` to erase launch and query history. `Enter` or a single click opens the selected app. Use the arrow keys or `Ctrl+J/K` and `Ctrl+N/P` to change the selection.
 
 Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Ctrl+H` / `Ctrl+L` or `Shift+Tab` / `Tab` to select the previous / next category while keeping the search field focused. `Escape` hides the launcher.
+
+Search for `reboot` / `restart`, `poweroff` / `shutdown`, or `suspend` / `sleep` to run a system action. Chinese aliases (`重启`, `关机`, `挂起`, `睡眠`) work too. These actions are also available under **System**. Restart and power off ask for confirmation; `Escape` cancels and returns to the search field. System actions use [systemd-logind](https://www.freedesktop.org/software/systemd/man/latest/org.freedesktop.login1.html), including its permission and inhibitor checks.
