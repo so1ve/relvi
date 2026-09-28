@@ -32,11 +32,20 @@ impl Applications {
 
     pub fn search(&self, query: &str, category: Option<&str>) -> Vec<Rc<Entry>> {
         let query = query.trim();
+        let compare_history = self.history.comparator(query);
         let mut entries = if query.is_empty() {
-            self.entries.clone()
+            let mut entries = self.entries.clone();
+            entries.sort_by(|left, right| compare_history(left.id(), right.id()));
+
+            entries
         } else {
             self.searcher
-                .search(query, self.entries.len())
+                .search(query, self.entries.len(), |left, right| {
+                    compare_history(
+                        self.entries[left as usize].id(),
+                        self.entries[right as usize].id(),
+                    )
+                })
                 .into_iter()
                 .map(|SearchResult { entry, .. }| Rc::clone(&self.entries[entry as usize]))
                 .collect()
@@ -45,8 +54,6 @@ impl Applications {
         if let Some(category) = category {
             entries.retain(|entry| entry.categories.contains(&category));
         }
-
-        self.history.sort(&mut entries, query);
 
         entries
     }

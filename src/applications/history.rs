@@ -1,14 +1,11 @@
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
-use std::rc::Rc;
 
 use serde::{Deserialize, Serialize};
 
-use super::Entry;
 use crate::store::JsonStore;
 
 const MAX_LEARNED_QUERIES: usize = 256;
-const PROMOTION_WINDOW: usize = 12;
 
 pub struct History {
     entries: BTreeMap<String, AppUsage>,
@@ -51,21 +48,16 @@ impl History {
         self.store.save(BTreeMap::new());
     }
 
-    pub fn sort(&self, entries: &mut [Rc<Entry>], query: &str) {
+    pub fn comparator(&self, query: &str) -> impl Fn(Option<&str>, Option<&str>) -> Ordering + '_ {
         let query = normalize_query(query);
         let now = glib::real_time();
-        // Learning reorders only the best matches; it never introduces results.
-        let limit = if query.is_empty() {
-            entries.len()
-        } else {
-            entries.len().min(PROMOTION_WINDOW)
-        };
-        entries[..limit].sort_by(|left, right| {
-            let left = self.rank(left.id(), &query, now);
-            let right = self.rank(right.id(), &query, now);
+
+        move |left, right| {
+            let left = self.rank(left, &query, now);
+            let right = self.rank(right, &query, now);
 
             right.compare(&left)
-        });
+        }
     }
 
     fn rank(&self, id: Option<&str>, query: &str, now: i64) -> Rank {

@@ -105,6 +105,12 @@ window.relvi-window {
   background-image: none;
 }
 
+/* Keep the right edge fixed when the thumb widens. */
+.results-frame scrollbar.vertical trough {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
 /* Keep the scrollbar minimum smaller than a single result row. */
 .results-frame scrollbar.vertical slider {
   min-width: 3px;
@@ -115,6 +121,11 @@ window.relvi-window {
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.16);
   background-image: none;
+}
+
+.results-frame scrollbar.vertical.hovering slider,
+.results-frame scrollbar.vertical.dragging slider {
+  min-width: 8px;
 }
 
 .results-frame scrollbar.vertical slider:hover {
