@@ -54,7 +54,7 @@ Run `relvi daemon` once after the Wayland session starts. Then bind `relvi toggl
 
 For example, add one of the following to your compositor configuration (adjust `Mod`/`SUPER` to your preferred shortcut):
 
-**Niri** (`config.kdl`):
+**Niri**:
 
 ```kdl
 spawn-at-startup "relvi" "daemon"
@@ -74,7 +74,7 @@ end)
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("relvi toggle"))
 ```
 
-**Sway** (`config`):
+**Sway**:
 
 ```text
 exec relvi daemon
