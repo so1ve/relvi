@@ -1,30 +1,119 @@
+use std::cell::RefCell;
 use std::rc::Rc;
 
 use adw::TimedAnimation;
 use adw::prelude::*;
 use gtk::pango::EllipsizeMode;
 use gtk::{
-    Align, Box as GtkBox, Image, Label, ListItem, ListScrollFlags, ListView, Orientation,
-    PolicyType, ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
+    Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListScrollFlags, ListView,
+    Orientation, PolicyType, ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
 use super::super::scroll::smooth_scroll;
-use crate::applications::Entry;
+use crate::catalog::Entry;
 
 const VISIBLE_ROWS: usize = 12;
 const MAX_CONTENT_HEIGHT: i32 = 480;
 
-pub struct ApplicationList {
+const FALLBACK_ICON: &str = "application-x-executable-symbolic";
+
+struct ResultItem {
+    entry: Rc<Entry>,
+    icon: Option<gtk::IconPaintable>,
+}
+
+struct ResultRow {
+    widget: GtkBox,
+    icon: Image,
+    title: Label,
+    subtitle: Label,
+}
+
+impl ResultRow {
+    fn new() -> Self {
+        let icon = Image::new();
+        icon.set_pixel_size(24);
+        icon.add_css_class("result-icon");
+
+        let title = Label::new(None);
+        title.add_css_class("result-title");
+        title.set_xalign(0.0);
+        title.set_ellipsize(EllipsizeMode::End);
+
+        let subtitle = Label::new(None);
+        subtitle.add_css_class("result-subtitle");
+        subtitle.set_xalign(0.0);
+        subtitle.set_hexpand(true);
+        subtitle.set_ellipsize(EllipsizeMode::End);
+
+        let widget = GtkBox::new(Orientation::Horizontal, 10);
+        widget.add_css_class("result-row");
+        widget.set_valign(Align::Center);
+        widget.append(&icon);
+        widget.append(&title);
+        widget.append(&subtitle);
+
+        Self {
+            widget,
+            icon,
+            title,
+            subtitle,
+        }
+    }
+
+    fn update(&self, item: &ResultItem) {
+        let entry = &item.entry;
+        let icon = item.icon.as_ref();
+        self.icon.set_paintable(icon);
+        self.icon.set_visible(icon.is_some());
+        self.title.set_text(&entry.title);
+
+        if let Some(text) = entry.subtitle.as_deref() {
+            self.subtitle.set_text(text);
+            self.subtitle.set_visible(true);
+        } else {
+            self.subtitle.set_visible(false);
+        }
+    }
+}
+
+fn resolve_icon(
+    icon: Option<&gio::Icon>,
+    theme: &IconTheme,
+    scale: i32,
+) -> Option<gtk::IconPaintable> {
+    let icon = if let Some(icon) = icon
+        && theme.has_gicon(icon)
+    {
+        icon.clone()
+    } else if theme.has_icon(FALLBACK_ICON) {
+        gio::ThemedIcon::new(FALLBACK_ICON).upcast()
+    } else {
+        return None;
+    };
+
+    Some(theme.lookup_by_gicon(
+        &icon,
+        24,
+        scale,
+        gtk::TextDirection::None,
+        gtk::IconLookupFlags::empty(),
+    ))
+}
+
+pub struct ResultList {
     root: GtkBox,
     list: ListView,
     frame: ScrolledWindow,
     scroll: TimedAnimation,
     model: gio::ListStore,
+    items: RefCell<Vec<glib::BoxedAnyObject>>,
     selection: SingleSelection,
     empty: Label,
+    measure_row: ResultRow,
 }
 
-impl ApplicationList {
+impl ResultList {
     pub fn new() -> Self {
         let model = gio::ListStore::new::<glib::BoxedAnyObject>();
         let selection = SingleSelection::new(Some(model.clone()));
@@ -55,7 +144,7 @@ impl ApplicationList {
 
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
-            let row = ApplicationRow::new();
+            let row = ResultRow::new();
             item.set_child(Some(&row.widget));
 
             item.connect_item_notify(move |item| {
@@ -64,9 +153,9 @@ impl ApplicationList {
                 };
 
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
-                let entry = object.borrow::<Rc<Entry>>();
+                let item = object.borrow::<ResultItem>();
 
-                row.update(&entry);
+                row.update(&item);
             });
         });
 
@@ -76,8 +165,10 @@ impl ApplicationList {
             frame,
             scroll,
             model,
+            items: RefCell::new(Vec::new()),
             selection,
             empty,
+            measure_row: ResultRow::new(),
         }
     }
 
@@ -85,22 +176,40 @@ impl ApplicationList {
         &self.root
     }
 
-    pub fn set_entries(&self, entries: Vec<Rc<Entry>>, selected_id: Option<&str>) {
+    pub fn load(&self, entries: &[Rc<Entry>], theme: &IconTheme, scale: i32) {
+        let items = entries
+            .iter()
+            .map(|entry| {
+                glib::BoxedAnyObject::new(ResultItem {
+                    entry: Rc::clone(entry),
+                    icon: resolve_icon(entry.icon.as_ref(), theme, scale),
+                })
+            })
+            .collect();
+        self.items.replace(items);
+    }
+
+    pub fn show_matches(&self, matches: Vec<usize>, selected_id: Option<&str>) {
         self.scroll.pause();
 
+        let items = self.items.borrow();
         let selected = selected_id
-            .and_then(|id| entries.iter().position(|entry| entry.id() == Some(id)))
-            .or_else(|| (!entries.is_empty()).then_some(0));
+            .and_then(|id| {
+                matches.iter().position(|&index| {
+                    items[index].borrow::<ResultItem>().entry.id.as_deref() == Some(id)
+                })
+            })
+            .or_else(|| (!matches.is_empty()).then_some(0));
+        let entries: Vec<_> = matches
+            .into_iter()
+            .map(|index| items[index].clone())
+            .collect();
         let has_entries = !entries.is_empty();
         self.update_height(&entries);
 
         let previous_len = self.model.n_items() as usize;
-        let unchanged = |index, entry: &Rc<Entry>| {
-            let object = self.model.item(index as u32).unwrap();
-            let previous = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
-
-            Rc::ptr_eq(&previous.borrow::<Rc<Entry>>(), entry)
-        };
+        let unchanged =
+            |index, entry: &glib::BoxedAnyObject| self.model.item(index as u32).unwrap() == *entry;
         let prefix = entries
             .iter()
             .take(previous_len)
@@ -114,16 +223,10 @@ impl ApplicationList {
             .take_while(|(entry, index)| unchanged(*index, entry))
             .count();
         let removed = previous_len - prefix - suffix;
-        let inserted_count = entries.len() - prefix - suffix;
-        let inserted = entries
-            .into_iter()
-            .skip(prefix)
-            .take(inserted_count)
-            .map(glib::BoxedAnyObject::new)
-            .collect::<Vec<_>>();
+        let inserted = &entries[prefix..entries.len() - suffix];
 
         if removed != 0 || !inserted.is_empty() {
-            self.model.splice(prefix as u32, removed as u32, &inserted);
+            self.model.splice(prefix as u32, removed as u32, inserted);
         }
 
         self.empty.set_visible(!has_entries);
@@ -143,7 +246,7 @@ impl ApplicationList {
         self.selection.selected_item().map(|object| {
             let entry = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
 
-            Rc::clone(&entry.borrow::<Rc<Entry>>())
+            Rc::clone(&entry.borrow::<ResultItem>().entry)
         })
     }
 
@@ -171,11 +274,11 @@ impl ApplicationList {
             let object = list.model().unwrap().item(position).unwrap();
             let entry = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
 
-            activate(Rc::clone(&entry.borrow::<Rc<Entry>>()));
+            activate(Rc::clone(&entry.borrow::<ResultItem>().entry));
         });
     }
 
-    fn update_height(&self, entries: &[Rc<Entry>]) {
+    fn update_height(&self, entries: &[glib::BoxedAnyObject]) {
         let Some(first) = entries.first() else {
             self.frame.set_min_content_height(0);
 
@@ -184,9 +287,8 @@ impl ApplicationList {
 
         // Titles and descriptions are single-line, so every row has the same
         // height.
-        let row = ApplicationRow::new();
-        row.update(first);
-        let row_height = row.widget.measure(Orientation::Vertical, -1).1;
+        self.measure_row.update(&first.borrow::<ResultItem>());
+        let row_height = self.measure_row.widget.measure(Orientation::Vertical, -1).1;
         let mut height = 0;
 
         for _ in entries.iter().take(VISIBLE_ROWS) {
@@ -205,59 +307,5 @@ impl ApplicationList {
                 PolicyType::Never
             });
         self.frame.set_min_content_height(height);
-    }
-}
-
-struct ApplicationRow {
-    widget: GtkBox,
-    icon: Image,
-    title: Label,
-    subtitle: Label,
-}
-
-impl ApplicationRow {
-    fn new() -> Self {
-        let icon = Image::new();
-        icon.set_pixel_size(24);
-        icon.add_css_class("app-icon");
-
-        let title = Label::new(None);
-        title.add_css_class("result-title");
-        title.set_xalign(0.0);
-        title.set_ellipsize(EllipsizeMode::End);
-
-        let subtitle = Label::new(None);
-        subtitle.add_css_class("result-subtitle");
-        subtitle.set_xalign(0.0);
-        subtitle.set_hexpand(true);
-        subtitle.set_ellipsize(EllipsizeMode::End);
-
-        let widget = GtkBox::new(Orientation::Horizontal, 10);
-        widget.add_css_class("application-result");
-        widget.set_valign(Align::Center);
-        widget.append(&icon);
-        widget.append(&title);
-        widget.append(&subtitle);
-
-        Self {
-            widget,
-            icon,
-            title,
-            subtitle,
-        }
-    }
-
-    fn update(&self, entry: &Entry) {
-        let icon = entry.icon();
-        self.icon.set_paintable(icon);
-        self.icon.set_visible(icon.is_some());
-        self.title.set_text(entry.title());
-
-        if let Some(text) = entry.subtitle() {
-            self.subtitle.set_text(text);
-            self.subtitle.set_visible(true);
-        } else {
-            self.subtitle.set_visible(false);
-        }
     }
 }
