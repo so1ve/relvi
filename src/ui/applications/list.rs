@@ -11,8 +11,8 @@ use gtk::{
 use super::super::scroll::smooth_scroll;
 use crate::applications::Entry;
 
-const VISIBLE_ROWS: usize = 9;
-const MAX_CONTENT_HEIGHT: i32 = 400;
+const VISIBLE_ROWS: usize = 12;
+const MAX_CONTENT_HEIGHT: i32 = 480;
 
 pub struct ApplicationList {
     root: GtkBox,
@@ -197,6 +197,13 @@ impl ApplicationList {
             height = (height + row_height).min(MAX_CONTENT_HEIGHT);
         }
 
+        // Automatic scrollbars impose a minimum height even when hidden.
+        self.frame
+            .set_vscrollbar_policy(if entries.len() as i32 * row_height > height {
+                PolicyType::Automatic
+            } else {
+                PolicyType::Never
+            });
         self.frame.set_min_content_height(height);
     }
 }
@@ -211,7 +218,7 @@ struct ApplicationRow {
 impl ApplicationRow {
     fn new() -> Self {
         let icon = Image::new();
-        icon.set_pixel_size(28);
+        icon.set_pixel_size(24);
         icon.add_css_class("app-icon");
 
         let title = Label::new(None);

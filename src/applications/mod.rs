@@ -271,7 +271,7 @@ fn resolve_icon(app: &gio::AppInfo, theme: &IconTheme, scale: i32) -> Option<gtk
 
     Some(theme.lookup_by_gicon(
         &icon,
-        28,
+        24,
         scale,
         gtk::TextDirection::None,
         gtk::IconLookupFlags::empty(),
