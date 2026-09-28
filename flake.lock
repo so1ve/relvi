@@ -16,26 +16,9 @@
         "type": "github"
       }
     },
-    "polysearch": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1790587357,
-        "narHash": "sha256-JJhX4FXGKhsKn0XerMNOMzwRG6Jrog0t2XEZU25i4XU=",
-        "ref": "refs/heads/main",
-        "rev": "dfd400fff9140ad418e64c6fd03cd468648b1808",
-        "revCount": 6,
-        "type": "git",
-        "url": "file:///home/ray/Develop/polysearch"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///home/ray/Develop/polysearch"
-      }
-    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
-        "polysearch": "polysearch"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

@@ -1,16 +1,10 @@
 {
   description = "A small Wayland application launcher";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    polysearch = {
-      url = "git+file:///home/ray/Develop/polysearch";
-      flake = false;
-    };
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs =
-    { nixpkgs, polysearch, ... }:
+    { nixpkgs, ... }:
     let
       cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
     in
@@ -35,11 +29,6 @@
             };
 
             cargoLock.lockFile = ./Cargo.lock;
-
-            # Cargo.toml refers to the sibling ../polysearch directory.
-            postUnpack = ''
-              cp -R --no-preserve=mode ${polysearch} polysearch
-            '';
 
             nativeBuildInputs = with pkgs; [
               pkg-config
