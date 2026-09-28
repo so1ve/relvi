@@ -28,7 +28,9 @@ impl Categories {
             .focusable(false)
             .build();
         frame.add_css_class("category-bar");
-        frame.set_tooltip_text(Some("Tab / Shift+Tab: switch categories"));
+        frame.set_tooltip_text(Some(
+            "Ctrl+H / Shift+Tab: previous category\nCtrl+L / Tab: next category",
+        ));
 
         let scroll = smooth_scroll(&frame, Orientation::Horizontal);
 

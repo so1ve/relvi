@@ -200,25 +200,24 @@ impl ApplicationsView {
                 | gdk::ModifierType::ALT_MASK
                 | gdk::ModifierType::SUPER_MASK);
 
-        if matches!(key, gdk::Key::Tab | gdk::Key::ISO_Left_Tab)
-            && !modifiers.intersects(gdk::ModifierType::ALT_MASK | gdk::ModifierType::SUPER_MASK)
-        {
-            let backwards =
-                key == gdk::Key::ISO_Left_Tab || modifiers.contains(gdk::ModifierType::SHIFT_MASK);
-            self.categories.cycle(if backwards { -1 } else { 1 });
-
-            return Propagation::Stop;
-        }
-
         let control = modifiers == gdk::ModifierType::CONTROL_MASK;
-        let offset = match key {
-            gdk::Key::Down if modifiers.is_empty() => 1,
-            gdk::Key::Up if modifiers.is_empty() => -1,
-            gdk::Key::j | gdk::Key::n if control => 1,
-            gdk::Key::k | gdk::Key::p if control => -1,
+        match key {
+            gdk::Key::h if control => self.categories.cycle(-1),
+            gdk::Key::l if control => self.categories.cycle(1),
+            gdk::Key::Tab | gdk::Key::ISO_Left_Tab
+                if !modifiers
+                    .intersects(gdk::ModifierType::ALT_MASK | gdk::ModifierType::SUPER_MASK) =>
+            {
+                let backwards = key == gdk::Key::ISO_Left_Tab
+                    || modifiers.contains(gdk::ModifierType::SHIFT_MASK);
+                self.categories.cycle(if backwards { -1 } else { 1 });
+            }
+            gdk::Key::Down if modifiers.is_empty() => self.results.move_selection(1),
+            gdk::Key::Up if modifiers.is_empty() => self.results.move_selection(-1),
+            gdk::Key::j | gdk::Key::n if control => self.results.move_selection(1),
+            gdk::Key::k | gdk::Key::p if control => self.results.move_selection(-1),
             _ => return Propagation::Proceed,
-        };
-        self.results.move_selection(offset);
+        }
 
         Propagation::Stop
     }
