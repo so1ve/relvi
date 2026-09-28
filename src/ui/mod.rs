@@ -59,6 +59,8 @@ impl Ui {
         keys.connect_key_pressed(glib::clone!(
             #[weak]
             window,
+            #[weak]
+            applications,
             #[upgrade_or]
             glib::Propagation::Proceed,
             move |_, key, _, modifiers| {
@@ -69,7 +71,9 @@ impl Ui {
                         | gdk::ModifierType::SUPER_MASK);
 
                 if key == gdk::Key::Escape && modifiers.is_empty() {
-                    window.set_visible(false);
+                    if !applications.cancel_confirmation() {
+                        window.set_visible(false);
+                    }
 
                     return glib::Propagation::Stop;
                 }

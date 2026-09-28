@@ -7,7 +7,7 @@ use std::rc::Rc;
 use gtk::glib::Propagation;
 use gtk::prelude::*;
 use gtk::{
-    Box as GtkBox, EventControllerKey, IconTheme, Label, Orientation, PropagationPhase,
+    Box as GtkBox, Button, EventControllerKey, IconTheme, Label, Orientation, PropagationPhase,
     SearchEntry, gdk, gio, glib,
 };
 
@@ -22,13 +22,14 @@ pub struct ApplicationsView {
     results: ApplicationList,
     applications: RefCell<Applications>,
     error: Label,
+    confirmation: RefCell<Option<GtkBox>>,
     monitor: gio::AppInfoMonitor,
     theme: IconTheme,
-    on_launch: Box<dyn Fn()>,
+    hide: Box<dyn Fn()>,
 }
 
 impl ApplicationsView {
-    pub fn new(display: &gdk::Display, on_launch: impl Fn() + 'static) -> Rc<Self> {
+    pub fn new(display: &gdk::Display, hide: impl Fn() + 'static) -> Rc<Self> {
         let search = SearchEntry::builder().placeholder_text("Search…").build();
         search.set_search_delay(0);
         search.add_css_class("palette-search");
@@ -64,9 +65,10 @@ impl ApplicationsView {
             results,
             applications: RefCell::new(applications),
             error,
+            confirmation: RefCell::new(None),
             monitor: gio::AppInfoMonitor::get(),
             theme,
-            on_launch: Box::new(on_launch),
+            hide: Box::new(hide),
         });
 
         view.search.connect_changed(glib::clone!(
@@ -79,14 +81,14 @@ impl ApplicationsView {
             view,
             move |_| {
                 if let Some(entry) = view.results.selected() {
-                    view.launch(&entry);
+                    view.activate(entry);
                 }
             }
         ));
         view.results.connect_activate(glib::clone!(
             #[weak]
             view,
-            move |entry| view.launch(&entry)
+            move |entry| view.activate(entry)
         ));
         view.categories.connect_changed(glib::clone!(
             #[weak]
@@ -165,6 +167,7 @@ impl ApplicationsView {
     }
 
     fn update(&self, selected_id: Option<&str>) {
+        self.cancel_confirmation();
         self.error.set_visible(false);
         let entries = self
             .applications
@@ -174,26 +177,107 @@ impl ApplicationsView {
         self.results.set_entries(entries, selected_id);
     }
 
-    fn launch(&self, entry: &Entry) {
+    fn activate(self: &Rc<Self>, entry: Rc<Entry>) {
         self.error.set_visible(false);
+
+        let Some(question) = entry.confirmation() else {
+            self.launch(entry);
+
+            return;
+        };
+
+        let label = Label::new(Some(question));
+        label.set_xalign(0.0);
+        label.set_hexpand(true);
+
+        let cancel = Button::with_label("Cancel");
+        let accept = Button::with_label(entry.title());
+        accept.add_css_class("destructive-action");
+
+        let confirmation = GtkBox::new(Orientation::Horizontal, 8);
+        confirmation.add_css_class("confirmation");
+        confirmation.append(&label);
+        confirmation.append(&cancel);
+        confirmation.append(&accept);
+
+        cancel.connect_clicked(glib::clone!(
+            #[weak(rename_to = view)]
+            self,
+            move |_| {
+                view.cancel_confirmation();
+            }
+        ));
+        accept.connect_clicked(glib::clone!(
+            #[weak(rename_to = view)]
+            self,
+            move |_| {
+                view.cancel_confirmation();
+                view.launch(Rc::clone(&entry));
+            }
+        ));
+
+        self.results.widget().set_visible(false);
+        self.search.set_sensitive(false);
+        self.categories.widget().set_sensitive(false);
+        self.root.append(&confirmation);
+        self.confirmation.replace(Some(confirmation));
+        cancel.grab_focus();
+    }
+
+    pub fn cancel_confirmation(&self) -> bool {
+        let Some(confirmation) = self.confirmation.take() else {
+            return false;
+        };
+
+        self.root.remove(&confirmation);
+        self.results.widget().set_visible(true);
+        self.search.set_sensitive(true);
+        self.categories.widget().set_sensitive(true);
+        self.search.grab_focus();
+
+        true
+    }
+
+    fn launch(self: &Rc<Self>, entry: Rc<Entry>) {
         let context = self.root.display().app_launch_context();
         let query = self.search.text();
-        let result = self
-            .applications
-            .borrow_mut()
-            .launch(entry, &query, &context);
 
-        match result {
-            Ok(()) => (self.on_launch)(),
-            Err(reason) => {
-                self.error
-                    .set_text(&format!("Could not launch {}: {reason}", entry.title()));
-                self.error.set_visible(true);
+        // Release the layer surface's keyboard grab before polkit can ask for
+        // authentication.
+        self.root.set_sensitive(false);
+        (self.hide)();
+
+        glib::spawn_future_local(glib::clone!(
+            #[weak(rename_to = view)]
+            self,
+            async move {
+                let result = entry.launch(&context).await;
+                view.root.set_sensitive(true);
+
+                match result {
+                    Ok(()) => view.applications.borrow_mut().record_launch(&entry, &query),
+                    Err(reason) => {
+                        view.error
+                            .set_text(&format!("Could not run {}: {reason}", entry.title()));
+                        view.error.set_visible(true);
+                        view.root
+                            .root()
+                            .unwrap()
+                            .downcast::<gtk::Window>()
+                            .unwrap()
+                            .present();
+                        view.search.grab_focus();
+                    }
+                }
             }
-        }
+        ));
     }
 
     fn key_pressed(&self, key: gdk::Key, modifiers: gdk::ModifierType) -> Propagation {
+        if self.confirmation.borrow().is_some() {
+            return Propagation::Proceed;
+        }
+
         let modifiers = modifiers
             & (gdk::ModifierType::CONTROL_MASK
                 | gdk::ModifierType::SHIFT_MASK

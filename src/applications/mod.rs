@@ -1,3 +1,4 @@
+mod command;
 mod history;
 
 use std::collections::HashSet;
@@ -11,6 +12,7 @@ use polysearch::{
     SearchResult, Searcher,
 };
 
+use self::command::{COMMANDS, Command};
 use self::history::History;
 
 pub struct Applications {
@@ -77,7 +79,7 @@ impl Applications {
     pub fn refresh_icons(&mut self, theme: &IconTheme, scale: i32) {
         for entry in &mut self.entries {
             let entry = Rc::make_mut(entry);
-            entry.icon = resolve_icon(&entry.app, theme, scale);
+            entry.icon = resolve_icon(entry.action.icon(), theme, scale);
         }
     }
 
@@ -85,19 +87,10 @@ impl Applications {
         self.history.clear();
     }
 
-    pub fn launch(
-        &mut self,
-        entry: &Entry,
-        query: &str,
-        context: &impl IsA<gio::AppLaunchContext>,
-    ) -> Result<(), glib::Error> {
-        entry.app.launch(&[], Some(context))?;
-
+    pub fn record_launch(&mut self, entry: &Entry, query: &str) {
         if let Some(id) = entry.id() {
             self.history.record(id, query);
         }
-
-        Ok(())
     }
 }
 
@@ -111,6 +104,11 @@ fn scan(theme: &IconTheme, scale: i32) -> (Vec<Rc<Entry>>, Searcher) {
         .filter(AppInfoExt::should_show)
         .map(|app| Rc::new(Entry::new(app, theme, scale)))
         .collect();
+    entries.extend(
+        COMMANDS
+            .iter()
+            .map(|command| Rc::new(Entry::command(command, theme, scale))),
+    );
     entries.sort_unstable_by(|left, right| left.title.cmp(&right.title));
 
     let mut next_field = 0;
@@ -125,7 +123,7 @@ fn scan(theme: &IconTheme, scale: i32) -> (Vec<Rc<Entry>>, Searcher) {
 
 #[derive(Clone)]
 pub struct Entry {
-    app: gio::AppInfo,
+    action: Action,
     title: glib::GString,
     id: Option<glib::GString>,
     subtitle: Option<glib::GString>,
@@ -138,16 +136,47 @@ impl Entry {
         let title = app.display_name();
         let id = app.id();
         let subtitle = app.description();
-        let icon = resolve_icon(&app, theme, scale);
+        let icon = resolve_icon(app.icon(), theme, scale);
         let categories = main_categories(&app);
 
         Self {
-            app,
+            action: Action::Application(app),
             title,
             id,
             subtitle,
             icon,
             categories,
+        }
+    }
+
+    fn command(command: &'static Command, theme: &IconTheme, scale: i32) -> Self {
+        let action = Action::Command(command);
+        let icon = resolve_icon(action.icon(), theme, scale);
+
+        Self {
+            action,
+            title: command.title.into(),
+            id: Some(command.id.into()),
+            subtitle: None,
+            icon,
+            categories: vec!["System"],
+        }
+    }
+
+    pub const fn confirmation(&self) -> Option<&'static str> {
+        match &self.action {
+            Action::Application(_) => None,
+            Action::Command(command) => command.confirmation,
+        }
+    }
+
+    pub async fn launch(
+        &self,
+        context: &impl IsA<gio::AppLaunchContext>,
+    ) -> Result<(), glib::Error> {
+        match &self.action {
+            Action::Application(app) => app.launch(&[], Some(context)),
+            Action::Command(command) => command.run().await,
         }
     }
 
@@ -172,19 +201,34 @@ impl Entry {
         };
 
         add(PRIMARY_NAME, &self.title);
-        add(LOCALIZED_NAME, &self.app.name());
+        match &self.action {
+            Action::Application(app) => {
+                add(LOCALIZED_NAME, &app.name());
 
-        if let Some(desktop) = self.app.downcast_ref::<DesktopAppInfo>() {
-            if let Some(name) = desktop.string("Name") {
-                add(ALIAS, &name);
+                if let Some(desktop) = app.downcast_ref::<DesktopAppInfo>() {
+                    if let Some(name) = desktop.string("Name") {
+                        add(ALIAS, &name);
+                    }
+
+                    if let Some(name) = desktop.generic_name() {
+                        add(KEYWORD, &name);
+                    }
+
+                    for keyword in desktop.keywords() {
+                        add(KEYWORD, &keyword);
+                    }
+                }
+
+                if let Some(executable) =
+                    app.executable().file_name().and_then(|name| name.to_str())
+                {
+                    add(IDENTIFIER, executable);
+                }
             }
-
-            if let Some(name) = desktop.generic_name() {
-                add(KEYWORD, &name);
-            }
-
-            for keyword in desktop.keywords() {
-                add(KEYWORD, &keyword);
+            Action::Command(command) => {
+                for alias in command.aliases {
+                    add(ALIAS, alias);
+                }
             }
         }
 
@@ -194,15 +238,6 @@ impl Entry {
 
         if let Some(id) = self.id.as_deref() {
             add(IDENTIFIER, id);
-        }
-
-        if let Some(executable) = self
-            .app
-            .executable()
-            .file_name()
-            .and_then(|name| name.to_str())
-        {
-            add(IDENTIFIER, executable);
         }
 
         SearchEntry { id, fields }
@@ -222,6 +257,21 @@ impl Entry {
 
     pub const fn icon(&self) -> Option<&gtk::IconPaintable> {
         self.icon.as_ref()
+    }
+}
+
+#[derive(Clone)]
+enum Action {
+    Application(gio::AppInfo),
+    Command(&'static Command),
+}
+
+impl Action {
+    fn icon(&self) -> Option<gio::Icon> {
+        match self {
+            Self::Application(app) => app.icon(),
+            Self::Command(command) => Some(gio::ThemedIcon::new(command.icon).upcast()),
+        }
     }
 }
 
@@ -258,8 +308,12 @@ fn main_categories(app: &gio::AppInfo) -> Vec<&'static str> {
 
 const FALLBACK_ICON: &str = "application-x-executable-symbolic";
 
-fn resolve_icon(app: &gio::AppInfo, theme: &IconTheme, scale: i32) -> Option<gtk::IconPaintable> {
-    let icon = if let Some(icon) = app.icon()
+fn resolve_icon(
+    icon: Option<gio::Icon>,
+    theme: &IconTheme,
+    scale: i32,
+) -> Option<gtk::IconPaintable> {
+    let icon = if let Some(icon) = icon
         && theme.has_gicon(&icon)
     {
         icon
