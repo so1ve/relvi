@@ -1,5 +1,7 @@
-mod applications;
+mod catalog;
+mod history;
 mod store;
+mod system;
 mod ui;
 
 use std::cell::OnceCell;
@@ -49,7 +51,7 @@ fn main() -> glib::ExitCode {
                     if let Some(instance) = ui.get() {
                         instance.clear_history();
                     } else {
-                        applications::clear_history();
+                        history::History::load().clear();
                     }
                 }
                 _ => return glib::ExitCode::from(2),

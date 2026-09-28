@@ -1,4 +1,4 @@
-mod applications;
+mod launcher;
 mod scroll;
 
 use std::cell::OnceCell;
@@ -11,14 +11,29 @@ use gtk::{
 };
 use gtk4_layer_shell::{Edge, KeyboardMode, Layer, LayerShell};
 
-use self::applications::ApplicationsView;
+use self::launcher::LauncherView;
 
 const VIEW_WIDTH: i32 = 540;
+
+fn configure_layer_surface(window: &ApplicationWindow) {
+    if !gtk4_layer_shell::is_supported() {
+        return;
+    }
+
+    window.init_layer_shell();
+    window.set_namespace(Some("relvi"));
+    window.set_layer(Layer::Overlay);
+    window.set_keyboard_mode(KeyboardMode::Exclusive);
+    window.set_exclusive_zone(0);
+    for edge in [Edge::Top, Edge::Bottom, Edge::Left, Edge::Right] {
+        window.set_anchor(edge, true);
+    }
+}
 
 /// The long-lived launcher window and its view host.
 pub struct Ui {
     window: ApplicationWindow,
-    applications: Rc<ApplicationsView>,
+    launcher: Rc<LauncherView>,
 }
 
 impl Ui {
@@ -45,14 +60,7 @@ impl Ui {
         window.add_css_class("relvi-window");
         configure_layer_surface(&window);
 
-        let applications = ApplicationsView::new(
-            &WidgetExt::display(&window),
-            glib::clone!(
-                #[weak]
-                window,
-                move || window.set_visible(false)
-            ),
-        );
+        let launcher = LauncherView::new(&window);
 
         let keys = EventControllerKey::new();
         keys.set_propagation_phase(PropagationPhase::Capture);
@@ -60,7 +68,7 @@ impl Ui {
             #[weak]
             window,
             #[weak]
-            applications,
+            launcher,
             #[upgrade_or]
             glib::Propagation::Proceed,
             move |_, key, _, modifiers| {
@@ -71,7 +79,7 @@ impl Ui {
                         | gdk::ModifierType::SUPER_MASK);
 
                 if key == gdk::Key::Escape && modifiers.is_empty() {
-                    if !applications.cancel_confirmation() {
+                    if !launcher.cancel_confirmation() {
                         window.set_visible(false);
                     }
 
@@ -99,7 +107,7 @@ impl Ui {
 
         let overlay = Overlay::new();
         overlay.set_child(Some(&backdrop));
-        overlay.add_overlay(applications.widget());
+        overlay.add_overlay(launcher.widget());
 
         let anchor_height = OnceCell::new();
         overlay.connect_get_child_position(move |overlay, child| {
@@ -118,14 +126,11 @@ impl Ui {
 
         window.set_child(Some(&overlay));
 
-        Self {
-            window,
-            applications,
-        }
+        Self { window, launcher }
     }
 
     pub fn clear_history(&self) {
-        self.applications.clear_history();
+        self.launcher.clear_history();
     }
 
     pub fn toggle(&self) {
@@ -138,21 +143,6 @@ impl Ui {
 
     pub fn present(&self) {
         self.window.present();
-        self.applications.focus();
-    }
-}
-
-fn configure_layer_surface(window: &ApplicationWindow) {
-    if !gtk4_layer_shell::is_supported() {
-        return;
-    }
-
-    window.init_layer_shell();
-    window.set_namespace(Some("relvi"));
-    window.set_layer(Layer::Overlay);
-    window.set_keyboard_mode(KeyboardMode::Exclusive);
-    window.set_exclusive_zone(0);
-    for edge in [Edge::Top, Edge::Bottom, Edge::Left, Edge::Right] {
-        window.set_anchor(edge, true);
+        self.launcher.focus();
     }
 }

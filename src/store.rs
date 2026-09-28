@@ -9,6 +9,26 @@ use std::thread::{self, JoinHandle};
 use serde::Serialize;
 use serde::de::DeserializeOwned;
 
+fn write_json(path: &Path, value: &impl Serialize) -> Result<(), Box<dyn Error>> {
+    let contents = serde_json::to_vec(value)?;
+
+    if let Some(directory) = path.parent() {
+        DirBuilder::new()
+            .recursive(true)
+            .mode(0o700)
+            .create(directory)?;
+    }
+
+    glib::file_set_contents_full(
+        path,
+        &contents,
+        glib::FileSetContentsFlags::CONSISTENT,
+        0o600,
+    )?;
+
+    Ok(())
+}
+
 pub struct JsonStore<T> {
     path: PathBuf,
     writer: Option<(Sender<T>, JoinHandle<()>)>,
@@ -65,24 +85,4 @@ impl<T> Drop for JsonStore<T> {
             writer.join().unwrap();
         }
     }
-}
-
-fn write_json(path: &Path, value: &impl Serialize) -> Result<(), Box<dyn Error>> {
-    let contents = serde_json::to_vec(value)?;
-
-    if let Some(directory) = path.parent() {
-        DirBuilder::new()
-            .recursive(true)
-            .mode(0o700)
-            .create(directory)?;
-    }
-
-    glib::file_set_contents_full(
-        path,
-        &contents,
-        glib::FileSetContentsFlags::CONSISTENT,
-        0o600,
-    )?;
-
-    Ok(())
 }

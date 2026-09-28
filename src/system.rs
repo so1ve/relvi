@@ -1,7 +1,7 @@
 use gtk::glib::variant::ToVariant;
 use gtk::{gio, glib};
 
-pub struct Command {
+pub struct SystemAction {
     pub id: &'static str,
     pub title: &'static str,
     pub icon: &'static str,
@@ -10,9 +10,10 @@ pub struct Command {
     method: &'static str,
 }
 
-impl Command {
+impl SystemAction {
     pub async fn run(&self) -> Result<(), glib::Error> {
         let connection = gio::bus_get_future(gio::BusType::System).await?;
+
         connection
             .call_future(
                 Some("org.freedesktop.login1"),
@@ -28,13 +29,14 @@ impl Command {
             .map(|_| ())
             .map_err(|mut error| {
                 gio::DBusError::strip_remote_error(&mut error);
+
                 error
             })
     }
 }
 
-pub const COMMANDS: [Command; 3] = [
-    Command {
+pub const ACTIONS: [SystemAction; 3] = [
+    SystemAction {
         id: "relvi:reboot",
         title: "Restart",
         icon: "system-reboot-symbolic",
@@ -42,7 +44,7 @@ pub const COMMANDS: [Command; 3] = [
         confirmation: Some("Restart this computer?"),
         method: "Reboot",
     },
-    Command {
+    SystemAction {
         id: "relvi:poweroff",
         title: "Power off",
         icon: "system-shutdown-symbolic",
@@ -50,7 +52,7 @@ pub const COMMANDS: [Command; 3] = [
         confirmation: Some("Power off this computer?"),
         method: "PowerOff",
     },
-    Command {
+    SystemAction {
         id: "relvi:suspend",
         title: "Suspend",
         icon: "system-suspend-symbolic",
