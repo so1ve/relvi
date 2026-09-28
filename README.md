@@ -87,7 +87,7 @@ Category tabs filter the current search. Scroll over the category bar to browse 
 
 ## I18N
 
-By default, Reslvi supports English and Chinese Pinyin as search input. This ability is provided by [polysearch](https://github.com/so1ve/polysearch). Create a feature request or PR there if you want to add more languages.
+By default, Relvi supports English and Chinese Pinyin as search input. This ability is provided by [polysearch](https://github.com/so1ve/polysearch). Create a feature request or PR there if you want to add more languages.
 
 ## LICENSE
 
