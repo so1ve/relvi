@@ -1,6 +1,11 @@
-# Relvi
+<p align="center">
+  <img src="data/dev.so1ve.Relvi.svg" width="96" height="96" alt="Relvi logo" />
+</p>
 
-Relvi is a small Wayland application launcher. It keeps an application catalog in memory, searches names, keywords and desktop IDs with [polysearch](https://github.com/so1ve/polysearch), and learns which apps you choose for a query.
+<h1 align="center">Relvi</h1>
+<h4 align="center">A small Wayland application launcher</h4>
+
+Relvi keeps an application catalog in memory, searches names, keywords and desktop IDs with [polysearch](https://github.com/so1ve/polysearch), and learns which apps you choose for a query.
 
 ## Install
 
@@ -12,6 +17,7 @@ Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-con
 cargo build --locked --release
 install -Dm755 target/release/relvi "$HOME/.local/bin/relvi"
 install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev.so1ve.Relvi.desktop"
+install -Dm644 data/dev.so1ve.Relvi.svg "$HOME/.local/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
 ```
 
 Ensure `~/.local/bin` is on the graphical session's `PATH`. The released Linux binaries also need GTK 4, gtk4-layer-shell, and libadwaita at runtime; if those system libraries are unavailable or incompatible, build locally.

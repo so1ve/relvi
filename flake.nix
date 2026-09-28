@@ -52,6 +52,8 @@
           postInstall = ''
             install -Dm644 data/dev.so1ve.Relvi.desktop \
               "$out/share/applications/dev.so1ve.Relvi.desktop"
+            install -Dm644 data/dev.so1ve.Relvi.svg \
+              "$out/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
           '';
 
           meta = {
