@@ -1,15 +1,18 @@
-{ inputs, lib, pkgs, ... }:
+{ pkgs, ... }:
+
 {
-  imports = [
-    (inputs.ray-devenv + "/profiles/config.nix")
-    (inputs.ray-devenv + "/profiles/rust.nix")
-  ]
-  ++ lib.optional (builtins.pathExists ./devenv.local.nix) ./devenv.local.nix;
+  languages.rust = {
+    enable = true;
+    toolchainFile = ./rust-toolchain.toml;
+  };
 
   packages = with pkgs; [
+    actionlint
     gtk4
     gtk4-layer-shell
     libadwaita
+    nixfmt-tree
     pkg-config
+    tombi
   ];
 }

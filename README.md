@@ -4,6 +4,8 @@ Relvi is a small Wayland application launcher. It keeps an application catalog i
 
 ## Install
 
+### From source
+
 Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
 
 ```sh
@@ -13,6 +15,32 @@ install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev
 ```
 
 Ensure `~/.local/bin` is on the graphical session's `PATH`. The released Linux binaries also need GTK 4, gtk4-layer-shell, and libadwaita at runtime; if those system libraries are unavailable or incompatible, build locally.
+
+### Nix
+
+Run directly:
+
+```sh
+nix run github:so1ve/relvi
+```
+
+Add the flake to your configuration:
+
+```nix
+inputs.relvi.url = "github:so1ve/relvi";
+```
+
+Then install its package:
+
+```nix
+{ inputs, pkgs, ... }:
+
+{
+  environment.systemPackages = [
+    inputs.relvi.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
+}
+```
 
 ## Use
 

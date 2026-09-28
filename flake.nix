@@ -1,63 +1,100 @@
 {
   description = "A small Wayland application launcher";
 
+  nixConfig = {
+    extra-substituters = [ "https://so1ve.cachix.org" ];
+    extra-trusted-public-keys = [
+      "so1ve.cachix.org-1:51jcW4FkJhiLcqPsiUx3nglRP469les8F9zjFxio1nw="
+    ];
+  };
+
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs =
-    { nixpkgs, ... }:
+    { self, nixpkgs }:
     let
       cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+      mkPackage =
+        pkgs:
+        pkgs.rustPlatform.buildRustPackage {
+          pname = cargoToml.package.name;
+          inherit (cargoToml.package) version;
+
+          src = pkgs.lib.fileset.toSource {
+            root = ./.;
+            fileset = pkgs.lib.fileset.unions [
+              ./Cargo.lock
+              ./Cargo.toml
+              ./src
+              ./resources
+              ./data
+            ];
+          };
+
+          cargoLock.lockFile = ./Cargo.lock;
+
+          nativeBuildInputs = with pkgs; [
+            pkg-config
+            wrapGAppsHook4
+          ];
+
+          buildInputs = with pkgs; [
+            gtk4
+            gtk4-layer-shell
+            libadwaita
+          ];
+
+          postInstall = ''
+            install -Dm644 data/dev.so1ve.Relvi.desktop \
+              "$out/share/applications/dev.so1ve.Relvi.desktop"
+          '';
+
+          meta = {
+            inherit (cargoToml.package) description;
+            homepage = cargoToml.package.repository;
+            license = pkgs.lib.licenses.mit;
+            mainProgram = cargoToml.package.name;
+            platforms = pkgs.lib.platforms.linux;
+          };
+        };
     in
     {
-      packages = nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (
+      packages = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          relvi = pkgs.rustPlatform.buildRustPackage {
-            pname = cargoToml.package.name;
-            inherit (cargoToml.package) version;
-
-            src = pkgs.lib.fileset.toSource {
-              root = ./.;
-              fileset = pkgs.lib.fileset.unions [
-                ./Cargo.toml
-                ./Cargo.lock
-                ./src
-                ./resources
-                ./data
-              ];
-            };
-
-            cargoLock.lockFile = ./Cargo.lock;
-
-            nativeBuildInputs = with pkgs; [
-              pkg-config
-              wrapGAppsHook4
-            ];
-
-            buildInputs = with pkgs; [
-              gtk4
-              gtk4-layer-shell
-              libadwaita
-            ];
-
-            postInstall = ''
-              install -Dm644 data/dev.so1ve.Relvi.desktop \
-                "$out/share/applications/dev.so1ve.Relvi.desktop"
-            '';
-
-            meta = {
-              description = "A small Wayland application launcher";
-              license = pkgs.lib.licenses.mit;
-              mainProgram = "relvi";
-              platforms = pkgs.lib.platforms.linux;
-            };
-          };
+          relvi = mkPackage pkgs;
         in
         {
           inherit relvi;
           default = relvi;
         }
       );
+
+      apps = forAllSystems (
+        system:
+        let
+          app = {
+            type = "app";
+            program = nixpkgs.lib.getExe self.packages.${system}.relvi;
+            meta.description = cargoToml.package.description;
+          };
+        in
+        {
+          relvi = app;
+          default = app;
+        }
+      );
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+
+      overlays.default = final: _prev: {
+        relvi = mkPackage final;
+      };
     };
 }
