@@ -126,6 +126,9 @@ impl Ui {
 
         window.set_child(Some(&overlay));
 
+        // Prepare the native surface and renderer while the daemon is hidden
+        WidgetExt::realize(&window);
+
         Self { window, launcher }
     }
 
