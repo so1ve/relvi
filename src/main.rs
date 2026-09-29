@@ -1,4 +1,5 @@
 mod catalog;
+mod cli;
 mod history;
 mod store;
 mod system;
@@ -7,12 +8,22 @@ mod ui;
 use std::cell::OnceCell;
 use std::rc::Rc;
 
+use clap::{CommandFactory, Parser};
 use gtk::prelude::*;
 use gtk::{Application, gio, glib};
+
+use crate::cli::{Cli, Command};
 
 const APP_ID: &str = "dev.so1ve.Relvi";
 
 fn main() -> glib::ExitCode {
+    // handle help, version and completion without launching a full application
+    if let Some(Command::Completions { shell }) = Cli::parse().command {
+        clap_complete::generate(shell, &mut Cli::command(), "relvi", &mut std::io::stdout());
+
+        return glib::ExitCode::SUCCESS;
+    }
+
     let application = Application::builder()
         .application_id(APP_ID)
         .flags(gio::ApplicationFlags::HANDLES_COMMAND_LINE)
@@ -36,36 +47,34 @@ fn main() -> glib::ExitCode {
         glib::ExitCode::FAILURE,
         move |application, command_line| {
             let arguments = command_line.arguments();
+            let Ok(cli) = Cli::try_parse_from(arguments) else {
+                return glib::ExitCode::from(2);
+            };
 
-            match &arguments[1..] {
-                [] => application.activate(),
-                [command] if command == "toggle" => {
+            match cli.command {
+                None => application.activate(),
+                Some(Command::Toggle) => {
                     ui.get_or_init(|| ui::Ui::new(application)).toggle();
                 }
-                [command] if command == "daemon" => {
+                Some(Command::Daemon) => {
                     ui.get_or_init(|| ui::Ui::new(application));
                     hold.get_or_init(|| application.hold());
                 }
-                [command] if command == "quit" => application.quit(),
-                [command] if command == "clear-history" => {
+                Some(Command::Quit) => application.quit(),
+                Some(Command::ClearHistory) => {
                     if let Some(instance) = ui.get() {
                         instance.clear_history();
                     } else {
                         history::History::load().clear();
                     }
                 }
-                _ => return glib::ExitCode::from(2),
+                // Completion output belongs to the invoking process.
+                Some(Command::Completions { .. }) => return glib::ExitCode::from(2),
             }
 
             glib::ExitCode::SUCCESS
         }
     ));
 
-    let exit_code = application.run();
-
-    if exit_code.get() == 2 {
-        eprintln!("Usage: relvi [toggle|daemon|quit|clear-history]");
-    }
-
-    exit_code
+    application.run()
 }

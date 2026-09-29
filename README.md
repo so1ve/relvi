@@ -91,6 +91,8 @@ Run `relvi` to show the launcher directly, `relvi quit` to stop the resident pro
 
 Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Ctrl+H` / `Ctrl+L` or `Shift+Tab` / `Tab` to select the previous / next category while keeping the search field focused. `Escape` hides the launcher.
 
+Generate shell completions with `relvi completions --shell <shell>`, for example `relvi completions --shell fish`.
+
 ## LICENSE
 
 [MIT](LICENSE). Made with ❤️ by [Ray](https://github.com/so1ve)

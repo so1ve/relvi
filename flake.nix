@@ -39,6 +39,7 @@
           cargoLock.lockFile = ./Cargo.lock;
 
           nativeBuildInputs = with pkgs; [
+            installShellFiles
             pkg-config
             wrapGAppsHook4
           ];
@@ -54,6 +55,11 @@
               "$out/share/applications/dev.so1ve.Relvi.desktop"
             install -Dm644 data/dev.so1ve.Relvi.svg \
               "$out/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
+
+            installShellCompletion --cmd relvi \
+              --bash <("$out/bin/relvi" completions --shell bash) \
+              --fish <("$out/bin/relvi" completions --shell fish) \
+              --zsh <("$out/bin/relvi" completions --shell zsh)
           '';
 
           meta = {
