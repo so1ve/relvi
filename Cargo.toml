@@ -48,3 +48,8 @@ unnecessary_literal_bound = "warn"
 use_self = "warn"
 verbose_file_reads = "warn"
 wildcard_imports = "warn"
+
+[profile.release]
+strip = "symbols"
+lto = "thin"
+codegen-units = 1
