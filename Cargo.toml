@@ -5,7 +5,6 @@ edition = "2024"
 description = "A focused application launcher for Wayland"
 repository = "https://github.com/so1ve/relvi"
 license = "MIT"
-publish = false
 
 [dependencies]
 adw = { package = "libadwaita", version = "0.9", features = ["v1_2"] }
