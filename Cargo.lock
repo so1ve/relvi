@@ -611,9 +611,9 @@ checksum = "f6b464fbc74e149a392436b17d523f769e057cb6877f6a5c4618bc6f11800548"
 
 [[package]]
 name = "polysearch"
-version = "0.3.0"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d0158b8fb298f188777ffc063efc1d4216566ccdadd72bd44051cf0110be7c38"
+checksum = "f3bef9b61f2207de77cfb4ea593951692667bcb11aa7a5dfe1229aa7c98295f6"
 dependencies = [
  "arrayvec",
  "pinyin_pro",
