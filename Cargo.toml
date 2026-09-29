@@ -2,7 +2,7 @@
 name = "relvi"
 version = "0.1.0"
 edition = "2024"
-description = "A small Wayland application launcher"
+description = "A focused application launcher for Wayland"
 repository = "https://github.com/so1ve/relvi"
 publish = false
 license = "MIT"

@@ -1,5 +1,5 @@
 {
-  description = "A small Wayland application launcher";
+  description = "A focused Wayland application launcher";
 
   nixConfig = {
     extra-substituters = [ "https://so1ve.cachix.org" ];
