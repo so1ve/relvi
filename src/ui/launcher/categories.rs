@@ -1,17 +1,16 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use adw::TimedAnimation;
-use adw::prelude::*;
+use gtk::prelude::*;
 use gtk::{Box as GtkBox, Orientation, PolicyType, ScrolledWindow, ToggleButton, glib};
 
-use super::super::scroll::smooth_scroll;
+use super::super::scroll::SmoothScroll;
 
 type Changed = Box<dyn Fn()>;
 
 pub struct Categories {
     frame: ScrolledWindow,
-    scroll: TimedAnimation,
+    scroll: SmoothScroll,
     row: GtkBox,
     buttons: RefCell<Vec<(Option<&'static str>, ToggleButton)>>,
     changed: RefCell<Option<Changed>>,
@@ -32,7 +31,7 @@ impl Categories {
             "Ctrl+H / Shift+Tab: previous category\nCtrl+L / Tab: next category",
         ));
 
-        let scroll = smooth_scroll(&frame, Orientation::Horizontal);
+        let scroll = SmoothScroll::new(&frame, Orientation::Horizontal);
 
         let categories = Rc::new(Self {
             frame,
@@ -59,7 +58,7 @@ impl Categories {
     }
 
     pub fn set_categories(self: &Rc<Self>, available: &[&'static str]) {
-        self.scroll.pause();
+        self.scroll.stop();
 
         let selected = self
             .selected()
@@ -132,7 +131,7 @@ impl Categories {
     }
 
     fn reveal(&self, button: &ToggleButton) {
-        self.scroll.pause();
+        self.scroll.stop();
 
         if let Some(bounds) = button.compute_bounds(&self.row) {
             self.frame.hadjustment().clamp_page(

@@ -1,15 +1,14 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use adw::TimedAnimation;
-use adw::prelude::*;
 use gtk::pango::EllipsizeMode;
+use gtk::prelude::*;
 use gtk::{
     Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListScrollFlags, ListView,
     Orientation, PolicyType, ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
-use super::super::scroll::smooth_scroll;
+use super::super::scroll::SmoothScroll;
 use crate::catalog::Entry;
 
 const VISIBLE_ROWS: usize = 12;
@@ -105,7 +104,7 @@ pub struct ResultList {
     root: GtkBox,
     list: ListView,
     frame: ScrolledWindow,
-    scroll: TimedAnimation,
+    scroll: SmoothScroll,
     model: gio::ListStore,
     items: RefCell<Vec<glib::BoxedAnyObject>>,
     selection: SingleSelection,
@@ -132,7 +131,7 @@ impl ResultList {
             .focusable(false)
             .build();
         frame.add_css_class("results-frame");
-        let scroll = smooth_scroll(&frame, Orientation::Vertical);
+        let scroll = SmoothScroll::new(&frame, Orientation::Vertical);
 
         let empty = Label::new(Some("No result"));
         empty.add_css_class("empty-state");
@@ -190,7 +189,7 @@ impl ResultList {
     }
 
     pub fn show_matches(&self, matches: Vec<usize>, selected_id: Option<&str>) {
-        self.scroll.pause();
+        self.scroll.stop();
 
         let items = self.items.borrow();
         let selected = selected_id
@@ -250,8 +249,12 @@ impl ResultList {
         })
     }
 
+    pub fn scroll_pages(&self, pages: f64) {
+        self.scroll.scroll_pages(pages);
+    }
+
     pub fn move_selection(&self, offset: i32) {
-        self.scroll.pause();
+        self.scroll.stop();
 
         let count = self.model.n_items() as i32;
         if count == 0 {

@@ -228,6 +228,8 @@ impl LauncherView {
             gdk::Key::Up if modifiers.is_empty() => self.results.move_selection(-1),
             gdk::Key::j | gdk::Key::n if control => self.results.move_selection(1),
             gdk::Key::k | gdk::Key::p if control => self.results.move_selection(-1),
+            gdk::Key::d if control => self.results.scroll_pages(0.5),
+            gdk::Key::u if control => self.results.scroll_pages(-0.5),
             _ => return Propagation::Proceed,
         }
 
