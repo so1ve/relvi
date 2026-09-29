@@ -5,17 +5,13 @@
 <h1 align="center">Relvi</h1>
 <h4 align="center">A focused application launcher for Wayland</h4>
 
-Open Relvi with a shortcut, type what you remember, and press Enter to launch an app.
+Relvi is a lightweight launcher focused on app search. Open Relvi with a shortcut, type what you remember, and press Enter to launch an app.
 
-Relvi deliberately keeps its scope small: application search and launching. The goal is to make finding the app you want straightforward, with useful defaults and forgiving matching.
+- Typo-tolerant search, Pinyin, and initials.
+- App names take priority over descriptions; history helps rank similar matches.
+- Runs in the background and updates the app list automatically.
 
-- **Forgiving search:** find apps by partial names, keywords, or executable names, even with typos.
-- **Pinyin input:** find Chinese apps using their names, full Pinyin, or initials.
-- **Relevant results:** exact matches take priority; history helps order similarly matched results. An empty search shows frequent and recent apps first.
-- **Resident mode:** keep the app catalog in memory between uses, with automatic updates when installed apps change.
-- **Keyboard navigation:** move through results and categories without leaving the search field.
-
-Search is powered by [Polysearch](https://github.com/so1ve/polysearch), a practical mix of matching and ranking heuristics, not a single rigid algorithm. I refine its behavior based on real searches and everyday use, so matches and their order may change between releases. Examples of unexpected results help guide those changes.
+Search uses [Polysearch](https://github.com/so1ve/polysearch). I tune its matching rules based on everyday use.
 
 ## Install
 
@@ -91,7 +87,7 @@ exec relvi daemon
 bindsym $mod+space exec relvi toggle
 ```
 
-Run `relvi` to show the launcher directly, `relvi quit` to stop the resident process, or `relvi clear-history` to erase launch and query history. `Enter` or a single click opens the selected app. Use the arrow keys or `Ctrl+J/K` and `Ctrl+N/P` to change the selection.
+Run `relvi` to show the launcher directly, `relvi quit` to stop the resident process, or `relvi clear-history` to erase launch and query history. `Enter` or a single click opens the selected app. Use the arrow keys or `Ctrl+J/K` and `Ctrl+N/P` to change the selection. `Ctrl+D` scrolls down half a page; `Ctrl+U` scrolls up half a page.
 
 Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Ctrl+H` / `Ctrl+L` or `Shift+Tab` / `Tab` to select the previous / next category while keeping the search field focused. `Escape` hides the launcher.
 
