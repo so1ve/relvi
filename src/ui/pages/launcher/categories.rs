@@ -4,7 +4,7 @@ use std::rc::Rc;
 use gtk::prelude::*;
 use gtk::{Box as GtkBox, Orientation, PolicyType, ScrolledWindow, ToggleButton, glib};
 
-use super::super::scroll::SmoothScroll;
+use crate::ui::components::SmoothScroll;
 
 type Changed = Box<dyn Fn()>;
 

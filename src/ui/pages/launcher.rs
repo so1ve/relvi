@@ -9,13 +9,15 @@ use gtk::glib::Propagation;
 use gtk::prelude::*;
 use gtk::{
     ApplicationWindow, Box as GtkBox, EventControllerKey, IconTheme, Label, Orientation,
-    PropagationPhase, SearchEntry, gdk, gio, glib,
+    PropagationPhase, SearchEntry, Widget, gdk, gio, glib,
 };
 
 use self::categories::Categories;
 use self::list::ResultList;
+use super::Page;
 use crate::catalog::Catalog;
 use crate::history::History;
+use crate::ui::components::search_field;
 
 fn icon_scale(display: &gdk::Display) -> i32 {
     display
@@ -26,7 +28,7 @@ fn icon_scale(display: &gdk::Display) -> i32 {
         .unwrap_or(1)
 }
 
-pub struct LauncherView {
+pub struct LauncherPage {
     window: ApplicationWindow,
     root: GtkBox,
     search: SearchEntry,
@@ -40,12 +42,9 @@ pub struct LauncherView {
     theme: IconTheme,
 }
 
-impl LauncherView {
+impl LauncherPage {
     pub fn new(window: &ApplicationWindow) -> Rc<Self> {
-        let search = SearchEntry::builder().placeholder_text("Search…").build();
-        search.set_search_delay(0);
-        search.add_css_class("palette-search");
-        search.set_hexpand(true);
+        let search = search_field("Search…");
 
         let error = Label::new(None);
         error.set_xalign(0.0);
@@ -53,10 +52,6 @@ impl LauncherView {
         error.set_wrap_mode(gtk::pango::WrapMode::WordChar);
         error.add_css_class("launch-error");
         error.set_visible(false);
-
-        let header = GtkBox::new(Orientation::Horizontal, 0);
-        header.add_css_class("palette-header");
-        header.append(&search);
 
         let display = WidgetExt::display(window);
         let theme = IconTheme::for_display(&display);
@@ -66,13 +61,12 @@ impl LauncherView {
         let results = ResultList::new();
         results.load(catalog.entries(), &theme, icon_scale(&display));
         let root = GtkBox::new(Orientation::Vertical, 0);
-        root.add_css_class("palette");
-        root.append(&header);
+        root.append(&search);
         root.append(categories.widget());
         root.append(results.widget());
         root.append(&error);
 
-        let view = Rc::new(Self {
+        let page = Rc::new(Self {
             window: window.clone(),
             root,
             search,
@@ -86,61 +80,25 @@ impl LauncherView {
             theme,
         });
 
-        view.search.connect_changed(glib::clone!(
+        page.search.connect_changed(glib::clone!(
             #[weak]
-            view,
-            move |_| view.update_results(None)
+            page,
+            move |_| page.update_results(None)
         ));
-        view.search.connect_activate(glib::clone!(
+        page.search.connect_activate(glib::clone!(
             #[weak]
-            view,
+            page,
             move |_| {
-                if let Some(entry) = view.results.selected() {
-                    view.activate(entry);
+                if let Some(entry) = page.results.selected() {
+                    page.activate(entry);
                 }
             }
         ));
-        view.results.connect_activate(glib::clone!(
+        page.root.connect_unmap(glib::clone!(
             #[weak]
-            view,
-            move |entry| view.activate(entry)
-        ));
-        view.categories.connect_changed(glib::clone!(
-            #[weak]
-            view,
-            move || view.update_results(None)
-        ));
-
-        view.monitor.connect_changed(glib::clone!(
-            #[weak]
-            view,
+            page,
             move |_| {
-                glib::idle_add_local_once(glib::clone!(
-                    #[weak]
-                    view,
-                    move || view.refresh_catalog()
-                ));
-            }
-        ));
-        view.theme.connect_changed(glib::clone!(
-            #[weak]
-            view,
-            move |_| {
-                glib::idle_add_local_once(glib::clone!(
-                    #[weak]
-                    view,
-                    move || {
-                        let selected = view.results.selected();
-                        view.results.load(
-                            view.catalog.borrow().entries(),
-                            &view.theme,
-                            icon_scale(&view.root.display()),
-                        );
-                        view.update_results(
-                            selected.as_ref().and_then(|entry| entry.id.as_deref()),
-                        );
-                    }
-                ));
+                page.cancel_confirmation();
             }
         ));
 
@@ -148,29 +106,65 @@ impl LauncherView {
         keys.set_propagation_phase(PropagationPhase::Capture);
         keys.connect_key_pressed(glib::clone!(
             #[weak]
-            view,
+            page,
             #[upgrade_or]
             Propagation::Proceed,
-            move |_, key, _, modifiers| view.key_pressed(key, modifiers)
+            move |_, key, _, modifiers| page.key_pressed(key, modifiers)
         ));
-        view.root.add_controller(keys);
-        view.update_results(None);
+        page.root.add_controller(keys);
 
-        view
-    }
+        page.results.connect_activate(glib::clone!(
+            #[weak]
+            page,
+            move |entry| page.activate(entry)
+        ));
+        page.categories.connect_changed(glib::clone!(
+            #[weak]
+            page,
+            move || page.update_results(None)
+        ));
 
-    pub const fn widget(&self) -> &GtkBox {
-        &self.root
+        page.monitor.connect_changed(glib::clone!(
+            #[weak]
+            page,
+            move |_| {
+                glib::idle_add_local_once(glib::clone!(
+                    #[weak]
+                    page,
+                    move || page.refresh_catalog()
+                ));
+            }
+        ));
+        page.theme.connect_changed(glib::clone!(
+            #[weak]
+            page,
+            move |_| {
+                glib::idle_add_local_once(glib::clone!(
+                    #[weak]
+                    page,
+                    move || {
+                        let selected = page.results.selected();
+                        page.results.load(
+                            page.catalog.borrow().entries(),
+                            &page.theme,
+                            icon_scale(&page.root.display()),
+                        );
+                        page.update_results(
+                            selected.as_ref().and_then(|entry| entry.id.as_deref()),
+                        );
+                    }
+                ));
+            }
+        ));
+
+        page.update_results(None);
+
+        page
     }
 
     pub fn clear_history(&self) {
         self.history.borrow_mut().clear();
         self.update_results(None);
-    }
-
-    pub fn focus(&self) {
-        self.update_results(None);
-        self.search.grab_focus();
     }
 
     fn refresh_catalog(&self) {
@@ -202,15 +196,20 @@ impl LauncherView {
     }
 
     fn key_pressed(&self, key: gdk::Key, modifiers: gdk::ModifierType) -> Propagation {
+        let modifiers = modifiers & gtk::accelerator_get_default_mod_mask();
+        if key == gdk::Key::Escape && modifiers.is_empty() {
+            if self.cancel_confirmation() {
+                self.search.grab_focus();
+            } else {
+                self.window.set_visible(false);
+            }
+
+            return Propagation::Stop;
+        }
+
         if self.confirmation.borrow().is_some() {
             return Propagation::Proceed;
         }
-
-        let modifiers = modifiers
-            & (gdk::ModifierType::CONTROL_MASK
-                | gdk::ModifierType::SHIFT_MASK
-                | gdk::ModifierType::ALT_MASK
-                | gdk::ModifierType::SUPER_MASK);
 
         let control = modifiers == gdk::ModifierType::CONTROL_MASK;
         match key {
@@ -234,5 +233,20 @@ impl LauncherView {
         }
 
         Propagation::Stop
+    }
+}
+
+impl Page for LauncherPage {
+    fn widget(&self) -> &Widget {
+        self.root.upcast_ref()
+    }
+
+    fn width(&self) -> i32 {
+        540
+    }
+
+    fn present(&self) {
+        self.update_results(None);
+        self.search.grab_focus();
     }
 }

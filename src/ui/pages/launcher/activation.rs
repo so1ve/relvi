@@ -1,13 +1,14 @@
 use std::rc::Rc;
 
 use gtk::prelude::*;
-use gtk::{Box as GtkBox, Button, Label, Orientation, glib};
+use gtk::{Box as GtkBox, Label, Orientation, glib};
 
-use super::LauncherView;
+use super::LauncherPage;
 use crate::catalog::{Entry, Target};
+use crate::ui::components::button;
 
-impl LauncherView {
-    pub fn activate(self: &Rc<Self>, entry: Rc<Entry>) {
+impl LauncherPage {
+    pub(super) fn activate(self: &Rc<Self>, entry: Rc<Entry>) {
         self.error.set_visible(false);
 
         let question = match &entry.target {
@@ -24,8 +25,8 @@ impl LauncherView {
         label.set_xalign(0.0);
         label.set_hexpand(true);
 
-        let cancel = Button::with_label("Cancel");
-        let accept = Button::with_label(&entry.title);
+        let cancel = button::text("Cancel").build();
+        let accept = button::text(&entry.title).build();
         accept.add_css_class("destructive-action");
 
         let confirmation = GtkBox::new(Orientation::Horizontal, 8);
@@ -35,18 +36,19 @@ impl LauncherView {
         confirmation.append(&accept);
 
         cancel.connect_clicked(glib::clone!(
-            #[weak(rename_to = view)]
+            #[weak(rename_to = page)]
             self,
             move |_| {
-                view.cancel_confirmation();
+                page.cancel_confirmation();
+                page.search.grab_focus();
             }
         ));
         accept.connect_clicked(glib::clone!(
-            #[weak(rename_to = view)]
+            #[weak(rename_to = page)]
             self,
             move |_| {
-                view.cancel_confirmation();
-                view.run(Rc::clone(&entry));
+                page.cancel_confirmation();
+                page.run(Rc::clone(&entry));
             }
         ));
 
@@ -58,7 +60,7 @@ impl LauncherView {
         cancel.grab_focus();
     }
 
-    pub fn cancel_confirmation(&self) -> bool {
+    pub(super) fn cancel_confirmation(&self) -> bool {
         let Some(confirmation) = self.confirmation.take() else {
             return false;
         };
@@ -67,7 +69,6 @@ impl LauncherView {
         self.results.widget().set_visible(true);
         self.search.set_sensitive(true);
         self.categories.widget().set_sensitive(true);
-        self.search.grab_focus();
 
         true
     }
@@ -82,27 +83,27 @@ impl LauncherView {
         self.window.set_visible(false);
 
         glib::spawn_future_local(glib::clone!(
-            #[weak(rename_to = view)]
+            #[weak(rename_to = page)]
             self,
             async move {
                 let result = match &entry.target {
                     Target::Application(app) => app.launch(&[], Some(&context)),
                     Target::SystemAction(action) => action.run().await,
                 };
-                view.root.set_sensitive(true);
+                page.root.set_sensitive(true);
 
                 match result {
                     Ok(()) => {
                         if let Some(id) = entry.id.as_deref() {
-                            view.history.borrow_mut().record(id, &query);
+                            page.history.borrow_mut().record(id, &query);
                         }
                     }
                     Err(reason) => {
-                        view.error
+                        page.error
                             .set_text(&format!("Could not run {}: {reason}", entry.title));
-                        view.error.set_visible(true);
-                        view.window.present();
-                        view.search.grab_focus();
+                        page.error.set_visible(true);
+                        page.window.present();
+                        page.search.grab_focus();
                     }
                 }
             }

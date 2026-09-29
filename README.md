@@ -3,30 +3,71 @@
 </p>
 
 <h1 align="center">Relvi</h1>
-<h4 align="center">A focused application launcher for Wayland</h4>
+<h4 align="center">A small launcher and clipboard history for Wayland</h4>
 
-Relvi is a lightweight launcher focused on app search. Open Relvi with a shortcut, type what you remember, and press Enter to launch an app.
+Relvi focuses on finding apps and reusing copied text. Start it once, then open either view with a keyboard shortcut.
 
-- Typo-tolerant search, Pinyin, and initials.
-- App names take priority over descriptions; history helps rank similar matches.
-- Runs in the background and updates the app list automatically.
+## Launcher
+
+<p align="center">
+  <img src="docs/screenshots/launcher.png" width="540" alt="Relvi launcher with a sample app catalog" />
+</p>
+
+### Search and history
+
+Search app names, keywords, or executable names, including typos. Chinese names also match full Pinyin and initials. App names rank above descriptions; history helps order similar matches. With no query, frequent and recently used apps come first.
+
+Category tabs filter the results. The catalog updates when apps are installed or removed.
 
 Search uses [Polysearch](https://github.com/so1ve/polysearch). I tune its matching rules based on everyday use.
 
+### Shortcuts
+
+| Action | Shortcut |
+| --- | --- |
+| Open an app | `Enter` or a single click |
+| Previous / next result | `↑` / `↓`, `Ctrl+K` / `Ctrl+J`, or `Ctrl+P` / `Ctrl+N` |
+| Scroll half a page | `Ctrl+U` / `Ctrl+D` |
+| Previous / next category | `Shift+Tab` / `Tab` or `Ctrl+H` / `Ctrl+L` |
+| Close | `Escape` |
+
+Show the launcher with `relvi`, or show/hide it with `relvi toggle`. Clear launch and query history with `relvi clear-history`.
+
+## Clipboard
+
+<p align="center">
+  <img src="docs/screenshots/clipboard.png" width="720" alt="Relvi clipboard history with sample text and a preview" />
+</p>
+
+### Browse and copy
+
+Search the full text of saved entries. Select a record on the left to preview it on the right. Copying closes the window; paste in the target app as usual.
+
+Open this view with `relvi clipboard`, or show/hide it with `relvi clipboard toggle`. Toggling also switches from the launcher to clipboard history.
+
+### Shortcuts
+
+| Action | Shortcut |
+| --- | --- |
+| Previous / next entry | `↑` / `↓`, `Ctrl+K` / `Ctrl+J`, or `Ctrl+P` / `Ctrl+N` |
+| Scroll half a page | `Ctrl+U` / `Ctrl+D` |
+| Focus search | Start typing, or press `←` / `→` |
+| Copy selected entry | `Ctrl+C`, `Enter`, or the Copy button |
+| Delete selected entry | `Ctrl+Delete` |
+| Clear history | `Ctrl+Shift+Delete` or the Clear button |
+| Close | `Escape` |
+
+Up/down navigation returns focus to the last selected entry.
+
+### Storage
+
+Relvi records text while it is running and keeps up to 100 entries of at most 64 KiB each. Duplicates move to the front. Entries marked by password managers are excluded.
+
+History survives restarts in `$XDG_STATE_HOME/relvi/clipboard.json` (normally `~/.local/state/relvi/clipboard.json`). The file is plain text, with access restricted to your user. Run `relvi clipboard clear` to erase history without changing the current clipboard.
+
+Clipboard monitoring requires `ext-data-control` or `wlr-data-control` support in the compositor.
+
 ## Install
-
-### From source
-
-Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
-
-```sh
-cargo build --locked --release
-install -Dm755 target/release/relvi "$HOME/.local/bin/relvi"
-install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev.so1ve.Relvi.desktop"
-install -Dm644 data/dev.so1ve.Relvi.svg "$HOME/.local/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
-```
-
-Ensure `~/.local/bin` is on the graphical session's `PATH`. The released Linux binaries also need GTK 4, gtk4-layer-shell, and libadwaita at runtime; if those system libraries are unavailable or incompatible, build locally.
 
 ### Nix
 
@@ -36,7 +77,7 @@ Run directly:
 nix run github:so1ve/relvi
 ```
 
-Add the flake to your configuration:
+Or add the flake to your configuration:
 
 ```nix
 inputs.relvi.url = "github:so1ve/relvi";
@@ -54,23 +95,41 @@ Then install its package:
 }
 ```
 
-## Use
+### From source
 
-Run `relvi daemon` once after the Wayland session starts. Then bind `relvi toggle` to a compositor shortcut.
+Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
 
-For example, add one of the following to your compositor configuration (adjust `Mod`/`SUPER` to your preferred shortcut):
+```sh
+cargo build --locked --release
+install -Dm755 target/release/relvi "$HOME/.local/bin/relvi"
+install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev.so1ve.Relvi.desktop"
+install -Dm644 data/dev.so1ve.Relvi.svg "$HOME/.local/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
+```
 
-**Niri**:
+Ensure `~/.local/bin` is on the graphical session's `PATH`. Released Linux binaries also need compatible GTK 4, gtk4-layer-shell, and libadwaita libraries at runtime.
+
+## Session setup
+
+### Startup and keybindings
+
+Start `relvi daemon` with your Wayland session. This keeps the app catalog in memory and records clipboard history between uses. Bind `relvi toggle` and `relvi clipboard toggle` to separate shortcuts.
+
+<details>
+<summary>Niri</summary>
 
 ```kdl
 spawn-at-startup "relvi" "daemon"
 
 binds {
-    Mod+Space { spawn "relvi" "toggle"; }
+    Alt+Space { spawn "relvi" "toggle"; }
+    Alt+V { spawn "relvi" "clipboard" "toggle"; }
 }
 ```
 
-**Hyprland**
+</details>
+
+<details>
+<summary>Hyprland</summary>
 
 ```lua
 hl.on("hyprland.start", function()
@@ -78,21 +137,34 @@ hl.on("hyprland.start", function()
 end)
 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("relvi toggle"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd("relvi clipboard toggle"))
 ```
 
-**Sway**:
+</details>
+
+<details>
+<summary>Sway</summary>
 
 ```text
 exec relvi daemon
 bindsym $mod+space exec relvi toggle
+bindsym $mod+v exec relvi clipboard toggle
 ```
 
-Run `relvi` to show the launcher directly, `relvi quit` to stop the resident process, or `relvi clear-history` to erase launch and query history. `Enter` or a single click opens the selected app. Use the arrow keys or `Ctrl+J/K` and `Ctrl+N/P` to change the selection. `Ctrl+D` scrolls down half a page; `Ctrl+U` scrolls up half a page.
+</details>
 
-Category tabs filter the current search. Scroll over the category bar to browse the tabs. Use `Ctrl+H` / `Ctrl+L` or `Shift+Tab` / `Tab` to select the previous / next category while keeping the search field focused. `Escape` hides the launcher.
+Run `relvi quit` to stop the resident process.
 
-Generate shell completions with `relvi completions --shell <shell>`, for example `relvi completions --shell fish`.
+### Shell completions
 
-## LICENSE
+Generate completions for your shell, for example:
+
+```sh
+relvi completions --shell fish
+```
+
+Supported shells: Bash, Elvish, Fish, PowerShell, and Zsh.
+
+## License
 
 [MIT](LICENSE). Made with ❤️ by [Ray](https://github.com/so1ve)
