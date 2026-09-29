@@ -1,10 +1,10 @@
-use std::cell::RefCell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use gtk::pango::EllipsizeMode;
 use gtk::prelude::*;
 use gtk::{
-    Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListScrollFlags, ListView,
+    Adjustment, Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListScrollFlags, ListView,
     Orientation, PolicyType, ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
@@ -100,6 +100,61 @@ fn resolve_icon(
     ))
 }
 
+#[derive(Clone, Copy)]
+struct SelectionAnchor {
+    scroll_offset: f64,
+    selected: u32,
+    row_offset: f64,
+}
+
+impl SelectionAnchor {
+    fn update(&mut self, adjustment: &Adjustment, selection: &SingleSelection) -> u32 {
+        let previous_offset = self.scroll_offset;
+        self.scroll_offset = adjustment.value().floor();
+
+        let selected = selection.selected();
+        let page_size = adjustment.page_size();
+        let content_height = adjustment.upper() - adjustment.lower();
+
+        if selected == gtk::INVALID_LIST_POSITION || content_height <= page_size {
+            self.selected = selected;
+            self.row_offset = 0.0;
+
+            return selected;
+        }
+
+        let count = selection.n_items();
+        let row_height = content_height / f64::from(count);
+        let top = self.scroll_offset - adjustment.lower();
+        let first = ((top / row_height).ceil() as u32).min(count - 1);
+        let last = (((top + page_size) / row_height).floor() as u32)
+            .saturating_sub(1)
+            .max(first)
+            .min(count - 1);
+
+        if selected != self.selected {
+            let position = f64::from(selected) * row_height;
+
+            // Keep a selection made by keyboard navigation while GTK reveals
+            // it.
+            if position < previous_offset || position + row_height > previous_offset + page_size {
+                if (first..=last).contains(&selected) {
+                    self.selected = selected;
+                    self.row_offset = position - top;
+                }
+
+                return selected;
+            }
+
+            self.row_offset = position - previous_offset;
+        }
+
+        self.selected = (((top + self.row_offset) / row_height).round() as u32).clamp(first, last);
+
+        self.selected
+    }
+}
+
 pub struct ResultList {
     root: GtkBox,
     list: ListView,
@@ -132,6 +187,22 @@ impl ResultList {
             .build();
         frame.add_css_class("results-frame");
         let scroll = SmoothScroll::new(&frame, Orientation::Vertical);
+        let adjustment = frame.vadjustment();
+        let anchor = Cell::new(SelectionAnchor {
+            scroll_offset: adjustment.value(),
+            selected: selection.selected(),
+            row_offset: 0.0,
+        });
+        adjustment.connect_value_changed(glib::clone!(
+            #[weak]
+            selection,
+            move |adjustment| {
+                let mut state = anchor.get();
+                let selected = state.update(adjustment, &selection);
+                anchor.set(state);
+                selection.set_selected(selected);
+            }
+        ));
 
         let empty = Label::new(Some("No result"));
         empty.add_css_class("empty-state");
@@ -233,11 +304,9 @@ impl ResultList {
         self.selection
             .set_selected(selected.map_or(gtk::INVALID_LIST_POSITION, |index| index as u32));
 
-        if let Some(selected) = selected.filter(|_| selected_id.is_some()) {
+        if let Some(selected) = selected {
             self.list
                 .scroll_to(selected as u32, ListScrollFlags::NONE, None);
-        } else {
-            self.frame.vadjustment().set_value(0.0);
         }
     }
 
