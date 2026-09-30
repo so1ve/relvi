@@ -63,6 +63,33 @@ History survives restarts in `$XDG_STATE_HOME/relvi/clipboard.json` (normally `~
 
 Clipboard monitoring requires `ext-data-control` or `wlr-data-control` support in the compositor.
 
+## Emoji
+
+<p align="center">
+  <img src="docs/screenshots/emoji.png" width="540" alt="Relvi emoji picker" />
+</p>
+
+Open with `relvi emoji`, or show/hide with `relvi emoji toggle`.
+
+Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:rocket:`. Categories filter the grid. Recently copied emoji appear first, and the Recent tab keeps the exact variants you used.
+
+### Shortcuts
+
+| Action | Shortcut |
+| --- | --- |
+| Copy an emoji | <kbd>Enter</kbd>, <kbd>Ctrl</kbd> + <kbd>C</kbd>, or a single click |
+| Move left / right | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
+| Move up / down | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
+| Previous / next category | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Tab</kbd> |
+| Focus search | Start typing, or <kbd>Ctrl</kbd> + <kbd>F</kbd> |
+| Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
+| Change skin tone | Hand button or <kbd>Ctrl</kbd> + <kbd>T</kbd>; add <kbd>Shift</kbd> to cycle backwards |
+| Close | <kbd>Esc</kbd> |
+
+Left/right arrows edit the query while search has focus. Copying closes the picker; paste into your app as usual. The last 48 copied emoji and your skin tone preference are saved in `$XDG_STATE_HOME/relvi/emoji.json`.
+
+The catalog loads on first use and works offline. Search annotations come from [Unicode CLDR](https://cldr.unicode.org/) under the [Unicode License](resources/emoji/LICENSE). To update the bundled annotations, run `cargo xtask emoji`.
+
 ## Install
 
 ### Nix
@@ -108,7 +135,7 @@ Ensure `~/.local/bin` is on the graphical session's `PATH`. Released Linux binar
 
 ### Startup and keybindings
 
-Start `relvi daemon` with your Wayland session. This keeps the app catalog in memory and records clipboard history between uses. Bind `relvi toggle` and `relvi clipboard toggle` to separate shortcuts.
+Start `relvi daemon` with your Wayland session. This keeps the app catalog in memory and records clipboard history between uses. Bind `relvi toggle`, `relvi clipboard toggle` and `relvi emoji toggle` to separate shortcuts.
 
 <details>
 <summary>Niri</summary>
@@ -119,6 +146,7 @@ spawn-at-startup "relvi" "daemon"
 binds {
     Alt+Space { spawn "relvi" "toggle"; }
     Alt+V { spawn "relvi" "clipboard" "toggle"; }
+    Alt+. { spawn "relvi" "emoji" "toggle"; }
 }
 ```
 
@@ -134,6 +162,7 @@ end)
 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("relvi toggle"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("relvi clipboard toggle"))
+hl.bind("SUPER + .", hl.dsp.exec_cmd("relvi emoji toggle"))
 ```
 
 </details>
@@ -145,6 +174,7 @@ hl.bind("SUPER + V", hl.dsp.exec_cmd("relvi clipboard toggle"))
 exec relvi daemon
 bindsym $mod+space exec relvi toggle
 bindsym $mod+v exec relvi clipboard toggle
+bindsym $mod+. exec relvi emoji toggle
 ```
 
 </details>

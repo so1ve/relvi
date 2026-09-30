@@ -1,4 +1,5 @@
 mod history;
+mod session;
 mod watch;
 
 use std::error::Error;
@@ -7,7 +8,7 @@ use std::sync::Arc;
 use gtk::{gdk, glib};
 
 pub use self::history::History;
-pub use self::watch::watch;
+pub use self::session::{Change, Session};
 use crate::image::Image;
 
 pub const MAX_IMAGE_BYTES: usize = 16 * 1024 * 1024;

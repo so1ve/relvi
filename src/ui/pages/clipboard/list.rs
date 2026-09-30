@@ -11,7 +11,7 @@ use crate::ui::components::ListNavigation;
 
 pub struct HistoryList {
     root: Overlay,
-    navigation: ListNavigation,
+    navigation: ListNavigation<ListView>,
     model: gio::ListStore,
     selection: SingleSelection,
     empty: Label,
@@ -127,8 +127,8 @@ impl HistoryList {
         })
     }
 
-    pub fn move_selection(&self, offset: i32) {
-        self.navigation.move_selection(offset);
+    pub fn move_items(&self, offset: i32) {
+        self.navigation.move_items(offset);
     }
 
     pub fn scroll_pages(&self, pages: f64) {

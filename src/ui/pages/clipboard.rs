@@ -1,31 +1,28 @@
 mod list;
 mod preview;
 
-use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use gtk::prelude::*;
 use gtk::{
-    Align, ApplicationWindow, Box as GtkBox, Button, EventControllerKey, Image, Label, Orientation,
-    PropagationPhase, SearchEntry, Widget, gdk, gio, glib,
+    Align, Box as GtkBox, Button, EventControllerKey, Image, Label, Orientation, PropagationPhase,
+    SearchEntry, Widget, gdk, glib,
 };
 use tracing::error;
 
 use self::list::HistoryList;
 use self::preview::Preview;
 use super::Page;
-use crate::clipboard::{self, History};
+use crate::clipboard::{self, Change, Session};
 use crate::ui::components::{button, search_field, toolbar};
 use crate::ui::keybindings::keybindings;
 
 pub struct ClipboardPage {
-    window: ApplicationWindow,
     root: GtkBox,
     search: SearchEntry,
     list: HistoryList,
     preview: Preview,
-    history: RefCell<Option<History>>,
-    pending_clear: Cell<bool>,
+    session: Rc<Session>,
     count: Label,
     copy: Button,
     remove: Button,
@@ -34,7 +31,7 @@ pub struct ClipboardPage {
 }
 
 impl ClipboardPage {
-    pub fn new(window: &ApplicationWindow) -> Rc<Self> {
+    pub fn new(session: Rc<Session>) -> Rc<Self> {
         let search = search_field("Search clipboard…");
         let count = Label::new(Some("History"));
         count.add_css_class("pane-title");
@@ -97,13 +94,11 @@ impl ClipboardPage {
         root.append(&body);
 
         let page = Rc::new(Self {
-            window: window.clone(),
             root,
             search,
             list,
             preview,
-            history: RefCell::new(None),
-            pending_clear: Cell::new(false),
+            session,
             count,
             copy,
             remove,
@@ -154,47 +149,28 @@ impl ClipboardPage {
         page.clear.connect_clicked(glib::clone!(
             #[weak]
             page,
-            move |_| page.clear()
+            move |_| {
+                page.session.clear();
+                page.search.grab_focus();
+            }
         ));
 
-        let weak = Rc::downgrade(&page);
-        glib::spawn_future_local(async move {
-            let history = gio::spawn_blocking(History::load).await.unwrap();
-            {
-                let Some(page) = weak.upgrade() else {
-                    return;
-                };
-                page.history.replace(Some(history));
-                if page.pending_clear.replace(false) {
-                    page.clear();
-                } else {
-                    page.refresh(None);
+        page.session.connect_changed(glib::clone!(
+            #[weak]
+            page,
+            move |change| match change {
+                Change::Entries => {
+                    let selected = page.list.selected();
+                    page.refresh(selected.as_ref().map(|entry| entry.id.as_str()));
+                }
+                Change::Error(error) => {
+                    page.error.set_tooltip_text(Some(&format!(
+                        "Clipboard monitoring unavailable: {error}"
+                    )));
+                    page.error.set_visible(true);
                 }
             }
-
-            let events = clipboard::watch();
-            while let Ok(event) = events.recv().await {
-                let Some(page) = weak.upgrade() else {
-                    break;
-                };
-
-                match event {
-                    Ok(entry) => {
-                        let selected = page.list.selected();
-                        let changed = page.history.borrow_mut().as_mut().unwrap().record(entry);
-                        if changed {
-                            page.refresh(selected.as_ref().map(|entry| entry.id.as_str()));
-                        }
-                    }
-                    Err(error) => {
-                        page.error.set_tooltip_text(Some(&format!(
-                            "Clipboard monitoring unavailable: {error}"
-                        )));
-                        page.error.set_visible(true);
-                    }
-                }
-            }
-        });
+        ));
 
         page
     }
@@ -213,22 +189,8 @@ impl ClipboardPage {
             return;
         }
 
-        self.history.borrow_mut().as_mut().unwrap().record(entry);
-        self.refresh(None);
-        self.window.set_visible(false);
-    }
-
-    pub fn clear(&self) {
-        if let Some(history) = self.history.borrow_mut().as_mut() {
-            history.clear();
-        } else {
-            self.pending_clear.set(true);
-
-            return;
-        }
-
-        self.refresh(None);
-        self.search.grab_focus();
+        self.session.record(entry);
+        self.root.activate_action("win.hide", None).unwrap();
     }
 
     fn key_pressed(
@@ -239,13 +201,16 @@ impl ClipboardPage {
     ) -> glib::Propagation {
         keybindings! {
             key, modifiers;
-            Escape => self.window.set_visible(false),
+            Escape => self.root.activate_action("win.hide", None).unwrap(),
             Return | KP_Enter => self.copy_selected(),
             Ctrl + C if self.list.selected().is_some() => self.copy_selected(),
             Ctrl + Delete => self.remove_selected(),
-            Ctrl + Shift + Delete => self.clear(),
-            Down | Ctrl + J | Ctrl + N => self.list.move_selection(1),
-            Up | Ctrl + K | Ctrl + P => self.list.move_selection(-1),
+            Ctrl + Shift + Delete => {
+                self.session.clear();
+                self.search.grab_focus();
+            },
+            Down | Ctrl + J | Ctrl + N => self.list.move_items(1),
+            Up | Ctrl + K | Ctrl + P => self.list.move_items(-1),
             Ctrl + D => self.list.scroll_pages(0.5),
             Ctrl + U => self.list.scroll_pages(-0.5),
             _ => {
@@ -269,28 +234,19 @@ impl ClipboardPage {
 
     fn remove_selected(&self) {
         if let Some(entry) = self.list.selected() {
-            self.history
-                .borrow_mut()
-                .as_mut()
-                .unwrap()
-                .remove(&entry.id);
-            self.refresh(None);
+            self.session.remove(&entry.id);
         }
 
         self.search.grab_focus();
     }
 
     fn refresh(&self, selected: Option<&str>) {
-        let history = self.history.borrow();
-        let Some(history) = history.as_ref() else {
-            return;
-        };
         let query = self.search.text();
-        self.count
-            .set_text(&format!("History · {}", history.entries().len()));
-        self.clear.set_sensitive(!history.entries().is_empty());
+        let (total, matches) = self.session.search(&query);
+        self.count.set_text(&format!("History · {total}"));
+        self.clear.set_sensitive(total != 0);
         self.list.show(
-            history.search(&query).cloned(),
+            matches,
             selected,
             if query.trim().is_empty() {
                 "Clipboard is empty"

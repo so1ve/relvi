@@ -84,16 +84,6 @@ impl History {
         self.save();
     }
 
-    pub fn search(&self, query: &str) -> impl Iterator<Item = &Arc<Entry>> {
-        let query = query.to_lowercase();
-
-        self.entries.iter().filter(move |entry| {
-            query
-                .split_whitespace()
-                .all(|term| entry.searchable.contains(term))
-        })
-    }
-
     fn save(&mut self) {
         self.store.save(self.entries.clone());
     }

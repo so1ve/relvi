@@ -6,25 +6,24 @@ use gtk::prelude::*;
 use gtk::{Application, gio, glib};
 use tracing::{debug, error};
 
-use crate::cli::{Cli, ClipboardCommand, Command};
-use crate::ui::{self, ClipboardPage, LauncherPage, Shell};
-use crate::{clipboard, history};
+use crate::cli::{Cli, ClipboardCommand, Command, EmojiCommand};
+use crate::ui::{PageKind, Shell};
+use crate::{clipboard, launcher};
 
 const APP_ID: &str = "dev.so1ve.Relvi";
 
 struct App {
     shell: Shell,
-    launcher: Rc<LauncherPage>,
-    clipboard: Rc<ClipboardPage>,
+    launcher: Rc<launcher::Launcher>,
+    clipboard: Rc<clipboard::Session>,
     hold: OnceCell<gio::ApplicationHoldGuard>,
 }
 
 impl App {
     fn new(application: &Application) -> Self {
-        let window = ui::create_window(application);
-        let launcher = LauncherPage::new(&window);
-        let clipboard = ClipboardPage::new(&window);
-        let shell = Shell::new(window, &[launcher.as_ref(), clipboard.as_ref()]);
+        let launcher = launcher::Launcher::new();
+        let clipboard = clipboard::Session::new();
+        let shell = Shell::new(application, Rc::clone(&launcher), Rc::clone(&clipboard));
 
         Self {
             shell,
@@ -46,11 +45,15 @@ impl App {
 
         match cli.command {
             None => application.activate(),
-            Some(Command::Toggle) => self.shell.toggle(self.launcher.as_ref()),
+            Some(Command::Toggle) => self.shell.toggle(PageKind::Launcher),
             Some(Command::Clipboard { command }) => match command {
-                None => self.shell.present(self.clipboard.as_ref()),
-                Some(ClipboardCommand::Toggle) => self.shell.toggle(self.clipboard.as_ref()),
+                None => self.shell.present(PageKind::Clipboard),
+                Some(ClipboardCommand::Toggle) => self.shell.toggle(PageKind::Clipboard),
                 Some(ClipboardCommand::Clear) => self.clipboard.clear(),
+            },
+            Some(Command::Emoji { command }) => match command {
+                None => self.shell.present(PageKind::Emoji),
+                Some(EmojiCommand::Toggle) => self.shell.toggle(PageKind::Emoji),
             },
             Some(Command::Daemon) => {
                 self.hold.get_or_init(|| application.hold());
@@ -89,7 +92,7 @@ pub fn run(command: Option<&Command>) -> glib::ExitCode {
     match command {
         Some(Command::Quit) => return glib::ExitCode::SUCCESS,
         Some(Command::ClearHistory) => {
-            history::History::load().clear();
+            launcher::History::load().clear();
 
             return glib::ExitCode::SUCCESS;
         }
@@ -107,7 +110,7 @@ pub fn run(command: Option<&Command>) -> glib::ExitCode {
     application.connect_activate(glib::clone!(
         #[weak]
         app,
-        move |_| app.shell.present(app.launcher.as_ref())
+        move |_| app.shell.present(PageKind::Launcher)
     ));
     application.connect_command_line(glib::clone!(
         #[weak]

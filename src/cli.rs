@@ -2,6 +2,12 @@ use clap::{Parser, Subcommand};
 use clap_complete::Shell;
 
 #[derive(Subcommand)]
+pub enum EmojiCommand {
+    /// Show or hide the emoji picker
+    Toggle,
+}
+
+#[derive(Subcommand)]
 pub enum ClipboardCommand {
     /// Show or hide clipboard history
     Toggle,
@@ -11,6 +17,11 @@ pub enum ClipboardCommand {
 
 #[derive(Subcommand)]
 pub enum Command {
+    /// Find and copy emoji
+    Emoji {
+        #[command(subcommand)]
+        command: Option<EmojiCommand>,
+    },
     /// Search clipboard history
     Clipboard {
         #[command(subcommand)]

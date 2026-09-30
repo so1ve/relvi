@@ -146,12 +146,14 @@ window.relvi-window {
   background-color: rgba(255, 255, 255, 0.32);
 }
 
-.item-list {
+.item-list,
+.item-grid {
   padding: 0;
   background-color: transparent;
 }
 
-.item-list > row {
+.item-list > row,
+.item-grid > child {
   padding: 0;
   border-radius: 3px;
   color: #dedee2;
@@ -160,12 +162,14 @@ window.relvi-window {
   outline-style: none;
 }
 
-.item-list > row:hover:not(:selected) {
+.item-list > row:hover:not(:selected),
+.item-grid > child:hover:not(:selected) {
   color: #f0f0f2;
   background-color: rgba(255, 255, 255, 0.04);
 }
 
-.item-list > row:selected {
+.item-list > row:selected,
+.item-grid > child:selected {
   color: #f5f5f7;
   background-color: rgba(255, 255, 255, 0.08);
 }
@@ -297,4 +301,30 @@ window.relvi-window {
 
 .image-preview {
   margin: 20px;
+}
+
+.emoji-cell {
+  min-width: 32px;
+  min-height: 44px;
+  padding: 2px;
+  font-family: emoji;
+  font-size: 26px;
+}
+
+.emoji-footer {
+  min-height: 40px;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.emoji-footer button {
+  min-height: 28px;
+  margin: 4px 0;
+}
+
+.emoji-tone {
+  border: none;
+  background-color: transparent;
+  font-family: emoji;
+  font-size: 20px;
 }

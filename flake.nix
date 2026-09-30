@@ -1,5 +1,5 @@
 {
-  description = "A focused Wayland application launcher";
+  description = "A focused launcher for Wayland";
 
   nixConfig = {
     extra-substituters = [ "https://so1ve.cachix.org" ];
@@ -31,6 +31,7 @@
               ./Cargo.lock
               ./Cargo.toml
               ./src
+              ./xtask
               ./resources
               ./data
             ];

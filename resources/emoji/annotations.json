@@ -1,0 +1,7658 @@
+{
+  "#⃣": [
+    "按键: #",
+    "keycap\n按键"
+  ],
+  "*⃣": [
+    "按键: *",
+    "keycap\n按键"
+  ],
+  "0⃣": [
+    "按键: 0",
+    "0\nkeycap\nzero\n按键"
+  ],
+  "1⃣": [
+    "按键: 1",
+    "1\nkeycap\none\n一\n按键"
+  ],
+  "2⃣": [
+    "按键: 2",
+    "2\nkeycap\ntwo\n二\n按键"
+  ],
+  "3⃣": [
+    "按键: 3",
+    "3\nkeycap\nthree\n三\n按键"
+  ],
+  "4⃣": [
+    "按键: 4",
+    "4\nfour\nkeycap\n四\n按键"
+  ],
+  "5⃣": [
+    "按键: 5",
+    "5\nfive\nkeycap\n五\n按键"
+  ],
+  "6⃣": [
+    "按键: 6",
+    "6\nkeycap\nsix\n六\n按键"
+  ],
+  "7⃣": [
+    "按键: 7",
+    "7\nkeycap\nseven\n七\n按键"
+  ],
+  "8⃣": [
+    "按键: 8",
+    "8\neight\nkeycap\n八\n按键"
+  ],
+  "9⃣": [
+    "按键: 9",
+    "9\nkeycap\nnine\n九\n按键"
+  ],
+  "©": [
+    "版权",
+    "C\ncopyright\n版权"
+  ],
+  "®": [
+    "注册",
+    "R\nregistered\n注册\n注册标记"
+  ],
+  "‼": [
+    "双感叹号",
+    "!\n!!\nbangbang\ndouble\nexclamation\nmark\npunctuation\n！\n！！\n两个\n双叹号\n双感叹号\n叹号\n吃惊\n标点符号"
+  ],
+  "⁉": [
+    "感叹疑问号",
+    "!\n!?\n?\nexclamation\ninterrobang\nmark\npunctuation\nquestion\n！\n！？\n？\n叹号\n叹号加问号\n吃惊\n感叹疑问号\n标点符号\n疑问惊叹号\n问号"
+  ],
+  "™": [
+    "商标",
+    "mark\nTM\ntrade\ntrademark\n产品\n商标\n标志"
+  ],
+  "ℹ": [
+    "信息",
+    "I\ninformation\n信息\n信息中心\n查询\n资料"
+  ],
+  "↔": [
+    "左右箭头",
+    "arrow\nleft-right\n左右\n左右箭头\n箭头"
+  ],
+  "↕": [
+    "上下箭头",
+    "arrow\nup-down\n上下\n上下箭头\n箭头"
+  ],
+  "↖": [
+    "左上箭头",
+    "arrow\ndirection\nintercardinal\nnorthwest\nup-left\n左上\n左上箭头\n方向\n标识\n箭头\n西北"
+  ],
+  "↗": [
+    "右上箭头",
+    "arrow\ndirection\nintercardinal\nnortheast\nup-right\n东北\n右上\n右上箭头\n方位\n方向\n标识\n箭头"
+  ],
+  "↘": [
+    "右下箭头",
+    "arrow\ndirection\ndown-right\nintercardinal\nsoutheast\n东南\n右下\n右下箭头\n方位\n方向\n标识\n箭头"
+  ],
+  "↙": [
+    "左下箭头",
+    "arrow\ndirection\ndown-left\nintercardinal\nsouthwest\n左下\n左下箭头\n方向\n标识\n箭头\n西南"
+  ],
+  "↩": [
+    "右转弯箭头",
+    "arrow\ncurving\nleft\nright\n右转弯\n右转弯箭头\n向左弯曲的右箭头\n箭头"
+  ],
+  "↪": [
+    "左转弯箭头",
+    "arrow\ncurving\nleft\nright\n向右弯曲的左箭头\n左转弯\n左转弯箭头\n箭头"
+  ],
+  "⌚": [
+    "手表",
+    "clock\ntime\nwatch\n手表\n时间\n表"
+  ],
+  "⌛": [
+    "沙漏",
+    "done\nhourglass\nsand\ntime\ntimer\n时间\n沙漏\n计时\n计时器"
+  ],
+  "⌨": [
+    "键盘",
+    "computer\nkeyboard\n打字\n按键\n电脑\n输入\n键盘"
+  ],
+  "⏏": [
+    "推出按钮",
+    "button\neject\n向上三角\n弹出\n推出按钮"
+  ],
+  "⏩": [
+    "快进按钮",
+    "arrow\nbutton\ndouble\nfast\nfast-forward\nforward\n双箭头\n向前\n快进\n快进按钮\n快速"
+  ],
+  "⏪": [
+    "快退按钮",
+    "arrow\nbutton\ndouble\nfast\nreverse\nrewind\n倒回\n双箭头\n快退\n快退按钮\n快速倒带"
+  ],
+  "⏫": [
+    "快速上升按钮",
+    "arrow\nbutton\ndouble\nfast\nup\n上\n双箭头\n向上\n快速上升按钮\n快速向上"
+  ],
+  "⏬": [
+    "快速下降按钮",
+    "arrow\nbutton\ndouble\ndown\nfast\n下\n双箭头\n向下\n快速下降按钮\n快速向下"
+  ],
+  "⏭": [
+    "下一个音轨按钮",
+    "arrow\nbutton\nnext\nscene\ntrack\ntriangle\n三角\n下一个\n下一个音轨按钮\n下一曲\n下一首\n往后\n箭头"
+  ],
+  "⏮": [
+    "上一个音轨按钮",
+    "arrow\nbutton\nlast\nprevious\nscene\ntrack\ntriangle\n三角\n上一个\n上一个音轨按钮\n上一曲\n上一首\n箭头"
+  ],
+  "⏯": [
+    "播放或暂停按钮",
+    "arrow\nbutton\npause\nplay\nright\ntriangle\n三角\n向右\n播放\n播放或暂停\n播放或暂停按钮\n暂停"
+  ],
+  "⏰": [
+    "闹钟",
+    "alarm\nclock\nhours\nhrs\nlate\ntime\nwaiting\n小时\n时间\n钟\n闹钟"
+  ],
+  "⏱": [
+    "秒表",
+    "clock\nstopwatch\ntime\n码表\n秒表\n计时\n计时器"
+  ],
+  "⏲": [
+    "定时器",
+    "clock\ntimer\n定时器\n时间\n计时\n计时器"
+  ],
+  "⏳": [
+    "沙正往下流的沙漏",
+    "done\nflowing\nhourglass\nhours\nnot\nsand\ntimer\nwaiting\nyolo\n沙\n沙正往下流的沙漏\n沙漏\n等待\n计时器"
+  ],
+  "⏸": [
+    "暂停按钮",
+    "bar\nbutton\ndouble\npause\nvertical\n停止\n双条形\n暂停\n暂停按钮"
+  ],
+  "⏹": [
+    "停止按钮",
+    "button\nsquare\nstop\n停止\n停止按钮\n方形\n正方形\n终止"
+  ],
+  "⏺": [
+    "录制按钮",
+    "button\ncircle\nrecord\n制作\n圆\n录像\n录制\n录制按钮\n录音"
+  ],
+  "Ⓜ": [
+    "圆圈包围的M",
+    "circle\ncircled\nM\nm\n圆圈包围的M\n圈\n字母\n米"
+  ],
+  "▪": [
+    "黑色小方块",
+    "black\ngeometric\nsmall\nsquare\n几何\n几何图形\n小\n方形\n正方形\n黑色\n黑色小方块"
+  ],
+  "▫": [
+    "白色小方块",
+    "geometric\nsmall\nsquare\nwhite\n小\n方形\n正方形\n白色\n白色小方块"
+  ],
+  "▶": [
+    "播放按钮",
+    "arrow\nbutton\nplay\nright\ntriangle\n三角\n右\n向右\n播放\n播放按钮\n箭头"
+  ],
+  "◀": [
+    "倒退按钮",
+    "arrow\nbutton\nleft\nreverse\ntriangle\n三角\n倒转\n倒退按钮\n后退\n向左\n左"
+  ],
+  "◻": [
+    "白色中方块",
+    "geometric\nmedium\nsquare\nwhite\n中等\n方形\n正方形\n白色\n白色中方块"
+  ],
+  "◼": [
+    "黑色中方块",
+    "black\ngeometric\nmedium\nsquare\n中等\n几何\n方形\n正方形\n黑色\n黑色中方块"
+  ],
+  "◽": [
+    "白色中小方块",
+    "geometric\nmedium-small\nsquare\nwhite\n中小 正方形\n几何\n方形\n白色\n白色中小方块"
+  ],
+  "◾": [
+    "黑色中小方块",
+    "black\ngeometric\nmedium-small\nsquare\n中小\n方形\n正方形\n黑色\n黑色中小方块"
+  ],
+  "☀": [
+    "太阳",
+    "bright\nrays\nspace\nsun\nsunny\nweather\n光线\n太阳\n晴\n晴天\n阳光明媚\n阳光普照"
+  ],
+  "☁": [
+    "云",
+    "cloud\nweather\n云\n云彩\n云朵\n天气\n阴"
+  ],
+  "☂": [
+    "伞",
+    "clothing\nrain\numbrella\n伞\n雨\n雨伞"
+  ],
+  "☃": [
+    "雪与雪人",
+    "cold\nman\nsnow\nsnowman\n泠\n雪\n雪与雪人\n雪人"
+  ],
+  "☄": [
+    "彗星",
+    "comet\nspace\n太空\n彗星"
+  ],
+  "☎": [
+    "电话",
+    "phone\ntelephone\n固定电话\n固话\n座机\n电话"
+  ],
+  "☑": [
+    "勾选框",
+    "✓\nballot\nbox\ncheck\nchecked\ndone\noff\ntick\n做好\n勾号\n勾选\n勾选框\n复选框\n带勾方格\n打勾\n搞定\n选票"
+  ],
+  "☔": [
+    "雨伞",
+    "clothing\ndrop\ndrops\nrain\numbrella\nweather\n下雨\n伞\n雨伞\n雨滴"
+  ],
+  "☕": [
+    "热饮",
+    "beverage\ncafe\ncaffeine\nchai\ncoffee\ndrink\nhot\nmorning\nsteaming\ntea\n咖啡\n早晨\n星巴克\n热气腾腾\n热饮\n茶\n饮料"
+  ],
+  "☘": [
+    "三叶草",
+    "irish\nplant\nshamrock\n三叶草\n爱尔兰\n苜蓿\n酢浆草"
+  ],
+  "☝": [
+    "食指向上指",
+    "finger\nhand\nindex\npoint\npointing\nthis\nup\n向上指\n手\n指上\n食指\n食指向上指"
+  ],
+  "☠": [
+    "骷髅",
+    "bone\ncrossbones\ndead\ndeath\nface\nmonster\nskull\n交叉股骨\n头骨\n妖怪\n怪物\n死亡\n海盗\n脸\n骨头\n骷髅"
+  ],
+  "☢": [
+    "辐射",
+    "radioactive\nsign\n放射性\n标识\n辐射"
+  ],
+  "☣": [
+    "生物危害",
+    "biohazard\nsign\n动物\n当心感染\n污染\n生物危害\n警告"
+  ],
+  "☦": [
+    "东正教十字架",
+    "Christian\ncross\northodox\nreligion\n东正教\n东正教十字架\n十字架\n基督\n宗教\n正教会十字"
+  ],
+  "☪": [
+    "星月",
+    "crescent\nislam\nMuslim\nramadan\nreligion\nstar\n伊斯兰\n宗教\n斋戒月\n星月\n穆斯林"
+  ],
+  "☮": [
+    "和平符号",
+    "healing\npeace\npeaceful\nsymbol\n和平\n和平符号"
+  ],
+  "☯": [
+    "阴阳",
+    "difficult\nlives\nreligion\ntao\ntaoist\ntotal\nyang\nyin\nyinyang\n太极\n宗教\n道\n道教\n阳\n阴\n阴阳"
+  ],
+  "☸": [
+    "法轮",
+    "Buddhist\ndharma\nreligion\nwheel\n佛\n宗教\n法轮\n舵\n轮盘\n达摩"
+  ],
+  "☹": [
+    "不满",
+    "face\nfrown\nfrowning\nsad\n不满\n不爽\n不高兴\n委屈\n皱眉\n皱眉的脸\n脸"
+  ],
+  "☺": [
+    "微笑",
+    "face\nhappy\noutlined\nrelaxed\nsmile\nsmiling\n呵呵\n开心\n微笑\n放松\n笑\n脸"
+  ],
+  "♀": [
+    "女性符号",
+    "female\nsign\nwoman\n女性符号\n符号\n雌性"
+  ],
+  "♂": [
+    "男性符号",
+    "male\nman\nsign\n男性符号\n符号\n雄性"
+  ],
+  "♈": [
+    "白羊座",
+    "Aries\nhoroscope\nram\nzodiac\n公羊\n星座\n牡羊座\n白羊座"
+  ],
+  "♉": [
+    "金牛座",
+    "bull\nhoroscope\nox\nTaurus\nzodiac\n公牛\n星座\n金牛\n金牛座"
+  ],
+  "♊": [
+    "双子座",
+    "Gemini\nhoroscope\ntwins\nzodiac\n双子\n双子座\n孪生子\n星座"
+  ],
+  "♋": [
+    "巨蟹座",
+    "Cancer\ncrab\nhoroscope\nzodiac\n巨蟹\n巨蟹座\n星座\n螃蟹"
+  ],
+  "♌": [
+    "狮子座",
+    "horoscope\nLeo\nlion\nzodiac\n星座\n狮子座\n雄狮"
+  ],
+  "♍": [
+    "处女座",
+    "horoscope\nVirgo\nzodiac\n处女座\n室女座\n星座\n黄道十二宫"
+  ],
+  "♎": [
+    "天秤座",
+    "balance\nhoroscope\njustice\nLibra\nscales\nzodiac\n天秤座\n平衡\n星座\n正义"
+  ],
+  "♏": [
+    "天蝎座",
+    "horoscope\nScorpio\nscorpion\nScorpius\nzodiac\n天蝎\n天蝎座\n星座\n蝎子"
+  ],
+  "♐": [
+    "射手座",
+    "archer\nhoroscope\nSagittarius\nzodiac\n人马座\n射手\n射手座\n弓箭手\n星座"
+  ],
+  "♑": [
+    "摩羯座",
+    "Capricorn\ngoat\nhoroscope\nzodiac\n天宫图\n山羊\n摩羯\n摩羯座\n星座"
+  ],
+  "♒": [
+    "水瓶座",
+    "Aquarius\nbearer\nhoroscope\nwater\nzodiac\n星座\n水\n水瓶座"
+  ],
+  "♓": [
+    "双鱼座",
+    "fish\nhoroscope\nPisces\nzodiac\n双鱼\n双鱼座\n星座\n鱼"
+  ],
+  "♟": [
+    "兵",
+    "chess\ndupe\nexpendable\npawn\n兵\n受骗者\n国际象棋\n牺牲品"
+  ],
+  "♠": [
+    "黑桃",
+    "card\ngame\nspade\nsuit\n扑克\n牌\n葵扇\n黑桃\n黑桃花色"
+  ],
+  "♣": [
+    "梅花",
+    "card\nclub\nclubs\ngame\nsuit\n扑克\n梅花\n梅花花色\n牌\n草花"
+  ],
+  "♥": [
+    "红桃",
+    "card\nemotion\ngame\nheart\nhearts\nsuit\n扑克\n牌\n红心\n红桃\n红桃花色"
+  ],
+  "♦": [
+    "方片",
+    "card\ndiamond\ngame\nsuit\n扑克\n方块\n方片\n牌\n牌局"
+  ],
+  "♨": [
+    "温泉",
+    "hot\nhotsprings\nsprings\nsteaming\n水\n泉\n温泉\n热气腾腾\n蒸汽"
+  ],
+  "♻": [
+    "回收标志",
+    "recycle\nrecycling\nsymbol\n再利用\n再生\n回收\n回收标志\n循环"
+  ],
+  "♾": [
+    "无穷大",
+    "forever\ninfinity\nunbounded\nuniversal\n宇宙\n无尽\n无穷大\n极大"
+  ],
+  "♿": [
+    "轮椅标识",
+    "access\nhandicap\nsymbol\nwheelchair\n无障碍\n残疾\n残障\n轮椅\n轮椅标识\n轮椅符号"
+  ],
+  "⚒": [
+    "锤子与镐",
+    "hammer\npick\ntool\n工具\n铁锤\n铁镐\n锤子\n锤子与镐\n镐\n镐子"
+  ],
+  "⚓": [
+    "锚",
+    "anchor\nship\ntool\n停泊\n工具\n船\n锚"
+  ],
+  "⚔": [
+    "交叉放置的剑",
+    "crossed\nswords\nweapon\n交叉\n交叉放置的剑\n剑\n十字\n双剑\n战死\n武器"
+  ],
+  "⚕": [
+    "医疗标志",
+    "aesculapius\nmedical\nmedicine\nstaff\nsymbol\n医学\n医疗\n医疗标志\n蛇杖\n阿斯克勒庇俄斯\n阿斯克勒庇俄斯蛇杖"
+  ],
+  "⚖": [
+    "天平",
+    "balance\njustice\nLibra\nscale\nscales\ntool\nweight\nzodiac\n公平\n公正\n天平\n天秤\n天秤座\n星座\n正义\n法律"
+  ],
+  "⚗": [
+    "蒸馏器",
+    "alembic\nchemistry\ntool\n净化\n化学\n实验\n工具\n蒸馏\n蒸馏器"
+  ],
+  "⚙": [
+    "齿轮",
+    "cog\ncogwheel\ngear\ntool\n传动\n工具\n机械\n零件\n齿轮"
+  ],
+  "⚛": [
+    "原子符号",
+    "atheist\natom\nsymbol\n原子\n原子符号\n无神论\n物质"
+  ],
+  "⚜": [
+    "百合花饰",
+    "fleur-de-lis\nknights\n百合花饰\n鸢尾花"
+  ],
+  "⚠": [
+    "警告",
+    "caution\nwarning\n小心\n警告"
+  ],
+  "⚡": [
+    "高压",
+    "danger\nelectric\nelectricity\nhigh\nlightning\nnature\nthunder\nthunderbolt\nvoltage\nzap\n危险\n有电\n闪电\n高压"
+  ],
+  "⚧": [
+    "跨性别符号",
+    "symbol\ntransgender\n跨性别\n跨性别符号"
+  ],
+  "⚪": [
+    "白色圆",
+    "circle\ngeometric\nwhite\n圆\n圈\n白\n白圈\n白色圆"
+  ],
+  "⚫": [
+    "黑色圆",
+    "black\ncircle\ngeometric\n圆\n圈\n黑\n黑色圆"
+  ],
+  "⚰": [
+    "棺材",
+    "coffin\ndead\ndeath\nvampire\n埋葬\n棺材\n死亡\n灵柩\n葬礼\n陵墓"
+  ],
+  "⚱": [
+    "骨灰缸",
+    "ashes\ndeath\nfuneral\nurn\n丧礼\n死亡\n瓮\n缸\n葬礼\n骨灰\n骨灰缸\n骨灰罐"
+  ],
+  "⚽": [
+    "足球",
+    "ball\nfootball\nfutbol\nsoccer\nsport\n大罗\n梅西\n球\n球赛\n罗纳尔多\n胖罗\n英式足球\n足球\n运动"
+  ],
+  "⚾": [
+    "棒球",
+    "ball\nbaseball\nsport\n棒球\n球\n运动"
+  ],
+  "⛄": [
+    "雪人",
+    "cold\nman\nsnow\nsnowman\n下雪\n泠\n雪人"
+  ],
+  "⛅": [
+    "阴",
+    "behind\ncloud\ncloudy\nsun\nweather\n乌云蔽日\n多云\n阴"
+  ],
+  "⛈": [
+    "雷阵雨",
+    "cloud\nlightning\nrain\nthunder\nthunderstorm\n暴风雨\n阵雨\n雨\n雷\n雷暴\n雷阵雨"
+  ],
+  "⛎": [
+    "蛇夫座",
+    "bearer\nOphiuchus\nserpent\nsnake\nzodiac\n星座\n蛇\n蛇夫\n蛇夫座"
+  ],
+  "⛏": [
+    "铁镐",
+    "hammer\nmining\npick\ntool\n工具\n挖\n挖掘\n采矿\n铁镐\n锄头\n鹤嘴锄"
+  ],
+  "⛑": [
+    "白十字头盔",
+    "aid\ncross\nface\nhat\nhelmet\nrescue\nworker’s\n十字\n头盔\n安全帽\n救援人员头盔\n白十字头盔\n脸"
+  ],
+  "⛓": [
+    "链条",
+    "chain\nchains\n铁链\n链\n链条\n锁链"
+  ],
+  "⛓‍💥": [
+    "断链",
+    "break\nbreaking\nbroken\nchain\ncuffs\nfreedom\n手铐\n断开\n断开的链条\n断链\n自由\n链\n链条"
+  ],
+  "⛔": [
+    "禁止通行",
+    "do\nentry\nfail\nforbidden\nno\nnot\npass\nprohibited\ntraffic\n交通\n禁止入内\n禁止通行\n禁行\n请勿入内\n请勿驶入"
+  ],
+  "⛩": [
+    "神社",
+    "religion\nshinto\nshrine\n宗教\n日本\n神社\n神道教"
+  ],
+  "⛪": [
+    "教堂",
+    "bless\nchapel\nChristian\nchurch\ncross\nreligion\n基督\n基督教\n宗教\n小教堂\n教堂"
+  ],
+  "⛰": [
+    "山",
+    "mountain\n山\n峰"
+  ],
+  "⛱": [
+    "阳伞",
+    "ground\nrain\nsun\numbrella\n下雨\n伞\n地上的阳伞\n太阳\n阳伞"
+  ],
+  "⛲": [
+    "喷泉",
+    "fountain\n喷泉"
+  ],
+  "⛳": [
+    "高尔夫球洞",
+    "flag\ngolf\nhole\nsport\n果岭\n果岭旗\n球洞\n高尔夫\n高尔夫球洞\n高球"
+  ],
+  "⛴": [
+    "渡轮",
+    "boat\nferry\npassenger\n旅客\n渡船\n渡轮\n轮船"
+  ],
+  "⛵": [
+    "帆船",
+    "boat\nresort\nsailboat\nsailing\nsea\nyacht\n帆船\n游艇\n船\n驾帆船"
+  ],
+  "⛷": [
+    "滑雪的人",
+    "ski\nskier\nsnow\n滑雪\n滑雪的人\n雪"
+  ],
+  "⛸": [
+    "滑冰",
+    "ice\nskate\nskating\n冰刀\n溜冰\n滑冰"
+  ],
+  "⛹": [
+    "玩球",
+    "athletic\nball\nbasketball\nbouncing\nchampionship\ndribble\nnet\nperson\nplayer\nthrow\n体育\n全网无阻\n打球\n游戏\n玩\n玩球\n球\n篮球\n篮球运动员\n罚球\n运动\n运球\n锦标赛"
+  ],
+  "⛹‍♀": [
+    "女生玩球",
+    "athletic\nball\nbasketball\nbouncing\nchampionship\ndribble\nnet\nplayer\nthrow\nwoman\n女\n女生打篮球\n女生玩球\n游戏\n玩\n球\n篮球"
+  ],
+  "⛹‍♂": [
+    "男生玩球",
+    "athletic\nball\nbasketball\nbouncing\nchampionship\ndribble\nman\nnet\nplayer\nthrow\n球\n男\n男生玩球"
+  ],
+  "⛺": [
+    "帐篷",
+    "camping\ntent\n帐篷\n露营"
+  ],
+  "⛽": [
+    "油泵",
+    "diesel\nfuel\nfuelpump\ngas\ngasoline\npump\nstation\n加油\n加油站\n柴油\n油泵\n燃料\n燃油"
+  ],
+  "✂": [
+    "剪刀",
+    "cut\ncutting\npaper\nscissors\ntool\n修剪\n剪\n剪刀\n剪子\n剪裁\n工具"
+  ],
+  "✅": [
+    "勾号按钮",
+    "✓\nbutton\ncheck\nchecked\ncheckmark\ncomplete\ncompleted\ndone\nfixed\nmark\ntick\n勾\n勾号\n勾号按钮\n完成\n打勾\n按钮\n绿色打勾"
+  ],
+  "✈": [
+    "飞机",
+    "aeroplane\nairplane\nfly\nflying\njet\nplane\ntravel\n喷气机\n旅行\n飞机\n飞行"
+  ],
+  "✉": [
+    "信封",
+    "e-mail\nemail\nenvelope\nletter\n信件\n信封\n信息\n来信\n电子邮件\n电邮\n邮件"
+  ],
+  "✊": [
+    "举起拳头",
+    "clenched\nfist\nhand\npunch\nraised\nsolidarity\n举拳\n举起拳头\n团结\n手\n拳头\n握拳"
+  ],
+  "✋": [
+    "举起手",
+    "5\nfive\nhand\nhigh\nraised\nstop\n举手\n举起手\n举起的手\n五指\n停\n击掌\n手"
+  ],
+  "✌": [
+    "胜利手势",
+    "hand\npeace\nv\nvictory\nV\n和平\n成功\n手\n胜利\n胜利手势"
+  ],
+  "✍": [
+    "写字",
+    "hand\nwrite\nwriting\n写\n写字\n手\n笔"
+  ],
+  "✏": [
+    "铅笔",
+    "pencil\n橡皮\n橡皮擦\n画画\n画笔\n笔\n绘画\n铅笔"
+  ],
+  "✒": [
+    "钢笔尖",
+    "black\nnib\npen\n写字\n硬笔\n笔\n笔尖\n钢笔\n钢笔尖\n黑色笔尖"
+  ],
+  "✔": [
+    "勾号",
+    "✓\ncheck\nchecked\ncheckmark\ndone\nheavy\nmark\ntick\n勾号\n对勾\n打勾\n正确\n符号"
+  ],
+  "✖": [
+    "乘",
+    "×\ncancel\nmultiplication\nmultiply\nsign\nx\n乘\n乘号\n取消\n相乘\n符号"
+  ],
+  "✝": [
+    "十字架",
+    "christ\nChristian\ncross\nlatin\nreligion\n十字架\n基督\n天主教\n宗教"
+  ],
+  "✡": [
+    "六芒星",
+    "David\nJew\nJewish\njudaism\nreligion\nstar\n六芒星\n六角星\n大卫之星\n大卫星\n宗教\n犹太\n犹太教"
+  ],
+  "✨": [
+    "闪亮",
+    "*\nmagic\nsparkle\nsparkles\nstar\n星星\n火花\n闪亮\n闪光\n闪耀"
+  ],
+  "✳": [
+    "八轮辐星号",
+    "*\nasterisk\neight-spoked\n八芒星\n八轮辐星号\n星号"
+  ],
+  "✴": [
+    "八角星",
+    "*\neight-pointed\nstar\n八角星\n星\n符号"
+  ],
+  "❄": [
+    "雪花",
+    "cold\nsnow\nsnowflake\nweather\n冷\n天气\n雪\n雪花"
+  ],
+  "❇": [
+    "火花",
+    "*\nsparkle\n火花\n烟火\n闪光\n闪耀"
+  ],
+  "❌": [
+    "叉号",
+    "×\ncancel\ncross\nmark\nmultiplication\nmultiply\nx\n乘\n交叉\n叉号\n取消\n相乘\n符号"
+  ],
+  "❎": [
+    "叉号按钮",
+    "×\nbutton\ncross\nmark\nmultiplication\nmultiply\nsquare\nx\n乘\n乘号\n叉\n叉号按钮\n取消\n方形"
+  ],
+  "❓": [
+    "红色问号",
+    "?\nmark\npunctuation\nquestion\nred\n为什么\n标点\n标点符号\n疑问\n红色问号\n问号"
+  ],
+  "❔": [
+    "白色问号",
+    "?\nmark\noutlined\npunctuation\nquestion\nwhite\n？\n为什么\n标点符号\n白色问号\n空心\n空心问号\n问号\n问题"
+  ],
+  "❕": [
+    "白色感叹号",
+    "!\nexclamation\nmark\noutlined\npunctuation\nwhite\n！\n叹号\n吃惊\n标点符号\n白色叹号\n白色感叹号\n空心\n空心叹号"
+  ],
+  "❗": [
+    "红色感叹号",
+    "!\nexclamation\nmark\npunctuation\nred\n！\n叹号\n吃惊\n惊讶\n感叹\n感叹号\n标点符号\n红色感叹号"
+  ],
+  "❣": [
+    "心叹号",
+    "exclamation\nheart\nheavy\nmark\npunctuation\n叹号\n心动\n心叹号\n标点符号"
+  ],
+  "❤": [
+    "红心",
+    "emotion\nheart\nlove\nred\n心\n爱\n红心"
+  ],
+  "❤‍🔥": [
+    "火上之心",
+    "burn\nfire\nheart\nlove\nlust\nsacred\n渴望\n火上之心\n燃烧\n爱"
+  ],
+  "❤‍🩹": [
+    "修复受伤的心灵",
+    "healthier\nheart\nimproving\nmending\nrecovering\nrecuperating\nwell\n修复受伤的心灵\n修补\n恢复\n痊愈"
+  ],
+  "➕": [
+    "加",
+    "+\nplus\n加\n加号\n十字\n数学\n相加\n符号"
+  ],
+  "➖": [
+    "减",
+    "-\n−\nheavy\nmath\nminus\nsign\n减\n减号\n数学\n横线\n符号"
+  ],
+  "➗": [
+    "除",
+    "÷\ndivide\ndivision\nheavy\nmath\nsign\n数学\n相除\n符号\n除\n除号"
+  ],
+  "➡": [
+    "向右箭头",
+    "arrow\ncardinal\ndirection\neast\nright\n东\n右\n向右箭头\n方向\n标识\n箭头"
+  ],
+  "➰": [
+    "卷曲环",
+    "curl\ncurly\nloop\n单环\n卷曲环\n日本单环标志\n标志"
+  ],
+  "➿": [
+    "双卷曲环",
+    "curl\ncurly\ndouble\nloop\n免费电话\n双卷曲环\n双环\n日本免费电话标志\n标志"
+  ],
+  "⤴": [
+    "右上弯箭头",
+    "arrow\ncurving\nright\nup\n右上弯\n右上弯箭头\n向上弯曲的右箭头\n箭头"
+  ],
+  "⤵": [
+    "右下弯箭头",
+    "arrow\ncurving\ndown\nright\n右下弯\n右下弯箭头\n向下弯曲的右箭头\n箭头"
+  ],
+  "⬅": [
+    "向左箭头",
+    "arrow\ncardinal\ndirection\nleft\nwest\n向左箭头\n左\n方向\n标识\n箭头\n西"
+  ],
+  "⬆": [
+    "向上箭头",
+    "arrow\ncardinal\ndirection\nnorth\nup\n上\n北\n向上箭头\n方位\n方向\n标识\n箭头"
+  ],
+  "⬇": [
+    "向下箭头",
+    "arrow\ncardinal\ndirection\ndown\nsouth\n南\n向下\n向下箭头\n基本\n方位\n正南\n箭头"
+  ],
+  "⬛": [
+    "黑线大方框",
+    "black\ngeometric\nlarge\nsquare\n大\n方形\n正方形\n黑线大方框\n黑色\n黑色大方形"
+  ],
+  "⬜": [
+    "白线大方框",
+    "geometric\nlarge\nsquare\nwhite\n大\n方形\n正方形\n白线大方框\n白色\n白色方块"
+  ],
+  "⭐": [
+    "星星",
+    "astronomy\nmedium\nstar\nstars\nwhite\n五角星\n星星\n白色星星"
+  ],
+  "⭕": [
+    "红色空心圆圈",
+    "circle\nheavy\nhollow\nlarge\no\nred\n0\nO形\n圆圈\n大\n大圆圈\n红\n红色空心圆圈\n零"
+  ],
+  "〰": [
+    "波浪型破折号",
+    "dash\npunctuation\nwavy\n标点符号\n波浪型破折号\n波浪线\n浪花\n象声号"
+  ],
+  "〽": [
+    "庵点",
+    "alternation\nmark\npart\n庵点\n开始歌唱\n歌记号\n符号"
+  ],
+  "㊗": [
+    "日文的“祝贺”按钮",
+    "button\ncongratulations\nideograph\nJapanese\n庆贺\n按键\n日文\n日文的“祝贺”按钮\n日本\n祝\n祝福\n祝贺\n表意文字"
+  ],
+  "㊙": [
+    "日文的“秘密”按钮",
+    "button\nideograph\nJapanese\nsecret\n保密\n按键\n日文\n日文的“秘密”按钮\n日本\n秘\n秘密\n表意文字"
+  ],
+  "🀄": [
+    "红中",
+    "dragon\ngame\nmahjong\nred\n方城之战\n牌局\n红中\n麻将\n麻将红中"
+  ],
+  "🃏": [
+    "大小王",
+    "card\ngame\njoker\nwildcard\n大小王\n大王\n小丑\n小王\n扑克\n扑克小丑\n牌\n百搭牌\n鬼牌"
+  ],
+  "🅰": [
+    "A型血",
+    "blood\nbutton\ntype\na\nA型血\n字母a\n按钮\n血型\n血液"
+  ],
+  "🅱": [
+    "B型血",
+    "B\nblood\nbutton\ntype\nb\nB型血\n按钮\n血型\n血液"
+  ],
+  "🅾": [
+    "O 型血",
+    "blood\nbutton\nO\ntype\no\nO 型血\nO型血\n字母o\n按钮\n血型\n血液"
+  ],
+  "🅿": [
+    "停车按钮",
+    "button\nP\nparking\np\n停车\n停车按钮\n按键\n泊车"
+  ],
+  "🆎": [
+    "AB型血",
+    "AB\nblood\nbutton\ntype\nab\nAB型血\n字母ab\n按钮\n血型\n血液"
+  ],
+  "🆑": [
+    "CL按钮",
+    "button\nCL\ncl\nCL按钮\n手机\n清理\n清除"
+  ],
+  "🆒": [
+    "cool按钮",
+    "button\nCOOL\ncool\ncool按钮\n按键\n酷"
+  ],
+  "🆓": [
+    "免费按钮",
+    "button\nFREE\nfree\n不收费\n免费\n免费按钮\n按钮\n自由"
+  ],
+  "🆔": [
+    "ID按钮",
+    "button\nID\nidentity\nid\nID按钮\n按键\n识别\n身份"
+  ],
+  "🆕": [
+    "new按钮",
+    "button\nNEW\nnew按钮\n按键\n新\n新的"
+  ],
+  "🆖": [
+    "NG按钮",
+    "button\nNG\nng\nNG按钮\n按钮\n按键\n花絮"
+  ],
+  "🆗": [
+    "OK按钮",
+    "button\nOK\nokay\nok按钮\nOK按钮\n同意\n按键"
+  ],
+  "🆘": [
+    "SOS按钮",
+    "button\nhelp\nSOS\nsos\nSOS按钮\n按键\n救命\n求救\n求救钮"
+  ],
+  "🆙": [
+    "up按钮",
+    "button\nmark\nUP\nUP!\nup\nup按钮\n向上\n按键"
+  ],
+  "🆚": [
+    "VS按钮",
+    "button\nversus\nVS\nvs\nVS按钮\n对\n对决\n按键"
+  ],
+  "🇦🇨": [
+    "旗: 阿森松岛",
+    "flag\n旗"
+  ],
+  "🇦🇩": [
+    "旗: 安道尔",
+    "flag\n旗"
+  ],
+  "🇦🇪": [
+    "旗: 阿拉伯联合酋长国",
+    "flag\n旗"
+  ],
+  "🇦🇫": [
+    "旗: 阿富汗",
+    "flag\n旗"
+  ],
+  "🇦🇬": [
+    "旗: 安提瓜和巴布达",
+    "flag\n旗"
+  ],
+  "🇦🇮": [
+    "旗: 安圭拉",
+    "flag\n旗"
+  ],
+  "🇦🇱": [
+    "旗: 阿尔巴尼亚",
+    "flag\n旗"
+  ],
+  "🇦🇲": [
+    "旗: 亚美尼亚",
+    "flag\n旗"
+  ],
+  "🇦🇴": [
+    "旗: 安哥拉",
+    "flag\n旗"
+  ],
+  "🇦🇶": [
+    "旗: 南极洲",
+    "flag\n旗"
+  ],
+  "🇦🇷": [
+    "旗: 阿根廷",
+    "flag\n旗"
+  ],
+  "🇦🇸": [
+    "旗: 美属萨摩亚",
+    "flag\n旗"
+  ],
+  "🇦🇹": [
+    "旗: 奥地利",
+    "flag\n旗"
+  ],
+  "🇦🇺": [
+    "旗: 澳大利亚",
+    "flag\n旗"
+  ],
+  "🇦🇼": [
+    "旗: 阿鲁巴",
+    "flag\n旗"
+  ],
+  "🇦🇽": [
+    "旗: 奥兰群岛",
+    "flag\n旗"
+  ],
+  "🇦🇿": [
+    "旗: 阿塞拜疆",
+    "flag\n旗"
+  ],
+  "🇧🇦": [
+    "旗: 波斯尼亚和黑塞哥维那",
+    "flag\n旗"
+  ],
+  "🇧🇧": [
+    "旗: 巴巴多斯",
+    "flag\n旗"
+  ],
+  "🇧🇩": [
+    "旗: 孟加拉国",
+    "flag\n旗"
+  ],
+  "🇧🇪": [
+    "旗: 比利时",
+    "flag\n旗"
+  ],
+  "🇧🇫": [
+    "旗: 布基纳法索",
+    "flag\n旗"
+  ],
+  "🇧🇬": [
+    "旗: 保加利亚",
+    "flag\n旗"
+  ],
+  "🇧🇭": [
+    "旗: 巴林",
+    "flag\n旗"
+  ],
+  "🇧🇮": [
+    "旗: 布隆迪",
+    "flag\n旗"
+  ],
+  "🇧🇯": [
+    "旗: 贝宁",
+    "flag\n旗"
+  ],
+  "🇧🇱": [
+    "旗: 圣巴泰勒米",
+    "flag\n旗"
+  ],
+  "🇧🇲": [
+    "旗: 百慕大",
+    "flag\n旗"
+  ],
+  "🇧🇳": [
+    "旗: 文莱",
+    "flag\n旗"
+  ],
+  "🇧🇴": [
+    "旗: 玻利维亚",
+    "flag\n旗"
+  ],
+  "🇧🇶": [
+    "旗: 荷属加勒比区",
+    "flag\n旗"
+  ],
+  "🇧🇷": [
+    "旗: 巴西",
+    "flag\n旗"
+  ],
+  "🇧🇸": [
+    "旗: 巴哈马",
+    "flag\n旗"
+  ],
+  "🇧🇹": [
+    "旗: 不丹",
+    "flag\n旗"
+  ],
+  "🇧🇻": [
+    "旗: 布韦岛",
+    "flag\n旗"
+  ],
+  "🇧🇼": [
+    "旗: 博茨瓦纳",
+    "flag\n旗"
+  ],
+  "🇧🇾": [
+    "旗: 白俄罗斯",
+    "flag\n旗"
+  ],
+  "🇧🇿": [
+    "旗: 伯利兹",
+    "flag\n旗"
+  ],
+  "🇨🇦": [
+    "旗: 加拿大",
+    "flag\n旗"
+  ],
+  "🇨🇨": [
+    "旗: 科科斯（基林）群岛",
+    "flag\n旗"
+  ],
+  "🇨🇩": [
+    "旗: 刚果（金）",
+    "flag\n旗"
+  ],
+  "🇨🇫": [
+    "旗: 中非共和国",
+    "flag\n旗"
+  ],
+  "🇨🇬": [
+    "旗: 刚果（布）",
+    "flag\n旗"
+  ],
+  "🇨🇭": [
+    "旗: 瑞士",
+    "flag\n旗"
+  ],
+  "🇨🇮": [
+    "旗: 科特迪瓦",
+    "flag\n旗"
+  ],
+  "🇨🇰": [
+    "旗: 库克群岛",
+    "flag\n旗"
+  ],
+  "🇨🇱": [
+    "旗: 智利",
+    "flag\n旗"
+  ],
+  "🇨🇲": [
+    "旗: 喀麦隆",
+    "flag\n旗"
+  ],
+  "🇨🇳": [
+    "旗: 中国",
+    "flag\n旗"
+  ],
+  "🇨🇴": [
+    "旗: 哥伦比亚",
+    "flag\n旗"
+  ],
+  "🇨🇵": [
+    "旗: 克利珀顿岛",
+    "flag\n旗"
+  ],
+  "🇨🇶": [
+    "旗: 萨克岛",
+    "flag\n旗"
+  ],
+  "🇨🇷": [
+    "旗: 哥斯达黎加",
+    "flag\n旗"
+  ],
+  "🇨🇺": [
+    "旗: 古巴",
+    "flag\n旗"
+  ],
+  "🇨🇻": [
+    "旗: 佛得角",
+    "flag\n旗"
+  ],
+  "🇨🇼": [
+    "旗: 库拉索",
+    "flag\n旗"
+  ],
+  "🇨🇽": [
+    "旗: 圣诞岛",
+    "flag\n旗"
+  ],
+  "🇨🇾": [
+    "旗: 塞浦路斯",
+    "flag\n旗"
+  ],
+  "🇨🇿": [
+    "旗: 捷克",
+    "flag\n旗"
+  ],
+  "🇩🇪": [
+    "旗: 德国",
+    "flag\n旗"
+  ],
+  "🇩🇬": [
+    "旗: 迪戈加西亚岛",
+    "flag\n旗"
+  ],
+  "🇩🇯": [
+    "旗: 吉布提",
+    "flag\n旗"
+  ],
+  "🇩🇰": [
+    "旗: 丹麦",
+    "flag\n旗"
+  ],
+  "🇩🇲": [
+    "旗: 多米尼克",
+    "flag\n旗"
+  ],
+  "🇩🇴": [
+    "旗: 多米尼加共和国",
+    "flag\n旗"
+  ],
+  "🇩🇿": [
+    "旗: 阿尔及利亚",
+    "flag\n旗"
+  ],
+  "🇪🇦": [
+    "旗: 休达及梅利利亚",
+    "flag\n旗"
+  ],
+  "🇪🇨": [
+    "旗: 厄瓜多尔",
+    "flag\n旗"
+  ],
+  "🇪🇪": [
+    "旗: 爱沙尼亚",
+    "flag\n旗"
+  ],
+  "🇪🇬": [
+    "旗: 埃及",
+    "flag\n旗"
+  ],
+  "🇪🇭": [
+    "旗: 西撒哈拉",
+    "flag\n旗"
+  ],
+  "🇪🇷": [
+    "旗: 厄立特里亚",
+    "flag\n旗"
+  ],
+  "🇪🇸": [
+    "旗: 西班牙",
+    "flag\n旗"
+  ],
+  "🇪🇹": [
+    "旗: 埃塞俄比亚",
+    "flag\n旗"
+  ],
+  "🇪🇺": [
+    "旗: 欧盟",
+    "flag\n旗"
+  ],
+  "🇫🇮": [
+    "旗: 芬兰",
+    "flag\n旗"
+  ],
+  "🇫🇯": [
+    "旗: 斐济",
+    "flag\n旗"
+  ],
+  "🇫🇰": [
+    "旗: 福克兰群岛",
+    "flag\n旗"
+  ],
+  "🇫🇲": [
+    "旗: 密克罗尼西亚",
+    "flag\n旗"
+  ],
+  "🇫🇴": [
+    "旗: 法罗群岛",
+    "flag\n旗"
+  ],
+  "🇫🇷": [
+    "旗: 法国",
+    "flag\n旗"
+  ],
+  "🇬🇦": [
+    "旗: 加蓬",
+    "flag\n旗"
+  ],
+  "🇬🇧": [
+    "旗: 英国",
+    "flag\n旗"
+  ],
+  "🇬🇩": [
+    "旗: 格林纳达",
+    "flag\n旗"
+  ],
+  "🇬🇪": [
+    "旗: 格鲁吉亚",
+    "flag\n旗"
+  ],
+  "🇬🇫": [
+    "旗: 法属圭亚那",
+    "flag\n旗"
+  ],
+  "🇬🇬": [
+    "旗: 根西岛",
+    "flag\n旗"
+  ],
+  "🇬🇭": [
+    "旗: 加纳",
+    "flag\n旗"
+  ],
+  "🇬🇮": [
+    "旗: 直布罗陀",
+    "flag\n旗"
+  ],
+  "🇬🇱": [
+    "旗: 格陵兰",
+    "flag\n旗"
+  ],
+  "🇬🇲": [
+    "旗: 冈比亚",
+    "flag\n旗"
+  ],
+  "🇬🇳": [
+    "旗: 几内亚",
+    "flag\n旗"
+  ],
+  "🇬🇵": [
+    "旗: 瓜德罗普",
+    "flag\n旗"
+  ],
+  "🇬🇶": [
+    "旗: 赤道几内亚",
+    "flag\n旗"
+  ],
+  "🇬🇷": [
+    "旗: 希腊",
+    "flag\n旗"
+  ],
+  "🇬🇸": [
+    "旗: 南乔治亚和南桑威奇群岛",
+    "flag\n旗"
+  ],
+  "🇬🇹": [
+    "旗: 危地马拉",
+    "flag\n旗"
+  ],
+  "🇬🇺": [
+    "旗: 关岛",
+    "flag\n旗"
+  ],
+  "🇬🇼": [
+    "旗: 几内亚比绍",
+    "flag\n旗"
+  ],
+  "🇬🇾": [
+    "旗: 圭亚那",
+    "flag\n旗"
+  ],
+  "🇭🇰": [
+    "旗: 中国香港特别行政区",
+    "flag\n旗"
+  ],
+  "🇭🇲": [
+    "旗: 赫德岛和麦克唐纳群岛",
+    "flag\n旗"
+  ],
+  "🇭🇳": [
+    "旗: 洪都拉斯",
+    "flag\n旗"
+  ],
+  "🇭🇷": [
+    "旗: 克罗地亚",
+    "flag\n旗"
+  ],
+  "🇭🇹": [
+    "旗: 海地",
+    "flag\n旗"
+  ],
+  "🇭🇺": [
+    "旗: 匈牙利",
+    "flag\n旗"
+  ],
+  "🇮🇨": [
+    "旗: 加纳利群岛",
+    "flag\n旗"
+  ],
+  "🇮🇩": [
+    "旗: 印度尼西亚",
+    "flag\n旗"
+  ],
+  "🇮🇪": [
+    "旗: 爱尔兰",
+    "flag\n旗"
+  ],
+  "🇮🇱": [
+    "旗: 以色列",
+    "flag\n旗"
+  ],
+  "🇮🇲": [
+    "旗: 马恩岛",
+    "flag\n旗"
+  ],
+  "🇮🇳": [
+    "旗: 印度",
+    "flag\n旗"
+  ],
+  "🇮🇴": [
+    "旗: 英属印度洋领地",
+    "flag\n旗"
+  ],
+  "🇮🇶": [
+    "旗: 伊拉克",
+    "flag\n旗"
+  ],
+  "🇮🇷": [
+    "旗: 伊朗",
+    "flag\n旗"
+  ],
+  "🇮🇸": [
+    "旗: 冰岛",
+    "flag\n旗"
+  ],
+  "🇮🇹": [
+    "旗: 意大利",
+    "flag\n旗"
+  ],
+  "🇯🇪": [
+    "旗: 泽西岛",
+    "flag\n旗"
+  ],
+  "🇯🇲": [
+    "旗: 牙买加",
+    "flag\n旗"
+  ],
+  "🇯🇴": [
+    "旗: 约旦",
+    "flag\n旗"
+  ],
+  "🇯🇵": [
+    "旗: 日本",
+    "flag\n旗"
+  ],
+  "🇰🇪": [
+    "旗: 肯尼亚",
+    "flag\n旗"
+  ],
+  "🇰🇬": [
+    "旗: 吉尔吉斯斯坦",
+    "flag\n旗"
+  ],
+  "🇰🇭": [
+    "旗: 柬埔寨",
+    "flag\n旗"
+  ],
+  "🇰🇮": [
+    "旗: 基里巴斯",
+    "flag\n旗"
+  ],
+  "🇰🇲": [
+    "旗: 科摩罗",
+    "flag\n旗"
+  ],
+  "🇰🇳": [
+    "旗: 圣基茨和尼维斯",
+    "flag\n旗"
+  ],
+  "🇰🇵": [
+    "旗: 朝鲜",
+    "flag\n旗"
+  ],
+  "🇰🇷": [
+    "旗: 韩国",
+    "flag\n旗"
+  ],
+  "🇰🇼": [
+    "旗: 科威特",
+    "flag\n旗"
+  ],
+  "🇰🇾": [
+    "旗: 开曼群岛",
+    "flag\n旗"
+  ],
+  "🇰🇿": [
+    "旗: 哈萨克斯坦",
+    "flag\n旗"
+  ],
+  "🇱🇦": [
+    "旗: 老挝",
+    "flag\n旗"
+  ],
+  "🇱🇧": [
+    "旗: 黎巴嫩",
+    "flag\n旗"
+  ],
+  "🇱🇨": [
+    "旗: 圣卢西亚",
+    "flag\n旗"
+  ],
+  "🇱🇮": [
+    "旗: 列支敦士登",
+    "flag\n旗"
+  ],
+  "🇱🇰": [
+    "旗: 斯里兰卡",
+    "flag\n旗"
+  ],
+  "🇱🇷": [
+    "旗: 利比里亚",
+    "flag\n旗"
+  ],
+  "🇱🇸": [
+    "旗: 莱索托",
+    "flag\n旗"
+  ],
+  "🇱🇹": [
+    "旗: 立陶宛",
+    "flag\n旗"
+  ],
+  "🇱🇺": [
+    "旗: 卢森堡",
+    "flag\n旗"
+  ],
+  "🇱🇻": [
+    "旗: 拉脱维亚",
+    "flag\n旗"
+  ],
+  "🇱🇾": [
+    "旗: 利比亚",
+    "flag\n旗"
+  ],
+  "🇲🇦": [
+    "旗: 摩洛哥",
+    "flag\n旗"
+  ],
+  "🇲🇨": [
+    "旗: 摩纳哥",
+    "flag\n旗"
+  ],
+  "🇲🇩": [
+    "旗: 摩尔多瓦",
+    "flag\n旗"
+  ],
+  "🇲🇪": [
+    "旗: 黑山",
+    "flag\n旗"
+  ],
+  "🇲🇫": [
+    "旗: 法属圣马丁",
+    "flag\n旗"
+  ],
+  "🇲🇬": [
+    "旗: 马达加斯加",
+    "flag\n旗"
+  ],
+  "🇲🇭": [
+    "旗: 马绍尔群岛",
+    "flag\n旗"
+  ],
+  "🇲🇰": [
+    "旗: 北马其顿",
+    "flag\n旗"
+  ],
+  "🇲🇱": [
+    "旗: 马里",
+    "flag\n旗"
+  ],
+  "🇲🇲": [
+    "旗: 缅甸",
+    "flag\n旗"
+  ],
+  "🇲🇳": [
+    "旗: 蒙古",
+    "flag\n旗"
+  ],
+  "🇲🇴": [
+    "旗: 中国澳门特别行政区",
+    "flag\n旗"
+  ],
+  "🇲🇵": [
+    "旗: 北马里亚纳群岛",
+    "flag\n旗"
+  ],
+  "🇲🇶": [
+    "旗: 马提尼克",
+    "flag\n旗"
+  ],
+  "🇲🇷": [
+    "旗: 毛里塔尼亚",
+    "flag\n旗"
+  ],
+  "🇲🇸": [
+    "旗: 蒙特塞拉特",
+    "flag\n旗"
+  ],
+  "🇲🇹": [
+    "旗: 马耳他",
+    "flag\n旗"
+  ],
+  "🇲🇺": [
+    "旗: 毛里求斯",
+    "flag\n旗"
+  ],
+  "🇲🇻": [
+    "旗: 马尔代夫",
+    "flag\n旗"
+  ],
+  "🇲🇼": [
+    "旗: 马拉维",
+    "flag\n旗"
+  ],
+  "🇲🇽": [
+    "旗: 墨西哥",
+    "flag\n旗"
+  ],
+  "🇲🇾": [
+    "旗: 马来西亚",
+    "flag\n旗"
+  ],
+  "🇲🇿": [
+    "旗: 莫桑比克",
+    "flag\n旗"
+  ],
+  "🇳🇦": [
+    "旗: 纳米比亚",
+    "flag\n旗"
+  ],
+  "🇳🇨": [
+    "旗: 新喀里多尼亚",
+    "flag\n旗"
+  ],
+  "🇳🇪": [
+    "旗: 尼日尔",
+    "flag\n旗"
+  ],
+  "🇳🇫": [
+    "旗: 诺福克岛",
+    "flag\n旗"
+  ],
+  "🇳🇬": [
+    "旗: 尼日利亚",
+    "flag\n旗"
+  ],
+  "🇳🇮": [
+    "旗: 尼加拉瓜",
+    "flag\n旗"
+  ],
+  "🇳🇱": [
+    "旗: 荷兰",
+    "flag\n旗"
+  ],
+  "🇳🇴": [
+    "旗: 挪威",
+    "flag\n旗"
+  ],
+  "🇳🇵": [
+    "旗: 尼泊尔",
+    "flag\n旗"
+  ],
+  "🇳🇷": [
+    "旗: 瑙鲁",
+    "flag\n旗"
+  ],
+  "🇳🇺": [
+    "旗: 纽埃",
+    "flag\n旗"
+  ],
+  "🇳🇿": [
+    "旗: 新西兰",
+    "flag\n旗"
+  ],
+  "🇴🇲": [
+    "旗: 阿曼",
+    "flag\n旗"
+  ],
+  "🇵🇦": [
+    "旗: 巴拿马",
+    "flag\n旗"
+  ],
+  "🇵🇪": [
+    "旗: 秘鲁",
+    "flag\n旗"
+  ],
+  "🇵🇫": [
+    "旗: 法属波利尼西亚",
+    "flag\n旗"
+  ],
+  "🇵🇬": [
+    "旗: 巴布亚新几内亚",
+    "flag\n旗"
+  ],
+  "🇵🇭": [
+    "旗: 菲律宾",
+    "flag\n旗"
+  ],
+  "🇵🇰": [
+    "旗: 巴基斯坦",
+    "flag\n旗"
+  ],
+  "🇵🇱": [
+    "旗: 波兰",
+    "flag\n旗"
+  ],
+  "🇵🇲": [
+    "旗: 圣皮埃尔和密克隆群岛",
+    "flag\n旗"
+  ],
+  "🇵🇳": [
+    "旗: 皮特凯恩群岛",
+    "flag\n旗"
+  ],
+  "🇵🇷": [
+    "旗: 波多黎各",
+    "flag\n旗"
+  ],
+  "🇵🇸": [
+    "旗: 巴勒斯坦领土",
+    "flag\n旗"
+  ],
+  "🇵🇹": [
+    "旗: 葡萄牙",
+    "flag\n旗"
+  ],
+  "🇵🇼": [
+    "旗: 帕劳",
+    "flag\n旗"
+  ],
+  "🇵🇾": [
+    "旗: 巴拉圭",
+    "flag\n旗"
+  ],
+  "🇶🇦": [
+    "旗: 卡塔尔",
+    "flag\n旗"
+  ],
+  "🇷🇪": [
+    "旗: 留尼汪",
+    "flag\n旗"
+  ],
+  "🇷🇴": [
+    "旗: 罗马尼亚",
+    "flag\n旗"
+  ],
+  "🇷🇸": [
+    "旗: 塞尔维亚",
+    "flag\n旗"
+  ],
+  "🇷🇺": [
+    "旗: 俄罗斯",
+    "flag\n旗"
+  ],
+  "🇷🇼": [
+    "旗: 卢旺达",
+    "flag\n旗"
+  ],
+  "🇸🇦": [
+    "旗: 沙特阿拉伯",
+    "flag\n旗"
+  ],
+  "🇸🇧": [
+    "旗: 所罗门群岛",
+    "flag\n旗"
+  ],
+  "🇸🇨": [
+    "旗: 塞舌尔",
+    "flag\n旗"
+  ],
+  "🇸🇩": [
+    "旗: 苏丹",
+    "flag\n旗"
+  ],
+  "🇸🇪": [
+    "旗: 瑞典",
+    "flag\n旗"
+  ],
+  "🇸🇬": [
+    "旗: 新加坡",
+    "flag\n旗"
+  ],
+  "🇸🇭": [
+    "旗: 圣赫勒拿",
+    "flag\n旗"
+  ],
+  "🇸🇮": [
+    "旗: 斯洛文尼亚",
+    "flag\n旗"
+  ],
+  "🇸🇯": [
+    "旗: 斯瓦尔巴和扬马延",
+    "flag\n旗"
+  ],
+  "🇸🇰": [
+    "旗: 斯洛伐克",
+    "flag\n旗"
+  ],
+  "🇸🇱": [
+    "旗: 塞拉利昂",
+    "flag\n旗"
+  ],
+  "🇸🇲": [
+    "旗: 圣马力诺",
+    "flag\n旗"
+  ],
+  "🇸🇳": [
+    "旗: 塞内加尔",
+    "flag\n旗"
+  ],
+  "🇸🇴": [
+    "旗: 索马里",
+    "flag\n旗"
+  ],
+  "🇸🇷": [
+    "旗: 苏里南",
+    "flag\n旗"
+  ],
+  "🇸🇸": [
+    "旗: 南苏丹",
+    "flag\n旗"
+  ],
+  "🇸🇹": [
+    "旗: 圣多美和普林西比",
+    "flag\n旗"
+  ],
+  "🇸🇻": [
+    "旗: 萨尔瓦多",
+    "flag\n旗"
+  ],
+  "🇸🇽": [
+    "旗: 荷属圣马丁",
+    "flag\n旗"
+  ],
+  "🇸🇾": [
+    "旗: 叙利亚",
+    "flag\n旗"
+  ],
+  "🇸🇿": [
+    "旗: 斯威士兰",
+    "flag\n旗"
+  ],
+  "🇹🇦": [
+    "旗: 特里斯坦-达库尼亚群岛",
+    "flag\n旗"
+  ],
+  "🇹🇨": [
+    "旗: 特克斯和凯科斯群岛",
+    "flag\n旗"
+  ],
+  "🇹🇩": [
+    "旗: 乍得",
+    "flag\n旗"
+  ],
+  "🇹🇫": [
+    "旗: 法属南部领地",
+    "flag\n旗"
+  ],
+  "🇹🇬": [
+    "旗: 多哥",
+    "flag\n旗"
+  ],
+  "🇹🇭": [
+    "旗: 泰国",
+    "flag\n旗"
+  ],
+  "🇹🇯": [
+    "旗: 塔吉克斯坦",
+    "flag\n旗"
+  ],
+  "🇹🇰": [
+    "旗: 托克劳",
+    "flag\n旗"
+  ],
+  "🇹🇱": [
+    "旗: 东帝汶",
+    "flag\n旗"
+  ],
+  "🇹🇲": [
+    "旗: 土库曼斯坦",
+    "flag\n旗"
+  ],
+  "🇹🇳": [
+    "旗: 突尼斯",
+    "flag\n旗"
+  ],
+  "🇹🇴": [
+    "旗: 汤加",
+    "flag\n旗"
+  ],
+  "🇹🇷": [
+    "旗: 土耳其",
+    "flag\n旗"
+  ],
+  "🇹🇹": [
+    "旗: 特立尼达和多巴哥",
+    "flag\n旗"
+  ],
+  "🇹🇻": [
+    "旗: 图瓦卢",
+    "flag\n旗"
+  ],
+  "🇹🇼": [
+    "旗: 台湾",
+    "flag\n旗"
+  ],
+  "🇹🇿": [
+    "旗: 坦桑尼亚",
+    "flag\n旗"
+  ],
+  "🇺🇦": [
+    "旗: 乌克兰",
+    "flag\n旗"
+  ],
+  "🇺🇬": [
+    "旗: 乌干达",
+    "flag\n旗"
+  ],
+  "🇺🇲": [
+    "旗: 美国本土外小岛屿",
+    "flag\n旗"
+  ],
+  "🇺🇳": [
+    "旗: 联合国",
+    "flag\n旗"
+  ],
+  "🇺🇸": [
+    "旗: 美国",
+    "flag\n旗"
+  ],
+  "🇺🇾": [
+    "旗: 乌拉圭",
+    "flag\n旗"
+  ],
+  "🇺🇿": [
+    "旗: 乌兹别克斯坦",
+    "flag\n旗"
+  ],
+  "🇻🇦": [
+    "旗: 梵蒂冈",
+    "flag\n旗"
+  ],
+  "🇻🇨": [
+    "旗: 圣文森特和格林纳丁斯",
+    "flag\n旗"
+  ],
+  "🇻🇪": [
+    "旗: 委内瑞拉",
+    "flag\n旗"
+  ],
+  "🇻🇬": [
+    "旗: 英属维尔京群岛",
+    "flag\n旗"
+  ],
+  "🇻🇮": [
+    "旗: 美属维尔京群岛",
+    "flag\n旗"
+  ],
+  "🇻🇳": [
+    "旗: 越南",
+    "flag\n旗"
+  ],
+  "🇻🇺": [
+    "旗: 瓦努阿图",
+    "flag\n旗"
+  ],
+  "🇼🇫": [
+    "旗: 瓦利斯和富图纳",
+    "flag\n旗"
+  ],
+  "🇼🇸": [
+    "旗: 萨摩亚",
+    "flag\n旗"
+  ],
+  "🇽🇰": [
+    "旗: 科索沃",
+    "flag\n旗"
+  ],
+  "🇾🇪": [
+    "旗: 也门",
+    "flag\n旗"
+  ],
+  "🇾🇹": [
+    "旗: 马约特",
+    "flag\n旗"
+  ],
+  "🇿🇦": [
+    "旗: 南非",
+    "flag\n旗"
+  ],
+  "🇿🇲": [
+    "旗: 赞比亚",
+    "flag\n旗"
+  ],
+  "🇿🇼": [
+    "旗: 津巴布韦",
+    "flag\n旗"
+  ],
+  "🈁": [
+    "日文的“这里”按钮",
+    "button\nhere\nJapanese\nkatakana\nkoko\n按键\n日文\n日文的“这里”按钮\n日语\n此处\n片假名\n这里"
+  ],
+  "🈂": [
+    "日文的“服务费”按钮",
+    "button\ncharge\nJapanese\nkatakana\nservice\nsa\n按键\n收费\n日文\n日文sa\n日文的“服务费”按钮\n日语\n服务\n服务费\n片假名"
+  ],
+  "🈚": [
+    "日文的“免费”按钮",
+    "button\ncharge\nfree\nideograph\nJapanese\n免费\n免钱\n按键\n无\n日文\n日文的“免费”按钮\n日本\n表意文字"
+  ],
+  "🈯": [
+    "日文的“预留”按钮",
+    "button\nideograph\nJapanese\nreserved\n保留\n指\n按键\n日文\n日文的“预留”按钮\n日本\n表意文字\n预定\n预订"
+  ],
+  "🈲": [
+    "日文的“禁止”按钮",
+    "button\nideograph\nJapanese\nprohibited\n严禁\n按键\n日文\n日文的“禁止”按钮\n日本\n禁\n表意文字"
+  ],
+  "🈳": [
+    "日文的“有空位”按钮",
+    "button\nideograph\nJapanese\nvacancy\n日文\n日文的“有空位”按钮\n日本\n日语\n有空位\n空\n空位\n空闲\n表意文字"
+  ],
+  "🈴": [
+    "日文的“合格”按钮",
+    "button\ngrade\nideograph\nJapanese\npassing\n及格\n合\n按键\n日文\n日文的“合格”按钮\n日本\n表意文字\n过关\n通过"
+  ],
+  "🈵": [
+    "日文的“没有空位”按钮",
+    "button\nideograph\nJapanese\nno\nvacancy\n座位\n按键\n日文\n日文的“没有空位”按钮\n日本\n满\n表意文字"
+  ],
+  "🈶": [
+    "日文的“收费”按钮",
+    "button\ncharge\nfree\nideograph\nJapanese\nnot\n按键\n日文\n日文的“收费”按钮\n日本\n有\n有料\n表意文字\n要收费\n费用"
+  ],
+  "🈷": [
+    "日文的“月总量”按钮",
+    "amount\nbutton\nideograph\nJapanese\nmonthly\n按键\n日文\n日文的“月总量”按钮\n日本\n月\n月度\n统计\n表意文字"
+  ],
+  "🈸": [
+    "日文的“申请”按钮",
+    "application\nbutton\nideograph\nJapanese\n日文\n日文的“申请”按钮\n日本\n日语\n申\n申请\n申请书\n申请表\n表意文字"
+  ],
+  "🈹": [
+    "日文的“打折”按钮",
+    "button\ndiscount\nideograph\nJapanese\n割\n打折\n折扣\n按键\n日文\n日文的“打折”按钮\n日本\n表意文字"
+  ],
+  "🈺": [
+    "日文的“开始营业”按钮",
+    "business\nbutton\nideograph\nJapanese\nopen\n开门\n按键\n日文\n日文的“开始营业”按钮\n日本\n营\n营业\n营业中\n表意文字"
+  ],
+  "🉐": [
+    "日文的“议价”按钮",
+    "bargain\nbutton\nideograph\nJapanese\n得\n按键\n日文\n日文的“议价”按钮\n日本\n表意文字\n讨价还价"
+  ],
+  "🉑": [
+    "日文的“可接受”按钮",
+    "acceptable\nbutton\nideograph\nJapanese\n可\n可接受\n按键\n日文\n日文的“可接受”按钮\n日本\n表意文字\n许可"
+  ],
+  "🌀": [
+    "台风",
+    "cyclone\ndizzy\nhurricane\ntwister\ntyphoon\nweather\n台风\n天气\n旋风\n晕\n气旋\n飓风\n龙卷风"
+  ],
+  "🌁": [
+    "有雾",
+    "fog\nfoggy\n有雾\n雾\n霾"
+  ],
+  "🌂": [
+    "收起的伞",
+    "closed\nclothing\nrain\numbrella\n下雨\n伞\n收起的伞\n雨\n雨伞"
+  ],
+  "🌃": [
+    "夜晚",
+    "night\nstar\nstars\n夜晚\n星空\n晚上"
+  ],
+  "🌄": [
+    "山顶日出",
+    "morning\nmountains\nover\nsun\nsunrise\n太阳\n山\n山顶日出\n日出\n早晨\n清晨"
+  ],
+  "🌅": [
+    "日出",
+    "morning\nnature\nsun\nsunrise\n大自然\n太阳\n日出\n早晨\n清晨"
+  ],
+  "🌆": [
+    "城市黄昏",
+    "at\nbuilding\ncity\ncityscape\ndusk\nevening\nlandscape\nsun\nsunset\n城市\n城市黄昏\n夜晚\n日落\n都市\n黄昏"
+  ],
+  "🌇": [
+    "日落",
+    "building\ndusk\nsun\nsunset\n夕阳\n日落"
+  ],
+  "🌈": [
+    "彩虹",
+    "gay\ngenderqueer\nglbt\nglbtq\nlesbian\nlgbt\nlgbtq\nlgbtqia\nnature\npride\nqueer\nrain\nrainbow\ntrans\ntransgender\nweather\nLGBT\n双性恋\n同志\n彩虹\n跨性别"
+  ],
+  "🌉": [
+    "夜幕下的桥",
+    "at\nbridge\nnight\n夜幕\n夜幕下的桥\n晚上\n桥"
+  ],
+  "🌊": [
+    "浪花",
+    "nature\nocean\nsurf\nsurfer\nsurfing\nwater\nwave\n波浪\n浪\n浪花\n海洋"
+  ],
+  "🌋": [
+    "火山",
+    "eruption\nmountain\nnature\nvolcano\n喷发\n大自然\n山\n火山\n爆发"
+  ],
+  "🌌": [
+    "银河",
+    "milky\nspace\nway\n太空\n星空\n银河"
+  ],
+  "🌍": [
+    "地球上的欧洲非洲",
+    "Africa\nearth\nEurope\nEurope-Africa\nglobe\nshowing\nworld\n世界\n地球\n地球上的欧洲非洲\n欧洲\n非洲"
+  ],
+  "🌎": [
+    "地球上的美洲",
+    "Americas\nearth\nglobe\nshowing\nworld\n世界\n全球\n地球\n地球上的美洲\n美洲"
+  ],
+  "🌏": [
+    "地球上的亚洲澳洲",
+    "Asia\nAsia-Australia\nAustralia\nearth\nglobe\nshowing\nworld\n世界\n亚洲\n亚澳\n全球\n地球\n地球上的亚洲\n地球上的亚洲澳洲\n澳洲"
+  ],
+  "🌐": [
+    "带经纬线的地球",
+    "earth\nglobe\ninternet\nmeridians\nweb\nworld\nworldwide\n世界\n全球\n地球\n子午线\n带经纬线的地球\n经纬\n经线"
+  ],
+  "🌑": [
+    "朔月",
+    "dark\nmoon\nnew\nspace\n新月\n月亮\n朔月"
+  ],
+  "🌒": [
+    "蛾眉月",
+    "crescent\ndreams\nmoon\nspace\nwaxing\n三日月\n娥眉月\n弯月\n月亮\n盈月\n眉月\n蛾眉月"
+  ],
+  "🌓": [
+    "上弦月",
+    "first\nmoon\nquarter\nspace\n上弦月\n月亮"
+  ],
+  "🌔": [
+    "盈凸月",
+    "gibbous\nmoon\nspace\nwaxing\n月亮\n盈凸月"
+  ],
+  "🌕": [
+    "满月",
+    "full\nmoon\nspace\n月亮\n望月\n满月"
+  ],
+  "🌖": [
+    "亏凸月",
+    "gibbous\nmoon\nspace\nwaning\n亏凸月\n月亮\n衰落"
+  ],
+  "🌗": [
+    "下弦月",
+    "last\nmoon\nquarter\nspace\n下弦月\n月亮"
+  ],
+  "🌘": [
+    "残月",
+    "crescent\nmoon\nspace\nwaning\n亏眉月\n弯月\n月亮\n残月"
+  ],
+  "🌙": [
+    "弯月",
+    "crescent\nmoon\nramadan\nspace\n娥眉月\n弯月\n新月形\n月亮\n残月\n蛾眉月"
+  ],
+  "🌚": [
+    "微笑的朔月",
+    "face\nmoon\nnew\nspace\n微笑的朔月\n新月\n月亮\n朔月"
+  ],
+  "🌛": [
+    "微笑的上弦月",
+    "face\nfirst\nmoon\nquarter\nspace\n上弦月\n微笑的上弦月\n月亮\n蛾眉月"
+  ],
+  "🌜": [
+    "微笑的下弦月",
+    "dreams\nface\nlast\nmoon\nquarter\n下弦月\n微笑的下弦月\n月亮\n残月"
+  ],
+  "🌝": [
+    "微笑的月亮",
+    "bright\nface\nfull\nmoon\n微笑的月亮\n月亮\n望月\n满月"
+  ],
+  "🌞": [
+    "微笑的太阳",
+    "beach\nbright\nday\nface\nheat\nshine\nsun\nsunny\nsunshine\nweather\n太阳\n微笑的太阳\n温暖阳光\n阳光明媚"
+  ],
+  "🌟": [
+    "闪亮的星星",
+    "glittery\nglow\nglowing\nnight\nshining\nsparkle\nstar\nwin\n发光\n星星\n闪亮\n闪亮的星星\n闪光"
+  ],
+  "🌠": [
+    "流星",
+    "falling\nnight\nshooting\nspace\nstar\n夜晚\n太空\n星空\n流星\n陨落之星"
+  ],
+  "🌡": [
+    "温度计",
+    "thermometer\nweather\n天气\n气温\n温度\n温度计"
+  ],
+  "🌤": [
+    "晴偶有云",
+    "behind\ncloud\nsun\nweather\n云\n天气\n太阳\n少云\n晴\n晴偶有云\n阴"
+  ],
+  "🌥": [
+    "多云",
+    "behind\ncloud\nsun\nweather\n云\n多云\n太阳\n泠\n阴"
+  ],
+  "🌦": [
+    "晴转雨",
+    "behind\ncloud\nrain\nsun\nweather\n下雨\n云\n天气\n太阳\n晴时多云偶阵雨\n晴转雨\n雨"
+  ],
+  "🌧": [
+    "下雨",
+    "cloud\nrain\nweather\n下雨\n云\n天气\n雨"
+  ],
+  "🌨": [
+    "下雪",
+    "cloud\ncold\nsnow\nweather\n下雪\n云\n天气\n雪"
+  ],
+  "🌩": [
+    "打雷",
+    "cloud\nlightning\nweather\n云\n天气\n打雷\n闪电\n雷"
+  ],
+  "🌪": [
+    "龙卷风",
+    "cloud\ntornado\nweather\nwhirlwind\n云\n天气\n旋风\n龙卷风"
+  ],
+  "🌫": [
+    "雾",
+    "cloud\nfog\nweather\n云\n雾\n霾"
+  ],
+  "🌬": [
+    "大风",
+    "blow\ncloud\nface\nwind\n大风\n狂风\n风吹"
+  ],
+  "🌭": [
+    "热狗",
+    "dog\nfrankfurter\nhot\nhotdog\nsausage\n热狗\n香肠"
+  ],
+  "🌮": [
+    "墨西哥卷饼",
+    "mexican\ntaco\n卷饼\n玉米卷饼\n墨西哥\n墨西哥卷饼\n墨西哥玉米卷"
+  ],
+  "🌯": [
+    "墨西哥玉米煎饼",
+    "burrito\nmexican\nwrap\n卷饼\n玉米煎饼\n墨西哥\n墨西哥卷饼\n墨西哥玉米煎饼"
+  ],
+  "🌰": [
+    "栗子",
+    "almond\nchestnut\nplant\n杏仁\n栗子"
+  ],
+  "🌱": [
+    "幼苗",
+    "plant\nsapling\nseedling\nsprout\nyoung\n发芽\n幼苗\n芽\n苗"
+  ],
+  "🌲": [
+    "松树",
+    "christmas\nevergreen\nforest\npine\ntree\n圣诞树\n常青树\n松树\n树"
+  ],
+  "🌳": [
+    "落叶树",
+    "deciduous\nforest\ngreen\nhabitat\nshedding\ntree\n树\n落叶\n落叶树\n落叶植物"
+  ],
+  "🌴": [
+    "棕榈树",
+    "beach\npalm\nplant\ntree\ntropical\n树\n棕榈\n棕榈树\n热带"
+  ],
+  "🌵": [
+    "仙人掌",
+    "cactus\ndesert\ndrought\nnature\nplant\n仙人掌\n干旱\n植物\n沙漠"
+  ],
+  "🌶": [
+    "红辣椒",
+    "hot\npepper\n红辣椒\n辣\n辣椒"
+  ],
+  "🌷": [
+    "郁金香",
+    "blossom\nflower\ngrowth\nplant\ntulip\n开花\n花\n郁金香"
+  ],
+  "🌸": [
+    "樱花",
+    "blossom\ncherry\nflower\nplant\nspring\nspringtime\n樱花\n花"
+  ],
+  "🌹": [
+    "玫瑰",
+    "beauty\nelegant\nflower\nlove\nplant\nred\nrose\nvalentine\n优雅\n玫瑰\n红玫瑰\n花"
+  ],
+  "🌺": [
+    "芙蓉",
+    "flower\nhibiscus\nplant\n木槿\n植物\n芙蓉\n花"
+  ],
+  "🌻": [
+    "向日葵",
+    "flower\noutdoors\nplant\nsun\nsunflower\n向日葵\n太阳\n太阳花\n花"
+  ],
+  "🌼": [
+    "开花",
+    "blossom\nbuttercup\ndandelion\nflower\nplant\n开花\n花\n蒲公英"
+  ],
+  "🌽": [
+    "玉米",
+    "corn\ncrops\near\nfarm\nmaize\nmaze\n农作物\n包谷\n玉米\n苞米"
+  ],
+  "🌾": [
+    "稻子",
+    "ear\ngrain\ngrains\nplant\nrice\nsheaf\n稻\n稻子\n米\n粮食\n谷物"
+  ],
+  "🌿": [
+    "药草",
+    "herb\nleaf\nplant\n草药\n药草\n香草"
+  ],
+  "🍀": [
+    "四叶草",
+    "4\nclover\nfour\nfour-leaf\nirish\nleaf\nlucky\nplant\n四叶草\n幸运\n爱尔兰的"
+  ],
+  "🍁": [
+    "枫叶",
+    "falling\nleaf\nmaple\n枫叶\n树叶\n秋叶\n落叶"
+  ],
+  "🍂": [
+    "落叶",
+    "autumn\nfall\nfallen\nfalling\nleaf\n叶\n秋\n落叶"
+  ],
+  "🍃": [
+    "风吹叶落",
+    "blow\nflutter\nfluttering\nleaf\nwind\n叶子\n树叶\n随风飘舞\n风吹叶落"
+  ],
+  "🍄": [
+    "蘑菇",
+    "fungus\nmushroom\ntoadstool\n毒蕈\n真菌\n蘑菇"
+  ],
+  "🍄‍🟫": [
+    "褐色蘑菇",
+    "food\nfungi\nfungus\nmushroom\nnature\npizza\nportobello\nshiitake\nshroom\nspore\nsprout\ntoppings\ntruffle\nvegetable\nvegetarian\nveggie\n披萨配料\n拖沓\n无聊\n棕色\n植物\n素食\n素食主义者\n自然\n菌类\n蔬菜\n蘑菇\n褐色\n褐色蘑菇\n褐菇\n食物"
+  ],
+  "🍅": [
+    "西红柿",
+    "food\nfruit\ntomato\nvegetable\n水果\n番茄\n蔬菜\n西红柿"
+  ],
+  "🍆": [
+    "茄子",
+    "aubergine\neggplant\nvegetable\n茄子\n蔬菜"
+  ],
+  "🍇": [
+    "葡萄",
+    "Dionysus\nfruit\ngrape\ngrapes\n水果\n葡萄"
+  ],
+  "🍈": [
+    "甜瓜",
+    "cantaloupe\nfruit\nmelon\n哈密瓜\n水果\n甜瓜\n蜜瓜\n香瓜"
+  ],
+  "🍉": [
+    "西瓜",
+    "fruit\nwatermelon\n水果\n西瓜"
+  ],
+  "🍊": [
+    "橘子",
+    "c\ncitrus\nfruit\nnectarine\norange\ntangerine\nvitamin\n柑桔\n柑橘\n桔子\n橘子\n水果\n油桃\n维他命 C"
+  ],
+  "🍋": [
+    "柠檬",
+    "citrus\nfruit\nlemon\nsour\n柑橘\n柠檬\n水果\n酸"
+  ],
+  "🍋‍🟩": [
+    "青柠",
+    "acidity\ncitrus\ncocktail\nfruit\ngarnish\nkey\nlime\nmargarita\nmojito\nrefreshing\nsalsa\nsour\ntangy\ntequila\ntropical\nzest\n柑橘属\n橘属\n水果\n清爽\n热带\n绿色\n莫吉托\n调味汁\n酸味酒精饮料\n酸橙\n酸橙派\n酸爽\n青柠"
+  ],
+  "🍌": [
+    "香蕉",
+    "banana\nfruit\npotassium\n水果\n钾\n香蕉"
+  ],
+  "🍍": [
+    "菠萝",
+    "colada\nfruit\npina\npineapple\ntropical\n水果\n热带\n菠萝"
+  ],
+  "🍎": [
+    "红苹果",
+    "apple\ndiet\nfood\nfruit\nhealth\nred\nripe\n健康\n水果\n熟\n红\n红苹果\n苹果\n食物"
+  ],
+  "🍏": [
+    "青苹果",
+    "apple\nfruit\ngreen\n水果\n苹果\n青\n青苹果"
+  ],
+  "🍐": [
+    "梨",
+    "fruit\npear\n梨\n水果"
+  ],
+  "🍑": [
+    "桃",
+    "fruit\npeach\n桃\n水果"
+  ],
+  "🍒": [
+    "樱桃",
+    "berries\ncherries\ncherry\nfruit\nred\n樱桃\n水果"
+  ],
+  "🍓": [
+    "草莓",
+    "berry\nfruit\nstrawberry\n水果\n浆果\n草莓"
+  ],
+  "🍔": [
+    "汉堡",
+    "burger\neat\nfast\nfood\nhamburger\nhungry\n吃\n汉堡\n汉堡包\n速食\n食物\n饿"
+  ],
+  "🍕": [
+    "披萨",
+    "cheese\nfood\nhungry\npepperoni\npizza\nslice\n一片比萨\n披萨\n比萨\n比萨饼\n起司\n辣味香肠\n食物\n饿"
+  ],
+  "🍖": [
+    "排骨",
+    "bone\nmeat\n带骨的肉\n排骨\n肉\n骨"
+  ],
+  "🍗": [
+    "家禽的腿",
+    "bone\nchicken\ndrumstick\nhungry\nleg\npoultry\nturkey\n家禽\n家禽的腿\n火鸡\n饿\n骨\n鸡肉\n鸡腿"
+  ],
+  "🍘": [
+    "米饼",
+    "cracker\nfood\nrice\n米\n米果\n米饼\n食物"
+  ],
+  "🍙": [
+    "饭团",
+    "ball\nfood\nJapanese\nrice\n日式饭团\n日本\n米\n食物\n饭团"
+  ],
+  "🍚": [
+    "米饭",
+    "cooked\nfood\nrice\n主食\n米\n米饭\n食物\n饭"
+  ],
+  "🍛": [
+    "咖喱饭",
+    "curry\nfood\nrice\n咖喱\n咖喱饭\n食物\n饭"
+  ],
+  "🍜": [
+    "面条",
+    "bowl\nchopsticks\nfood\nnoodle\npho\nramen\nsoup\nsteaming\n拉面\n河粉\n热气腾腾\n热气腾腾面碗\n碗\n筷子\n面条\n食物"
+  ],
+  "🍝": [
+    "意粉",
+    "food\nmeatballs\npasta\nrestaurant\nspaghetti\n意大利面\n意粉\n意面\n肉丸\n食物\n餐厅"
+  ],
+  "🍞": [
+    "面包",
+    "bread\ncarbs\nfood\ngrain\nloaf\nrestaurant\ntoast\nwheat\n一条面包\n全麦面包\n小麦\n淀粉\n烤面包\n谷类\n面包\n食物\n餐厅"
+  ],
+  "🍟": [
+    "薯条",
+    "fast\nfood\nfrench\nfries\n快餐\n油炸\n薯条\n食物"
+  ],
+  "🍠": [
+    "烤红薯",
+    "food\npotato\nroasted\nsweet\n地瓜\n烤地瓜\n烤红薯\n红薯\n食物"
+  ],
+  "🍡": [
+    "团子",
+    "dango\ndessert\nJapanese\nskewer\nstick\nsweet\n串\n和果子\n团子\n日本\n甜点\n糖葫芦"
+  ],
+  "🍢": [
+    "关东煮",
+    "food\nkebab\noden\nrestaurant\nseafood\nskewer\nstick\n串\n关东煮\n卡博\n海鲜\n食物\n餐馆"
+  ],
+  "🍣": [
+    "寿司",
+    "food\nsushi\n寿司\n食物"
+  ],
+  "🍤": [
+    "天妇罗",
+    "fried\nprawn\nshrimp\ntempura\n天妇罗\n对虾\n油炸\n炸虾\n虾"
+  ],
+  "🍥": [
+    "鱼板",
+    "cake\nfish\nfood\npastry\nrestaurant\nswirl\n鱼\n鱼板\n鱼饼"
+  ],
+  "🍦": [
+    "圆筒冰激凌",
+    "cream\ndessert\nfood\nice\nicecream\nrestaurant\nserve\nsoft\nsweet\n冰淇淋\n圆筒冰淇淋\n圆筒冰激凌\n甜\n甜点\n霜淇淋\n食物"
+  ],
+  "🍧": [
+    "刨冰",
+    "dessert\nice\nrestaurant\nshaved\nsweet\n冰\n冰沙\n刨冰\n沙冰\n甜\n甜点\n餐馆"
+  ],
+  "🍨": [
+    "冰淇淋",
+    "cream\ndessert\nfood\nice\nrestaurant\nsweet\n冰\n冰淇淋\n冰激凌\n奶油\n甜\n甜点\n雪糕"
+  ],
+  "🍩": [
+    "甜甜圈",
+    "breakfast\ndessert\ndonut\ndoughnut\nfood\nsweet\n甜\n甜点\n甜甜圈\n食物"
+  ],
+  "🍪": [
+    "饼干",
+    "chip\nchocolate\ncookie\ndessert\nsweet\n巧克力片\n曲奇\n曲奇饼\n甜点\n饼干"
+  ],
+  "🍫": [
+    "巧克力",
+    "bar\ncandy\nchocolate\ndessert\nhalloween\nsweet\ntooth\n万圣节\n巧克力\n巧克力棒\n甜\n甜品\n甜点\n糖果"
+  ],
+  "🍬": [
+    "糖",
+    "candy\ncavities\ndessert\nhalloween\nrestaurant\nsweet\ntooth\nwrapper\n万圣节\n嗜甜食\n爱吃甜食\n甜\n甜点\n糖\n糖果\n糖果纸\n蛀牙\n餐馆"
+  ],
+  "🍭": [
+    "棒棒糖",
+    "candy\ndessert\nfood\nlollipop\nrestaurant\nsweet\n果子\n棒棒糖\n甜\n糖\n糖果"
+  ],
+  "🍮": [
+    "奶黄",
+    "custard\ndessert\npudding\nsweet\n卡士达\n奶黄\n甜点\n蛋奶冻\n蛋奶沙司"
+  ],
+  "🍯": [
+    "蜂蜜",
+    "barrel\nbear\nfood\nhoney\nhoneypot\njar\npot\nsweet\n小熊维尼\n桶\n甜\n蜂蜜\n蜜罐"
+  ],
+  "🍰": [
+    "水果蛋糕",
+    "cake\ndessert\npastry\nshortcake\nslice\nsweet\n一片蛋糕\n奶油\n奶油酥饼\n水果蛋糕\n甜点\n糕点\n蛋糕"
+  ],
+  "🍱": [
+    "盒饭",
+    "bento\nbox\nfood\n便当\n便当盒\n盒饭\n食物"
+  ],
+  "🍲": [
+    "一锅食物",
+    "food\npot\nsoup\nstew\n一锅食物\n炖菜\n锅\n食物"
+  ],
+  "🍳": [
+    "煎蛋",
+    "breakfast\ncooking\neasy\negg\nfry\nfrying\nover\npan\nrestaurant\nside\nsunny\nup\n一面老一面嫩的煎蛋\n做菜\n只煎一面老\n平底锅\n早餐\n煎\n煎蛋\n蛋\n食堂"
+  ],
+  "🍴": [
+    "刀叉",
+    "breakfast\nbreaky\ncooking\ncutlery\ndelicious\ndinner\neat\nfeed\nfood\nfork\nhungry\nknife\nlunch\nrestaurant\nyum\nyummy\n中餐\n刀\n刀叉\n午餐\n叉\n吃\n吃早餐\n吃饭\n好吃\n早餐\n晚餐\n烹调\n西餐\n餐具\n饿了"
+  ],
+  "🍵": [
+    "热茶",
+    "beverage\ncup\ndrink\nhandle\noolong\ntea\nteacup\n乌龙茶\n无柄茶杯\n杯\n没有把手的茶杯\n热茶\n热饮\n茶\n茶杯\n饮料"
+  ],
+  "🍶": [
+    "清酒",
+    "bar\nbeverage\nbottle\ncup\ndrink\nrestaurant\nsake\n喝酒\n清酒\n清酒杯\n清酒瓶\n瓶\n酒\n酒吧\n酒杯\n饮料"
+  ],
+  "🍷": [
+    "葡萄酒",
+    "alcohol\nbar\nbeverage\nbooze\nclub\ndrink\ndrinking\ndrinks\nglass\nrestaurant\nwine\n俱乐部\n喝酒\n葡萄酒\n酒\n酒吧\n酒杯\n饮料"
+  ],
+  "🍸": [
+    "鸡尾酒",
+    "alcohol\nbar\nbooze\nclub\ncocktail\ndrink\ndrinking\ndrinks\nglass\nmad\nmartini\nmen\n俱乐部\n喝酒\n杯\n玻璃杯\n酒\n酒吧\n马丁尼\n鸡尾酒\n鸡尾酒杯"
+  ],
+  "🍹": [
+    "热带水果饮料",
+    "alcohol\nbar\nbooze\nclub\ncocktail\ndrink\ndrinking\ndrinks\ndrunk\nmai\nparty\ntai\ntropical\ntropics\n俱乐部\n喝酒\n热带水果饮料\n热带饮料\n酒\n酒吧\n饮料\n鸡尾酒"
+  ],
+  "🍺": [
+    "啤酒",
+    "alcohol\nale\nbar\nbeer\nbooze\ndrink\ndrinking\ndrinks\nmug\noctoberfest\noktoberfest\npint\nstein\nsummer\n啤酒\n啤酒节\n喝酒\n杯\n酒\n酒吧"
+  ],
+  "🍻": [
+    "干杯",
+    "alcohol\nbar\nbeer\nbooze\nbottoms\ncheers\nclink\nclinking\ndrinking\ndrinks\nmugs\n啤酒\n喝酒\n干杯\n碰杯\n酒\n酒吧"
+  ],
+  "🍼": [
+    "奶瓶",
+    "babies\nbaby\nbirth\nborn\nbottle\ndrink\ninfant\nmilk\nnewborn\n奶\n奶瓶\n婴儿\n新生儿"
+  ],
+  "🍽": [
+    "餐具",
+    "cooking\ndinner\neat\nfork\nknife\nplate\n做菜\n刀\n刀叉与盘\n叉\n晚餐\n烹饪\n盘\n西餐\n餐具"
+  ],
+  "🍾": [
+    "开香槟",
+    "bar\nbottle\ncork\ndrink\npopping\n喝酒\n庆祝\n开香槟\n木塞\n瓶子\n砰\n砰木塞的瓶子\n香槟"
+  ],
+  "🍿": [
+    "爆米花",
+    "corn\nmovie\npop\npopcorn\n爆米花\n看电影"
+  ],
+  "🎀": [
+    "蝴蝶结",
+    "celebration\nribbon\n丝带\n庆祝\n缎带\n蝴蝶结"
+  ],
+  "🎁": [
+    "礼物",
+    "birthday\nbow\nbox\ncelebration\nchristmas\ngift\npresent\nsurprise\nwrapped\n包礼物\n包装\n圣诞\n庆祝\n惊喜\n生日礼物\n盒子\n礼品\n礼物"
+  ],
+  "🎂": [
+    "生日蛋糕",
+    "bday\nbirthday\ncake\ncelebration\ndessert\nhappy\npastry\nsweet\n庆祝\n甜\n甜点\n生日\n生日快乐\n生日蛋糕\n糕点\n蛋糕"
+  ],
+  "🎃": [
+    "南瓜灯",
+    "celebration\nhalloween\njack\njack-o-lantern\nlantern\npumpkin\n万圣节\n南瓜\n南瓜灯\n庆祝\n灯\n灯笼"
+  ],
+  "🎄": [
+    "圣诞树",
+    "celebration\nChristmas\ntree\n圣诞\n圣诞树\n庆祝\n树\n装饰"
+  ],
+  "🎅": [
+    "圣诞老人",
+    "celebration\nChristmas\nclaus\nfairy\nfantasy\nfather\nholiday\nmerry\nsanta\ntale\nxmas\n圣诞\n圣诞老人\n圣诞节\n节日"
+  ],
+  "🎆": [
+    "焰火",
+    "boom\ncelebration\nentertainment\nfireworks\nyolo\n庆典\n庆祝\n炮竹\n烟花\n焰火\n爆竹"
+  ],
+  "🎇": [
+    "烟花",
+    "boom\ncelebration\nfireworks\nsparkle\nsparkler\n庆祝\n火花\n烟火\n烟花\n焰火"
+  ],
+  "🎈": [
+    "气球",
+    "balloon\nbirthday\ncelebrate\ncelebration\n庆祝\n气球\n生日\n节日"
+  ],
+  "🎉": [
+    "拉炮彩带",
+    "awesome\nbirthday\ncelebrate\ncelebration\nexcited\nhooray\nparty\npopper\ntada\nwoohoo\n兴奋\n呱呱叫\n庆祝\n彩带\n拉炮\n拉炮彩带\n派对\n派对礼宾花\n生日"
+  ],
+  "🎊": [
+    "五彩纸屑球",
+    "ball\ncelebrate\ncelebration\nconfetti\nparty\nwoohoo\n五彩纸屑\n五彩纸屑球\n庆祝\n彩色纸屑\n球\n舞会"
+  ],
+  "🎋": [
+    "七夕树",
+    "banner\ncelebration\nJapanese\ntanabata\ntree\n七夕\n七夕树\n庆祝\n日本\n条幅\n树"
+  ],
+  "🎌": [
+    "交叉旗",
+    "celebration\ncross\ncrossed\nflags\nJapanese\n交叉旗\n对叉\n旗\n旗帜\n日本"
+  ],
+  "🎍": [
+    "门松",
+    "bamboo\ncelebration\ndecoration\nJapanese\npine\nplant\n庆祝\n日本\n松树\n盆栽\n竹\n门松"
+  ],
+  "🎎": [
+    "日本人形",
+    "celebration\ndoll\ndolls\nfestival\nJapanese\n人偶\n娃娃\n庆祝\n日本\n日本人偶\n日本人形\n节日"
+  ],
+  "🎏": [
+    "鲤鱼旗",
+    "carp\ncelebration\nstreamer\n庆祝\n日本\n男孩节\n长旗\n鲤鱼旗"
+  ],
+  "🎐": [
+    "风铃",
+    "bell\ncelebration\nchime\nwind\n庆祝\n铃铛\n风\n风铃"
+  ],
+  "🎑": [
+    "赏月",
+    "celebration\nceremony\nmoon\nviewing\n中秋\n佳节\n庆祝\n月亮\n祭月\n赏月"
+  ],
+  "🎒": [
+    "书包",
+    "backpack\nbackpacking\nbag\nbookbag\neducation\nrucksack\nsatchel\nschool\n上学\n书包\n包"
+  ],
+  "🎓": [
+    "毕业帽",
+    "cap\ncelebration\nclothing\neducation\ngraduation\nhat\nscholar\n四方帽\n学位\n学者\n毕业\n毕业帽"
+  ],
+  "🎖": [
+    "军功章",
+    "award\ncelebration\nmedal\nmilitary\n军功章\n军队\n勋章\n奖章"
+  ],
+  "🎗": [
+    "提示丝带",
+    "celebration\nreminder\nribbon\n丝带\n庆典\n庆祝\n提示丝带\n暗示\n飘带"
+  ],
+  "🎙": [
+    "录音室麦克风",
+    "mic\nmicrophone\nmusic\nstudio\n录音室\n录音室麦克风\n音乐\n麦\n麦克\n麦克风"
+  ],
+  "🎚": [
+    "电平滑块",
+    "level\nmusic\nslider\n滑块\n电平\n电平滑块\n调节\n调节滑块\n音乐\n音量"
+  ],
+  "🎛": [
+    "控制旋钮",
+    "control\nknobs\nmusic\n控制\n控制旋钮\n旋钮\n调节\n音乐"
+  ],
+  "🎞": [
+    "影片帧",
+    "cinema\nfilm\nframes\nmovie\n帧\n影片帧\n电影\n电影胶卷\n电影胶片\n胶卷\n胶片"
+  ],
+  "🎟": [
+    "入场券",
+    "admission\nticket\ntickets\n入场券\n票\n门票"
+  ],
+  "🎠": [
+    "旋转木马",
+    "carousel\nentertainment\nhorse\n旋转木马\n木马\n游乐园"
+  ],
+  "🎡": [
+    "摩天轮",
+    "amusement\nferris\npark\ntheme\nwheel\n摩天轮\n游乐园"
+  ],
+  "🎢": [
+    "过山车",
+    "amusement\ncoaster\npark\nroller\ntheme\n游乐园\n过山车"
+  ],
+  "🎣": [
+    "钓鱼竿",
+    "entertainment\nfish\nfishing\npole\nsport\n钓竿\n钓鱼竿\n鱼杆"
+  ],
+  "🎤": [
+    "麦克风",
+    "karaoke\nmic\nmicrophone\nmusic\nsing\nsound\nk歌\n卡拉ok\n卡拉OK\n唱K\n唱歌\n麦\n麦克\n麦克风"
+  ],
+  "🎥": [
+    "电影摄影机",
+    "bollywood\ncamera\ncinema\nfilm\nhollywood\nmovie\nrecord\n录像\n摄像机\n摄录机\n摄影\n摄影机\n电影\n电影摄影机"
+  ],
+  "🎦": [
+    "电影院",
+    "camera\ncinema\nfilm\nmovie\n剧院\n场所\n影片\n摄影机\n电影\n电影院"
+  ],
+  "🎧": [
+    "耳机",
+    "earbud\nheadphone\nsound\n头戴式耳机\n耳塞\n耳机"
+  ],
+  "🎨": [
+    "调色盘",
+    "art\nartist\nartsy\narty\ncolorful\ncreative\nentertainment\nmuseum\npainter\npainting\npalette\n创意\n博物馆\n多种色彩\n娱乐\n画家\n画画\n绘画\n艺术\n调色板\n调色盘"
+  ],
+  "🎩": [
+    "礼帽",
+    "clothes\nclothing\nfancy\nformal\nhat\nmagic\ntop\ntophat\n帽子\n正式\n礼帽\n高帽"
+  ],
+  "🎪": [
+    "马戏团帐篷",
+    "circus\ntent\n帐篷\n马戏团\n马戏团帐篷"
+  ],
+  "🎫": [
+    "票",
+    "admission\nstub\nticket\n入场券\n电影票\n票\n票根\n车票\n门票"
+  ],
+  "🎬": [
+    "场记板",
+    "action\nboard\nclapper\nmovie\n场记\n场记板\n打板\n拍电影"
+  ],
+  "🎭": [
+    "表演艺术",
+    "actor\nactress\nart\narts\nentertainment\nmask\nperforming\ntheater\ntheatre\nthespian\n剧院\n女演员\n戏剧\n演员\n艺术\n莎士比亚\n表演\n表演艺术\n面具"
+  ],
+  "🎮": [
+    "游戏手柄",
+    "controller\nentertainment\ngame\nvideo\n手柄\n游戏\n游戏手柄\n游戏控制器\n电子游戏"
+  ],
+  "🎯": [
+    "正中靶心的飞镖",
+    "bull\nbullseye\ndart\ndirect\nentertainment\ngame\nhit\ntarget\n命中\n标的\n正中靶心的飞镖\n直接命中\n要害\n靶心\n飞镖"
+  ],
+  "🎰": [
+    "老虎机",
+    "casino\ngamble\ngambling\ngame\nmachine\nslot\nslots\n吃角子老虎\n游戏\n老虎机\n角子机\n赌博\n赌场"
+  ],
+  "🎱": [
+    "台球",
+    "8\n8ball\nball\nbilliard\neight\ngame\npool\n8 球制桌球\n8号球\n台球\n台球台\n游戏\n霹雳八球"
+  ],
+  "🎲": [
+    "骰子",
+    "dice\ndie\nentertainment\ngame\n掷骰子\n色子\n骰子\n骰子游戏"
+  ],
+  "🎳": [
+    "保龄球",
+    "ball\nbowling\ngame\nsport\nstrike\n保龄球\n全倒\n球\n运动"
+  ],
+  "🎴": [
+    "花札",
+    "card\ncards\nflower\ngame\nJapanese\nplaying\n卡牌\n日本\n游戏\n花斗\n花札\n花牌"
+  ],
+  "🎵": [
+    "音符",
+    "music\nmusical\nnote\nsound\n乐谱\n五线谱\n八分音符\n音乐\n音符"
+  ],
+  "🎶": [
+    "多个音符",
+    "music\nmusical\nnote\nnotes\nsound\n乐谱\n五线谱\n八分音符\n多个音符\n音乐\n音符"
+  ],
+  "🎷": [
+    "萨克斯管",
+    "instrument\nmusic\nsax\nsaxophone\n乐器\n吹奏\n演奏\n萨克斯管\n萨克斯风\n音乐"
+  ],
+  "🎸": [
+    "吉他",
+    "guitar\ninstrument\nmusic\nstrat\n乐器\n吉他\n弹奏\n演奏\n电吉他\n音乐"
+  ],
+  "🎹": [
+    "音乐键盘",
+    "instrument\nkeyboard\nmusic\nmusical\npiano\n乐器\n弹奏\n演奏\n钢琴\n音乐\n音乐键盘"
+  ],
+  "🎺": [
+    "小号",
+    "instrument\nmusic\ntrumpet\n乐器\n吹奏\n喇叭\n小号\n音乐"
+  ],
+  "🎻": [
+    "小提琴",
+    "instrument\nmusic\nviolin\n乐器\n小提琴\n提琴\n是特拉迪瓦尔\n演奏\n音乐"
+  ],
+  "🎼": [
+    "乐谱",
+    "music\nmusical\nnote\nscore\n乐谱\n五线谱\n曲谱\n音乐\n音符"
+  ],
+  "🎽": [
+    "运动背心",
+    "athletics\nrunning\nsash\nshirt\n上衣\n跑步\n运动服\n运动背心\n饰带"
+  ],
+  "🎾": [
+    "网球",
+    "ball\nracquet\nsport\ntennis\n球\n球拍\n网球\n网球拍"
+  ],
+  "🎿": [
+    "滑雪",
+    "ski\nskis\nsnow\nsport\n滑雪\n运动\n雪"
+  ],
+  "🏀": [
+    "篮球",
+    "ball\nbasketball\nhoop\nsport\n打球\n球\n篮球\n篮筐\n运动"
+  ],
+  "🏁": [
+    "黑白方格旗",
+    "checkered\nchequered\nfinish\nflag\nflags\ngame\nrace\nracing\nsport\nwin\n方格\n格子旗\n竞赛\n终点\n终点旗\n黑白方格"
+  ],
+  "🏂": [
+    "滑雪板",
+    "ski\nsnow\nsnowboard\nsnowboarder\nsport\n单板\n单板滑雪\n滑雪\n滑雪板\n雪"
+  ],
+  "🏃": [
+    "跑步者",
+    "fast\nhurry\nmarathon\nmove\nperson\nquick\nrace\nracing\nrun\nrush\nspeed\n匆忙\n向前冲\n奔跑\n快跑\n赛跑\n跑步\n跑步者\n跑路\n闪人\n马拉松"
+  ],
+  "🏃‍♀": [
+    "女生跑步",
+    "fast\nhurry\nmarathon\nmove\nquick\nrace\nracing\nrun\nrush\nspeed\nwoman\n冲刺\n女\n女生跑步\n比赛\n跑\n跑步\n马拉松"
+  ],
+  "🏃‍♀‍➡": [
+    "女生跑步: 面向右边",
+    "facing\nfast\nhurry\nmarathon\nmove\nquick\nrace\nracing\nright\nrun\nrush\nspeed\nwoman\n冲刺\n女\n女生跑步\n比赛\n跑\n跑步\n面向右边\n马拉松"
+  ],
+  "🏃‍♂": [
+    "男生跑步",
+    "fast\nhurry\nman\nmarathon\nmove\nquick\nrace\nracing\nrun\nrush\nspeed\n男\n男生跑步\n跑\n马拉松"
+  ],
+  "🏃‍♂‍➡": [
+    "男生跑步: 面向右边",
+    "facing\nfast\nhurry\nman\nmarathon\nmove\nquick\nrace\nracing\nright\nrun\nrush\nspeed\n男\n男生跑步\n跑\n面向右边\n马拉松"
+  ],
+  "🏃‍➡": [
+    "跑步者: 面向右边",
+    "facing\nfast\nhurry\nmarathon\nmove\nperson\nquick\nrace\nracing\nright\nrun\nrush\nspeed\n匆忙\n向前冲\n奔跑\n快跑\n赛跑\n跑步\n跑步者\n跑路\n闪人\n面向右边\n马拉松"
+  ],
+  "🏄": [
+    "冲浪",
+    "beach\nocean\nperson\nsport\nsurf\nsurfer\nsurfing\nswell\nwaves\n冲浪\n冲浪的人\n冲浪者\n波浪\n海上运动\n海洋\n海滩\n涌浪\n网上冲浪\n运动"
+  ],
+  "🏄‍♀": [
+    "女生冲浪",
+    "beach\nocean\nperson\nsport\nsurf\nsurfer\nsurfing\nswell\nwaves\n冲浪\n女\n女生冲浪\n海滩"
+  ],
+  "🏄‍♂": [
+    "男生冲浪",
+    "beach\nman\nocean\nsport\nsurf\nsurfer\nsurfing\nswell\nwaves\n冲浪\n男\n男生冲浪"
+  ],
+  "🏅": [
+    "奖牌",
+    "award\ngold\nmedal\nsports\nwinner\n奖牌\n获胜\n运动会奖牌\n运动员\n金牌"
+  ],
+  "🏆": [
+    "奖杯",
+    "champion\nchamps\nprize\nslay\nsport\ntrophy\nvictory\nwin\nwinning\n冠军\n奖励\n奖品\n奖杯\n奖赏\n胜利\n获胜"
+  ],
+  "🏇": [
+    "赛马",
+    "horse\njockey\nracehorse\nracing\nriding\nsport\n三冠\n赛马\n赛马骑师\n马\n骑师\n骑马"
+  ],
+  "🏈": [
+    "美式橄榄球",
+    "american\nball\nbowl\nfootball\nsport\nsuper\n橄榄球\n球\n美式橄榄球"
+  ],
+  "🏉": [
+    "英式橄榄球",
+    "ball\nfootball\nrugby\nsport\n橄榄球\n球\n英式橄榄球\n运动"
+  ],
+  "🏊": [
+    "游泳",
+    "freestyle\nperson\nsport\nswim\nswimmer\nswimming\ntriathlon\n游泳\n游泳的人\n游泳者\n自由泳\n运动\n铁人三项"
+  ],
+  "🏊‍♀": [
+    "女生游泳",
+    "freestyle\nman\nsport\nswim\nswimmer\nswimming\ntriathlon\n女\n女生游泳\n游泳"
+  ],
+  "🏊‍♂": [
+    "男生游泳",
+    "freestyle\nman\nsport\nswim\nswimmer\nswimming\ntriathlon\n游泳\n男\n男生游泳"
+  ],
+  "🏋": [
+    "举重",
+    "barbell\nbodybuilder\ndeadlift\nlifter\nlifting\nperson\npowerlifting\nweight\nweightlifter\nweights\nworkout\n举重\n举重的人\n举重运动员\n举铁\n健美者\n力量举重\n杠铃\n硬拉\n训练\n运动"
+  ],
+  "🏋‍♀": [
+    "女生举重",
+    "barbell\nbodybuilder\ndeadlift\nlifter\nlifting\npowerlifting\nweight\nweightlifter\nweights\nwoman\nworkout\n举重\n女\n女生举重\n训练"
+  ],
+  "🏋‍♂": [
+    "男生举重",
+    "barbell\nbodybuilder\ndeadlift\nlifter\nlifting\nman\npowerlifting\nweight\nweightlifter\nweights\nworkout\n举重\n男\n男生举重"
+  ],
+  "🏌": [
+    "打高尔夫的人",
+    "ball\nbirdie\ncaddy\ndriving\ngolf\ngolfing\ngreen\nperson\npga\nputt\nrange\ntee\n小鸟球\n打高尔夫的人\n推杆进球\n球\n球座\n球穴区\n球童\n职业高尔夫协会\n运动\n高尔夫"
+  ],
+  "🏌‍♀": [
+    "女生打高尔夫",
+    "ball\nbirdie\ncaddy\ndriving\ngolf\ngolfing\ngreen\npga\nputt\nrange\ntee\nwoman\n女\n女生打高尔夫\n高尔夫\n高尔夫练球场"
+  ],
+  "🏌‍♂": [
+    "男生打高尔夫",
+    "ball\nbirdie\ncaddy\ndriving\ngolf\ngolfing\ngreen\nman\npga\nputt\nrange\ntee\n男\n男生打高尔夫\n高尔夫"
+  ],
+  "🏍": [
+    "摩托车",
+    "motorcycle\nracing\n摩托\n摩托车\n赛车"
+  ],
+  "🏎": [
+    "赛车",
+    "car\nracing\nzoom\n汽车\n疾驰\n赛车\n跑车"
+  ],
+  "🏏": [
+    "板球",
+    "ball\nbat\ncricket\ngame\n板球\n球\n球拍"
+  ],
+  "🏐": [
+    "排球",
+    "ball\ngame\nvolleyball\n排球\n球\n球赛"
+  ],
+  "🏑": [
+    "曲棍球",
+    "ball\nfield\ngame\nhockey\nstick\n曲棍球\n球\n球棍\n球赛"
+  ],
+  "🏒": [
+    "冰球",
+    "game\nhockey\nice\npuck\nstick\n冰球\n冰球杆\n球\n球棍"
+  ],
+  "🏓": [
+    "乒乓球",
+    "ball\nbat\ngame\npaddle\nping\npingpong\npong\ntable\ntennis\n乒乓\n乒乓球\n桌球\n比赛\n球\n球拍"
+  ],
+  "🏔": [
+    "雪山",
+    "cold\nmountain\nsnow\nsnow-capped\n冷\n山\n泠\n雪\n雪封山头\n雪山\n雪顶"
+  ],
+  "🏕": [
+    "露营",
+    "camping\n帐篷\n露营"
+  ],
+  "🏖": [
+    "沙滩伞",
+    "beach\numbrella\n伞\n有伞的海滩\n沙滩\n沙滩伞\n海滩\n阳伞"
+  ],
+  "🏗": [
+    "施工",
+    "building\nconstruction\ncrane\n兴建\n建筑施工\n施工"
+  ],
+  "🏘": [
+    "房屋建筑",
+    "house\nhouses\n住宅\n小区\n房\n房子\n房屋建筑"
+  ],
+  "🏙": [
+    "城市风光",
+    "city\ncityscape\n城市\n城市风光\n都市\n都市景观\n高楼大厦"
+  ],
+  "🏚": [
+    "废墟",
+    "derelict\nhome\nhouse\n废墟\n废屋\n荒宅\n荒废\n鬼屋"
+  ],
+  "🏛": [
+    "古典建筑",
+    "building\nclassical\n古典\n古典建筑\n古建筑"
+  ],
+  "🏜": [
+    "沙漠",
+    "desert\n沙漠\n荒漠"
+  ],
+  "🏝": [
+    "无人荒岛",
+    "desert\nisland\n岛\n无人荒岛\n沙滩孤岛\n沙漠\n荒岛"
+  ],
+  "🏞": [
+    "国家公园",
+    "national\npark\n公园\n国家公园\n自然\n风景"
+  ],
+  "🏟": [
+    "体育馆",
+    "stadium\n体育馆\n竞技场"
+  ],
+  "🏠": [
+    "房子",
+    "building\ncountry\nheart\nhome\nhouse\nranch\nsettle\nsimple\nsuburban\nsuburbia\nwhere\n住家\n家\n乡村家园\n建筑\n心之所在\n房子\n房屋\n郊区"
+  ],
+  "🏡": [
+    "别墅",
+    "building\ncountry\ngarden\nheart\nhome\nhouse\nranch\nsettle\nsimple\nsuburban\nsuburbia\nwhere\n住家\n别墅\n家\n乡村家园\n庭院\n庭院居家\n建筑\n心之所在\n房子\n花园\n郊区"
+  ],
+  "🏢": [
+    "办公楼",
+    "building\ncity\ncubical\njob\noffice\n写字楼\n办公楼\n建筑"
+  ],
+  "🏣": [
+    "日本邮局",
+    "building\nJapanese\noffice\npost\n建筑\n日本\n日本邮局\n邮便\n邮局"
+  ],
+  "🏤": [
+    "邮局",
+    "building\nEuropean\noffice\npost\n建筑\n欧洲\n欧洲邮局\n邮局"
+  ],
+  "🏥": [
+    "医院",
+    "building\ndoctor\nhospital\nmedicine\n医生\n医药\n医院\n建筑\n看病"
+  ],
+  "🏦": [
+    "银行",
+    "bank\nbuilding\n建筑\n银行"
+  ],
+  "🏧": [
+    "取款机",
+    "ATM\nautomated\nbank\ncash\nmoney\nsign\nteller\n取款机\n提款机\n柜员机\n标识\n银行"
+  ],
+  "🏨": [
+    "酒店",
+    "building\nhotel\n建筑\n旅馆\n酒店"
+  ],
+  "🏩": [
+    "情人酒店",
+    "building\nhotel\nlove\n建筑\n情人旅馆\n情人酒店\n情侣酒店\n旅馆"
+  ],
+  "🏪": [
+    "便利店",
+    "24\nbuilding\nconvenience\nhours\nstore\n24 小时\n便利店\n商店\n建筑"
+  ],
+  "🏫": [
+    "学校",
+    "building\nschool\n学校\n建筑\n教学楼"
+  ],
+  "🏬": [
+    "商场",
+    "building\ndepartment\nstore\n商场\n建筑\n百货公司\n百货商城\n百货商店"
+  ],
+  "🏭": [
+    "工厂",
+    "building\nfactory\n工厂\n建筑"
+  ],
+  "🏮": [
+    "红灯笼",
+    "bar\nlantern\nlight\npaper\nred\nrestaurant\n光\n喜庆\n居酒屋\n日本\n灯笼\n红灯笼\n节日\n酒馆\n餐馆"
+  ],
+  "🏯": [
+    "日本城堡",
+    "building\ncastle\nJapanese\n城堡\n建筑\n日本\n日本城堡"
+  ],
+  "🏰": [
+    "欧洲城堡",
+    "building\ncastle\nEuropean\n城堡\n建筑\n欧洲\n欧洲城堡"
+  ],
+  "🏳": [
+    "白旗",
+    "flag\nwaving\nwhite\n举白旗\n摇白旗\n白旗\n白色旗子\n白色旗帜"
+  ],
+  "🏳‍⚧": [
+    "跨性别旗",
+    "blue\nflag\nlight\npink\ntransgender\nwhite\n旗帜\n浅蓝色\n白色\n粉红色\n跨性别\n跨性别旗"
+  ],
+  "🏳‍🌈": [
+    "彩虹旗",
+    "bisexual\nflag\ngay\ngenderqueer\nglbt\nglbtq\nlesbian\nlgbt\nlgbtq\nlgbtqia\npride\nqueer\nrainbow\ntrans\ntransgender\n双性\n同性\n多色\n彩虹\n彩虹旗\n旗\n旗帜\n跨性别"
+  ],
+  "🏴": [
+    "黑旗",
+    "black\nflag\nwaving\n举黑旗\n摇黑棋\n黑旗\n黑色旗\n黑色旗子\n黑色旗帜"
+  ],
+  "🏴‍☠": [
+    "海盗旗",
+    "flag\nJolly\npirate\nplunder\nRoger\ntreasure\n掠夺\n海上\n海盗旗\n财宝\n骷髅"
+  ],
+  "🏴󠁧󠁢󠁥󠁮󠁧󠁿": [
+    "旗: 英格兰",
+    "flag\n旗"
+  ],
+  "🏴󠁧󠁢󠁳󠁣󠁴󠁿": [
+    "旗: 苏格兰",
+    "flag\n旗"
+  ],
+  "🏴󠁧󠁢󠁷󠁬󠁳󠁿": [
+    "旗: 威尔士",
+    "flag\n旗"
+  ],
+  "🏵": [
+    "圆形花饰",
+    "plant\nrosette\n光荣花\n圆形花饰\n植物\n花\n花圈"
+  ],
+  "🏷": [
+    "标签",
+    "label\ntag\n吊牌\n标签\n标记\n行李牌"
+  ],
+  "🏸": [
+    "羽毛球",
+    "badminton\nbirdie\ngame\nracquet\nshuttlecock\n球拍\n羽毛球\n羽球"
+  ],
+  "🏹": [
+    "弓和箭",
+    "archer\narchery\narrow\nbow\nSagittarius\ntool\nweapon\nzodiac\n人马座\n射手\n射手座\n射箭\n弓\n弓和箭\n弓箭\n箭"
+  ],
+  "🏺": [
+    "双耳瓶",
+    "amphora\nAquarius\ncooking\ndrink\njug\ntool\nweapon\nzodiac\n双耳瓶\n壶\n水瓶\n罐"
+  ],
+  "🐀": [
+    "耗子",
+    "animal\nrat\n耗子\n鼠"
+  ],
+  "🐁": [
+    "老鼠",
+    "animal\nanimals\nmouse\n老鼠\n耗子\n鼠"
+  ],
+  "🐂": [
+    "公牛",
+    "animal\nanimals\nbull\nfarm\nox\nTaurus\nzodiac\n公牛\n牛\n金牛座\n黄道十二宫"
+  ],
+  "🐃": [
+    "水牛",
+    "animal\nbuffalo\nwater\nzoo\n水牛"
+  ],
+  "🐄": [
+    "奶牛",
+    "animal\nanimals\ncow\nfarm\nmilk\nmoo\n乳牛\n奶牛\n牛"
+  ],
+  "🐅": [
+    "老虎",
+    "animal\nbig\ncat\npredator\ntiger\nzoo\n动物园\n老虎\n虎"
+  ],
+  "🐆": [
+    "豹子",
+    "animal\nbig\ncat\nleopard\npredator\nzoo\n动物\n猎豹\n豹\n豹子"
+  ],
+  "🐇": [
+    "兔子",
+    "animal\nbunny\npet\nrabbit\n兔\n兔子\n动物"
+  ],
+  "🐈": [
+    "猫",
+    "animal\nanimals\ncat\ncats\nkitten\npet\n宠物\n小猫\n猫"
+  ],
+  "🐈‍⬛": [
+    "黑猫",
+    "animal\nblack\ncat\nfeline\nhalloween\nmeow\nunlucky\n万圣节\n不吉利\n动物\n喵\n喵星人\n猫\n猫科\n黑猫\n黑色"
+  ],
+  "🐉": [
+    "龙",
+    "animal\ndragon\nfairy\nfairytale\nknights\ntale\n中国\n权力的游戏\n龙"
+  ],
+  "🐊": [
+    "鳄鱼",
+    "animal\ncrocodile\nzoo\n鳄鱼"
+  ],
+  "🐋": [
+    "鲸鱼",
+    "animal\nbeach\nocean\nwhale\n鲸鱼"
+  ],
+  "🐌": [
+    "蜗牛",
+    "animal\nescargot\ngarden\nnature\nslug\nsnail\n法国蜗牛\n蜗牛"
+  ],
+  "🐍": [
+    "蛇",
+    "animal\nbearer\nOphiuchus\nserpent\nsnake\nzodiac\n持票人\n狡猾的人\n蛇\n蛇夫座\n黄道十二宫"
+  ],
+  "🐎": [
+    "马",
+    "animal\nequestrian\nfarm\nhorse\nracehorse\nracing\n动物\n比赛\n赛马\n马\n骑马"
+  ],
+  "🐏": [
+    "公羊",
+    "animal\nAries\nhorns\nmale\nram\nsheep\nzodiac\nzoo\n公羊\n白羊座\n羊\n雄性\n黄道十二宫"
+  ],
+  "🐐": [
+    "山羊",
+    "animal\nCapricorn\nfarm\ngoat\nmilk\nzodiac\n山羊\n摩羯座\n黄道十二宫"
+  ],
+  "🐑": [
+    "母羊",
+    "animal\nbaa\newe\nfarm\nfemale\nfluffy\nlamb\nsheep\nwool\n咩\n母羊\n毛茸茸\n绵羊\n羊\n羊毛\n雌性"
+  ],
+  "🐒": [
+    "猴子",
+    "animal\nbanana\nmonkey\n猴\n猴子"
+  ],
+  "🐓": [
+    "公鸡",
+    "animal\nbird\nornithology\nrooster\n公鸡\n动物\n鸡"
+  ],
+  "🐔": [
+    "鸡",
+    "animal\nbird\nchicken\nornithology\n动物\n鸡"
+  ],
+  "🐕": [
+    "狗",
+    "animal\nanimals\ndog\ndogs\npet\n动物\n宠物\n小狗\n汪星人\n狗"
+  ],
+  "🐕‍🦺": [
+    "服务犬",
+    "accessibility\nanimal\nassistance\ndog\nservice\n工作犬\n无障碍\n服务\n服务犬\n犬\n狗\n辅助"
+  ],
+  "🐖": [
+    "猪",
+    "animal\nbacon\nfarm\npig\npork\nsow\n培根\n猪\n猪肉"
+  ],
+  "🐗": [
+    "野猪",
+    "animal\nboar\npig\n动物\n猪\n野猪"
+  ],
+  "🐘": [
+    "大象",
+    "animal\nelephant\n动物\n大象\n象"
+  ],
+  "🐙": [
+    "章鱼",
+    "animal\ncreature\nocean\noctopus\n八爪\n章鱼\n鱼"
+  ],
+  "🐚": [
+    "海螺",
+    "animal\nbeach\nconch\nsea\nshell\nspiral\n海螺\n螺\n螺旋"
+  ],
+  "🐛": [
+    "毛毛虫",
+    "animal\nbug\ngarden\ninsect\n昆虫\n毛毛虫\n毛虫"
+  ],
+  "🐜": [
+    "蚂蚁",
+    "animal\nant\ngarden\ninsect\n蚂蚁"
+  ],
+  "🐝": [
+    "蜜蜂",
+    "animal\nbee\nbumblebee\nhoney\nhoneybee\ninsect\nnature\nspring\n勤劳\n昆虫\n蜂蜜\n蜜蜂"
+  ],
+  "🐞": [
+    "瓢虫",
+    "animal\nbeetle\ngarden\ninsect\nlady\nladybird\nladybug\nnature\n昆虫\n母\n瓢虫"
+  ],
+  "🐟": [
+    "鱼",
+    "animal\ndinner\nfish\nfishes\nfishing\nPisces\nzodiac\n双鱼座\n星座\n鱼\n黄道十二宫"
+  ],
+  "🐠": [
+    "热带鱼",
+    "animal\nfish\nfishes\ntropical\n热带\n热带鱼\n鱼"
+  ],
+  "🐡": [
+    "河豚",
+    "animal\nblowfish\nfish\n河豚\n鱼"
+  ],
+  "🐢": [
+    "龟",
+    "animal\nterrapin\ntortoise\nturtle\n乌龟\n海龟\n陆龟\n龟"
+  ],
+  "🐣": [
+    "小鸡破壳",
+    "animal\nbaby\nbird\nchick\negg\nhatching\n小鸡\n小鸡破壳\n破壳"
+  ],
+  "🐤": [
+    "小鸡",
+    "animal\nbaby\nbird\nchick\nornithology\n小鸡\n鸡"
+  ],
+  "🐥": [
+    "正面朝向的小鸡",
+    "animal\nbaby\nbird\nchick\nfront-facing\nnewborn\nornithology\n小鸡\n正面朝向的小鸡"
+  ],
+  "🐦": [
+    "鸟",
+    "animal\nbird\nornithology\n动物\n鸟\n鸟类学"
+  ],
+  "🐦‍⬛": [
+    "黑色的鸟",
+    "animal\nbeak\nbird\nblack\ncaw\ncorvid\ncrow\nornithology\nraven\nrook\n乌鸦\n动物\n喙\n渡鸦\n秃鼻乌鸦\n老鸦\n鸟\n鸦叫声\n鸦科\n黑色\n黑色的鸟"
+  ],
+  "🐦‍🔥": [
+    "凤凰",
+    "ascend\nascension\nemerge\nfantasy\nfirebird\nglory\nimmortal\nphoenix\nrebirth\nreincarnation\nreinvent\nrenewal\nrevival\nrevive\nrise\ntransform\n不朽\n不死鸟\n东山再起\n凤凰\n凤凰传奇\n幻兽\n幻想\n浴火重生\n火鸟\n灵魂转世\n神奇动物\n重生\n重获新生"
+  ],
+  "🐧": [
+    "企鹅",
+    "animal\nantarctica\nbird\nornithology\npenguin\n企鹅\n南极\n南极洲"
+  ],
+  "🐨": [
+    "考拉",
+    "animal\naustralia\nbear\ndown\nface\nkoala\nmarsupial\nunder\n动物\n有袋类动物\n树袋熊\n澳大利亚\n考拉"
+  ],
+  "🐩": [
+    "贵宾犬",
+    "animal\ndog\nfluffy\npoodle\n卷毛狗\n毛茸茸\n狗\n贵宾犬"
+  ],
+  "🐪": [
+    "骆驼",
+    "animal\ncamel\ndesert\ndromedary\nhump\none\n单峰\n单峰驼\n沙漠\n驼峰\n骆驼"
+  ],
+  "🐫": [
+    "双峰骆驼",
+    "animal\nbactrian\ncamel\ndesert\nhump\ntwo\ntwo-hump\n双峰\n双峰骆驼\n沙漠\n骆驼"
+  ],
+  "🐬": [
+    "海豚",
+    "animal\nbeach\ndolphin\nflipper\nocean\n海豚\n鸭脚板"
+  ],
+  "🐭": [
+    "老鼠头",
+    "animal\nface\nmouse\n老鼠头\n鼠"
+  ],
+  "🐮": [
+    "奶牛头",
+    "animal\ncow\nface\nfarm\nmilk\nmoo\n乳牛\n奶牛\n奶牛头\n母牛\n牛头\n脸"
+  ],
+  "🐯": [
+    "老虎头",
+    "animal\nbig\ncat\nface\npredator\ntiger\n森林之王\n老虎\n老虎头\n脸"
+  ],
+  "🐰": [
+    "兔子头",
+    "animal\nbunny\nface\npet\nrabbit\n兔\n兔子头\n兔宝宝\n宠物"
+  ],
+  "🐱": [
+    "猫脸",
+    "animal\ncat\nface\nkitten\nkitty\npet\n宠物\n猫\n猫咪\n猫脸\n脸"
+  ],
+  "🐲": [
+    "龙头",
+    "animal\ndragon\nface\nfairy\nfairytale\ntale\n神话\n童话\n龙\n龙头"
+  ],
+  "🐳": [
+    "喷水的鲸",
+    "animal\nbeach\nface\nocean\nspouting\nwhale\n喷水\n喷水的鲸\n鲸"
+  ],
+  "🐴": [
+    "马头",
+    "animal\ndressage\nequine\nface\nfarm\nhorse\nhorses\n盛装舞步\n马\n马头"
+  ],
+  "🐵": [
+    "猴头",
+    "animal\nbanana\nface\nmonkey\n动物\n猴\n猴头\n猴子"
+  ],
+  "🐶": [
+    "狗脸",
+    "adorbs\nanimal\ndog\nface\npet\npuppies\npuppy\n宠物\n小狗\n汪星人\n狗\n狗脸\n脸"
+  ],
+  "🐷": [
+    "猪头",
+    "animal\nbacon\nface\nfarm\npig\npork\n八戒\n猪\n猪头\n脸"
+  ],
+  "🐸": [
+    "青蛙",
+    "animal\nface\nfrog\n动物\n头\n脸\n青蛙\n青蛙头"
+  ],
+  "🐹": [
+    "仓鼠",
+    "animal\nface\nhamster\npet\n仓鼠\n仓鼠头\n啮齿\n头\n宠物\n脸"
+  ],
+  "🐺": [
+    "狼",
+    "animal\nface\nwolf\n头\n狼\n狼头\n脸"
+  ],
+  "🐻": [
+    "熊",
+    "animal\nbear\nface\ngrizzly\ngrowl\nhoney\n低吼\n头\n灰熊\n熊\n熊头\n熊脸\n脸"
+  ],
+  "🐻‍❄": [
+    "北极熊",
+    "animal\narctic\nbear\npolar\nwhite\n北极\n北极熊\n熊\n白色"
+  ],
+  "🐼": [
+    "熊猫",
+    "animal\nbamboo\nface\npanda\n头\n熊猫\n熊猫脸\n猫熊\n猫熊脸\n胖达\n脸"
+  ],
+  "🐽": [
+    "猪鼻子",
+    "animal\nface\nfarm\nnose\npig\nsmell\nsnout\n猪\n猪鼻子\n脸\n闻\n鼻\n鼻子"
+  ],
+  "🐾": [
+    "爪印",
+    "feet\npaw\npaws\nprint\nprints\n爪\n爪印\n爪子\n足迹"
+  ],
+  "🐿": [
+    "松鼠",
+    "animal\nchipmunk\nsquirrel\n松鼠\n花栗鼠\n金花鼠"
+  ],
+  "👀": [
+    "双眼",
+    "body\neye\neyes\nface\ngoogly\nlook\nlooking\nomg\npeep\nsee\nseeing\n双眼\n看\n眼睛\n窥视\n身体"
+  ],
+  "👁": [
+    "眼睛",
+    "1\nbody\neye\none\n单眼\n看\n眼\n眼睛\n身体"
+  ],
+  "👁‍🗨": [
+    "眼睛对话框",
+    "balloon\nbubble\neye\nspeech\nwitness\n对话框\n目擊\n眼睛\n眼睛对话框"
+  ],
+  "👂": [
+    "耳朵",
+    "body\near\nears\nhear\nhearing\nlisten\nlistening\nsound\n仔细听\n听\n耳\n耳朵"
+  ],
+  "👃": [
+    "鼻子",
+    "body\nnose\nnoses\nnosey\nodor\nsmell\nsmells\n嗅\n气味\n闻\n鼻\n鼻子"
+  ],
+  "👄": [
+    "嘴",
+    "beauty\nbody\nkiss\nkissing\nlips\nlipstick\nmouth\n口\n口红\n吻\n唇\n唇膏\n嘴"
+  ],
+  "👅": [
+    "舌头",
+    "body\nlick\nslurp\ntongue\n啧啧地喝\n舌\n舌头\n舔\n身体"
+  ],
+  "👆": [
+    "反手食指向上指",
+    "backhand\nfinger\nhand\nindex\npoint\npointing\nup\n反手\n反手食指向上指\n向上指\n手\n指上\n食指"
+  ],
+  "👇": [
+    "反手食指向下指",
+    "backhand\ndown\nfinger\nhand\nindex\npoint\npointing\n反手\n反手食指向下指\n向下指\n手\n指下\n食指"
+  ],
+  "👈": [
+    "反手食指向左指",
+    "backhand\nfinger\nhand\nindex\nleft\npoint\npointing\n反手\n反手食指向左指\n向左指\n手\n指左\n食指"
+  ],
+  "👉": [
+    "反手食指向右指",
+    "backhand\nfinger\nhand\nindex\npoint\npointing\nright\n反手\n反手食指向右指\n向右指\n手\n指右\n食指"
+  ],
+  "👊": [
+    "出拳",
+    "absolutely\nagree\nboom\nbro\nbruh\nbump\nclenched\ncorrect\nfist\nhand\nknuckle\noncoming\npound\npunch\nrock\nttyl\n出拳\n完全同意\n手\n打\n拳\n挥拳过来\n绝对正确"
+  ],
+  "👋": [
+    "挥手",
+    "bye\ncya\ng2g\ngreetings\ngtg\nhand\nhello\nhey\nhi\nlater\nouttie\nttfn\nttyl\nwave\nyo\nyou\n你好\n再见\n嗨\n在吗\n手\n挥手\n等一下\n等等\n该走了"
+  ],
+  "👌": [
+    "OK",
+    "awesome\nbet\ndope\nfleek\nfosho\ngot\ngotcha\nhand\nlegit\nOK\nokay\npinch\nrad\nsure\nsweet\nthree\nOK 手势\n可以\n同意\n好的\n当然\n手\n没问题\n确定"
+  ],
+  "👍": [
+    "拇指向上",
+    "+1\ngood\nhand\nlike\nthumb\nup\nyes\n同意\n好\n手\n拇指\n拇指向上\n真棒\n赞\n赞成\n顶一下"
+  ],
+  "👎": [
+    "拇指向下",
+    "-1\nbad\ndislike\ndown\ngood\nhand\nno\nnope\nthumb\nthumbs\n不赞成\n反对\n否决\n手\n拇指向下\n责备"
+  ],
+  "👏": [
+    "鼓掌",
+    "applause\napproval\nawesome\nclap\ncongrats\ncongratulations\nexcited\ngood\ngreat\nhand\nhomie\njob\nnice\nprayed\nwell\nyay\n干得好\n恭喜\n拍手\n赞成\n鼓掌"
+  ],
+  "👐": [
+    "张开双手",
+    "hand\nhands\nhug\njazz\nopen\nswerve\n十\n双手\n张开双手\n摊手"
+  ],
+  "👑": [
+    "皇冠",
+    "clothing\ncrown\nfamily\nking\nmedieval\nqueen\nroyal\nroyalty\nwin\n国王\n权力的游戏\n王冠\n王后\n皇冠\n皇家"
+  ],
+  "👒": [
+    "女帽",
+    "clothes\nclothing\ngarden\nhat\nhats\nparty\nwoman\nwoman’s\n女\n女帽\n女式\n帽子\n花园派对"
+  ],
+  "👓": [
+    "眼镜",
+    "clothing\neye\neyeglasses\neyewear\nglasses\n服饰\n眼睛\n眼镜"
+  ],
+  "👔": [
+    "领带",
+    "clothing\nemployed\nnecktie\nserious\nshirt\ntie\n工作\n正式\n衬衫领带\n领带"
+  ],
+  "👕": [
+    "T恤",
+    "blue\ncasual\nclothes\nclothing\ncollar\ndressed\nshirt\nshopping\nt-shirt\ntshirt\nweekend\nT恤\n休闲服装\n恤衫"
+  ],
+  "👖": [
+    "牛仔裤",
+    "blue\ncasual\nclothes\nclothing\ndenim\ndressed\njeans\npants\nshopping\ntrousers\nweekend\n休闲\n周末\n牛仔裤\n蓝色\n裤子"
+  ],
+  "👗": [
+    "连衣裙",
+    "clothes\nclothing\ndress\ndressed\nfancy\nshopping\n衣服\n裙子\n连衣裙"
+  ],
+  "👘": [
+    "和服",
+    "clothing\ncomfortable\nkimono\n和服\n日本\n衣服"
+  ],
+  "👙": [
+    "比基尼",
+    "bathing\nbeach\nbikini\nclothing\npool\nsuit\nswim\n三点式\n比基尼\n泳装\n游泳"
+  ],
+  "👚": [
+    "女装",
+    "blouse\nclothes\nclothing\ncollar\ndress\ndressed\nlady\nshirt\nshopping\nwoman\nwoman’s\n女\n女生衣服\n女衬衫\n女装\n衣服"
+  ],
+  "👛": [
+    "钱包",
+    "clothes\nclothing\ncoin\ndress\nfancy\nhandbag\npurse\nshopping\n血拼\n钱包\n铜板"
+  ],
+  "👜": [
+    "手提包",
+    "bag\nclothes\nclothing\ndress\nhandbag\nlady\npurse\nshopping\n包包\n手提包\n挎包\n血拼"
+  ],
+  "👝": [
+    "手袋",
+    "bag\nclothes\nclothing\nclutch\ndress\nhandbag\npouch\npurse\n包\n化妆包\n手拿\n手拿包\n手袋"
+  ],
+  "👞": [
+    "男鞋",
+    "brown\nclothes\nclothing\nfeet\nfoot\nkick\nman\nman’s\nshoe\nshoes\nshopping\n棕色\n男鞋\n皮鞋\n鞋"
+  ],
+  "👟": [
+    "跑鞋",
+    "athletic\nclothes\nclothing\nfast\nkick\nrunning\nshoe\nshoes\nshopping\nsneaker\ntennis\n跑\n跑鞋\n运动鞋\n鞋"
+  ],
+  "👠": [
+    "高跟鞋",
+    "clothes\nclothing\ndress\nfashion\nheel\nheels\nhigh-heeled\nshoe\nshoes\nshopping\nstiletto\nwoman\n女\n时装\n鞋\n高跟\n高跟鞋"
+  ],
+  "👡": [
+    "女式凉鞋",
+    "clothing\nsandal\nshoe\nwoman\nwoman’s\n凉鞋\n女\n女式凉鞋"
+  ],
+  "👢": [
+    "女靴",
+    "boot\nclothes\nclothing\ndress\nshoe\nshoes\nshopping\nwoman\nwoman’s\n女\n女式靴子\n女靴\n靴子"
+  ],
+  "👣": [
+    "脚印",
+    "barefoot\nclothing\nfootprint\nfootprints\nomw\nprint\nwalk\n在路上\n脚印\n赤脚\n足迹"
+  ],
+  "👤": [
+    "人像",
+    "bust\nmysterious\nshadow\nsilhouette\n人像\n剪影\n半身\n半身像"
+  ],
+  "👥": [
+    "双人像",
+    "bff\nbust\nbusts\neveryone\nfriend\nfriends\npeople\nsilhouette\n剪影\n半身\n半身像\n双人像\n朋友"
+  ],
+  "👦": [
+    "男孩",
+    "boy\nbright-eyed\nchild\ngrandson\nkid\nson\nyoung\nyounger\n儿童\n孩子\n小孩\n男\n男孩"
+  ],
+  "👧": [
+    "女孩",
+    "bright-eyed\nchild\ndaughter\ngirl\ngranddaughter\nkid\nVirgo\nyoung\nyounger\nzodiac\n儿童\n大眼女孩\n女\n女儿\n女孩\n孩子\n小孩"
+  ],
+  "👨": [
+    "男人",
+    "adult\nbro\nman\n兄弟\n成人\n男\n男人"
+  ],
+  "👨‍⚕": [
+    "男医生",
+    "doctor\nhealth\nhealthcare\nman\nnurse\ntherapist\nworker\n医护人员\n医生\n护士\n治疗师\n男\n男人\n男医生\n男治疗师"
+  ],
+  "👨‍⚖": [
+    "男法官",
+    "judge\njustice\nlaw\nman\nscales\n正义\n法官\n法律\n男\n男法官"
+  ],
+  "👨‍✈": [
+    "男飞行员",
+    "man\npilot\nplane\n机长\n男\n男飞行员\n飞机\n飞行员"
+  ],
+  "👨‍❤‍👨": [
+    "情侣: 男人男人",
+    "anniversary\nbabe\nbae\ncouple\ndating\nheart\nkiss\nlove\nman\nperson\nrelationship\nromance\ntogether\nyou\n恋爱\n情侣\n浪漫\n男人\n红心\n约会"
+  ],
+  "👨‍❤‍💋‍👨": [
+    "亲吻: 男人男人",
+    "anniversary\nbabe\nbae\ncouple\ndate\ndating\nheart\nkiss\nlove\nman\nmwah\nperson\nromance\ntogether\nxoxo\n亲吻\n宝贝\n情侣\n接吻\n浪漫\n男人\n约会"
+  ],
+  "👨‍🌾": [
+    "农夫",
+    "farmer\ngardener\nman\nrancher\n农夫\n农民\n园丁\n牧场主人\n牧场工人\n男"
+  ],
+  "👨‍🍳": [
+    "男厨师",
+    "chef\ncook\nman\n做饭\n厨师\n大厨\n男\n男厨师"
+  ],
+  "👨‍🍼": [
+    "哺乳的男人",
+    "baby\ndad\nfather\nfeed\nfeeding\nman\nnanny\nnewborn\nnursing\n人物\n保姆\n哺乳\n哺乳的男人\n哺育\n喂养\n婴儿\n宝宝\n新生儿\n爱\n父亲\n父子情\n父爱\n男人"
+  ],
+  "👨‍🎓": [
+    "男学生",
+    "graduate\nman\nstudent\n学生\n毕业\n男\n男学生"
+  ],
+  "👨‍🎤": [
+    "男歌手",
+    "actor\nentertainer\nman\nrock\nrockstar\nsinger\nstar\n摇滚歌手\n明星\n歌手\n男\n男歌手\n男演员\n艺人"
+  ],
+  "👨‍🎨": [
+    "男艺术家",
+    "artist\nman\npalette\n男\n男艺术家\n画家\n艺术"
+  ],
+  "👨‍🏫": [
+    "男老师",
+    "instructor\nlecturer\nman\nprofessor\nteacher\n教师\n教授\n男\n男老师\n老师"
+  ],
+  "👨‍🏭": [
+    "男工人",
+    "assembly\nfactory\nindustrial\nman\nworker\n工业\n工人\n工厂\n男\n男工人\n组装工\n装配"
+  ],
+  "👨‍👦": [
+    "家庭: 男人男孩",
+    "boy\nchild\nfamily\nman\n亲子\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👦‍👦": [
+    "家庭: 男人男孩男孩",
+    "boy\nchild\nfamily\nman\n亲子\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👧": [
+    "家庭: 男人女孩",
+    "child\nfamily\ngirl\nman\n亲子\n女孩\n家庭\n父母和儿子\n男人"
+  ],
+  "👨‍👧‍👦": [
+    "家庭: 男人女孩男孩",
+    "boy\nchild\nfamily\ngirl\nman\n亲子\n女孩\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👧‍👧": [
+    "家庭: 男人女孩女孩",
+    "child\nfamily\ngirl\nman\n亲子\n女孩\n家庭\n父母和儿子\n男人"
+  ],
+  "👨‍👨‍👦": [
+    "家庭: 男人男人男孩",
+    "boy\nchild\nfamily\nman\n亲子\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👨‍👦‍👦": [
+    "家庭: 男人男人男孩男孩",
+    "boy\nchild\nfamily\nman\n亲子\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👨‍👧": [
+    "家庭: 男人男人女孩",
+    "child\nfamily\ngirl\nman\n亲子\n女孩\n家庭\n父母和儿子\n男人"
+  ],
+  "👨‍👨‍👧‍👦": [
+    "家庭: 男人男人女孩男孩",
+    "boy\nchild\nfamily\ngirl\nman\n亲子\n女孩\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👨‍👧‍👧": [
+    "家庭: 男人男人女孩女孩",
+    "child\nfamily\ngirl\nman\n亲子\n女孩\n家庭\n父母和儿子\n男人"
+  ],
+  "👨‍👩‍👦": [
+    "家庭: 男人女人男孩",
+    "boy\nchild\nfamily\nman\nwoman\n亲子\n女人\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👩‍👦‍👦": [
+    "家庭: 男人女人男孩男孩",
+    "boy\nchild\nfamily\nman\nwoman\n亲子\n女人\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👩‍👧": [
+    "家庭: 男人女人女孩",
+    "child\nfamily\ngirl\nman\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子\n男人"
+  ],
+  "👨‍👩‍👧‍👦": [
+    "家庭: 男人女人女孩男孩",
+    "boy\nchild\nfamily\ngirl\nman\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子\n男人\n男孩"
+  ],
+  "👨‍👩‍👧‍👧": [
+    "家庭: 男人女人女孩女孩",
+    "child\nfamily\ngirl\nman\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子\n男人"
+  ],
+  "👨‍💻": [
+    "男程序员",
+    "coder\ncomputer\ndeveloper\ninventor\nman\nsoftware\ntechnologist\n发明家\n工程师\n开发人员\n男\n男程序员\n码农\n程序员\n软件"
+  ],
+  "👨‍💼": [
+    "男白领",
+    "architect\nbusiness\nman\nmanager\noffice\nwhite-collar\nworker\n商人\n建筑师\n男\n男白领\n白领\n经理"
+  ],
+  "👨‍🔧": [
+    "男技工",
+    "electrician\nman\nmechanic\nplumber\ntradesperson\n技工\n机械工\n杂工\n水管工\n水管工人\n电工\n男\n男技工"
+  ],
+  "👨‍🔬": [
+    "男科学家",
+    "biologist\nchemist\nengineer\nman\nmathematician\nphysicist\nscientist\n化学家\n工程学家\n工程师\n数学家\n物理学家\n生物学家\n男\n男科学家\n科学家"
+  ],
+  "👨‍🚀": [
+    "男宇航员",
+    "astronaut\nman\nrocket\nspace\n宇宙\n宇航员\n火箭\n男\n男宇航员\n航天"
+  ],
+  "👨‍🚒": [
+    "男消防员",
+    "fire\nfirefighter\nfiretruck\nman\n救火\n消防\n消防员\n消防车\n男\n男消防员"
+  ],
+  "👨‍🦯": [
+    "拄盲杖的男人",
+    "accessibility\nblind\ncane\nman\nprobing\nwhite\n拄盲杖的男人\n拐杖\n无障碍\n男\n男人\n男子\n盲\n盲人"
+  ],
+  "👨‍🦯‍➡": [
+    "拄盲杖的男人: 面向右边",
+    "accessibility\nblind\ncane\nfacing\nman\nprobing\nright\nwhite\n拄盲杖的男人\n拐杖\n无障碍\n男\n男人\n男子\n盲\n盲人\n面向右边"
+  ],
+  "👨‍🦰": [
+    "男人: 红发",
+    "adult\nbro\nman\nred hair\n兄弟\n成人\n男\n男人\n红发"
+  ],
+  "👨‍🦱": [
+    "男人: 卷发",
+    "adult\nbro\ncurly hair\nman\n兄弟\n卷发\n成人\n男\n男人"
+  ],
+  "👨‍🦲": [
+    "男人: 秃顶",
+    "adult\nbald\nbro\nman\n兄弟\n成人\n男\n男人\n秃顶"
+  ],
+  "👨‍🦳": [
+    "男人: 白发",
+    "adult\nbro\nman\nwhite hair\n兄弟\n成人\n男\n男人\n白发"
+  ],
+  "👨‍🦼": [
+    "坐电动轮椅的男人",
+    "accessibility\nman\nmotorized\nwheelchair\n坐电动轮椅的男人\n无障碍\n电动\n男\n男人\n男子\n轮椅"
+  ],
+  "👨‍🦼‍➡": [
+    "坐电动轮椅的男人: 面向右边",
+    "accessibility\nfacing\nman\nmotorized\nright\nwheelchair\n坐电动轮椅的男人\n无障碍\n电动\n男\n男人\n男子\n轮椅\n面向右边"
+  ],
+  "👨‍🦽": [
+    "坐手动轮椅的男人",
+    "accessibility\nman\nmanual\nwheelchair\n坐手动轮椅的男人\n手动\n无障碍\n男\n男人\n男子\n轮椅"
+  ],
+  "👨‍🦽‍➡": [
+    "坐手动轮椅的男人: 面向右边",
+    "accessibility\nfacing\nman\nmanual\nright\nwheelchair\n坐手动轮椅的男人\n手动\n无障碍\n男\n男人\n男子\n轮椅\n面向右边"
+  ],
+  "👩": [
+    "女人",
+    "adult\nlady\nwoman\n女\n女人\n淑女\n金发"
+  ],
+  "👩‍⚕": [
+    "女医生",
+    "doctor\nhealth\nhealthcare\nnurse\ntherapist\nwoman\nworker\n医护人员\n医生\n女\n女人\n女医生\n女治疗师\n护士\n治疗师"
+  ],
+  "👩‍⚖": [
+    "女法官",
+    "judge\njustice\nlaw\nscales\nwoman\n女\n女法官\n正义\n法官\n法律"
+  ],
+  "👩‍✈": [
+    "女飞行员",
+    "pilot\nplane\nwoman\n女\n女飞行员\n机长\n飞机\n飞行员"
+  ],
+  "👩‍❤‍👨": [
+    "情侣: 女人男人",
+    "anniversary\nbabe\nbae\ncouple\ndating\nheart\nkiss\nlove\nman\nperson\nrelationship\nromance\ntogether\nwoman\nyou\n女人\n恋爱\n情侣\n浪漫\n男人\n红心\n约会"
+  ],
+  "👩‍❤‍👩": [
+    "情侣: 女人女人",
+    "anniversary\nbabe\nbae\ncouple\ndating\nheart\nkiss\nlove\nperson\nrelationship\nromance\ntogether\nwoman\nyou\n女人\n恋爱\n情侣\n浪漫\n红心\n约会"
+  ],
+  "👩‍❤‍💋‍👨": [
+    "亲吻: 女人男人",
+    "anniversary\nbabe\nbae\ncouple\ndate\ndating\nheart\nkiss\nlove\nman\nmwah\nperson\nromance\ntogether\nwoman\nxoxo\n亲吻\n女人\n宝贝\n情侣\n接吻\n浪漫\n男人\n约会"
+  ],
+  "👩‍❤‍💋‍👩": [
+    "亲吻: 女人女人",
+    "anniversary\nbabe\nbae\ncouple\ndate\ndating\nheart\nkiss\nlove\nmwah\nperson\nromance\ntogether\nwoman\nxoxo\n亲吻\n女人\n宝贝\n情侣\n接吻\n浪漫\n约会"
+  ],
+  "👩‍🌾": [
+    "农妇",
+    "farmer\ngardener\nrancher\nwoman\n农妇\n农民\n园丁\n女\n牧场主人\n牧场工"
+  ],
+  "👩‍🍳": [
+    "女厨师",
+    "chef\ncook\nwoman\n做饭\n厨师\n大厨\n女\n女厨师"
+  ],
+  "👩‍🍼": [
+    "哺乳的女人",
+    "baby\nfeed\nfeeding\nmom\nmother\nnanny\nnewborn\nnursing\nwoman\n人物\n保姆\n哺乳\n哺乳的女人\n喂养\n女人\n妈咪\n妈妈\n婴儿\n宝宝\n母亲\n爱"
+  ],
+  "👩‍🎓": [
+    "女学生",
+    "graduate\nstudent\nwoman\n女\n女学生\n学生\n毕业"
+  ],
+  "👩‍🎤": [
+    "女歌手",
+    "actor\nentertainer\nrock\nrockstar\nsinger\nstar\nwoman\n女\n女歌手\n摇滚歌手\n明星\n歌手\n演员\n艺人"
+  ],
+  "👩‍🎨": [
+    "女艺术家",
+    "artist\npalette\nwoman\n女\n女艺术家\n画家\n艺术"
+  ],
+  "👩‍🏫": [
+    "女老师",
+    "instructor\nlecturer\nprofessor\nteacher\nwoman\n女\n女老师\n教师\n教授\n老师"
+  ],
+  "👩‍🏭": [
+    "女工人",
+    "assembly\nfactory\nindustrial\nwoman\nworker\n女\n女工人\n工业\n工人\n工厂\n装配"
+  ],
+  "👩‍👦": [
+    "家庭: 女人男孩",
+    "boy\nchild\nfamily\nwoman\n亲子\n女人\n家庭\n父母和儿子\n男孩"
+  ],
+  "👩‍👦‍👦": [
+    "家庭: 女人男孩男孩",
+    "boy\nchild\nfamily\nwoman\n亲子\n女人\n家庭\n父母和儿子\n男孩"
+  ],
+  "👩‍👧": [
+    "家庭: 女人女孩",
+    "child\nfamily\ngirl\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子"
+  ],
+  "👩‍👧‍👦": [
+    "家庭: 女人女孩男孩",
+    "boy\nchild\nfamily\ngirl\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子\n男孩"
+  ],
+  "👩‍👧‍👧": [
+    "家庭: 女人女孩女孩",
+    "child\nfamily\ngirl\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子"
+  ],
+  "👩‍👩‍👦": [
+    "家庭: 女人女人男孩",
+    "boy\nchild\nfamily\nwoman\n亲子\n女人\n家庭\n父母和儿子\n男孩"
+  ],
+  "👩‍👩‍👦‍👦": [
+    "家庭: 女人女人男孩男孩",
+    "boy\nchild\nfamily\nwoman\n亲子\n女人\n家庭\n父母和儿子\n男孩"
+  ],
+  "👩‍👩‍👧": [
+    "家庭: 女人女人女孩",
+    "child\nfamily\ngirl\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子"
+  ],
+  "👩‍👩‍👧‍👦": [
+    "家庭: 女人女人女孩男孩",
+    "boy\nchild\nfamily\ngirl\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子\n男孩"
+  ],
+  "👩‍👩‍👧‍👧": [
+    "家庭: 女人女人女孩女孩",
+    "child\nfamily\ngirl\nwoman\n亲子\n女人\n女孩\n家庭\n父母和儿子"
+  ],
+  "👩‍💻": [
+    "女程序员",
+    "coder\ncomputer\ndeveloper\ninventor\nsoftware\ntechnologist\nwoman\n发明家\n女\n女程序员\n工程师\n开发人员\n码农\n程序员\n软件"
+  ],
+  "👩‍💼": [
+    "女白领",
+    "architect\nbusiness\nmanager\noffice\nwhite-collar\nwoman\nworker\n人物\n商人\n女\n女白领\n建筑师\n白领\n经理"
+  ],
+  "👩‍🔧": [
+    "女技工",
+    "electrician\nmechanic\nplumber\ntradesperson\nwoman\n修理工\n女\n女技工\n技工\n水电工\n水管工\n水管工人\n电工"
+  ],
+  "👩‍🔬": [
+    "女科学家",
+    "biologist\nchemist\nengineer\nmathematician\nphysicist\nscientist\nwoman\n化学家\n女\n女科学家\n工程学家\n工程师\n数学家\n物理学家\n生物学家\n科学家"
+  ],
+  "👩‍🚀": [
+    "女宇航员",
+    "astronaut\nrocket\nspace\nwoman\n女\n女宇航员\n宇宙\n宇航员\n火箭\n航天"
+  ],
+  "👩‍🚒": [
+    "女消防员",
+    "fire\nfirefighter\nfiretruck\nwoman\n女\n女消防员\n救火\n消防\n消防员\n消防车\n火灾"
+  ],
+  "👩‍🦯": [
+    "拄盲杖的女人",
+    "accessibility\nblind\ncane\nprobing\nwhite\nwoman\n女\n女人\n女性\n拄盲杖的女人\n拐杖\n无障碍\n盲\n盲人"
+  ],
+  "👩‍🦯‍➡": [
+    "拄盲杖的女人: 面向右边",
+    "accessibility\nblind\ncane\nfacing\nprobing\nright\nwhite\nwoman\n女\n女人\n女性\n拄盲杖的女人\n拐杖\n无障碍\n盲\n盲人\n面向右边"
+  ],
+  "👩‍🦰": [
+    "女人: 红发",
+    "adult\nlady\nred hair\nwoman\n女\n女人\n淑女\n红发\n金发"
+  ],
+  "👩‍🦱": [
+    "女人: 卷发",
+    "adult\ncurly hair\nlady\nwoman\n卷发\n女\n女人\n淑女\n金发"
+  ],
+  "👩‍🦲": [
+    "女人: 秃顶",
+    "adult\nbald\nlady\nwoman\n女\n女人\n淑女\n秃顶\n金发"
+  ],
+  "👩‍🦳": [
+    "女人: 白发",
+    "adult\nlady\nwhite hair\nwoman\n女\n女人\n淑女\n白发\n金发"
+  ],
+  "👩‍🦼": [
+    "坐电动轮椅的女人",
+    "accessibility\nmotorized\nwheelchair\nwoman\n坐电动轮椅的女人\n女\n女人\n女子\n无障碍\n电动\n轮椅"
+  ],
+  "👩‍🦼‍➡": [
+    "坐电动轮椅的女人: 面向右边",
+    "accessibility\nfacing\nmotorized\nright\nwheelchair\nwoman\n坐电动轮椅的女人\n女\n女人\n女子\n无障碍\n电动\n轮椅\n面向右边"
+  ],
+  "👩‍🦽": [
+    "坐手动轮椅的女人",
+    "accessibility\nmanual\nwheelchair\nwoman\n坐手动轮椅的女人\n女\n女人\n女子\n手动\n无障碍\n轮椅"
+  ],
+  "👩‍🦽‍➡": [
+    "坐手动轮椅的女人: 面向右边",
+    "accessibility\nfacing\nmanual\nright\nwheelchair\nwoman\n坐手动轮椅的女人\n女\n女人\n女子\n手动\n无障碍\n轮椅\n面向右边"
+  ],
+  "👪": [
+    "家庭",
+    "child\nfamily\n亲子\n家庭\n父母和儿子"
+  ],
+  "👫": [
+    "手拉手的一男一女",
+    "bae\nbestie\nbff\ncouple\ndating\nflirt\nfriends\nhand\nhold\nman\ntwins\nwoman\n一男一女\n情侣\n手拉手\n手拉手的一男一女\n相恋"
+  ],
+  "👬": [
+    "手拉手的两个男人",
+    "bae\nbestie\nbff\nboys\nbrothers\ncouple\ndating\nflirt\nfriends\nhand\nhold\nmen\ntwins\n两个男人\n双子座\n情侣\n手拉手\n手拉手的两个男人\n朋友\n黄道十二宫"
+  ],
+  "👭": [
+    "手拉手的两个女人",
+    "bae\nbestie\nbff\ncouple\ndating\nflirt\nfriends\ngirls\nhand\nhold\nsisters\ntwins\nwomen\n两个女人\n好朋友\n情侣\n手拉手\n手拉手的两个女人\n朋友"
+  ],
+  "👮": [
+    "警察",
+    "apprehend\narrest\ncitation\ncop\nlaw\nofficer\nover\npolice\npulled\nundercover\n交警\n传唤\n公安\n卧底\n武警\n法警\n警官\n警察\n警方\n逮捕"
+  ],
+  "👮‍♀": [
+    "女警察",
+    "apprehend\narrest\ncitation\ncop\nlaw\nofficer\nover\npolice\npulled\nundercover\nwoman\n交警\n公安\n卧底\n女\n女警察\n武警\n法警\n警官\n警察\n警方\n逮捕"
+  ],
+  "👮‍♂": [
+    "男警察",
+    "apprehend\narrest\ncitation\ncop\nlaw\nman\nofficer\nover\npolice\npulled\nundercover\n男\n男警察\n警官\n警察"
+  ],
+  "👯": [
+    "戴兔耳朵的人",
+    "bestie\nbff\nbunny\ncounterpart\ndancer\ndouble\near\nidentical\npair\nparty\npartying\npeople\nsoulmate\ntwin\ntwinsies\n兔子服\n兔耳朵\n双人舞\n双胞胎\n同好\n戴兔耳朵的人\n永远的好朋友\n派对\n灵魂伴侣\n聚会\n舞者\n跳舞\n闺蜜"
+  ],
+  "👯‍♀": [
+    "兔女郎",
+    "bestie\nbff\nbunny\ncounterpart\ndancer\ndouble\near\nidentical\npair\nparty\npartying\npeople\nsoulmate\ntwin\ntwinsies\nwomen\n兔女郎\n兔耳朵\n女生派对\n派对\n聚会\n跳舞"
+  ],
+  "👯‍♂": [
+    "兔先生",
+    "bestie\nbff\nbunny\ncounterpart\ndancer\ndouble\near\nidentical\nmen\npair\nparty\npartying\npeople\nsoulmate\ntwin\ntwinsies\n兔先生\n兔耳朵\n同好\n永远的好朋友\n派对\n男生派对\n聚会\n跳舞"
+  ],
+  "👰": [
+    "戴头纱的人",
+    "person\nveil\nwedding\n人\n头纱\n婚礼\n戴头纱的人\n戴头纱的新娘\n新娘\n结婚"
+  ],
+  "👰‍♀": [
+    "戴头纱的女人",
+    "bride\nveil\nwedding\nwoman\n头纱\n女人\n戴头纱的女人"
+  ],
+  "👰‍♂": [
+    "戴头纱的男人",
+    "man\nveil\nwedding\n头纱\n戴头纱的男人\n男人"
+  ],
+  "👱": [
+    "金色头发的人",
+    "blond\nblond-haired\nhuman\nperson\n人\n脸\n金发\n金色头发的人"
+  ],
+  "👱‍♀": [
+    "金发女",
+    "blond\nblond-haired\nblonde\nhair\nwoman\n女\n金发\n金发女"
+  ],
+  "👱‍♂": [
+    "金发男",
+    "blond\nblond-haired\nhair\nman\n男\n金发\n金发男"
+  ],
+  "👲": [
+    "戴瓜皮帽的人",
+    "cap\nChinese\ngua\nguapi\nhat\nmao\nperson\npi\nskullcap\n人物\n帽子\n戴瓜皮帽的人\n瓜皮帽"
+  ],
+  "👳": [
+    "戴头巾的人",
+    "person\nturban\nwearing\n头巾\n戴头巾的人"
+  ],
+  "👳‍♀": [
+    "戴头巾的女人",
+    "turban\nwearing\nwoman\n头巾\n女\n戴头巾的女人\n特本"
+  ],
+  "👳‍♂": [
+    "戴头巾的男人",
+    "man\nturban\nwearing\n头巾\n戴头巾的男人\n男"
+  ],
+  "👴": [
+    "老爷爷",
+    "adult\nbald\nelderly\ngramps\ngrandfather\ngrandpa\nman\nold\nwise\n祖父\n秃头\n老人\n老头\n老爷爷"
+  ],
+  "👵": [
+    "老奶奶",
+    "adult\nelderly\ngrandma\ngrandmother\ngranny\nlady\nold\nwise\nwoman\n祖母\n老人\n老太\n老奶奶"
+  ],
+  "👶": [
+    "小宝贝",
+    "babies\nbaby\nchildren\ngoo\ninfant\nnewborn\npregnant\nyoung\n孩子\n宝宝\n小宝贝\n小毛头"
+  ],
+  "👷": [
+    "建筑工人",
+    "build\nconstruction\nfix\nhardhat\nhat\nman\nperson\nrebuild\nremodel\nrepair\nwork\nworker\n包工头\n头盔\n安全帽\n工人\n工程师\n建筑\n建筑工人\n建造\n搬砖\n改造"
+  ],
+  "👷‍♀": [
+    "女建筑工人",
+    "build\nconstruction\nfix\nhardhat\nhat\nman\nrebuild\nremodel\nrepair\nwoman\nwork\nworker\n头盔\n女\n女建筑工人\n工人\n建筑"
+  ],
+  "👷‍♂": [
+    "男建筑工人",
+    "build\nconstruction\nfix\nhardhat\nhat\nman\nrebuild\nremodel\nrepair\nwork\nworker\n工人\n建筑\n男\n男建筑工人"
+  ],
+  "👸": [
+    "公主",
+    "crown\nfairy\nfairytale\nfantasy\nprincess\nqueen\nroyal\nroyalty\ntale\n公主\n皇冠\n童话"
+  ],
+  "👹": [
+    "食人魔",
+    "creature\ndevil\nface\nfairy\nfairytale\nfantasy\nmask\nmonster\nogre\nscary\ntale\n吓人\n妖怪\n幻想\n日本\n神话故事\n脸\n面具\n食人魔\n鬼\n魔鬼"
+  ],
+  "👺": [
+    "小妖精",
+    "angry\ncreature\nface\nfairy\nfairytale\nfantasy\ngoblin\nmask\nmean\nmonster\ntale\n妖怪\n小妖精\n幻想\n怪物\n日本\n神话故事\n脸\n鬼"
+  ],
+  "👻": [
+    "鬼",
+    "boo\ncreature\nexcited\nface\nfairy\nfairytale\nfantasy\nghost\nhalloween\nhaunting\nmonster\nscary\nsilly\ntale\n万圣节\n妖怪\n幻想\n幽灵\n怪物\n神话故事\n脸\n鬼\n鬼脸"
+  ],
+  "👼": [
+    "小天使",
+    "angel\nbaby\nchurch\nface\nfairy\nfairytale\nfantasy\ntale\n儿童\n天使\n孩子\n小天使"
+  ],
+  "👽": [
+    "外星人",
+    "alien\ncreature\nextraterrestrial\nface\nfairy\nfairytale\nfantasy\nmonster\nspace\ntale\nufo\n外太空\n外星\n外星人\n太空\n幻想\n星际\n脸\n飞碟"
+  ],
+  "👾": [
+    "外星怪物",
+    "alien\ncreature\nextraterrestrial\nface\nfairy\nfairytale\nfantasy\ngame\ngamer\ngames\nmonster\npixelated\nspace\ntale\nufo\n外星\n外星人\n外星怪物\n太空\n怪物\n星际\n脸\n飞碟"
+  ],
+  "👿": [
+    "生气的恶魔",
+    "angry\ndemon\ndevil\nevil\nface\nfairy\nfairytale\nfantasy\nhorns\nimp\nmischievous\npurple\nshade\ntale\n带角的怒容\n幻想\n恶魔\n犄角\n生气的恶魔\n脸\n顽童"
+  ],
+  "💀": [
+    "头骨",
+    "body\ndead\ndeath\nface\nfairy\nfairytale\ni’m\nlmao\nmonster\nskull\ntale\nyolo\n头骨\n妖怪\n怪兽\n死亡\n神话故事\n脸\n身体\n骷髅"
+  ],
+  "💁": [
+    "前台",
+    "fetch\nflick\nflip\ngossip\nhand\nperson\nsarcasm\nsarcastic\nsassy\nseriously\ntipping\nwhatever\n介绍\n伸手给小费\n信息\n八卦\n前台\n帮助\n手\n拨弄头发\n自信时髦\n请您离开\n随便啦"
+  ],
+  "💁‍♀": [
+    "前台女",
+    "fetch\nflick\nflip\ngossip\nhand\nsarcasm\nsarcastic\nsassy\nseriously\ntipping\nwhatever\nwoman\n前台\n前台女\n女"
+  ],
+  "💁‍♂": [
+    "前台男",
+    "fetch\nflick\nflip\ngossip\nhand\nman\nsarcasm\nsarcastic\nsassy\nseriously\ntipping\nwhatever\n前台\n前台男\n嘲讽\n小费\n男"
+  ],
+  "💂": [
+    "卫兵",
+    "buckingham\nguard\nhelmet\nlondon\npalace\n伦敦\n卫兵\n卫士\n守卫\n白金汉宫"
+  ],
+  "💂‍♀": [
+    "女卫兵",
+    "buckingham\nguard\nhelmet\nlondon\npalace\nwoman\n卫兵\n卫士\n女\n女卫兵\n守卫"
+  ],
+  "💂‍♂": [
+    "男卫兵",
+    "buckingham\nguard\nhelmet\nlondon\nman\npalace\n卫兵\n卫士\n守卫\n男\n男卫兵"
+  ],
+  "💃": [
+    "跳舞的女人",
+    "dance\ndancer\ndancing\nelegant\nfestive\nflair\nflamenco\ngroove\nlet’s\nsalsa\ntango\nwoman\n优雅\n佛拉门戈\n女人\n女舞者\n探戈\n舞者\n萨尔萨舞\n跳舞\n跳舞的女人"
+  ],
+  "💄": [
+    "唇膏",
+    "cosmetics\ndate\nlipstick\nmakeup\n化妆\n化妆品\n口红\n唇膏\n约会"
+  ],
+  "💅": [
+    "涂指甲油",
+    "bored\ncare\ncosmetics\ndone\nmakeup\nmanicure\nnail\npolish\nwhatever\n修指甲\n忙完了\n护手\n指甲油\n涂指甲油\n美甲\n闷\n随便啦"
+  ],
+  "💆": [
+    "按摩",
+    "face\ngetting\nheadache\nmassage\nperson\nrelax\nrelaxing\nsalon\nsoothe\nspa\ntension\ntherapy\ntreatment\n享受按摩的人\n头痛\n按摩\n放松\n水疗\n治疗\n紧张\n缓解\n美容\n美容沙龙\n面部"
+  ],
+  "💆‍♀": [
+    "女生按摩",
+    "face\ngetting\nheadache\nmassage\nrelax\nrelaxing\nsalon\nsoothe\nspa\ntension\ntherapy\ntreatment\nwoman\n女\n女生按摩\n按摩"
+  ],
+  "💆‍♂": [
+    "男生按摩",
+    "face\ngetting\nheadache\nman\nmassage\nrelax\nrelaxing\nsalon\nsoothe\nspa\ntension\ntherapy\ntreatment\n头痛\n按摩\n男\n男生按摩\n脸"
+  ],
+  "💇": [
+    "理发",
+    "barber\nbeauty\nchop\ncosmetology\ncut\ngroom\nhair\nhaircut\nparlor\nperson\nshears\nstyle\n剪头\n发型\n理发\n理发师\n理发的人\n美发\n美容\n美容沙龙\n美容院\n造型师"
+  ],
+  "💇‍♀": [
+    "女生理发",
+    "barber\nbeauty\nchop\ncosmetology\ncut\ngroom\nhair\nhaircut\nparlor\nperson\nshears\nstyle\nwoman\n剪头\n女\n女生理发\n理发"
+  ],
+  "💇‍♂": [
+    "男生理发",
+    "barber\nbeauty\nchop\ncosmetology\ncut\ngroom\nhair\nhaircut\nman\nparlor\nperson\nshears\nstyle\n剪头\n理发\n男\n男生理发"
+  ],
+  "💈": [
+    "理发店",
+    "barber\ncut\nfresh\nhaircut\npole\nshave\n旋转\n柱\n理发\n理发师\n理发店\n理发店旋转彩柱"
+  ],
+  "💉": [
+    "注射器",
+    "doctor\nflu\nmedicine\nneedle\nshot\nsick\nsyringe\ntool\nvaccination\n医学\n医生\n工具\n打针\n接种\n治疗\n注射器\n疫苗\n药\n针头\n针筒"
+  ],
+  "💊": [
+    "药丸",
+    "doctor\ndrugs\nmedicated\nmedicine\npill\npills\nsick\nvitamin\n医生\n吃药\n治疗\n生病\n用药\n维他命\n药\n药丸\n药物"
+  ],
+  "💋": [
+    "唇印",
+    "dating\nemotion\nheart\nkiss\nkissing\nlips\nmark\nromance\nsexy\n亲吻\n吻\n唇\n唇印\n性感\n接吻\n浪漫"
+  ],
+  "💌": [
+    "情书",
+    "heart\nletter\nlove\nmail\nromance\nvalentine\n信\n心\n情书\n邮件"
+  ],
+  "💍": [
+    "戒指",
+    "diamond\nengaged\nengagement\nmarried\nring\nromance\nshiny\nsparkling\nwedding\n戒指\n结婚\n订婚\n钻戒\n闪"
+  ],
+  "💎": [
+    "宝石",
+    "diamond\nengagement\ngem\njewel\nmoney\nromance\nstone\nwedding\n婚礼\n宝石\n珠宝\n订婚\n钻石"
+  ],
+  "💏": [
+    "亲吻",
+    "anniversary\nbabe\nbae\ncouple\ndate\ndating\nheart\nkiss\nlove\nmwah\nperson\nromance\ntogether\nxoxo\n亲吻\n宝贝\n情侣\n接吻\n浪漫\n约会"
+  ],
+  "💐": [
+    "花束",
+    "anniversary\nbirthday\nbouquet\ndate\nflower\nlove\nplant\nromance\n周年纪念\n生日\n罗曼史\n花束\n鲜花"
+  ],
+  "💑": [
+    "情侣",
+    "anniversary\nbabe\nbae\ncouple\ndating\nheart\nkiss\nlove\nperson\nrelationship\nromance\ntogether\nyou\n恋爱\n情侣\n浪漫\n红心\n约会"
+  ],
+  "💒": [
+    "婚礼",
+    "chapel\nhitched\nnuptials\nromance\nwedding\n婚礼\n教堂\n浪漫\n结婚"
+  ],
+  "💓": [
+    "心跳",
+    "143\nbeating\ncardio\nemotion\nheart\nheartbeat\nily\nlove\npulsating\npulse\n心动\n心跳\n我爱你\n爱"
+  ],
+  "💔": [
+    "心碎",
+    "break\nbroken\ncrushed\nemotion\nheart\nheartbroken\nlonely\nsad\n伤心\n心碎"
+  ],
+  "💕": [
+    "两颗心",
+    "143\nanniversary\ndate\ndating\nemotion\nheart\nhearts\nily\nkisses\nlove\nloving\ntwo\nxoxo\n两颗心\n我爱你\n爱情"
+  ],
+  "💖": [
+    "闪亮的心",
+    "143\nemotion\nexcited\ngood\nheart\nily\nkisses\nmorning\nnight\nsparkle\nsparkling\nxoxo\n我爱你\n激动\n红心\n闪亮\n闪亮的心"
+  ],
+  "💗": [
+    "搏动的心",
+    "143\nemotion\nexcited\ngrowing\nheart\nheartpulse\nily\nkisses\nmuah\nnervous\npulse\nxoxo\n亲亲\n吻\n我爱你\n搏动\n搏动的心\n激动\n红心\n紧张"
+  ],
+  "💘": [
+    "心中箭了",
+    "143\nadorbs\narrow\ncupid\ndate\nemotion\nheart\nily\nlove\nromance\nvalentine\n一箭穿心\n丘比特\n心中箭了\n我爱你\n浪漫\n爱情\n箭\n红心"
+  ],
+  "💙": [
+    "蓝心",
+    "143\nblue\nemotion\nheart\nily\nlove\nromance\n我爱你\n蓝\n蓝心"
+  ],
+  "💚": [
+    "绿心",
+    "143\nemotion\ngreen\nheart\nily\nlove\nromantic\n我爱你\n绿\n绿心"
+  ],
+  "💛": [
+    "黄心",
+    "143\ncardiac\nemotion\nheart\nily\nlove\nyellow\n我爱你\n黄\n黄心"
+  ],
+  "💜": [
+    "紫心",
+    "143\nbestest\nemotion\nheart\nily\nlove\npurple\n我爱你\n紫\n紫心"
+  ],
+  "💝": [
+    "系有缎带的心",
+    "143\nanniversary\nemotion\nheart\nily\nkisses\nribbon\nvalentine\nxoxo\n我爱你\n爱的礼物\n系有缎带的心\n绑丝带的心\n送你一颗心"
+  ],
+  "💞": [
+    "舞动的心",
+    "143\nadorbs\nanniversary\nemotion\nheart\nhearts\nrevolving\n我爱你\n旋转\n涌动\n舞动的心\n跃动"
+  ],
+  "💟": [
+    "心型装饰",
+    "143\ndecoration\nemotion\nheart\nhearth\npurple\nwhite\n心\n心型装饰\n我爱你\n装饰"
+  ],
+  "💠": [
+    "带圆点的菱形",
+    "comic\ndiamond\ndot\ngeometric\n中心\n内部\n圆\n带圆点的菱形\n方块\n方块内有点\n梅花形\n菱形"
+  ],
+  "💡": [
+    "灯泡",
+    "bulb\ncomic\nelectric\nidea\nlight\n主意\n想法\n灯泡\n点子\n电\n电灯泡\n白炽灯"
+  ],
+  "💢": [
+    "怒",
+    "anger\nangry\ncomic\nmad\nsymbol\nupset\n怒\n火大\n生气\n青筋"
+  ],
+  "💣": [
+    "炸弹",
+    "bomb\nboom\ncomic\ndangerous\nexplosion\nhot\n炸弹\n爆炸"
+  ],
+  "💤": [
+    "睡着",
+    "comic\ngood\ngoodnight\nnight\nsleep\nsleeping\nsleepy\ntired\nzzz\n呼噜\n困了\n想睡\n打呼\n晚安\n疲倦\n睡着"
+  ],
+  "💥": [
+    "爆炸",
+    "bomb\nboom\ncollide\ncollision\ncomic\nexplode\n撞\n旺\n炸\n爆\n爆炸"
+  ],
+  "💦": [
+    "汗滴",
+    "comic\ndrip\ndroplet\ndroplets\ndrops\nsplashing\nsquirt\nsweat\nwater\nwet\nwork\nworkout\n喷溅\n小水滴\n小水珠\n汗\n汗滴\n泼贱\n溅"
+  ],
+  "💧": [
+    "水滴",
+    "cold\ncomic\ndrop\ndroplet\nnature\nsad\nsweat\ntear\nwater\nweather\n冷\n天气\n水\n水滴\n泪\n眼泪"
+  ],
+  "💨": [
+    "尾气",
+    "away\ncloud\ncomic\ndash\ndashing\nfart\nfast\ngo\ngone\ngotta\nrunning\nsmoke\n尾气\n扬尘而去\n放屁\n烟\n疾驰而去\n飞奔而去"
+  ],
+  "💩": [
+    "大便",
+    "bs\ncomic\ndoo\ndung\nface\nfml\nmonster\npile\npoo\npoop\nsmelly\nsmh\nstink\nstinks\nstinky\nturd\n大便\n好臭\n屎\n怪物\n粑粑\n脸\n臭"
+  ],
+  "💪": [
+    "肌肉",
+    "arm\nbeast\nbench\nbiceps\nbodybuilder\nbro\ncurls\nflex\ngains\ngym\njacked\nmuscle\npress\nripped\nstrong\nweightlift\n二头肌\n健身房\n强壮\n肌肉"
+  ],
+  "💫": [
+    "头晕",
+    "comic\ndizzy\nshining\nshooting\nstar\nstars\n头晕\n头晕目眩\n星星\n流星"
+  ],
+  "💬": [
+    "话语气泡",
+    "balloon\nbubble\ncomic\ndialog\nmessage\nsms\nspeech\ntalk\ntext\ntyping\n发言\n对话框\n气泡\n气泡对话框\n气球\n漫画\n话语气泡"
+  ],
+  "💭": [
+    "内心活动气泡",
+    "balloon\nbubble\ncartoon\ncloud\ncomic\ndaydream\ndecisions\ndream\nidea\ninvent\ninvention\nrealize\nthink\nthoughts\nwonder\n内心活动气泡\n对话框\n思想\n思想活动\n想法\n梦\n气泡\n泡泡对话框\n白日梦"
+  ],
+  "💮": [
+    "白花",
+    "flower\nwhite\n白花\n花"
+  ],
+  "💯": [
+    "一百分",
+    "100\na+\nagree\nclearly\ndefinitely\nfaithful\nfleek\nfull\nhundred\nkeep\nperfect\npoint\nscore\nTRUE\ntruth\nyup\n一百分\n满分\n百分百\n绝对\n考试"
+  ],
+  "💰": [
+    "钱袋",
+    "bag\nbank\nbet\nbillion\ncash\ncost\ndollar\ngold\nmillion\nmoney\nmoneybag\npaid\npaying\npot\nrich\nwin\n付钱\n十亿\n变现\n守财奴\n富有\n有钱\n现金\n百万\n美元\n赌钱\n赢钱\n钱\n钱包\n钱袋\n银行"
+  ],
+  "💱": [
+    "货币兑换",
+    "bank\ncurrency\nexchange\nmoney\n兑换\n外汇\n换汇\n汇率\n流通\n货币兑换\n银行"
+  ],
+  "💲": [
+    "粗美元符号",
+    "billion\ncash\ncharge\ncurrency\ndollar\nheavy\nmillion\nmoney\npay\nsign\n现金\n粗美元符号\n美元\n美元符号\n美刀\n货币\n金钱"
+  ],
+  "💳": [
+    "信用卡",
+    "bank\ncard\ncash\ncharge\ncredit\nmoney\npay\n信用\n信用卡\n借记卡\n刷卡\n卡\n收钱\n现金\n现金卡\n贷记卡\n银行\n银行卡"
+  ],
+  "💴": [
+    "日元",
+    "bank\nbanknote\nbill\ncurrency\nmoney\nnote\nyen\n日元\n日币\n现金\n纸币\n货币\n钞票\n钱\n银行"
+  ],
+  "💵": [
+    "美元",
+    "bank\nbanknote\nbill\ncurrency\ndollar\nmoney\nnote\n现金\n纸币\n美元\n美刀\n美钞\n货币\n钱\n银行"
+  ],
+  "💶": [
+    "欧元",
+    "100\nbank\nbanknote\nbill\ncurrency\neuro\nmoney\nnote\nrich\n欧元\n现金\n纸币\n货币\n钞票\n钱\n银行"
+  ],
+  "💷": [
+    "英镑",
+    "bank\nbanknote\nbill\nbillion\ncash\ncurrency\nmoney\nnote\npound\npounds\n现金\n纸币\n英镑\n货币\n钞票\n钱\n银行"
+  ],
+  "💸": [
+    "长翅膀的钱",
+    "bank\nbanknote\nbill\nbillion\ncash\ndollar\nfly\nmillion\nmoney\nnote\npay\nwings\n纸币\n翅膀\n花钱\n钱\n长翅膀的钱\n飞"
+  ],
+  "💹": [
+    "趋势向上且带有日元符号的图表",
+    "bank\nchart\ncurrency\ngraph\ngrowth\nincreasing\nmarket\nmoney\nrise\ntrend\nupward\nyen\n上扬\n上涨\n日元\n日元升值\n日元汇率\n日币\n货币\n货币升值图表\n走势\n趋势向上且带有日元符号的图表"
+  ],
+  "💺": [
+    "座位",
+    "chair\nseat\n位子\n座位\n椅子"
+  ],
+  "💻": [
+    "笔记本电脑",
+    "computer\nlaptop\noffice\npc\npersonal\nPC\n个人电脑\n手提电脑\n电脑\n笔记本电脑"
+  ],
+  "💼": [
+    "公文包",
+    "briefcase\noffice\n上班\n公事包\n公文包\n办公室\n包\n手提包\n文件"
+  ],
+  "💽": [
+    "电脑光盘",
+    "computer\ndisk\nminidisk\noptical\nMD\nmini光盘\n光盘\n电脑\n电脑光盘\n迷你光盘\n迷你光碟\n迷你唱片"
+  ],
+  "💾": [
+    "软盘",
+    "computer\ndisk\nfloppy\n3.5英寸\n便携\n存储\n电脑\n磁盘\n软盘"
+  ],
+  "💿": [
+    "光盘",
+    "blu-ray\nCD\ncomputer\ndisk\ndvd\noptical\ncd\n专辑\n光盘\n存储\n影片\n蓝光\n音乐"
+  ],
+  "📀": [
+    "DVD",
+    "Blu-ray\ncd\ncomputer\ndisk\nDVD\noptical\ndvd\n光盘\n光碟\n影片\n电脑\n蓝光\n音乐"
+  ],
+  "📁": [
+    "文件夹",
+    "file\nfolder\n办公\n文件\n文件夹\n文具\n硬纸夹"
+  ],
+  "📂": [
+    "打开的文件夹",
+    "file\nfolder\nopen\n办公\n打开\n打开文件夹\n打开的文件夹\n文件\n文件夹\n文具"
+  ],
+  "📃": [
+    "带卷边的页面",
+    "curl\ndocument\npage\npaper\n卷曲\n卷边\n带卷边的页面\n文书\n文件\n文档\n纸张\n页面"
+  ],
+  "📄": [
+    "文件",
+    "document\nfacing\npage\npaper\nup\n文书\n文件\n文档\n页面向上"
+  ],
+  "📅": [
+    "日历",
+    "calendar\ndate\n日历\n日期"
+  ],
+  "📆": [
+    "手撕日历",
+    "calendar\ntear-off\n手撕日历\n日历\n日期"
+  ],
+  "📇": [
+    "卡片索引",
+    "card\nindex\nold\nrolodex\nschool\n卡片\n卡片索引\n卡牌索引\n名片索引\n目录\n索引"
+  ],
+  "📈": [
+    "趋势向上的图表",
+    "chart\ndata\ngraph\ngrowth\nincreasing\nright\ntrend\nup\nupward\n上升\n上涨\n上涨图表\n上涨趋势线\n向上\n图表\n成长\n趋势向上的图表\n趋势线"
+  ],
+  "📉": [
+    "趋势向下的图表",
+    "chart\ndata\ndecreasing\ndown\ndownward\ngraph\nnegative\ntrend\n下跌\n下跌图表\n下跌趋势线\n下降\n向下\n图表\n趋势向下的图表\n趋势线"
+  ],
+  "📊": [
+    "条形图",
+    "bar\nchart\ndata\ngraph\n图形\n图表\n条形图\n柱形图\n直方图\n资料\n长条图"
+  ],
+  "📋": [
+    "剪贴板",
+    "clipboard\ndo\nlist\nnotes\n写字夹板\n写字板\n剪贴板\n剪贴簿\n夹子\n待办事项\n待办表\n纸张"
+  ],
+  "📌": [
+    "图钉",
+    "collage\npin\npushpin\n固定\n图钉\n拼贴\n按钉"
+  ],
+  "📍": [
+    "圆图钉",
+    "location\nmap\npin\npushpin\nround\n位置\n固定\n图钉\n圆图钉"
+  ],
+  "📎": [
+    "回形针",
+    "paperclip\n万字夹\n回形针\n回纹针\n曲别针\n纸夹"
+  ],
+  "📏": [
+    "直尺",
+    "angle\nedge\nmath\nruler\nstraight\nstraightedge\n尺\n尺子\n数学\n文具\n测量\n直尺\n量\n长度"
+  ],
+  "📐": [
+    "三角尺",
+    "angle\nmath\nrule\nruler\nset\nslide\ntriangle\ntriangular\n三角\n三角尺\n尺\n数学\n文具\n测量\n角\n角度"
+  ],
+  "📑": [
+    "标签页",
+    "bookmark\nmark\nmarker\ntabs\n书签\n书签页标签\n有书签的页面\n标签\n标签页"
+  ],
+  "📒": [
+    "账本",
+    "ledger\nnotebook\n笔记本\n记事本\n记账\n账本\n账簿"
+  ],
+  "📓": [
+    "笔记本",
+    "notebook\n日记本\n本子\n笔记\n笔记本\n记事本\n记录"
+  ],
+  "📔": [
+    "精装笔记本",
+    "book\ncover\ndecorated\ndecorative\neducation\nnotebook\nschool\nwriting\n书\n写作\n学校\n封面\n教育\n笔记本\n精装笔记本"
+  ],
+  "📕": [
+    "合上的书本",
+    "book\nclosed\neducation\n书\n书本\n书本合起\n合上\n合上的书本"
+  ],
+  "📖": [
+    "打开的书本",
+    "book\neducation\nfantasy\nknowledge\nlibrary\nnovels\nopen\nreading\n书\n书本\n图书馆\n小说\n开卷\n打开\n打开的书本\n知识\n读书\n阅读"
+  ],
+  "📗": [
+    "绿色书本",
+    "book\neducation\nfantasy\ngreen\nlibrary\nreading\n书\n书本\n图书馆\n教育\n绿\n绿皮书\n绿色\n绿色书本\n阅读"
+  ],
+  "📘": [
+    "蓝色书本",
+    "blue\nbook\neducation\nfantasy\nlibrary\nreading\n书\n书本\n图书馆\n教育\n篮\n蓝皮书\n蓝色\n蓝色书本\n阅读"
+  ],
+  "📙": [
+    "橙色书本",
+    "book\neducation\nfantasy\nlibrary\norange\nreading\n书\n书本\n图书馆\n教育\n橘皮书\n橘色\n橙色\n橙色书本\n阅读"
+  ],
+  "📚": [
+    "书",
+    "book\nbooks\neducation\nfantasy\nknowledge\nlibrary\nnovels\nreading\nschool\nstudy\n书\n书本\n书籍\n图书\n图书馆\n学习\n学校\n小说\n教育\n知识\n阅读"
+  ],
+  "📛": [
+    "姓名牌",
+    "badge\nname\n名牌\n姓名牌\n徽章\n胸牌\n证章"
+  ],
+  "📜": [
+    "卷轴",
+    "paper\nscroll\n卷纸\n卷轴\n画卷\n纸\n纸卷\n羊皮纸"
+  ],
+  "📝": [
+    "备忘录",
+    "communication\nmedia\nmemo\nnotes\npencil\n便条\n便条簿\n便笺\n备忘录\n铅笔"
+  ],
+  "📞": [
+    "电话听筒",
+    "communication\nphone\nreceiver\ntelephone\nvoip\n听筒\n固定电话\n固话\n座机\n电话\n电话听筒\n通信"
+  ],
+  "📟": [
+    "寻呼机",
+    "communication\npager\nBB 机\n传呼机\n呼机\n寻呼机\n通信"
+  ],
+  "📠": [
+    "传真机",
+    "communication\nfax\nmachine\n传真\n传真号\n传真机\n发传真"
+  ],
+  "📡": [
+    "卫星天线",
+    "aliens\nantenna\ncontact\ndish\nsatellite\nscience\n信号接收\n卫星\n卫星天线\n卫星接收天线\n卫星碟形天线\n外星人\n天线\n接触"
+  ],
+  "📢": [
+    "喇叭",
+    "address\ncommunication\nloud\nloudspeaker\npublic\nsound\n公共广播\n喇叭\n大声\n广播\n扩音器\n通知"
+  ],
+  "📣": [
+    "扩音器",
+    "cheering\nmegaphone\nsound\n呼喊\n喇叭\n喇叭筒\n大声\n扩音器\n通知"
+  ],
+  "📤": [
+    "发件箱",
+    "box\nemail\nletter\nmail\noutbox\nsent\ntray\n信件\n发件箱\n发信\n发送\n发邮件\n收件箱\n电子邮件\n电邮\n邮件"
+  ],
+  "📥": [
+    "收件箱",
+    "box\nemail\ninbox\nletter\nmail\nreceive\ntray\nzero\n信件\n接收\n收件箱\n收信\n收到邮件\n电子邮件\n电邮\n邮件"
+  ],
+  "📦": [
+    "包裹",
+    "box\ncommunication\ndelivery\npackage\nparcel\nshipping\n包裹\n快递\n指向\n盒子\n箱子\n装货\n运送"
+  ],
+  "📧": [
+    "电子邮件",
+    "e-mail\nemail\nletter\nmail\n信件\n信封\n电子邮件\n电邮\n邮件"
+  ],
+  "📨": [
+    "来信",
+    "delivering\ne-mail\nemail\nenvelope\nincoming\nletter\nmail\nreceive\nsent\n信件\n信封\n发送\n接收\n收信\n收到来信\n收到邮件\n来信\n电子邮件\n电邮\n邮件"
+  ],
+  "📩": [
+    "收邮件",
+    "arrow\ncommunication\ndown\ne-mail\nemail\nenvelope\nletter\nmail\noutgoing\nsend\nsent\n信件\n信封\n发信\n发出\n发送\n发邮件\n收邮件\n有箭头的信封\n邮件"
+  ],
+  "📪": [
+    "无待收信件",
+    "closed\nflag\nlowered\nmail\nmailbox\npostbox\n信箱\n信箱关闭红旗放下\n放下\n旗标\n无待收信件\n无新信件"
+  ],
+  "📫": [
+    "有待收信件",
+    "closed\ncommunication\nflag\nmail\nmailbox\npostbox\nraised\n信箱\n旗标\n有待收信件\n有新信件\n邮箱\n邮箱关闭红旗升起"
+  ],
+  "📬": [
+    "有新信件",
+    "flag\nmail\nmailbox\nopen\npostbox\nraised\n信箱\n信箱打开红旗升起\n打开\n旗标\n有待收信件\n有新信件"
+  ],
+  "📭": [
+    "无新信件",
+    "flag\nlowered\nmail\nmailbox\nopen\npostbox\n信箱\n信箱打开\n信箱打开红旗放下\n旗标\n无待收信件\n无新信件\n邮件\n邮递"
+  ],
+  "📮": [
+    "邮筒",
+    "mail\nmailbox\npostbox\n信\n信箱\n寄信\n邮筒\n邮箱"
+  ],
+  "📯": [
+    "邮号",
+    "horn\npost\npostal\n号\n号角\n喇叭\n邮号\n邮政"
+  ],
+  "📰": [
+    "报纸",
+    "communication\nnews\nnewspaper\npaper\n传播\n报纸\n报道\n新闻\n看报\n纸\n读报"
+  ],
+  "📱": [
+    "手机",
+    "cell\ncommunication\nmobile\nphone\ntelephone\n手提电话\n手机\n智能手机\n电话\n移动\n移动电话\n移动通信\n通信"
+  ],
+  "📲": [
+    "带有箭头的手机",
+    "arrow\nbuild\ncall\ncell\ncommunication\nmobile\nphone\nreceive\ntelephone\n带有箭头的手机\n手机\n接收\n智能手机\n来电\n电话\n移动电话\n箭头\n通信"
+  ],
+  "📳": [
+    "振动模式",
+    "cell\ncommunication\nmobile\nmode\nphone\ntelephone\nvibration\n手机\n振动\n振动模式\n震动"
+  ],
+  "📴": [
+    "手机关机",
+    "cell\nmobile\noff\nphone\ntelephone\n关机\n关闭\n关闭手机\n手机\n手机关机"
+  ],
+  "📵": [
+    "禁止使用手机",
+    "cell\nforbidden\nmobile\nno\nnot\nphone\nphones\nprohibited\ntelephone\n严禁\n手机\n电话\n禁止\n禁止使用手机"
+  ],
+  "📶": [
+    "信号强度条",
+    "antenna\nbar\nbars\ncell\ncommunication\nmobile\nphone\nsignal\ntelephone\n信号\n信号强度条\n天线\n强度\n手机\n条"
+  ],
+  "📷": [
+    "相机",
+    "camera\nphoto\nselfie\nsnap\ntbt\ntrip\nvideo\n卡片相机\n拍照\n摄影\n照片\n照相机\n相机\n自拍"
+  ],
+  "📸": [
+    "开闪光灯的相机",
+    "camera\nflash\nvideo\n带闪光灯的相机\n开闪光灯的相机\n拍照\n相机\n闪光灯\n闪光灯打开"
+  ],
+  "📹": [
+    "摄像机",
+    "camcorder\ncamera\ntbt\nvideo\n录像\n录像机\n录影\n拍摄\n摄像机\n摄影机\n视频"
+  ],
+  "📺": [
+    "电视机",
+    "television\ntv\nvideo\n电视\n电视机\n看电视\n视频\n节目"
+  ],
+  "📻": [
+    "收音机",
+    "entertainment\nradio\ntbt\nvideo\n娱乐\n广播\n广播电台\n收音机\n无线电\n电台"
+  ],
+  "📼": [
+    "录像带",
+    "old\nschool\ntape\nvcr\nvhs\nvideo\nvideocassette\nVHS\n录像带\n录影带\n磁带"
+  ],
+  "📽": [
+    "电影放映机",
+    "cinema\nfilm\nmovie\nprojector\nvideo\n影片\n投影仪\n放映机\n电影\n电影放映机\n视频"
+  ],
+  "📿": [
+    "念珠",
+    "beads\nclothing\nnecklace\nprayer\nreligion\n宗教\n念珠\n珠子\n祈祷\n项链"
+  ],
+  "🔀": [
+    "随机播放音轨按钮",
+    "arrow\nbutton\ncrossed\nshuffle\ntracks\n交叉\n打乱\n随机\n随机播放\n随机播放音轨按钮"
+  ],
+  "🔁": [
+    "重复按钮",
+    "arrow\nbutton\nclockwise\nrepeat\n循环\n循环播放\n箭头\n重复按钮\n顺时针"
+  ],
+  "🔂": [
+    "重复一次按钮",
+    "arrow\nbutton\nclockwise\nonce\nrepeat\nsingle\n单曲循环\n循环\n箭头\n重复一次按钮\n顺时针"
+  ],
+  "🔃": [
+    "顺时针垂直箭头",
+    "arrow\narrows\nclockwise\nrefresh\nreload\nvertical\n刷新\n垂直顺时针箭头\n方向\n标识\n箭头\n重新载入\n顺时针\n顺时针垂直箭头\n顺时针箭头"
+  ],
+  "🔄": [
+    "逆时针箭头按钮",
+    "again\nanticlockwise\narrow\narrows\nbutton\ncounterclockwise\ndeja\nrefresh\nrewindershins\nvu\n倒转\n再次\n刷新\n箭头\n逆时针\n逆时针箭头\n逆时针箭头按钮"
+  ],
+  "🔅": [
+    "低亮度按钮",
+    "brightness\nbutton\ndim\nlow\n亮度\n低\n低亮度\n低亮度按钮\n昏暗\n暗"
+  ],
+  "🔆": [
+    "高亮度按钮",
+    "bright\nbrightness\nbutton\nlight\n亮\n亮度\n太阳\n明亮\n高亮度\n高亮度按钮"
+  ],
+  "🔇": [
+    "已静音的扬声器",
+    "mute\nmuted\nquiet\nsilent\nsound\nspeaker\n声音\n安静\n已静音的扬声器\n扬声器\n扬声器关闭\n无声\n静音"
+  ],
+  "🔈": [
+    "低音量的扬声器",
+    "low\nsoft\nsound\nspeaker\nvolume\n低音量扬扬声\n低音量的扬声器\n喇叭\n小声\n小音量\n扬声器\n轻声\n音量"
+  ],
+  "🔉": [
+    "中等音量的扬声器",
+    "medium\nsound\nspeaker\nvolume\n中等\n中等音量\n中等音量的扬声器\n中音量\n中音量扬声器\n扬声器"
+  ],
+  "🔊": [
+    "高音量的扬声器",
+    "high\nloud\nmusic\nsound\nspeaker\nvolume\n大声\n大音量\n扬声器\n音量\n高音量\n高音量的扬声器"
+  ],
+  "🔋": [
+    "电池",
+    "battery\n正极\n电\n电极\n电池\n电源\n蓄电池\n负极"
+  ],
+  "🔌": [
+    "电源插头",
+    "electric\nelectricity\nplug\n插头\n电插头\n电源\n电源插头\n电线"
+  ],
+  "🔍": [
+    "左斜的放大镜",
+    "glass\nlab\nleft\nleft-pointing\nmagnifying\nscience\nsearch\ntilted\ntool\n工具\n左斜的放大镜\n搜索\n放大\n放大镜\n查找"
+  ],
+  "🔎": [
+    "右斜的放大镜",
+    "contact\nglass\nlab\nmagnifying\nright\nright-pointing\nscience\nsearch\ntilted\ntool\n右斜的放大镜\n工具\n搜索\n放大\n放大镜\n查找"
+  ],
+  "🔏": [
+    "墨水笔和锁",
+    "ink\nlock\nlocked\nnib\npen\nprivacy\n笔\n笔尖\n钢笔\n锁\n隐私\n墨水笔和锁"
+  ],
+  "🔐": [
+    "钥匙和锁",
+    "bike\nclosed\nkey\nlock\nlocked\nsecure\n安全\n脚踏车锁\n钥匙\n钥匙和锁\n锁\n锁上"
+  ],
+  "🔑": [
+    "钥匙",
+    "key\nkeys\nlock\nmajor\npassword\nunlock\n密码\n密钥\n开锁\n解锁\n钥匙\n锁"
+  ],
+  "🔒": [
+    "合上的锁",
+    "closed\nlock\nlocked\nprivate\n上锁\n合上的锁\n私密\n锁\n锁住\n锁头\n锁定"
+  ],
+  "🔓": [
+    "打开的锁",
+    "cracked\nlock\nopen\nunlock\nunlocked\n取消锁定\n开锁\n打开\n打开的锁\n破解\n解锁\n锁"
+  ],
+  "🔔": [
+    "铃铛",
+    "bell\nbreak\nchurch\nsound\n叮当\n响铃\n钟\n钟声\n铃声\n铃铛"
+  ],
+  "🔕": [
+    "禁止响铃",
+    "bell\nforbidden\nmute\nno\nnot\nprohibited\nquiet\nsilent\nslash\nsound\n响铃关闭\n安静\n无声\n禁止响铃\n铃\n静音"
+  ],
+  "🔖": [
+    "书签",
+    "bookmark\nmark\n书签\n标签\n读书\n阅读"
+  ],
+  "🔗": [
+    "链接",
+    "link\nlinks\n网址\n链接\n链条\n锁链"
+  ],
+  "🔘": [
+    "单选按钮",
+    "button\ngeometric\nradio\n单独\n单选按钮\n单选钮\n圆心\n按钮\n按键\n选中"
+  ],
+  "🔙": [
+    "返回箭头",
+    "arrow\nBACK\n回退\n箭头\n返回\n返回箭头"
+  ],
+  "🔚": [
+    "结束箭头",
+    "arrow\nEND\n箭头\n终点\n结束\n结束箭头"
+  ],
+  "🔛": [
+    "ON! 箭头",
+    "arrow\nmark\nON!\nON\nON! 箭头\n开始\n标识\n箭头"
+  ],
+  "🔜": [
+    "SOON 箭头",
+    "arrow\nbrb\nomw\nSOON\nSOON 箭头\n在路上\n立刻回来\n箭头\n马上"
+  ],
+  "🔝": [
+    "置顶",
+    "arrow\nhomie\nTOP\nup\n向上\n标识\n置顶\n顶"
+  ],
+  "🔞": [
+    "18禁",
+    "18\nage\neighteen\nforbidden\nno\nnot\none\nprohibited\nrestriction\nunderage\n18禁\n儿童不宜\n未成年人不宜\n禁止"
+  ],
+  "🔟": [
+    "按键: 10",
+    "keycap\n按键"
+  ],
+  "🔠": [
+    "输入大写拉丁字母",
+    "ABCD\ninput\nlatin\nletters\nuppercase\n大写字母\n大写字母键\n字母\n打字\n拉丁文\n输入大写拉丁字母\n输入法"
+  ],
+  "🔡": [
+    "输入小写拉丁字母",
+    "abcd\ninput\nlatin\nletters\nlowercase\n小写字母\n小写字母键\n打字\n拉丁文\n输入小写字母\n输入小写拉丁字母\n输入法"
+  ],
+  "🔢": [
+    "输入数字",
+    "1234\ninput\nnumbers\n打字\n数字\n输入数字"
+  ],
+  "🔣": [
+    "输入符号",
+    "&\n%\n♪\n〒\ninput\nsymbols\n字符\n打字\n符号\n输入符号"
+  ],
+  "🔤": [
+    "输入拉丁字母",
+    "abc\nalphabet\ninput\nlatin\nletters\n字母\n打字\n拉丁字母\n拉丁字母键\n拉丁文\n输入字母\n输入拉丁字母"
+  ],
+  "🔥": [
+    "火焰",
+    "af\nburn\nfire\nflame\nhot\nlit\nlitaf\ntool\n火\n火焰\n烧\n燃烧"
+  ],
+  "🔦": [
+    "手电筒",
+    "electric\nflashlight\nlight\ntool\ntorch\n光\n工具\n手电\n手电筒\n照明\n电筒"
+  ],
+  "🔧": [
+    "扳手",
+    "home\nimprovement\nspanner\ntool\nwrench\n家居修缮\n工具\n扳手\n螺丝扳手"
+  ],
+  "🔨": [
+    "锤子",
+    "hammer\nhome\nimprovement\nrepairs\ntool\n修理\n家居修缮\n工具\n敲\n施工\n砸\n铁锤\n锤子"
+  ],
+  "🔩": [
+    "螺母与螺栓",
+    "bolt\nhome\nimprovement\nnut\ntool\n工具\n螺丝\n螺帽\n螺栓\n螺母\n螺母与螺栓\n螺钉"
+  ],
+  "🔪": [
+    "菜刀",
+    "chef\ncooking\nhocho\nkitchen\nknife\ntool\nweapon\n主厨\n刀\n武器\n烹饪\n菜刀"
+  ],
+  "🔫": [
+    "水枪",
+    "gun\nhandgun\npistol\nrevolver\ntool\nwater\nweapon\n工具\n左轮\n手枪\n枪\n武器\n水枪"
+  ],
+  "🔬": [
+    "显微镜",
+    "experiment\nlab\nmicroscope\nscience\ntool\n实验\n实验室\n工具\n显微镜\n生物\n科学\n细胞"
+  ],
+  "🔭": [
+    "望远镜",
+    "contact\nextraterrestrial\nscience\ntelescope\ntool\n外星人\n天体\n天文\n天文学\n工具\n接触\n望远镜\n科学\n观星"
+  ],
+  "🔮": [
+    "水晶球",
+    "ball\ncrystal\nfairy\nfairytale\nfantasy\nfortune\nfuture\nmagic\ntale\ntool\n命运\n工具\n梦幻\n水晶\n水晶球\n球\n童话\n财富\n魔法"
+  ],
+  "🔯": [
+    "带中间点的六芒星",
+    "dotted\nfortune\njewish\njudaism\nsix-pointed\nstar\n六芒星\n六芒星加圆点\n六角星\n命运\n带中间点的六芒星\n犹太\n犹太教"
+  ],
+  "🔰": [
+    "日本新手驾驶标志",
+    "beginner\nchevron\ngreen\nJapanese\nleaf\nsymbol\ntool\nyellow\nV 型臂章\nV形图案\n人字形图记\n军警\n叶状\n实习\n新手\n日本新手驾驶标志\n箭尾"
+  ],
+  "🔱": [
+    "三叉戟徽章",
+    "anchor\nemblem\nposeidon\nship\ntool\ntrident\n三叉戟\n三叉戟徽章\n工具\n波塞冬\n船\n锚"
+  ],
+  "🔲": [
+    "黑色方形按钮",
+    "black\nbutton\ngeometric\nsquare\n几何\n几何图形\n按钮\n方形\n黑线方形按钮\n黑线正方形按钮\n黑色方形按钮\n黑色正方形按钮\n黑边线方形按钮\n黑边线正方形按钮"
+  ],
+  "🔳": [
+    "白色方形按钮",
+    "button\ngeometric\noutlined\nsquare\nwhite\n按钮\n方形\n白线方形按钮\n白线正方形按钮\n白色方形按钮\n白色正方形按钮\n白边线方形按钮\n白边线正方形按钮"
+  ],
+  "🔴": [
+    "红色圆",
+    "circle\ngeometric\nred\n几何\n圆\n圈\n红\n红圈\n红色\n红色圆"
+  ],
+  "🔵": [
+    "蓝色圆",
+    "blue\ncircle\ngeometric\n圆\n圈\n蓝\n蓝圈\n蓝色圆"
+  ],
+  "🔶": [
+    "橙色大菱形",
+    "diamond\ngeometric\nlarge\norange\n大\n方块\n方片\n橘色方块\n橘黄色\n橙色大菱形\n橙色方块\n菱形\n钻石"
+  ],
+  "🔷": [
+    "蓝色大菱形",
+    "blue\ndiamond\ngeometric\nlarge\n大\n方块\n方片\n菱形\n蓝色\n蓝色大菱形\n钻石"
+  ],
+  "🔸": [
+    "橙色小菱形",
+    "diamond\ngeometric\norange\nsmall\n小\n方块\n方片\n橘色方块\n橘黄色\n橙色小菱形\n菱形"
+  ],
+  "🔹": [
+    "蓝色小菱形",
+    "blue\ndiamond\ngeometric\nsmall\n小\n方片\n菱形\n蓝色\n蓝色小菱形\n蓝色方块\n钻石"
+  ],
+  "🔺": [
+    "红色正三角",
+    "geometric\npointed\nred\ntriangle\nup\n三角形\n向上\n正三角\n红色\n红色正三角"
+  ],
+  "🔻": [
+    "红色倒三角",
+    "down\ngeometric\npointed\nred\ntriangle\n三角形\n下\n倒三角\n向下\n红色\n红色倒三角"
+  ],
+  "🔼": [
+    "向上三角形按钮",
+    "arrow\nbutton\nred\nup\nupwards\n上\n向上\n向上三角形按钮\n向上按钮\n往上\n箭头"
+  ],
+  "🔽": [
+    "向下三角形按钮",
+    "arrow\nbutton\ndown\ndownwards\nred\n下\n向下\n向下三角形按钮\n向下按钮\n往下\n箭头"
+  ],
+  "🕉": [
+    "奥姆",
+    "Hindu\nom\nreligion\n印度\n印度教\n唵\n奥姆\n宗教"
+  ],
+  "🕊": [
+    "鸽",
+    "bird\ndove\nfly\nornithology\npeace\n和平\n和平象征\n飞翔\n鸟\n鸽\n鸽子"
+  ],
+  "🕋": [
+    "克尔白",
+    "hajj\nislam\nkaaba\nMuslim\nreligion\numrah\n伊斯兰\n克尔白\n天房\n宗教\n穆斯林"
+  ],
+  "🕌": [
+    "清真寺",
+    "islam\nmasjid\nmosque\nMuslim\nreligion\n伊斯兰\n宗教\n清真寺\n穆斯林"
+  ],
+  "🕍": [
+    "犹太教堂",
+    "Jew\nJewish\njudaism\nreligion\nsynagogue\ntemple\n会堂\n宗教\n犹太\n犹太教\n犹太教堂"
+  ],
+  "🕎": [
+    "烛台",
+    "candelabrum\ncandlestick\nhanukkah\njewish\njudaism\nmenorah\nreligion\n光明节\n宗教\n灯台\n烛台\n犹太\n犹太教"
+  ],
+  "🕐": [
+    "一点",
+    "1\n1:00\nclock\no’clock\none\ntime\n00\n一点\n时间"
+  ],
+  "🕑": [
+    "两点",
+    "2\n2:00\nclock\no’clock\ntime\ntwo\n00\n两点\n时钟"
+  ],
+  "🕒": [
+    "三点",
+    "3\n3:00\nclock\no’clock\nthree\ntime\n00\n三点\n时钟"
+  ],
+  "🕓": [
+    "四点",
+    "4\n4:00\nclock\nfour\no’clock\ntime\n00\n四点\n时钟"
+  ],
+  "🕔": [
+    "五点",
+    "5\n5:00\nclock\nfive\no’clock\ntime\n00\n五点\n时钟"
+  ],
+  "🕕": [
+    "六点",
+    "6\n6:00\nclock\no’clock\nsix\ntime\n00\n六点\n时钟"
+  ],
+  "🕖": [
+    "七点",
+    "0\n7\n7:00\nclock\no’clock\nseven\n00\n七点\n时钟"
+  ],
+  "🕗": [
+    "八点",
+    "8\n8:00\nclock\neight\no’clock\ntime\n00\n八点\n时间\n钟"
+  ],
+  "🕘": [
+    "九点",
+    "9\n9:00\nclock\nnine\no’clock\ntime\n00\n九点\n时钟"
+  ],
+  "🕙": [
+    "十点",
+    "0\n10\n10:00\nclock\no’clock\nten\n00\n十点\n时钟"
+  ],
+  "🕚": [
+    "十一点",
+    "11\n11:00\nclock\neleven\no’clock\ntime\n00\n十一点\n时钟"
+  ],
+  "🕛": [
+    "十二点",
+    "12\n12:00\nclock\no’clock\ntime\ntwelve\n00\n十二点\n整点\n时间\n点钟\n钟"
+  ],
+  "🕜": [
+    "一点半",
+    "1\n1:30\n30\nclock\none\none-thirty\nthirty\ntime\n一点半\n时间\n钟"
+  ],
+  "🕝": [
+    "两点半",
+    "2\n2:30\n30\nclock\nthirty\ntime\ntwo\ntwo-thirty\n两点半\n时间\n钟"
+  ],
+  "🕞": [
+    "三点半",
+    "3\n3:30\n30\nclock\nthirty\nthree\nthree-thirty\ntime\n三点半\n时间\n钟"
+  ],
+  "🕟": [
+    "四点半",
+    "30\n4\n4:30\nclock\nfour\nfour-thirty\nthirty\ntime\n四点半\n时间\n钟"
+  ],
+  "🕠": [
+    "五点半",
+    "30\n5\n5:30\nclock\nfive\nfive-thirty\nthirty\ntime\n五点半\n时钟"
+  ],
+  "🕡": [
+    "六点半",
+    "30\n6\n6:30\nclock\nsix\nsix-thirty\nthirty\n六点半\n时钟"
+  ],
+  "🕢": [
+    "七点半",
+    "30\n7\n7:30\nclock\nseven\nseven-thirty\nthirty\n七点半\n时钟"
+  ],
+  "🕣": [
+    "八点半",
+    "30\n8\n8:30\nclock\neight\neight-thirty\nthirty\ntime\n八点半\n时钟"
+  ],
+  "🕤": [
+    "九点半",
+    "30\n9\n9:30\nclock\nnine\nnine-thirty\nthirty\ntime\n九点半\n时钟"
+  ],
+  "🕥": [
+    "十点半",
+    "10\n10:30\n30\nclock\nten\nten-thirty\nthirty\ntime\n十点半\n时钟"
+  ],
+  "🕦": [
+    "十一点半",
+    "11\n11:30\n30\nclock\neleven\neleven-thirty\nthirty\ntime\n十一点半\n时钟"
+  ],
+  "🕧": [
+    "十二点半",
+    "12\n12:30\n30\nclock\nthirty\ntime\ntwelve\ntwelve-thirty\n十二点半\n时钟"
+  ],
+  "🕯": [
+    "蜡烛",
+    "candle\nlight\n光\n烛光\n烛火\n照明\n燃烧\n蜡烛"
+  ],
+  "🕰": [
+    "座钟",
+    "clock\nmantelpiece\ntime\n台钟\n壁炉钟\n座钟\n时钟"
+  ],
+  "🕳": [
+    "洞",
+    "hole\n井盖\n坑\n洞\n陷阱"
+  ],
+  "🕴": [
+    "西装革履的人",
+    "business\nlevitating\nperson\nsuit\n商务\n正装\n男\n西装革履\n西装革履的人"
+  ],
+  "🕵": [
+    "侦探",
+    "detective\nsleuth\nspy\n侦探\n特工\n男\n间谍"
+  ],
+  "🕵‍♀": [
+    "女侦探",
+    "detective\nsleuth\nspy\nwoman\n侦探\n女\n女侦探\n特工\n间谍"
+  ],
+  "🕵‍♂": [
+    "男侦探",
+    "detective\nman\nsleuth\nspy\n侦探\n男\n男侦探\n间谍"
+  ],
+  "🕶": [
+    "墨镜",
+    "dark\neye\neyewear\nglasses\nsunglasses\n太阳镜\n墨镜"
+  ],
+  "🕷": [
+    "蜘蛛",
+    "animal\ninsect\nspider\n昆虫\n蜘蛛"
+  ],
+  "🕸": [
+    "蜘蛛网",
+    "spider\nweb\n蛛网\n蜘蛛\n蜘蛛网"
+  ],
+  "🕹": [
+    "游戏操控杆",
+    "game\njoystick\nvideo\nvideogame\n操控杆\n游戏\n游戏操控杆\n电子游戏"
+  ],
+  "🕺": [
+    "跳舞的男人",
+    "dance\ndancer\ndancing\nelegant\nfestive\nflair\nflamenco\ngroove\nlet’s\nman\nsalsa\ntango\n佛拉门戈\n男人\n男舞者\n舞者\n跳舞\n跳舞的男人"
+  ],
+  "🖇": [
+    "连起来的两个回形针",
+    "link\nlinked\npaperclip\npaperclips\n万字夹\n回形针\n回纹针\n曲别针\n纸夹\n连接\n连接的回形针\n连起来的两个回形针"
+  ],
+  "🖊": [
+    "笔",
+    "ballpoint\npen\n原子笔\n圆珠笔\n油笔\n笔"
+  ],
+  "🖋": [
+    "钢笔",
+    "fountain\npen\n写字\n硬笔\n笔\n钢笔"
+  ],
+  "🖌": [
+    "画笔",
+    "paintbrush\npainting\n刷\n毛笔\n画刷\n画笔\n笔刷"
+  ],
+  "🖍": [
+    "蜡笔",
+    "crayon\n油画棒\n画棒\n蜡笔"
+  ],
+  "🖐": [
+    "手掌",
+    "finger\nfingers\nhand\nraised\nsplayed\nstop\n举起张开的手掌\n击掌\n布\n手\n手掌\n禁止"
+  ],
+  "🖕": [
+    "竖中指",
+    "finger\nhand\nmiddle\n中指\n反手\n手\n竖中指"
+  ],
+  "🖖": [
+    "瓦肯举手礼",
+    "finger\nhand\nhands\nsalute\nVulcan\n手\n敬礼\n斯波克\n星际迷航\n瓦肯\n瓦肯举手礼"
+  ],
+  "🖤": [
+    "黑心",
+    "black\nevil\nheart\nwicked\n心\n邪恶\n黑\n黑心\n黑色\n黑色的心"
+  ],
+  "🖥": [
+    "台式电脑",
+    "computer\ndesktop\nmonitor\nPC\n个人电脑\n台式\n台式电脑\n显示器\n显示屏\n电脑\n计算机"
+  ],
+  "🖨": [
+    "打印机",
+    "computer\nprinter\n印刷机\n喷墨打印\n复印\n打印\n打印机\n扫描\n激光打印"
+  ],
+  "🖱": [
+    "电脑鼠标",
+    "computer\nmouse\n有线鼠标\n激光鼠标\n点击\n点按\n电脑\n电脑鼠标\n鼠标"
+  ],
+  "🖲": [
+    "轨迹球",
+    "computer\ntrackball\n有线鼠标\n电脑\n轨迹球\n追踪球\n鼠标"
+  ],
+  "🖼": [
+    "带框的画",
+    "art\nframe\nframed\nmuseum\npainting\npicture\n加框的照片\n博物馆\n带框的画\n框\n照片\n画\n画框\n艺术"
+  ],
+  "🗂": [
+    "索引分隔文件夹",
+    "card\ndividers\nindex\n分隔\n分隔卡\n文件夹\n索引\n索引分隔文件夹\n隔板"
+  ],
+  "🗃": [
+    "卡片盒",
+    "box\ncard\nfile\n卡片\n卡片盒\n存档\n文件\n标签\n档案\n箱\n索引"
+  ],
+  "🗄": [
+    "文件柜",
+    "cabinet\nfile\nfiling\npaper\n存档\n归档\n收纳\n文件柜\n柜\n档案"
+  ],
+  "🗑": [
+    "垃圾桶",
+    "can\ngarbage\ntrash\nwaste\nwastebasket\n垃圾\n垃圾桶\n垃圾篓\n废纸篓"
+  ],
+  "🗒": [
+    "线圈本",
+    "note\nnotepad\npad\nspiral\n文具\n笔记本\n线圈\n线圈本\n记事本"
+  ],
+  "🗓": [
+    "线圈日历",
+    "calendar\npad\nspiral\n日历\n日期\n线圈\n线圈日历\n记事本"
+  ],
+  "🗜": [
+    "夹钳",
+    "clamp\ncompress\ntool\nvice\n压缩\n夹具\n夹钳\n工具\n机械\n紧固"
+  ],
+  "🗝": [
+    "老式钥匙",
+    "clue\nkey\nlock\nold\n古老的钥匙\n旧钥匙\n线索\n老式钥匙\n钥匙"
+  ],
+  "🗞": [
+    "报纸卷",
+    "news\nnewspaper\npaper\nrolled\nrolled-up\n卷起\n卷起的报纸\n报纸\n报纸卷\n新闻\n纸"
+  ],
+  "🗡": [
+    "匕首",
+    "dagger\nknife\nweapon\n剑\n匕首\n武器\n短刀\n短剑"
+  ],
+  "🗣": [
+    "说话",
+    "face\nhead\nsilhouette\nspeak\nspeaking\n剪影\n头\n脸\n讲话\n说话\n说话头"
+  ],
+  "🗨": [
+    "朝左的话语气泡",
+    "balloon\nbubble\ndialog\nleft\nspeech\n对话框\n朝左的话语气泡\n话语"
+  ],
+  "🗯": [
+    "愤怒话语气泡",
+    "anger\nangry\nballoon\nbubble\nmad\nright\n右倾愤怒对话框\n对话框\n愤怒\n愤怒话语气泡"
+  ],
+  "🗳": [
+    "投票箱",
+    "ballot\nbox\n投票\n投票箱\n盒子\n票箱\n选举\n选票"
+  ],
+  "🗺": [
+    "世界地图",
+    "map\nworld\n世界\n世界地图\n地图"
+  ],
+  "🗻": [
+    "富士山",
+    "fuji\nmount\nmountain\nnature\n大自然\n富士山\n山"
+  ],
+  "🗼": [
+    "东京塔",
+    "Tokyo\ntower\n东京\n东京塔\n塔"
+  ],
+  "🗽": [
+    "自由女神像",
+    "liberty\nLiberty\nnew\nny\nnyc\nstatue\nStatue\nyork\n塑像\n纽约\n自由\n自由女神像\n雕塑"
+  ],
+  "🗾": [
+    "日本地图",
+    "Japan\nmap\n地图\n日本\n日本地图"
+  ],
+  "🗿": [
+    "摩埃",
+    "face\nmoai\nmoyai\nstatue\nstoneface\ntravel\n复活岛\n复活节岛\n复活节岛石像\n摩埃\n摩艾\n摩艾石像\n旅行\n毛埃\n脸"
+  ],
+  "😀": [
+    "嘿嘿",
+    "cheerful\ncheery\nface\ngrin\ngrinning\nhappy\nlaugh\nnice\nsmile\nsmiling\nteeth\n嘿嘿\n笑脸\n脸\n高兴"
+  ],
+  "😁": [
+    "嘻嘻",
+    "beaming\neye\neyes\nface\ngrin\ngrinning\nhappy\nnice\nsmile\nsmiling\nteeth\n嘻嘻\n笑脸\n笑颜\n脸\n露齿而笑"
+  ],
+  "😂": [
+    "笑哭了",
+    "crying\nface\nfeels\nfunny\nhaha\nhappy\nhehe\nhilarious\njoy\nlaugh\nlmao\nlol\nrofl\nroflmao\ntear\n喜极而泣\n大笑\n眼泪\n笑\n笑哭\n笑哭了\n脸"
+  ],
+  "😃": [
+    "哈哈",
+    "awesome\nbig\neyes\nface\ngrin\ngrinning\nhappy\nmouth\nopen\nsmile\nsmiling\nteeth\nyay\n哈哈\n太棒了\n开口笑\n开口笑脸\n笑脸\n脸\n高兴"
+  ],
+  "😄": [
+    "大笑",
+    "eye\neyes\nface\ngrin\ngrinning\nhappy\nlaugh\nlol\nmouth\nopen\nsmile\nsmiling\n哈哈\n大笑\n开口而笑的脸\n开心\n笑\n脸\n露齿而笑\n高兴"
+  ],
+  "😅": [
+    "苦笑",
+    "cold\ndejected\nexcited\nface\ngrinning\nmouth\nnervous\nopen\nsmile\nsmiling\nstress\nstressed\nsweat\n冷汗\n出汗\n开口冒冷汗的脸\n汗\n泄气\n紧张\n脸\n苦笑"
+  ],
+  "😆": [
+    "斜眼笑",
+    "closed\neyes\nface\ngrinning\nhaha\nhahaha\nhappy\nlaugh\nlol\nmouth\nopen\nrofl\nsmile\nsmiling\nsquinting\n咧嘴笑\n哈哈\n开心\n斜眼笑\n眯眼\n眯眼大笑\n笑\n脸\n高兴"
+  ],
+  "😇": [
+    "微笑天使",
+    "angel\nangelic\nangels\nblessed\nface\nfairy\nfairytale\nfantasy\nhalo\nhappy\ninnocent\npeaceful\nsmile\nsmiling\nspirit\ntale\n光环\n天使\n天真\n幻想\n微笑\n微笑天使\n脸\n顶罩光环的笑脸"
+  ],
+  "😈": [
+    "恶魔微笑",
+    "demon\ndevil\nevil\nface\nfairy\nfairytale\nfantasy\nhorns\npurple\nshade\nsmile\nsmiling\ntale\n幻想\n微笑\n恶魔微笑\n犄角\n神话故事\n脸\n邪魔"
+  ],
+  "😉": [
+    "眨眼",
+    "face\nflirt\nheartbreaker\nsexy\nslide\ntease\nwink\nwinking\nwinks\n媚眼\n撩拨\n眨眼\n眨眼的脸\n笑\n脸"
+  ],
+  "😊": [
+    "羞涩微笑",
+    "blush\neye\neyes\nface\nglad\nsatisfied\nsmile\nsmiling\n害羞\n微笑\n满意\n笑脸相迎\n羞涩\n羞涩微笑\n脸\n脸红"
+  ],
+  "😋": [
+    "好吃",
+    "delicious\neat\nface\nfood\nfull\nhungry\nsavor\nsmile\nsmiling\ntasty\num\nyum\nyummy\n口水\n哈喇子\n好吃\n津津有味\n流口水\n美味\n脸"
+  ],
+  "😌": [
+    "松了口气",
+    "calm\nface\npeace\nrelief\nrelieved\nzen\n如释重负\n松了口气\n松口气\n脸\n蝉"
+  ],
+  "😍": [
+    "花痴",
+    "143\nbae\neye\nface\nfeels\nheart-eyes\nhearts\nily\nkisses\nlove\nromance\nromantic\nsmile\nxoxo\n我爱你\n爱\n红心\n脸\n花痴"
+  ],
+  "😎": [
+    "墨镜笑脸",
+    "awesome\nbeach\nbright\nbro\nchilling\ncool\nface\nrad\nrelaxed\nshades\nslay\nsmile\nstyle\nsunglasses\nswag\nwin\n太阳镜\n眼镜\n耶\n脸\n酷\n墨镜\n墨镜笑脸"
+  ],
+  "😏": [
+    "得意",
+    "boss\ndapper\nface\nflirt\nhomie\nkidding\nleer\nshade\nslick\nsly\nsmirk\nsmug\nsnicker\nsuave\nsuspicious\nswag\n假笑\n冷笑\n得意\n得意的笑\n脸\n诡异地笑"
+  ],
+  "😐": [
+    "冷漠",
+    "awkward\nblank\ndeadpan\nexpressionless\nface\nfine\njealous\nmeh\nneutral\noh\nshade\nstraight\nunamused\nunhappy\nunimpressed\nwhatever\n冷漠\n无感\n脸\n表情空洞\n面无表情"
+  ],
+  "😑": [
+    "无语",
+    "awkward\ndead\nexpressionless\nface\nfine\ninexpressive\njealous\nmeh\nnot\noh\nomg\nstraight\nuh\nunhappy\nunimpressed\nwhatever\n无语\n没有反应\n绷着脸\n脸\n茫然\n面无表情"
+  ],
+  "😒": [
+    "不高兴",
+    "...\nbored\nface\nfine\njealous\njel\njelly\npissed\nsmh\nugh\nuhh\nunamused\nunhappy\nweird\nwhatever\n不屑\n不服\n不爽的脸\n不高兴\n脸\n郁闷\n鄙视\n随便啦"
+  ],
+  "😓": [
+    "汗",
+    "close\ncold\ndowncast\nface\nfeels\nheadache\nnervous\nsad\nscared\nsweat\nyikes\n冒冷汗\n冒汗\n冷\n尴尬\n担心\n汗\n脸"
+  ],
+  "😔": [
+    "沉思",
+    "awful\nbored\ndejected\ndied\ndisappointed\nface\nlosing\nlost\npensive\nsad\nsucks\n失落\n心事重重\n忧虑\n沉思\n脸"
+  ],
+  "😕": [
+    "困扰",
+    "befuddled\nconfused\nconfusing\ndunno\nface\nfrown\nhm\nmeh\nnot\nsad\nsorry\nsure\n不懂\n不确定\n困惑\n困扰\n疑惑\n脸"
+  ],
+  "😖": [
+    "困惑",
+    "annoyed\nconfounded\nconfused\ncringe\ndistraught\nface\nfeels\nfrustrated\nmad\nsad\n困惑\n困惑的脸\n焦头烂额\n纠结\n脸"
+  ],
+  "😗": [
+    "亲亲",
+    "143\ndate\ndating\nface\nflirt\nily\nkiss\nlove\nsmooch\nsmooches\nxoxo\nyou\n亲亲\n亲吻\n吻\n脸"
+  ],
+  "😘": [
+    "飞吻",
+    "adorbs\nbae\nblowing\nface\nflirt\nheart\nily\nkiss\nlove\nlover\nmiss\nmuah\nromantic\nsmooch\nxoxo\nyou\n亲亲\n想你\n我爱你\n眨眼\n脸\n飞吻"
+  ],
+  "😙": [
+    "微笑亲亲",
+    "143\nclosed\ndate\ndating\neye\neyes\nface\nflirt\nily\nkiss\nkisses\nkissing\nlove\nnight\nsmile\nsmiling\n亲亲\n吻\n微笑\n微笑亲亲\n笑颜亲吻\n脸"
+  ],
+  "😚": [
+    "羞涩亲亲",
+    "143\nbae\nblush\nclosed\ndate\ndating\neye\neyes\nface\nflirt\nily\nkisses\nkissing\nsmooches\nxoxo\n亲亲\n吻\n我爱你\n羞涩\n羞涩亲亲\n脸\n闭眼\n闭眼亲吻"
+  ],
+  "😛": [
+    "吐舌",
+    "awesome\ncool\nface\nnice\nparty\nstuck-out\nsweet\ntongue\n吐舌\n吐舌头的脸\n太好了\n脸\n舌头\n调皮"
+  ],
+  "😜": [
+    "单眼吐舌",
+    "crazy\nepic\neye\nface\nfunny\njoke\nloopy\nnutty\nparty\nstuck-out\ntongue\nwacky\nweirdo\nwink\nwinking\nyolo\n单眼\n单眼吐舌\n古怪\n吐舌\n开玩笑\n怪人\n挤眉弄眼\n脸"
+  ],
+  "😝": [
+    "眯眼吐舌",
+    "closed\neye\neyes\nface\ngross\nhorrible\nomg\nsquinting\nstuck-out\ntaste\ntongue\nwhatever\nyolo\n可怕\n吐舌\n尝\n眯眼\n眯眼吐舌\n眼睛\n脸\n都好\n随便"
+  ],
+  "😞": [
+    "失望",
+    "awful\nblame\ndejected\ndisappointed\nface\nfail\nlosing\nsad\nunhappy\n不高兴\n失望\n失望的脸\n脸\n难过"
+  ],
+  "😟": [
+    "担心",
+    "anxious\nbutterflies\nface\nnerves\nnervous\nsad\nstress\nstressed\nsurprised\nworried\nworry\n不高兴\n伤心\n忧心的脸\n意外\n担心\n担忧\n焦虑\n紧张\n脸"
+  ],
+  "😠": [
+    "生气",
+    "anger\nangry\nblame\nface\nfeels\nfrustrated\nmad\nmaddening\nrage\nshade\nunhappy\nupset\n不爽\n不高兴\n怒\n愤怒\n生气\n脸"
+  ],
+  "😡": [
+    "怒火中烧",
+    "anger\nangry\nenraged\nface\nfeels\nmad\nmaddening\npouting\nrage\nred\nshade\nunhappy\nupset\n发火\n发飙\n怒\n怒火中烧\n生气\n脸"
+  ],
+  "😢": [
+    "哭",
+    "awful\ncry\ncrying\nface\nfeels\nmiss\nsad\ntear\ntriste\nunhappy\n伤心\n哀伤\n哭\n哭脸\n泪\n脸"
+  ],
+  "😣": [
+    "痛苦",
+    "concentrate\nconcentration\nface\nfocus\nheadache\npersevere\npersevering\n专注\n入定\n头痛\n忍耐\n痛苦\n脸\n难受"
+  ],
+  "😤": [
+    "傲慢",
+    "anger\nangry\nface\nfeels\nfume\nfuming\nfurious\nfury\nmad\nnose\nsteam\ntriumph\nunhappy\nwon\n不爽\n傲慢\n愤怒\n气炸了\n胜利\n自负\n赢\n趾高气昂"
+  ],
+  "😥": [
+    "失望但如释重负",
+    "anxious\ncall\nclose\ncomplicated\ndisappointed\nface\nnot\nrelieved\nsad\nsweat\ntime\nwhew\n下次吧\n出冷汗\n失望\n失望但如释重负\n失望但解脱\n如释重负\n脸"
+  ],
+  "😦": [
+    "啊",
+    "caught\nface\nfrown\nfrowning\nguard\nmouth\nopen\nscared\nscary\nsurprise\nwhat\nwow\n啊\n惊讶\n意外\n目瞪口呆\n脸"
+  ],
+  "😧": [
+    "极度痛苦",
+    "anguished\nface\nforgot\nscared\nscary\nstressed\nsurprise\nunhappy\nwhat\nwow\n极度痛苦\n痛\n痛啊\n痛苦\n脸\n难受"
+  ],
+  "😨": [
+    "害怕",
+    "afraid\nanxious\nblame\nface\nfear\nfearful\nscared\nworried\n不安\n害怕\n怕\n恐怖\n恐惧\n脸"
+  ],
+  "😩": [
+    "累死了",
+    "crying\nface\nfail\nfeels\nhungry\nmad\nnooo\nsad\nsleepy\ntired\nunhappy\nweary\n疲倦\n疲劳\n疲惫\n累\n累死了\n脸"
+  ],
+  "😪": [
+    "困",
+    "crying\nface\ngood\nnight\nsad\nsleep\nsleeping\nsleepy\ntired\n哭\n困\n想睡\n满脸睡容\n疲惫\n睡觉\n瞌睡\n脸"
+  ],
+  "😫": [
+    "累",
+    "cost\nface\nfeels\nnap\nsad\nsneeze\ntired\n倦容\n疲倦\n疲劳\n疲惫\n累\n脸"
+  ],
+  "😬": [
+    "龇牙咧嘴",
+    "awk\nawkward\ndentist\nface\ngrimace\ngrimacing\ngrinning\nsmile\nsmiling\n咬牙切齿\n尴尬\n牙医\n脸\n露齿\n露齿而笑\n鬼脸\n龇牙咧嘴"
+  ],
+  "😭": [
+    "放声大哭",
+    "bawling\ncry\ncrying\nface\nloudly\nsad\nsob\ntear\ntears\nunhappy\n哭\n大哭\n放声大哭\n放声大哭的脸\n泪\n痛哭\n脸"
+  ],
+  "😮": [
+    "吃惊",
+    "believe\nface\nforgot\nmouth\nomg\nopen\nshocked\nsurprised\nsympathy\nunbelievable\nunreal\nwhoa\nwow\nyou\n吃惊\n同情\n啊\n忘记\n我不信\n我的天\n脸"
+  ],
+  "😮‍💨": [
+    "呼气",
+    "blow\nblowing\nexhale\nexhaling\nexhausted\nface\ngasp\ngroan\nrelief\nsigh\nsmiley\nsmoke\nwhisper\nwhistle\n叹息\n叹气\n吹气\n呼气\n呼气的脸\n唉\n无奈\n松一口气\n疲惫\n笑脸\n释然"
+  ],
+  "😯": [
+    "缄默",
+    "epic\nface\nhushed\nomg\nstunned\nsurprised\nwhoa\nwoah\n吃惊\n哦\n我的天\n缄默\n脸\n静而无语"
+  ],
+  "😰": [
+    "冷汗",
+    "anxious\nblue\ncold\neek\nface\nmouth\nnervous\nopen\nrushed\nscared\nsweat\nyikes\n冷汗\n张嘴冒冷汗的脸\n惊讶\n无语\n汗\n焦虑\n紧张\n脸"
+  ],
+  "😱": [
+    "吓死了",
+    "epic\nface\nfear\nfearful\nmunch\nscared\nscream\nscreamer\nscreaming\nshocked\nsurprised\nwoah\n吓死\n吓死了\n害怕\n尖叫\n恐怖\n惊吓大叫的脸\n脸"
+  ],
+  "😲": [
+    "震惊",
+    "astonished\ncost\nface\nno\nomg\nshocked\ntotally\nway\n不可以\n惊\n惊讶\n惊讶的脸\n没可能\n绝不\n脸\n震惊"
+  ],
+  "😳": [
+    "脸红",
+    "amazed\nawkward\ncrazy\ndazed\ndead\ndisbelief\nembarrassed\nface\nflushed\ngeez\nheat\nhot\nimpressed\njeez\nwhat\nwow\n困惑\n天呀\n害羞\n羞涩\n脸\n脸红\n茫然\n迷茫\n难以置信"
+  ],
+  "😴": [
+    "睡着了",
+    "bed\nbedtime\nface\ngood\ngoodnight\nnap\nnight\nsleep\nsleeping\ntired\nwhatever\nyawn\nzzz\n呼噜\n小睡\n想睡\n打呼\n晚安\n睡容\n睡着了\n睡觉\n累\n累了\n脸"
+  ],
+  "😵": [
+    "晕头转向",
+    "crossed-out\ndead\ndizzy\neyes\nface\nfeels\nknocked\nout\nsick\ntired\n头晕\n头晕眼花\n晕头\n晕头的脸\n晕头转向\n脸"
+  ],
+  "😵‍💫": [
+    "晕",
+    "confused\ndizzy\neyes\nface\nhypnotized\nomg\nsmiley\nspiral\ntrouble\nwhoa\nwoah\nwoozy\n哇\n哎呀\n头晕\n晕\n笑脸\n迷糊"
+  ],
+  "😶": [
+    "沉默",
+    "awkward\nblank\nexpressionless\nface\nmouth\nmouthless\nmute\nquiet\nsecret\nsilence\nsilent\nspeechless\n嘴\n安静\n沉默\n没嘴\n秘密\n脸"
+  ],
+  "😶‍🌫": [
+    "迷茫",
+    "absentminded\nclouds\nface\nfog\nhead\n迷茫"
+  ],
+  "😷": [
+    "感冒",
+    "cold\ndentist\ndermatologist\ndoctor\ndr\nface\ngerms\nmask\nmedical\nmedicine\nsick\n医生\n口罩\n感冒\n戴口罩\n戴口罩的脸\n生病\n病菌\n脸"
+  ],
+  "😸": [
+    "微笑的猫",
+    "animal\ncat\neye\neyes\nface\ngrin\ngrinning\nsmile\nsmiling\n呵呵\n微笑的猫\n微笑的猫脸\n猫脸\n笑\n笑颜逐开\n脸"
+  ],
+  "😹": [
+    "笑出眼泪的猫",
+    "animal\ncat\nface\njoy\nlaugh\nlaughing\nlol\ntear\ntears\n喜极而泣\n快乐\n猫脸\n眼泪\n笑出眼泪\n笑出眼泪的猫\n笑出眼泪的猫脸\n脸"
+  ],
+  "😺": [
+    "大笑的猫",
+    "animal\ncat\nface\ngrinning\nmouth\nopen\nsmile\nsmiling\n哈哈\n大笑的猫\n大笑的猫脸\n猫脸\n笑\n脸"
+  ],
+  "😻": [
+    "花痴的猫",
+    "animal\ncat\neye\nface\nheart\nheart-eyes\nlove\nsmile\nsmiling\nWC\n喜欢\n心\n猫\n猫脸\n脸\n花痴\n花痴的猫\n花痴的猫脸"
+  ],
+  "😼": [
+    "奸笑的猫",
+    "animal\ncat\nface\nironic\nsmile\nwry\n嘲讽笑容\n奸笑\n奸笑的猫\n奸笑的猫脸\n猫脸\n脸\n讽刺"
+  ],
+  "😽": [
+    "亲亲猫",
+    "animal\ncat\nclosed\neye\neyes\nface\nkiss\nkissing\n亲亲\n亲亲猫\n吻\n猫脸\n猫脸亲亲\n脸\n闭眼亲亲的猫脸"
+  ],
+  "😾": [
+    "生气的猫",
+    "animal\ncat\nface\npouting\n猫脸\n生气\n生气的猫\n生气的猫脸\n脸"
+  ],
+  "😿": [
+    "哭泣的猫",
+    "animal\ncat\ncry\ncrying\nface\nsad\ntear\n哭\n哭泣的猫\n哭泣的猫脸\n泪\n猫脸\n眼泪\n脸\n难过"
+  ],
+  "🙀": [
+    "疲倦的猫",
+    "animal\ncat\nface\noh\nsurprised\nweary\n惊讶\n猫脸\n疲倦\n疲倦的猫\n疲倦的猫脸\n疲劳\n疲惫\n累\n脸"
+  ],
+  "🙁": [
+    "微微不满",
+    "face\nfrown\nfrowning\nsad\nslightly\n不开心\n不高兴\n不高兴的脸\n委屈\n小委屈\n微微不满\n心情不好\n脸"
+  ],
+  "🙂": [
+    "呵呵",
+    "face\nhappy\nslightly\nsmile\nsmiling\n呵呵\n开心\n浅笑的脸\n笑\n脸"
+  ],
+  "🙂‍↔": [
+    "左右摇头",
+    "head\nhorizontally\nno\nshake\nshaking\n否定\n左右摇头\n摇头"
+  ],
+  "🙂‍↕": [
+    "上下点头",
+    "head\nnod\nshaking\nvertically\nyes\n上下点头\n点头，肯定"
+  ],
+  "🙃": [
+    "倒脸",
+    "face\nhehe\nsmile\nupside-down\n倒脸\n好玩\n好笑\n脸\n颠倒\n颠倒的脸"
+  ],
+  "🙄": [
+    "翻白眼",
+    "eyeroll\neyes\nface\nrolling\nshade\nugh\nwhatever\n不敢苟同\n无语\n白眼\n翻白眼\n脸\n随便啦"
+  ],
+  "🙅": [
+    "禁止手势",
+    "forbidden\ngesture\nhand\nNO\nnot\nperson\nprohibit\n不允许\n不可能\n不行\n不通过\n反对\n手\n用手势表示不的人\n禁止\n禁止手势"
+  ],
+  "🙅‍♀": [
+    "禁止手势女",
+    "forbidden\ngesture\nhand\nNO\nnot\nprohibit\nwoman\n不行\n反对\n女\n禁止\n禁止手势女"
+  ],
+  "🙅‍♂": [
+    "禁止手势男",
+    "forbidden\ngesture\nhand\nman\nNO\nnot\nprohibit\n不行\n反对\n男\n禁止\n禁止手势男"
+  ],
+  "🙆": [
+    "OK手势",
+    "exercise\ngesture\ngesturing\nhand\nOK\nomg\nperson\nok\nOK手势\n同意\n女子用手势表示好\n好的\n手\n手势\n摆姿势\n锻炼"
+  ],
+  "🙆‍♀": [
+    "OK手势女",
+    "exercise\ngesture\ngesturing\nhand\nOK\nomg\nwoman\nOK手势女\n可以\n同意\n女\n好的"
+  ],
+  "🙆‍♂": [
+    "OK手势男",
+    "exercise\ngesture\ngesturing\nhand\nman\nOK\nomg\nok\nok手势男\nOK手势男\n可以\n同意\n好的\n男\n运动"
+  ],
+  "🙇": [
+    "鞠躬",
+    "apology\nask\nbeg\nbow\nbowing\nfavor\nforgive\ngesture\nmeditate\nmeditation\nperson\npity\nregret\nsorry\n不好意思\n冥想\n姿势\n对不起\n惭愧\n感谢\n懊悔\n祈求宽恕\n道歉\n鞠躬\n鞠躬的人"
+  ],
+  "🙇‍♀": [
+    "女生鞠躬",
+    "apology\nask\nbeg\nbow\nbowing\nfavor\nforgive\ngesture\nmeditate\nmeditation\npity\nregret\nsorry\nwoman\n不好意思\n女\n女生鞠躬\n对不起\n道歉\n静思\n鞠躬"
+  ],
+  "🙇‍♂": [
+    "男生鞠躬",
+    "apology\nask\nbeg\nbow\nbowing\nfavor\nforgive\ngesture\nman\nmeditate\nmeditation\npity\nregret\nsorry\n不好意思\n对不起\n男\n男生鞠躬\n道歉"
+  ],
+  "🙈": [
+    "非礼勿视",
+    "embarrassed\nevil\nface\nforbidden\nforgot\ngesture\nhide\nmonkey\nno\nomg\nprohibited\nscared\nsecret\nsmh\nwatch\n不许看\n别看\n尴尬\n糗\n脸\n蒙住眼睛\n蒙眼\n非礼勿视"
+  ],
+  "🙉": [
+    "非礼勿听",
+    "animal\nears\nevil\nface\nforbidden\ngesture\nhear\nlisten\nmonkey\nno\nnot\nprohibited\nsecret\nshh\ntmi\n嘘\n堵上耳朵\n堵耳\n猴子\n脸\n非礼勿听"
+  ],
+  "🙊": [
+    "非礼勿言",
+    "animal\nevil\nface\nforbidden\ngesture\nmonkey\nno\nnot\noops\nprohibited\nquiet\nsecret\nspeak\nstealth\n不许说\n捂上嘴巴\n捂嘴\n秘密\n脸\n非礼勿言"
+  ],
+  "🙋": [
+    "举手",
+    "gesture\nhand\nhere\nknow\nme\nperson\npick\nquestion\nraise\nraising\n举手\n举手的人\n嗨\n开心\n我参加\n我可以帮忙\n我知道\n手\n看这里\n选我"
+  ],
+  "🙋‍♀": [
+    "女生举手",
+    "gesture\nhand\nhere\nknow\nme\npick\nquestion\nraise\nraising\nwoman\n举手\n女\n女生举手"
+  ],
+  "🙋‍♂": [
+    "男生举手",
+    "gesture\nhand\nhere\nknow\nman\nme\npick\nquestion\nraise\nraising\n举手\n发问\n手势\n男\n男生举手"
+  ],
+  "🙌": [
+    "举双手",
+    "celebration\ngesture\nhand\nhands\nhooray\npraise\nraised\nraising\n举双手\n举手\n击掌\n双手\n庆祝\n手"
+  ],
+  "🙍": [
+    "皱眉",
+    "annoyed\ndisappointed\ndisgruntled\ndisturbed\nfrown\nfrowning\nfrustrated\ngesture\nirritated\nperson\nupset\n不开心\n不满\n不爽\n失望\n心烦意乱\n恼火\n沮丧\n皱眉\n皱眉的人"
+  ],
+  "🙍‍♀": [
+    "皱眉女",
+    "annoyed\ndisappointed\ndisgruntled\ndisturbed\nfrown\nfrowning\nfrustrated\ngesture\nirritated\nupset\nwoman\n不开心\n女\n皱眉\n皱眉女"
+  ],
+  "🙍‍♂": [
+    "皱眉男",
+    "annoyed\ndisappointed\ndisgruntled\ndisturbed\nfrown\nfrowning\nfrustrated\ngesture\nirritated\nman\nupset\n不开心\n男\n皱眉\n皱眉男\n表情"
+  ],
+  "🙎": [
+    "撅嘴",
+    "disappointed\ndowntrodden\nfrown\ngrimace\nperson\npouting\nscowl\nsulk\nupset\nwhine\n不开心\n不高兴\n低落\n噘嘴\n失望\n怒视\n撅嘴\n撅嘴的人\n生闷气\n皱眉\n苦相\n表情"
+  ],
+  "🙎‍♀": [
+    "撅嘴女",
+    "disappointed\ndowntrodden\nfrown\ngrimace\npouting\nscowl\nsulk\nupset\nwhine\nwoman\n不开心\n噘嘴\n女\n撅嘴女"
+  ],
+  "🙎‍♂": [
+    "撅嘴男",
+    "disappointed\ndowntrodden\nfrown\ngrimace\nman\npouting\nscowl\nsulk\nupset\nwhine\n不开心\n噘嘴\n撅嘴男\n男\n表情"
+  ],
+  "🙏": [
+    "双手合十",
+    "appreciate\nask\nbeg\nblessed\nbow\ncmon\nfive\nfolded\ngesture\nhand\nhigh\nplease\npray\nthanks\nthx\n双手合十\n合掌\n感恩\n拜托\n祈求\n祈祷\n祈福\n祝福\n谢谢"
+  ],
+  "🚀": [
+    "火箭",
+    "launch\nrocket\nrockets\nspace\ntravel\n发射\n太空\n旅行\n火箭"
+  ],
+  "🚁": [
+    "直升机",
+    "copter\nhelicopter\nroflcopter\ntravel\nvehicle\n旅行\n直升机\n直升飞机"
+  ],
+  "🚂": [
+    "蒸汽火车",
+    "caboose\nengine\nlocomotive\nrailway\nsteam\ntrain\ntrains\ntravel\n守车\n旅行\n火车\n火车头\n蒸汽\n蒸汽火车\n蒸汽车头\n铁路"
+  ],
+  "🚃": [
+    "轨道车",
+    "car\nelectric\nrailway\ntrain\ntram\ntravel\ntrolleybus\n旅行\n电车\n轨道车\n铁路"
+  ],
+  "🚄": [
+    "高速列车",
+    "high-speed\nrailway\nshinkansen\nspeed\ntrain\n动车\n新干线\n火车\n速度\n高速列车\n高铁"
+  ],
+  "🚅": [
+    "子弹头高速列车",
+    "bullet\nhigh-speed\nnose\nrailway\nshinkansen\nspeed\ntrain\ntravel\n动车\n子弹列车\n子弹头\n子弹头高速列车\n新干线\n火车\n高速\n高铁"
+  ],
+  "🚆": [
+    "火车",
+    "arrived\nchoo\nrailway\ntrain\n到站\n呜呜\n火车\n铁路"
+  ],
+  "🚇": [
+    "地铁",
+    "metro\nsubway\ntravel\n地铁\n捷运"
+  ],
+  "🚈": [
+    "轻轨",
+    "arrived\nlight\nmonorail\nrail\nrailway\n到站\n单轨电车\n火车\n轻轨"
+  ],
+  "🚉": [
+    "车站",
+    "railway\nstation\ntrain\n地铁\n捷运\n火车\n车站\n铁路"
+  ],
+  "🚊": [
+    "路面电车",
+    "tram\ntrolleybus\n捷运\n电车\n路面电车"
+  ],
+  "🚋": [
+    "有轨电车",
+    "bus\ncar\ntram\ntrolley\ntrolleybus\n有轨电车\n轨道"
+  ],
+  "🚌": [
+    "公交车",
+    "bus\nschool\nvehicle\n公交\n公交车\n公共汽车\n大巴"
+  ],
+  "🚍": [
+    "迎面驶来的公交车",
+    "bus\ncars\noncoming\n公交\n公共汽车\n大巴\n迎面驶来\n迎面驶来的公交车"
+  ],
+  "🚎": [
+    "无轨电车",
+    "bus\ntram\ntrolley\ntrolleybus\n公共汽车\n无轨电车\n电车"
+  ],
+  "🚏": [
+    "公交车站",
+    "bus\nbusstop\nstop\n公交站\n公交车站\n公共汽车站"
+  ],
+  "🚐": [
+    "小巴",
+    "bus\ndrive\nminibus\nvan\nvehicle\n公共汽车\n小巴\n开车\n移动房车"
+  ],
+  "🚑": [
+    "救护车",
+    "ambulance\nemergency\nvehicle\n急救\n救护车\n车辆"
+  ],
+  "🚒": [
+    "消防车",
+    "engine\nfire\ntruck\n救火车\n消防车\n火灾"
+  ],
+  "🚓": [
+    "警车",
+    "5–0\ncar\ncops\npatrol\npolice\n檀岛警騎\n汽车\n警察\n警车\n巡逻"
+  ],
+  "🚔": [
+    "迎面驶来的警车",
+    "car\noncoming\npolice\n汽车\n警察\n警车\n迎面驶来的警车"
+  ],
+  "🚕": [
+    "出租车",
+    "cab\ncabbie\ncar\ndrive\ntaxi\nvehicle\nyellow\n出租车\n小黄\n开车\n汽车\n的士\n计程车"
+  ],
+  "🚖": [
+    "迎面驶来的出租车",
+    "cab\ncabbie\ncars\ndrove\nhail\noncoming\ntaxi\nyellow\n优步\n出租车\n叫车\n小黄\n开车\n的士\n迎面驶来的出租车"
+  ],
+  "🚗": [
+    "汽车",
+    "automobile\ncar\ndriving\nvehicle\n开车\n汽车\n轿车"
+  ],
+  "🚘": [
+    "迎面驶来的汽车",
+    "automobile\ncar\ncars\ndrove\noncoming\nvehicle\n开车\n汽车\n轿车\n迎面而来\n迎面驶来的汽车"
+  ],
+  "🚙": [
+    "运动型多用途车",
+    "car\ndrive\nrecreational\nsport\nsportutility\nutility\nvehicle\nSUV\n休旅车\n休闲车\n开车\n房车\n汽车\n车辆\n轿车\n运动型多用途车\n驾驶"
+  ],
+  "🚚": [
+    "货车",
+    "car\ndelivery\ndrive\ntruck\nvehicle\n卡车\n开车\n货车\n送货"
+  ],
+  "🚛": [
+    "铰接式货车",
+    "articulated\ncar\ndrive\nlorry\nmove\nsemi\ntruck\nvehicle\n卡车\n拖车\n搬运\n货车\n铰接式卡车\n铰接式货车"
+  ],
+  "🚜": [
+    "拖拉机",
+    "tractor\nvehicle\n拖拉机"
+  ],
+  "🚝": [
+    "单轨",
+    "monorail\nvehicle\n单轨\n单轨电车\n火车"
+  ],
+  "🚞": [
+    "山区铁路",
+    "car\nmountain\nrailway\ntrip\n山区\n山区铁路\n山地铁路\n火车\n铁路"
+  ],
+  "🚟": [
+    "空轨",
+    "railway\nsuspension\n悬挂\n悬挂式单轨\n空中轨道列车\n空轨"
+  ],
+  "🚠": [
+    "缆车",
+    "cable\ncableway\ngondola\nlift\nmountain\nski\n空中\n索道\n缆车"
+  ],
+  "🚡": [
+    "索道",
+    "aerial\ncable\ncar\ngondola\nropeway\ntramway\n空中\n索道\n缆车"
+  ],
+  "🚢": [
+    "船",
+    "boat\npassenger\nship\ntravel\n旅客\n旅行\n船"
+  ],
+  "🚣": [
+    "划艇",
+    "boat\ncanoe\ncruise\nfishing\nlake\noar\npaddle\nperson\nraft\nriver\nrow\nrowboat\nrowing\n划桨\n划船运动\n划艇\n木筏\n河\n泛舟湖上\n湖\n独木舟\n船\n钓鱼"
+  ],
+  "🚣‍♀": [
+    "女生划船",
+    "boat\ncanoe\ncruise\nfishing\nlake\noar\npaddle\nraft\nriver\nrow\nrowboat\nrowing\nwoman\n划船\n划艇\n女\n女生划船\n船"
+  ],
+  "🚣‍♂": [
+    "男生划船",
+    "boat\ncanoe\ncruise\nfishing\nlake\nman\noar\npaddle\nraft\nriver\nrow\nrowboat\nrowing\n划船\n划艇\n男\n男生划船\n船"
+  ],
+  "🚤": [
+    "快艇",
+    "billionaire\nboat\nlake\nluxury\nmillionaire\nspeedboat\nsummer\ntravel\n亿万富翁\n快艇\n船\n豪华游艇"
+  ],
+  "🚥": [
+    "横向的红绿灯",
+    "horizontal\nintersection\nlight\nsignal\nstop\nstoplight\ntraffic\n交通灯\n信号灯\n横向的红绿灯\n红绿灯"
+  ],
+  "🚦": [
+    "纵向的红绿灯",
+    "drove\nintersection\nlight\nsignal\nstop\nstoplight\ntraffic\nvertical\n交叉口\n交通灯\n信号灯\n直的红绿灯\n红绿灯\n纵向的红绿灯"
+  ],
+  "🚧": [
+    "路障",
+    "barrier\nconstruction\n施工\n路障"
+  ],
+  "🚨": [
+    "警车灯",
+    "alarm\nalert\nbeacon\ncar\nemergency\nlight\npolice\nrevolving\nsiren\n灯\n紧急\n警报\n警灯\n警示\n警车灯"
+  ],
+  "🚩": [
+    "三角旗",
+    "construction\nflag\ngolf\npost\ntriangular\n三角旗\n升旗\n旗\n旗杆上的三角旗\n旗杆上的旗帜\n红色旗帜\n高尔夫"
+  ],
+  "🚪": [
+    "门",
+    "back\ncloset\ndoor\nfront\n出入口\n前门\n后门\n大门\n屋门\n房门\n房间\n门"
+  ],
+  "🚫": [
+    "禁止",
+    "entry\nforbidden\nno\nnot\nprohibited\nsmoke\n不准\n不许\n严禁\n禁入\n禁止\n禁行\n阻止"
+  ],
+  "🚬": [
+    "香烟",
+    "cigarette\nsmoking\n卷烟\n吸烟\n抽烟\n烟\n烟草\n香烟"
+  ],
+  "🚭": [
+    "禁止吸烟",
+    "forbidden\nno\nnot\nprohibited\nsmoke\nsmoking\n严禁\n吸烟\n抽烟\n禁止\n禁止吸烟\n禁烟"
+  ],
+  "🚮": [
+    "倒垃圾",
+    "bin\nlitter\nlitterbin\nsign\n倒垃圾\n垃圾丢弃处\n垃圾入篓\n垃圾桶"
+  ],
+  "🚯": [
+    "禁止乱扔垃圾",
+    "forbidden\nlitter\nlittering\nno\nnot\nprohibited\n严禁\n垃圾\n禁丢垃圾\n禁止\n禁止乱扔垃圾"
+  ],
+  "🚰": [
+    "饮用水",
+    "drinking\npotable\nwater\n可以喝的\n喝水\n接水\n水\n水龙头\n饮用水"
+  ],
+  "🚱": [
+    "非饮用水",
+    "dry\nnon-drinking\nnon-potable\nprohibited\nwater\n水\n禁止用水\n节约用水\n非直饮水\n非饮用水"
+  ],
+  "🚲": [
+    "自行车",
+    "bicycle\nbike\nclass\ncycle\ncycling\ncyclist\ngang\nride\nspin\nspinning\n单车\n脚踏车\n自行车\n自行车骑士\n飞驰\n骑车\n骑车疾驰"
+  ],
+  "🚳": [
+    "禁止自行车",
+    "bicycle\nbicycles\nbike\nforbidden\nno\nnot\nprohibited\n严禁\n交通\n禁止\n禁止自行车\n禁行自行车\n自行车\n非机动车"
+  ],
+  "🚴": [
+    "骑自行车",
+    "bicycle\nbicyclist\nbike\nbiking\ncycle\ncyclist\nperson\nriding\nsport\n单车\n脚踏车\n自行车\n自行车赛\n自行车骑士\n运动\n骑单车\n骑脚踏车者\n骑自行车\n骑自行车的人\n骑自行车者"
+  ],
+  "🚴‍♀": [
+    "女生骑自行车",
+    "bicycle\nbicyclist\nbike\nbiking\ncycle\ncyclist\nriding\nsport\nwoman\n单车\n女\n女生骑自行车\n女生骑车\n自行车\n骑车"
+  ],
+  "🚴‍♂": [
+    "男生骑自行车",
+    "bicycle\nbicyclist\nbike\nbiking\ncycle\ncyclist\nman\nriding\nsport\n单车\n男\n男生骑自行车\n自行车\n骑车"
+  ],
+  "🚵": [
+    "骑山地车",
+    "bicycle\nbicyclist\nbike\nbiking\ncycle\ncyclist\nmountain\nperson\nriding\nsport\n体育竞技\n单车\n山\n山地自行车\n山地车\n山地骑行的人\n自行车\n运动\n骑山地车\n骑山地车的人\n骑自行车\n骑自行车者"
+  ],
+  "🚵‍♀": [
+    "女生骑山地车",
+    "bicycle\nbicyclist\nbike\nbiking\ncycle\ncyclist\nmountain\nriding\nsport\nwoman\n单车\n女\n女生骑山地车\n山地车\n自行车\n骑车"
+  ],
+  "🚵‍♂": [
+    "男生骑山地车",
+    "bicycle\nbicyclist\nbike\nbiking\ncycle\ncyclist\nman\nmountain\nriding\nsport\n单车\n山地车\n男\n男生骑山地车\n自行车\n骑山地车的人"
+  ],
+  "🚶": [
+    "行人",
+    "amble\ngait\nhike\nman\npace\npedestrian\nperson\nstride\nstroll\nwalk\nwalking\n压马路\n徒步\n散步\n昂首阔步\n竞走\n行人\n行走的人\n走路\n远足\n闲逛"
+  ],
+  "🚶‍♀": [
+    "女行人",
+    "amble\ngait\nhike\nman\npace\npedestrian\nstride\nstroll\nwalk\nwalking\nwoman\n女\n女行人\n徒步\n漫步\n缓行\n走\n走路\n路人"
+  ],
+  "🚶‍♀‍➡": [
+    "女行人: 面向右边",
+    "amble\nfacing\ngait\nhike\nman\npace\npedestrian\nright\nstride\nstroll\nwalk\nwalking\nwoman\n女\n女行人\n徒步\n漫步\n缓行\n走\n走路\n路人\n面向右边"
+  ],
+  "🚶‍♂": [
+    "男行人",
+    "amble\ngait\nhike\nman\npace\npedestrian\nstride\nstroll\nwalk\nwalking\n徒步\n男\n男行人\n走路"
+  ],
+  "🚶‍♂‍➡": [
+    "男行人: 面向右边",
+    "amble\nfacing\ngait\nhike\nman\npace\npedestrian\nright\nstride\nstroll\nwalk\nwalking\n徒步\n男\n男行人\n走路\n面向右边"
+  ],
+  "🚶‍➡": [
+    "行人: 面向右边",
+    "amble\nfacing\ngait\nhike\nman\npace\npedestrian\nperson\nright\nstride\nstroll\nwalk\nwalking\n压马路\n徒步\n散步\n昂首阔步\n竞走\n行人\n行走的人\n走路\n远足\n闲逛\n面向右边"
+  ],
+  "🚷": [
+    "禁止行人通行",
+    "forbidden\nno\nnot\npedestrian\npedestrians\nprohibited\n严禁\n禁止行人通行\n行人"
+  ],
+  "🚸": [
+    "儿童过街",
+    "child\nchildren\ncrossing\npedestrian\ntraffic\n交通\n儿童过街\n安全\n指示牌\n行人"
+  ],
+  "🚹": [
+    "男厕",
+    "bathroom\nlavatory\nman\nmen’s\nrestroom\nroom\ntoilet\nWC\n卫生间\n厕所\n洗手间\n男厕\n男士"
+  ],
+  "🚺": [
+    "女厕",
+    "bathroom\nlavatory\nrestroom\nroom\ntoilet\nWC\nwoman\nwomen’s\n卫生间\n厕所\n女厕\n女士\n洗手间"
+  ],
+  "🚻": [
+    "卫生间",
+    "bathroom\nlavatory\nrestroom\ntoilet\nWC\n卫生间\n厕所\n洗手间"
+  ],
+  "🚼": [
+    "宝宝",
+    "baby\nchanging\nsymbol\n婴儿\n宝宝\n换尿片\n母婴室"
+  ],
+  "🚽": [
+    "马桶",
+    "bathroom\ntoilet\nWC\n卫生间\n厕所\n洗手间\n马桶"
+  ],
+  "🚾": [
+    "厕所",
+    "bathroom\ncloset\nlavatory\nrestroom\ntoilet\nwater\nWC\n卫生间\n厕所\n洗手间\n盥洗室"
+  ],
+  "🚿": [
+    "淋浴",
+    "shower\nwater\n喷头\n喷水\n水\n洗澡 花洒\n淋浴\n花洒"
+  ],
+  "🛀": [
+    "洗澡的人",
+    "bath\nbathtub\nperson\ntaking\ntub\n洗澡\n洗澡的人\n浴盆\n浴缸\n澡盆\n盆浴"
+  ],
+  "🛁": [
+    "浴缸",
+    "bath\nbathtub\n沐浴\n泡沫浴\n泡澡\n洗澡\n浴盆\n浴缸\n澡盆"
+  ],
+  "🛂": [
+    "护照检查",
+    "control\npassport\n安检\n护照\n护照检查\n检查\n通行证"
+  ],
+  "🛃": [
+    "海关",
+    "customs\npacking\n海关\n行李打包"
+  ],
+  "🛄": [
+    "提取行李",
+    "arrived\nbaggage\nbags\ncase\nchecked\nclaim\njourney\npacking\nplane\nready\ntravel\ntrip\n提取\n提取行李\n旅行\n行李"
+  ],
+  "🛅": [
+    "寄存行李",
+    "baggage\ncase\nleft\nlocker\nluggage\n储物柜\n寄存\n寄存行李\n行李"
+  ],
+  "🛋": [
+    "沙发和灯",
+    "couch\nhotel\nlamp\n家\n沙发\n沙发和灯\n灯\n阅读"
+  ],
+  "🛌": [
+    "躺在床上的人",
+    "bed\nbedtime\ngood\ngoodnight\nhotel\nnap\nnight\nperson\nsleep\ntired\nzzz\n入睡\n夜里\n宾馆\n晚安\n躺在床上的人\n酒店"
+  ],
+  "🛍": [
+    "购物袋",
+    "bag\nbags\nhotel\nshopping\n包\n袋\n购物\n购物袋\n逛街"
+  ],
+  "🛎": [
+    "服务铃",
+    "bell\nbellhop\nhotel\n服务铃\n行李员\n酒店\n铃"
+  ],
+  "🛏": [
+    "床",
+    "bed\nhotel\nsleep\n宾馆\n床\n床垫\n床铺\n睡\n睡眠\n睡觉"
+  ],
+  "🛐": [
+    "宗教场所",
+    "place\npray\nreligion\nworship\n地点\n宗教\n宗教场所\n崇拜\n敬神\n礼拜\n祈祷"
+  ],
+  "🛑": [
+    "停止标志",
+    "octagonal\nsign\nstop\n停止\n停止标志\n八角形\n八边形\n标志"
+  ],
+  "🛒": [
+    "购物车",
+    "cart\nshopping\ntrolley\n手推车\n购物\n购物车\n采购"
+  ],
+  "🛕": [
+    "印度寺庙",
+    "hindu\ntemple\n佛寺\n佛教\n印度寺庙\n寺庙\n寺院\n庙宇"
+  ],
+  "🛖": [
+    "小屋",
+    "home\nhouse\nhut\nroundhouse\nshelter\nyurt\n圆屋\n家\n小屋\n茅屋\n蒙古包"
+  ],
+  "🛗": [
+    "电梯",
+    "accessibility\nelevator\nhoist\nlift\n升降机\n可达性\n电梯"
+  ],
+  "🛘": [
+    "山体滑坡",
+    "avalanche\ndanger\ndisaster\nearthquake\nmountain\nmudslide\nrocks\n危险\n地震\n塌方\n山\n山崩\n山石\n岩石\n泥石流\n灾害\n灾难"
+  ],
+  "🛜": [
+    "无线",
+    "broadband\ncomputer\nconnectivity\nhotspot\ninternet\nnetwork\nrouter\nsmartphone\nwi-fi\nwifi\nwireless\nwlan\nWi-Fi\nWLAN\n互联网\n宽带\n无线\n智能手机\n热点\n电脑\n网络\n计算机\n连接"
+  ],
+  "🛝": [
+    "游乐场滑梯",
+    "amusement\npark\nplay\nplayground\nplaying\nslide\nsliding\ntheme\n游乐园\n游乐场\n游乐场滑梯\n滑梯\n玩\n玩耍"
+  ],
+  "🛞": [
+    "车轮",
+    "car\ncircle\ntire\nturn\nvehicle\nwheel\n圆圈\n汽车\n车轮\n车辆\n转动\n轮胎"
+  ],
+  "🛟": [
+    "救生圈",
+    "buoy\nfloat\nlife\nlifesaver\npreserver\nrescue\nring\nsafety\nsave\nsaver\nswim\n安全\n救援\n救生\n救生圈\n救生用具\n游泳\n漂浮"
+  ],
+  "🛠": [
+    "锤子与扳手",
+    "hammer\nspanner\ntool\nwrench\n工具\n扳手\n铁锤\n锤子\n锤子与扳手"
+  ],
+  "🛡": [
+    "盾牌",
+    "shield\nweapon\n武器\n盾\n盾牌\n防御"
+  ],
+  "🛢": [
+    "石油桶",
+    "drum\noil\n桶\n油桶\n石油\n石油桶"
+  ],
+  "🛣": [
+    "高速公路",
+    "highway\nmotorway\nroad\n公路\n高速公路"
+  ],
+  "🛤": [
+    "铁轨",
+    "railway\ntrack\ntrain\n火车\n铁路\n铁轨"
+  ],
+  "🛥": [
+    "摩托艇",
+    "boat\nmotor\nmotorboat\n摩托艇\n船"
+  ],
+  "🛩": [
+    "小型飞机",
+    "aeroplane\nairplane\nplane\nsmall\n小型飞机\n小飞机\n飞机"
+  ],
+  "🛫": [
+    "航班起飞",
+    "aeroplane\nairplane\ncheck-in\ndeparture\ndepartures\nplane\n值机\n出境\n报到\n登机\n离境\n航班\n航班起飞\n起飞\n飞机"
+  ],
+  "🛬": [
+    "航班降落",
+    "aeroplane\nairplane\narrival\narrivals\narriving\nlanding\nplane\n到达\n着陆\n航班\n航班降落\n降落\n飞机"
+  ],
+  "🛰": [
+    "卫星",
+    "satellite\nspace\n卫星\n太空"
+  ],
+  "🛳": [
+    "客轮",
+    "passenger\nship\n客船\n客轮\n旅客"
+  ],
+  "🛴": [
+    "滑板车",
+    "kick\nscooter\n滑板车"
+  ],
+  "🛵": [
+    "小型摩托车",
+    "motor\nscooter\n小型摩托车\n摩托车\n踏板车"
+  ],
+  "🛶": [
+    "独木舟",
+    "boat\ncanoe\n独木舟\n船"
+  ],
+  "🛷": [
+    "雪橇",
+    "luge\nsled\nsledge\nsleigh\nsnow\ntoboggan\n下雪\n乘雪橇\n平底雪橇\n雪橇\n驾雪橇"
+  ],
+  "🛸": [
+    "飞碟",
+    "aliens\nextra\nflying\nsaucer\nterrestrial\nUFO\n不明飞行物\n外星人\n外星球\n飞碟"
+  ],
+  "🛹": [
+    "滑板",
+    "board\nskate\nskateboard\nskater\nwheels\n板\n滑板\n踩滑板"
+  ],
+  "🛺": [
+    "三轮摩托车",
+    "auto\nrickshaw\ntuk\n三脚鸡\n三蹦子\n三轮摩托车\n嘟嘟车\n电动三轮车\n自动人力车\n黄包车"
+  ],
+  "🛻": [
+    "敞蓬小型载货卡车",
+    "automobile\ncar\nflatbed\npick-up\npickup\ntransportation\ntruck\n交通工具\n卡车\n敞蓬小型载货卡车\n汽车\n皮卡\n车\n载货"
+  ],
+  "🛼": [
+    "四轮滑冰鞋",
+    "blades\nroller\nskate\nskates\nsport\n四轮滑冰鞋\n旱冰\n溜冰\n溜冰鞋\n滑冰\n轮式\n运动"
+  ],
+  "🟠": [
+    "橙色圆",
+    "circle\norange\n圆\n圆圈\n圈\n橙\n橙色圆"
+  ],
+  "🟡": [
+    "黄色圆",
+    "circle\nyellow\n圆\n圈\n黄\n黄色\n黄色圆\n黄色圆圈"
+  ],
+  "🟢": [
+    "绿色圆",
+    "circle\ngreen\n圆\n圆圈\n圈\n绿\n绿色圆"
+  ],
+  "🟣": [
+    "紫色圆",
+    "circle\npurple\n圆\n圆圈\n圈\n紫\n紫色\n紫色圆\n紫色圆圈"
+  ],
+  "🟤": [
+    "棕色圆",
+    "brown\ncircle\n圆\n圆圈\n圈\n棕\n棕色圆"
+  ],
+  "🟥": [
+    "红色方块",
+    "card\npenalty\nred\nsquare\n方块\n方框\n正方形\n红\n红色\n红色方块"
+  ],
+  "🟦": [
+    "蓝色方块",
+    "blue\nsquare\n方块\n方框\n正方形\n蓝\n蓝色\n蓝色方块"
+  ],
+  "🟧": [
+    "橙色方块",
+    "orange\nsquare\n方块\n方框\n橙\n橙色\n橙色方块\n正方形"
+  ],
+  "🟨": [
+    "黄色方块",
+    "card\npenalty\nsquare\nyellow\n方块\n方框\n正方形\n黄\n黄色\n黄色方块"
+  ],
+  "🟩": [
+    "绿色方块",
+    "green\nsquare\n方块\n方框\n正方形\n绿\n绿色\n绿色方块"
+  ],
+  "🟪": [
+    "紫色方块",
+    "purple\nsquare\n方块\n方框\n正方形\n紫\n紫色\n紫色方块"
+  ],
+  "🟫": [
+    "棕色方块",
+    "brown\nsquare\n方块\n方框\n棕\n棕色\n棕色方块\n正方形"
+  ],
+  "🟰": [
+    "粗等号",
+    "answer\nequal\nequality\nequals\nheavy\nmath\nsign\n回答\n平等\n数学\n相等\n等于\n等号\n答案\n粗等号"
+  ],
+  "🤌": [
+    "捏手指",
+    "fingers\ngesture\nhand\nhold\nhuh\ninterrogation\npatience\npinched\nrelax\nsarcastic\nugh\nwhat\nzip\n为什么\n你到底在说什么\n匮乏\n审讯\n强调\n您要什么\n手势\n手指\n挖苦\n捏手指\n放松点"
+  ],
+  "🤍": [
+    "白心",
+    "143\nheart\nwhite\n心\n心形\n爱心\n白\n白心\n白色\n白色爱心"
+  ],
+  "🤎": [
+    "棕心",
+    "143\nbrown\nheart\n心\n心形\n棕\n棕心\n棕色\n棕色爱心\n爱心"
+  ],
+  "🤏": [
+    "捏合的手势",
+    "amount\nbit\nfingers\nhand\nlittle\npinching\nsmall\nsort\n一点\n一点点\n小\n少\n少量\n手指\n捏合的手势\n捏着\n某种程度上"
+  ],
+  "🤐": [
+    "闭嘴",
+    "face\nkeep\nmouth\nquiet\nsecret\nshut\nzip\nzipper\nzipper-mouth\n住嘴\n嘴\n封口\n秘密\n脸\n闭嘴"
+  ],
+  "🤑": [
+    "发财",
+    "face\nmoney\nmoney-mouth\nmouth\npaid\n发财\n拜金\n脸\n见钱眼开\n金钱至上\n钱"
+  ],
+  "🤒": [
+    "发烧",
+    "face\nill\nsick\nthermometer\n体温计\n发烧\n咬着体温计的脸\n温度计\n生病\n脸\n量体温"
+  ],
+  "🤓": [
+    "书呆子脸",
+    "brainy\nclever\nexpert\nface\ngeek\ngifted\nglasses\nintelligent\nnerd\nsmart\n专家\n书呆子\n书呆子脸\n天才\n奇葩\n宅男\n极客\n眼镜\n眼镜笑脸\n聪明\n脸"
+  ],
+  "🤔": [
+    "想一想",
+    "chin\nconsider\nface\nhmm\nponder\npondering\nthinking\nwondering\n思考\n想\n想一想\n想事情\n脸"
+  ],
+  "🤕": [
+    "受伤",
+    "bandage\nface\nhead-bandage\nhurt\ninjury\nouch\n受伤\n头绑绷带\n打绷带\n脸"
+  ],
+  "🤖": [
+    "机器人",
+    "face\nmonster\nrobot\n怪物\n机器人\n脸"
+  ],
+  "🤗": [
+    "抱抱",
+    "face\nhands\nhug\nhugging\nopen\nsmiling\n抱\n抱抱\n拥抱\n笑\n脸"
+  ],
+  "🤘": [
+    "摇滚",
+    "finger\nhand\nhorns\nrock-on\nsign\n手\n摇滚\n摇滚精神\n燥起来\n角\n金属礼"
+  ],
+  "🤙": [
+    "给我打电话",
+    "call\nhand\nhang\nloose\nme\nShaka\n手\n打电话给我\n电话\n给我打电话\n给我打电话的手势"
+  ],
+  "🤚": [
+    "立起的手背",
+    "back\nbackhand\nhand\nraised\n举起\n举起手背\n手\n手背\n立起\n立起的手背"
+  ],
+  "🤛": [
+    "朝左的拳头",
+    "fist\nleft-facing\nleftwards\n拳头\n朝左\n朝左的拳头"
+  ],
+  "🤜": [
+    "朝右的拳头",
+    "fist\nright-facing\nrightwards\n手\n拳头\n朝右\n朝右的拳头"
+  ],
+  "🤝": [
+    "握手",
+    "agreement\ndeal\nhand\nhandshake\nmeeting\nshake\n一言为定\n会面\n协议\n君子协定\n握手"
+  ],
+  "🤞": [
+    "交叉的手指",
+    "cross\ncrossed\nfinger\nfingers\nhand\nluck\n交叉\n交叉的手指\n幸运\n手\n手指\n祝好运"
+  ],
+  "🤟": [
+    "爱你的手势",
+    "fingers\ngesture\nhand\nILY\nlove\nlove-you\nthree\nyou\n三种\n我爱你\n手\n爱你\n爱你的手势"
+  ],
+  "🤠": [
+    "牛仔帽脸",
+    "cowboy\ncowgirl\nface\nhat\n帽\n牛仔\n牛仔帽脸\n脸"
+  ],
+  "🤡": [
+    "小丑脸",
+    "clown\nface\n小丑\n小丑脸\n脸"
+  ],
+  "🤢": [
+    "恶心",
+    "face\ngross\nnasty\nnauseated\nsick\nvomit\n吐\n呕\n恶心\n恶心作呕的脸\n脸\n脸绿了"
+  ],
+  "🤣": [
+    "笑得满地打滚",
+    "crying\nface\nfloor\nfunny\nhaha\nhappy\nhehe\nhilarious\njoy\nlaugh\nlmao\nlol\nrofl\nroflmao\nrolling\ntear\nlolol\n乐翻了\n哈哈\n地板\n太扯了\n打滚\n满地打滚的笑\n笑\n笑得流泪\n笑得满地打滚\n脸\n超扯"
+  ],
+  "🤤": [
+    "流口水",
+    "drooling\nface\n口水\n垂涎\n垂涎三尺\n流口水\n流口水的脸\n脸"
+  ],
+  "🤥": [
+    "说谎",
+    "face\nliar\nlie\nlying\npinocchio\n匹诺曹\n脸\n说谎\n长鼻子\n长鼻子脸"
+  ],
+  "🤦": [
+    "捂脸",
+    "again\nbewilder\ndisbelief\nexasperation\nfacepalm\nno\nnot\noh\nomg\nperson\nshock\nsmh\n人\n尴尬\n恼怒\n我的天哪\n扶额\n捂脸\n无语\n难以置信\n震惊"
+  ],
+  "🤦‍♀": [
+    "女生捂脸",
+    "again\nbewilder\ndisbelief\nexasperation\nfacepalm\nno\nnot\noh\nomg\nshock\nsmh\nwoman\n女\n女子捂脸\n女生捂脸\n尴尬\n恼怒\n我的天哪\n扶额\n捂脸\n无奈\n无语\n难以置信\n震惊"
+  ],
+  "🤦‍♂": [
+    "男生捂脸",
+    "again\nbewilder\ndisbelief\nexasperation\nfacepalm\nman\nno\nnot\noh\nomg\nshock\nsmh\n尴尬\n恼怒\n我的天哪\n扶额\n捂脸\n无奈\n无语\n男\n男子捂脸\n男生捂脸\n难以置信\n震惊"
+  ],
+  "🤧": [
+    "打喷嚏",
+    "face\nfever\nflu\ngesundheit\nsick\nsneeze\nsneezing\n喷嚏\n打喷嚏\n打喷嚏的脸\n生病\n脸\n鼻涕"
+  ],
+  "🤨": [
+    "挑眉",
+    "disapproval\ndisbelief\ndistrust\nemoji\neyebrow\nface\nhmm\nmild\nraised\nskeptic\nskeptical\nskepticism\nsurprise\nwhat\n不信任\n不敢置信\n不赞同\n怀疑\n挑眉\n氧起眉毛的脸\n眉毛上挑的脸\n脸"
+  ],
+  "🤩": [
+    "好崇拜哦",
+    "excited\neyes\nface\ngrinning\nsmile\nstar\nstar-struck\nstarry-eyed\nwow\n兴奋\n咧嘴笑\n好崇拜哦\n满天星\n满眼星\n脸\n追星族\n露齿笑"
+  ],
+  "🤪": [
+    "滑稽",
+    "crazy\neye\neyes\nface\ngoofy\nlarge\nsmall\nzany\n大小眼\n大眼\n小眼\n滑稽\n滑稽的脸\n疯狂的脸\n疯眼\n疯脸\n脸"
+  ],
+  "🤫": [
+    "安静的脸",
+    "face\nquiet\nshh\nshush\nshushing\n嘘\n嘘声手势的脸\n安静\n安静的脸"
+  ],
+  "🤬": [
+    "嘴上有符号的脸",
+    "censor\ncursing\ncussing\nface\nmad\nmouth\npissed\nswearing\nsymbols\n不爽\n发誓\n咒骂\n嘴上有符号的脸\n生气\n碎碎唸的脸\n脸\n诅咒"
+  ],
+  "🤭": [
+    "不说",
+    "face\ngiggle\ngiggling\nhand\nmouth\noops\nrealization\nsecret\nshock\nsudden\nsurprise\nwhoops\n不可说\n不说\n傻笑\n吃吃傻笑\n哎呀\n意外\n捂嘴而笑\n猛然发现\n秘密\n脸"
+  ],
+  "🤮": [
+    "呕吐",
+    "barf\new\nface\ngross\npuke\nsick\nspew\nthrow\nup\nvomit\nvomiting\n不舒服\n吐\n呕吐\n呕吐的脸\n生病\n病容\n病恹恹\n脸"
+  ],
+  "🤯": [
+    "爆炸头",
+    "blown\nexplode\nexploding\nhead\nmind\nmindblown\nno\nshocked\nway\n不可能\n印象深刻\n吓到了\n惊吓\n爆炸头\n震惊"
+  ],
+  "🤰": [
+    "孕妇",
+    "pregnant\nwoman\n女人\n孕妇\n怀孕\n怀孕的女人"
+  ],
+  "🤱": [
+    "母乳喂养",
+    "baby\nbreast\nbreast-feeding\nfeeding\nmom\nmother\nnursing\nwoman\n乳房\n哺乳\n喂奶\n婴儿\n母乳喂养"
+  ],
+  "🤲": [
+    "掌心向上托起",
+    "cupped\ndua\nhands\npalms\npray\nprayer\ntogether\nup\nwish\n双掌\n双掌向上\n希望\n掌心向上托起\n祈祷\n祷告"
+  ],
+  "🤳": [
+    "自拍",
+    "camera\nphone\nselfie\n手机\n相机\n自拍"
+  ],
+  "🤴": [
+    "王子",
+    "crown\nfairy\nfairytale\nfantasy\nking\nprince\nroyal\nroyalty\ntale\n王子\n皇家"
+  ],
+  "🤵": [
+    "穿燕尾服的人",
+    "formal\nperson\ntuxedo\nwedding\n人\n新郎\n正式\n燕尾服\n男人\n穿燕尾服的人\n穿燕尾服的男人"
+  ],
+  "🤵‍♀": [
+    "穿礼服的女人",
+    "formal\ntuxedo\nwedding\nwoman\n女人\n礼服\n穿礼服的女人"
+  ],
+  "🤵‍♂": [
+    "穿礼服的男人",
+    "formal\ngroom\nman\ntuxedo\nwedding\n男人\n礼服\n穿礼服的男人"
+  ],
+  "🤶": [
+    "圣诞奶奶",
+    "celebration\nChristmas\nclaus\nfairy\nfantasy\nholiday\nmerry\nmother\nMrs\nsanta\ntale\nxmas\n圣诞\n圣诞奶奶\n圣诞节\n节日"
+  ],
+  "🤷": [
+    "耸肩",
+    "doubt\ndunno\nguess\nidk\nignorance\nindifference\nknows\nmaybe\nperson\nshrug\nshrugging\nwhatever\nwho\n不关心\n不知道\n人\n天晓得\n怀疑\n我哪知\n我猜的\n无所谓\n无视\n耸肩"
+  ],
+  "🤷‍♀": [
+    "女生耸肩",
+    "doubt\ndunno\nguess\nidk\nignorance\nindifference\nknows\nmaybe\nshrug\nshrugging\nwhatever\nwho\nwoman\n不关心\n不知道\n天晓得\n女\n女子耸肩\n女生耸肩\n怀疑\n我哪知\n我猜的\n无所谓\n无视\n耸肩"
+  ],
+  "🤷‍♂": [
+    "男生耸肩",
+    "doubt\ndunno\nguess\nidk\nignorance\nindifference\nknows\nman\nmaybe\nshrug\nshrugging\nwhatever\nwho\n不关心\n不知道\n天晓得\n怀疑\n我哪知\n我猜的\n无所谓\n无视\n男\n男子耸肩\n男生耸肩\n耸肩"
+  ],
+  "🤸": [
+    "侧手翻",
+    "active\ncartwheel\ncartwheeling\nexcited\nflip\ngymnastics\nhappy\nperson\nsomersault\n人\n体操\n体育\n侧手翻\n兴奋\n快乐\n杂技\n活泼\n翻筋斗"
+  ],
+  "🤸‍♀": [
+    "女生侧手翻",
+    "active\ncartwheel\ncartwheeling\nexcited\nflip\ngymnastics\nhappy\nsomersault\nwoman\n体操\n侧手翻\n兴奋\n女\n女子侧手翻\n女生侧手翻\n快乐\n杂技\n活泼\n翻筋斗"
+  ],
+  "🤸‍♂": [
+    "男生侧手翻",
+    "active\ncartwheel\ncartwheeling\nexcited\nflip\ngymnastics\nhappy\nman\nsomersault\n体操\n侧手翻\n兴奋\n快乐\n杂技\n活泼\n男\n男子侧手翻\n男生侧手翻\n翻筋斗"
+  ],
+  "🤹": [
+    "抛接杂耍",
+    "act\nbalance\nbalancing\nhandle\njuggle\njuggling\nmanage\nmultitask\nperson\nskill\n一心多用\n人\n平衡\n平衡艺术\n抛接\n抛接杂耍\n抛接球\n操纵\n杂技\n杂耍\n表演"
+  ],
+  "🤹‍♀": [
+    "女生抛接杂耍",
+    "act\nbalance\nbalancing\nhandle\njuggle\njuggling\nmanage\nmultitask\nskill\nwoman\n女\n女生抛接杂耍\n杂技\n杂耍\n颠球"
+  ],
+  "🤹‍♂": [
+    "男生抛接杂耍",
+    "act\nbalance\nbalancing\nhandle\njuggle\njuggling\nman\nmanage\nmultitask\nskill\n一心多用\n平衡艺术\n抛接球\n操纵\n杂技\n杂耍\n男\n男子\n男生抛接杂耍\n颠球"
+  ],
+  "🤺": [
+    "击剑选手",
+    "fencer\nfencing\nperson\nsword\n人\n体育\n击剑\n击剑选手\n剑"
+  ],
+  "🤼": [
+    "摔跤选手",
+    "combat\nduel\ngrapple\npeople\nring\ntournament\nwrestle\nwrestling\n人\n体育\n对决\n打架\n搏斗\n摔跤\n摔跤比赛\n摔跤选手\n擂台争霸\n运动"
+  ],
+  "🤼‍♀": [
+    "女生摔跤",
+    "combat\nduel\ngrapple\nring\ntournament\nwomen\nwrestle\nwrestling\n女\n女子摔跤\n女生摔跤\n对决\n打架\n搏斗\n摔跤\n摔跤比赛\n擂台争霸\n运动"
+  ],
+  "🤼‍♂": [
+    "男生摔跤",
+    "combat\nduel\ngrapple\nmen\nring\ntournament\nwrestle\nwrestling\n对决\n打架\n搏斗\n摔跤\n摔跤比赛\n擂台争霸\n男\n男子摔跤\n男生摔跤\n运动"
+  ],
+  "🤽": [
+    "水球",
+    "person\nplaying\npolo\nsport\nswimming\nwater\nwaterpolo\n人\n体育\n水上足球\n水上运动\n水球\n游泳\n马可波罗游戏"
+  ],
+  "🤽‍♀": [
+    "女生玩水球",
+    "playing\npolo\nsport\nswimming\nwater\nwaterpolo\nwoman\n女\n女子玩水球\n女生玩水球\n水上足球\n水上运动\n水球\n游泳\n马可波罗游戏"
+  ],
+  "🤽‍♂": [
+    "男生玩水球",
+    "man\nplaying\npolo\nsport\nswimming\nwater\nwaterpolo\n水上足球\n水上运动\n水球\n游泳\n男\n男子玩水球\n男生玩水球\n马可波罗游戏"
+  ],
+  "🤾": [
+    "手球",
+    "athletics\nball\ncatch\nchuck\nhandball\nhurl\nlob\nperson\npitch\nplaying\nsport\nthrow\ntoss\n人\n体育\n手球\n投\n投球\n抛\n接球\n犯规投球\n球\n运动\n高球"
+  ],
+  "🤾‍♀": [
+    "女生玩手球",
+    "athletics\nball\ncatch\nchuck\nhandball\nhurl\nlob\npitch\nplaying\nsport\nthrow\ntoss\nwoman\n女\n女子玩手球\n女生玩手球\n手球\n扔\n投球\n抛\n接球\n犯规投球\n球\n运动\n高球"
+  ],
+  "🤾‍♂": [
+    "男生玩手球",
+    "athletics\nball\ncatch\nchuck\nhandball\nhurl\nlob\nman\npitch\nplaying\nsport\nthrow\ntoss\n墙手球\n手球\n男\n男生玩手球"
+  ],
+  "🤿": [
+    "潜水面罩",
+    "diving\nmask\nscuba\nsnorkeling\n浮潜\n深潜\n潜水\n潜水面罩"
+  ],
+  "🥀": [
+    "枯萎的花",
+    "dying\nflower\nwilted\n凋谢\n枯萎\n枯萎的花\n花"
+  ],
+  "🥁": [
+    "鼓",
+    "drum\ndrumsticks\nmusic\n音乐\n鼓\n鼓声\n鼓槌"
+  ],
+  "🥂": [
+    "碰杯",
+    "celebrate\nclink\nclinking\ndrink\nglass\nglasses\n喝\n干杯\n庆祝\n杯\n碰杯"
+  ],
+  "🥃": [
+    "平底杯",
+    "glass\nliquor\nscotch\nshot\ntumbler\nwhiskey\nwhisky\n一杯威士忌\n威士忌\n平底无脚杯\n平底杯\n杯\n玻璃杯\n酒\n随行杯"
+  ],
+  "🥄": [
+    "匙",
+    "eat\nspoon\ntableware\n勺\n勺子\n匙\n匙子\n汤匙\n调羹\n餐具"
+  ],
+  "🥅": [
+    "球门",
+    "goal\nnet\n球网\n球门"
+  ],
+  "🥇": [
+    "金牌",
+    "1st\nfirst\ngold\nmedal\nplace\n奖牌\n第一\n第一名奖牌\n金牌"
+  ],
+  "🥈": [
+    "银牌",
+    "2nd\nmedal\nplace\nsecond\nsilver\n亚军\n奖牌\n第二\n第二名奖牌\n银牌"
+  ],
+  "🥉": [
+    "铜牌",
+    "3rd\nbronze\nmedal\nplace\nthird\n奖牌\n季军\n第三\n第三名奖牌\n铜牌"
+  ],
+  "🥊": [
+    "拳击手套",
+    "boxing\nglove\n手套\n拳击\n拳击手套"
+  ],
+  "🥋": [
+    "练武服",
+    "arts\njudo\nkarate\nmartial\ntaekwondo\nuniform\n制服\n柔道\n武术\n空手道\n练武服\n跆拳道"
+  ],
+  "🥌": [
+    "冰壶",
+    "curling\ngame\nrock\nstone\n冰上溜石\n冰壶\n比赛\n游戏\n石壶"
+  ],
+  "🥍": [
+    "袋棍球",
+    "ball\ngoal\nlacrosse\nsports\nstick\n得分\n球\n球棍\n球门\n袋棍球\n运动\n长曲棍球"
+  ],
+  "🥎": [
+    "垒球",
+    "ball\nglove\nsoftball\nsports\nunderarm\n垒球\n手套\n球\n腋下\n运动"
+  ],
+  "🥏": [
+    "飞盘",
+    "disc\nflying\nultimate\n圆盘\n极限\n极限运动\n终极\n飞盘"
+  ],
+  "🥐": [
+    "羊角面包",
+    "bread\nbreakfast\ncrescent\ncroissant\nfood\nfrench\nroll\n新月形面包\n法式\n牛角面包\n羊角面包\n面包\n食物"
+  ],
+  "🥑": [
+    "鳄梨",
+    "avocado\nfood\nfruit\n水果\n牛油果\n酪梨\n食物\n鳄梨\n黄油果"
+  ],
+  "🥒": [
+    "黄瓜",
+    "cucumber\nfood\npickle\nvegetable\n泡菜\n腌菜\n蔬菜\n食物\n黄瓜"
+  ],
+  "🥓": [
+    "培根",
+    "bacon\nbreakfast\nfood\nmeat\n培根\n烟肉\n熏肉\n肉\n背肯\n食物"
+  ],
+  "🥔": [
+    "土豆",
+    "food\npotato\nvegetable\n土豆\n蔬菜\n食物\n马铃薯"
+  ],
+  "🥕": [
+    "胡萝卜",
+    "carrot\nfood\nvegetable\n胡萝卜\n蔬菜\n食物"
+  ],
+  "🥖": [
+    "法式长棍面包",
+    "baguette\nbread\nfood\nfrench\n法式\n法式长条面包\n法式长棍面包\n面包\n食物"
+  ],
+  "🥗": [
+    "绿色沙拉",
+    "food\ngreen\nsalad\n沙拉\n绿色沙拉\n绿色蔬菜\n食物"
+  ],
+  "🥘": [
+    "装有食物的浅底锅",
+    "casserole\nfood\npaella\npan\nshallow\n平底锅\n浅底\n炖菜\n炖锅\n煎锅\n装有食物的浅底锅\n西班牙海鲜饭\n食物"
+  ],
+  "🥙": [
+    "夹心饼",
+    "falafel\nflatbread\nfood\ngyro\nkebab\nstuffed\n大饼\n夹心\n夹心饼\n沙拉三明治\n炸豆丸子\n烤肉串\n肉夹馍\n食物"
+  ],
+  "🥚": [
+    "蛋",
+    "breakfast\negg\nfood\n蛋\n食物"
+  ],
+  "🥛": [
+    "一杯奶",
+    "drink\nglass\nmilk\n一杯奶\n喝\n奶\n杯\n牛奶"
+  ],
+  "🥜": [
+    "花生",
+    "food\nnut\npeanut\npeanuts\nvegetable\n坚果\n花生\n蔬菜\n食物"
+  ],
+  "🥝": [
+    "猕猴桃",
+    "food\nfruit\nkiwi\n奇异果\n水果\n猕猴桃\n食物"
+  ],
+  "🥞": [
+    "烙饼",
+    "breakfast\ncrêpe\nfood\nhotcake\npancake\npancakes\n烙饼\n煎饼\n薄煎饼\n薄饼\n食物"
+  ],
+  "🥟": [
+    "饺子",
+    "dumpling\nempanada\ngyōza\njiaozi\npierogi\npotsticker\n恩潘纳达\n水饺\n波兰饺子\n煎饺\n饺子"
+  ],
+  "🥠": [
+    "幸运饼干",
+    "cookie\nfortune\nprophecy\n幸运饼干\n签餅\n算命\n预言"
+  ],
+  "🥡": [
+    "外卖盒",
+    "box\nchopsticks\ndelivery\nfood\noyster\npail\ntakeout\n中式外卖\n外卖\n外卖包装\n外卖桶\n外卖盒\n外卖餐盒\n牡蛎桶\n盒饭\n筷子\n送餐\n送餐服务"
+  ],
+  "🥢": [
+    "筷子",
+    "chopsticks\nhashi\njeotgarak\nkuaizi\n筷子\n箸"
+  ],
+  "🥣": [
+    "碗勺",
+    "bowl\nbreakfast\ncereal\ncongee\noatmeal\nporridge\nspoon\n早餐\n燕麦\n燕麦粥\n碗中汤匙\n碗勺\n碗和汤匙\n稀饭\n粥\n谷物"
+  ],
+  "🥤": [
+    "带吸管杯",
+    "cup\ndrink\njuice\nmalt\nsoda\nsoft\nstraw\nwater\n带吸管杯\n带吸管的杯子\n果汁\n水\n汽水\n苏打\n苏打饮料\n软饮料\n麦乳精饮料"
+  ],
+  "🥥": [
+    "椰子",
+    "coconut\ncolada\npalm\npiña\n棕榈\n椰子\n菠萝椰子兰姆酒"
+  ],
+  "🥦": [
+    "西兰花",
+    "broccoli\ncabbage\nwild\n甘蓝\n西兰花\n野生卷心菜"
+  ],
+  "🥧": [
+    "派",
+    "apple\nfilling\nfruit\nmeat\npastry\npie\npumpkin\nslice\n一片派\n南瓜派\n水果派\n油酥点心\n派\n糕点\n肉排\n苹果派\n馅"
+  ],
+  "🥨": [
+    "椒盐卷饼",
+    "convoluted\npretzel\ntwisted\n弯曲\n扭曲食品\n椒盐卷饼\n盘绕\n缠绕\n错综复杂"
+  ],
+  "🥩": [
+    "肉块",
+    "chop\ncut\nlambchop\nmeat\nporkchop\nred\nsteak\n排骨\n牛排\n猪排\n红肉\n羊排\n肉\n肉块\n肉排"
+  ],
+  "🥪": [
+    "三明治",
+    "bread\nsandwich\n三明治\n面包"
+  ],
+  "🥫": [
+    "罐头食品",
+    "can\ncanned\nfood\n罐头\n罐头食品"
+  ],
+  "🥬": [
+    "绿叶蔬菜",
+    "bok\nburgers\ncabbage\nchoy\ngreen\nkale\nleafy\nlettuce\nsalad\n卷心菜\n圆白菜\n小白菜\n甘蓝\n生菜\n绿叶蔬菜\n羽衣甘蓝\n色拉\n莴苣"
+  ],
+  "🥭": [
+    "芒果",
+    "food\nfruit\nmango\ntropical\n水果\n热带\n芒果\n食物"
+  ],
+  "🥮": [
+    "月饼",
+    "autumn\ncake\nfestival\nmoon\nyuèbǐng\n中秋节\n月饼\n秋\n秋天\n节日"
+  ],
+  "🥯": [
+    "面包圈",
+    "bagel\nbakery\nbread\nbreakfast\nschmear\n奶酪酱\n早餐\n烘烤食品\n硬面包圈\n贝果\n面包\n面包圈"
+  ],
+  "🥰": [
+    "喜笑颜开",
+    "3\nadore\ncrush\nface\nheart\nhearts\nily\nlove\nromance\nsmile\nsmiling\nyou\n三颗爱心的笑脸\n喜笑颜开\n心\n我爱你\n爱慕\n相爱\n笑脸\n迷恋\n陷入爱河"
+  ],
+  "🥱": [
+    "打呵欠",
+    "bedtime\nbored\nface\ngoodnight\nnap\nnight\nsleep\nsleepy\ntired\nwhatever\nyawn\nyawning\nzzz\n呵欠\n哈欠\n困\n困倦\n夜里\n打呵欠\n打哈欠\n打哈欠的脸\n无聊\n昏昏欲睡\n晚安\n疲倦\n累"
+  ],
+  "🥲": [
+    "含泪的笑脸",
+    "face\nglad\ngrateful\nhappy\njoy\npain\nproud\nrelieved\nsmile\nsmiley\nsmiling\ntear\ntouched\n含泪的笑脸\n喜悦\n喜极而泣\n幸福\n微笑\n微笑的\n感动\n感动的\n感恩的\n感激\n眼泪\n笑中带泪\n笑脸\n自豪\n苦中作乐\n释怀的\n骄傲的"
+  ],
+  "🥳": [
+    "聚会笑脸",
+    "bday\nbirthday\ncelebrate\ncelebration\nexcited\nface\nhappy\nhat\nhooray\nhorn\nparty\npartying\n号角\n喝彩\n帽子\n庆祝\n派对\n狂欢的脸\n生日\n聚会\n聚会笑脸\n脸\n节日快乐"
+  ],
+  "🥴": [
+    "头昏眼花",
+    "dizzy\ndrunk\neyes\nface\nintoxicated\nmouth\ntipsy\nuneven\nwavy\nwoozy\n两眼不平\n喝醉\n嘴唇颤抖\n头昏眼花\n头晕目眩\n头晕眼花\n微醉\n微醺\n波浪嘴形\n眩晕的脸\n眼花\n醉醺醺"
+  ],
+  "🥵": [
+    "脸发烧",
+    "dying\nface\nfeverish\nheat\nhot\npanting\nred-faced\nstroke\nsweating\ntongue\n中暑\n冒汗\n出汗\n发烧\n发热\n吐舌\n心狂跳\n热\n脸发烧\n脸红"
+  ],
+  "🥶": [
+    "冷脸",
+    "blue\nblue-faced\ncold\nface\nfreezing\nfrostbite\nicicles\nsubzero\nteeth\n冰柱\n冷\n冷冰冰\n冷脸\n冻\n冻僵\n满面寒霜\n脸\n脸色发青\n蓝色\n零下"
+  ],
+  "🥷": [
+    "忍者",
+    "assassin\nfight\nfighter\nhidden\nninja\nperson\nsecret\nskills\nsly\nsoldier\nstealth\nwar\n人物\n侠客\n刺客\n士兵\n忍者\n战斗\n打斗\n狡猾\n秘密\n隐藏\n隐身"
+  ],
+  "🥸": [
+    "伪装的脸",
+    "disguise\neyebrow\nface\nglasses\nincognito\nmoustache\nmustache\nnose\nperson\nspy\ntache\ntash\n人物\n伪装\n伪装的脸\n眉毛\n眼镜\n胡子\n脸\n间谍\n隐瞒身份\n鼻子"
+  ],
+  "🥹": [
+    "忍住泪水",
+    "admiration\naww\nback\ncry\nembarrassed\nface\nfeelings\ngrateful\ngratitude\nholding\njoy\nplease\nproud\nresist\nsad\ntears\n哭泣\n喜极而泣\n尴尬\n忍住泪水\n悲伤\n情绪\n感激\n感谢\n抗拒\n拜托\n生气\n自豪"
+  ],
+  "🥺": [
+    "恳求的脸",
+    "begging\nbig\neyes\nface\nmercy\nnot\npleading\nplease\npretty\npuppy\nsad\nwhy\n可怜兮兮的眼神\n大眼睛\n小狗的脸\n怜悯\n恳求的脸\n祈求\n祈求的脸\n脸\n请求"
+  ],
+  "🥻": [
+    "纱丽",
+    "clothing\ndress\nsari\n印度\n披肩\n纱丽\n莎丽\n衣服\n连衣裙"
+  ],
+  "🥼": [
+    "白大褂",
+    "clothes\ncoat\ndoctor\ndr\nexperiment\njacket\nlab\nscientist\nwhite\n医生\n外衣\n实验\n实验人员\n实验室白大褂\n实验服\n白大褂\n白衣\n科学家\n衣服"
+  ],
+  "🥽": [
+    "护目镜",
+    "dive\neye\ngoggles\nprotection\nscuba\nswimming\nwelding\n护目\n护目镜\n护眼\n水肺\n游泳\n潜水\n焊接"
+  ],
+  "🥾": [
+    "登山鞋",
+    "backpacking\nboot\nbrown\ncamping\nhiking\noutdoors\nshoe\n健行\n徒步\n户外\n登山\n登山鞋\n背包\n远足野营\n露营\n靴子\n鞋"
+  ],
+  "🥿": [
+    "平底鞋",
+    "ballet\ncomfy\nflat\nflats\nshoe\nslip-on\nslipper\n一脚蹬\n便鞋\n平底芭蕾舞鞋\n平底鞋\n芭蕾舞鞋"
+  ],
+  "🦀": [
+    "蟹",
+    "Cancer\ncrab\nzodiac\n巨蟹座\n螃蟹\n蟹\n黄道十二宫"
+  ],
+  "🦁": [
+    "狮子",
+    "alpha\nanimal\nface\nLeo\nlion\nmane\norder\nrawr\nroar\nsafari\nstrong\nzodiac\n狮子\n狮子头\n狮子座\n脸\n黄道十二宫"
+  ],
+  "🦂": [
+    "蝎子",
+    "Scorpio\nscorpion\nScorpius\nzodiac\n天蝎宫\n天蝎座\n蝎子\n黄道十二宫"
+  ],
+  "🦃": [
+    "火鸡",
+    "bird\ngobble\nthanksgiving\nturkey\n感恩节\n火鸡"
+  ],
+  "🦄": [
+    "独角兽",
+    "face\nunicorn\n头\n独角兽\n独角兽头\n脸"
+  ],
+  "🦅": [
+    "鹰",
+    "animal\nbird\neagle\nornithology\n老鹰\n鸟\n鹰"
+  ],
+  "🦆": [
+    "鸭子",
+    "animal\nbird\nduck\nornithology\n鸟\n鸭\n鸭子"
+  ],
+  "🦇": [
+    "蝙蝠",
+    "animal\nbat\nvampire\n吸血鬼\n蝙蝠"
+  ],
+  "🦈": [
+    "鲨鱼",
+    "animal\nfish\nshark\n鱼\n鲨\n鲨鱼"
+  ],
+  "🦉": [
+    "猫头鹰",
+    "animal\nbird\nornithology\nowl\nwise\n猫头鹰\n睿智\n鸟"
+  ],
+  "🦊": [
+    "狐狸",
+    "animal\nface\nfox\n动物\n头\n狐狸\n狐狸的脸\n脸"
+  ],
+  "🦋": [
+    "蝴蝶",
+    "butterfly\ninsect\npretty\n昆虫\n漂亮\n美丽\n蝴蝶"
+  ],
+  "🦌": [
+    "鹿",
+    "animal\ndeer\n动物\n鹿"
+  ],
+  "🦍": [
+    "大猩猩",
+    "animal\ngorilla\n动物\n大猩猩"
+  ],
+  "🦎": [
+    "蜥蜴",
+    "animal\nlizard\nreptile\n爬行动物\n蜥蜴"
+  ],
+  "🦏": [
+    "犀牛",
+    "animal\nrhinoceros\n动物\n犀牛"
+  ],
+  "🦐": [
+    "虾",
+    "food\nshellfish\nshrimp\nsmall\n甲壳\n虾\n贝类水产\n食物"
+  ],
+  "🦑": [
+    "乌贼",
+    "animal\nfood\nmollusk\nsquid\n乌贼\n软体动物\n食物\n鱿鱼\n墨鱼"
+  ],
+  "🦒": [
+    "长颈鹿",
+    "animal\ngiraffe\nspots\n斑点\n长颈鹿"
+  ],
+  "🦓": [
+    "斑马",
+    "animal\nstripe\nzebra\n斑马\n条纹"
+  ],
+  "🦔": [
+    "刺猬",
+    "animal\nhedgehog\nspiny\n刺猬\n多刺"
+  ],
+  "🦕": [
+    "蜥蜴类",
+    "brachiosaurus\nbrontosaurus\ndinosaur\ndiplodocus\nsauropod\n万龙属\n恐龙\n梁龙\n腕龙\n蜥蜴类\n雷龙"
+  ],
+  "🦖": [
+    "霸王龙",
+    "dinosaur\nRex\nT\nT-Rex\nTyrannosaurus\n恐龙\n暴龙\n暴龙君主\n霸王龙"
+  ],
+  "🦗": [
+    "蟋蟀",
+    "animal\nbug\ncricket\ngrasshopper\ninsect\nOrthoptera\n昆虫\n蚱蜢\n蛐蛐\n蟋蟀"
+  ],
+  "🦘": [
+    "袋鼠",
+    "animal\njoey\njump\nkangaroo\nmarsupial\n动物\n小袋鼠\n有袋目动物\n有袋类动物\n澳洲\n袋鼠\n跳\n跳跃"
+  ],
+  "🦙": [
+    "美洲鸵",
+    "alpaca\nanimal\nguanaco\nllama\nvicuña\nwool\n动物\n原驼\n小羊驼\n无峰驼\n羊毛\n羊驼\n美洲鸵\n骆马"
+  ],
+  "🦚": [
+    "孔雀",
+    "animal\nbird\ncolorful\nornithology\nostentatious\npeacock\npeahen\npretty\nproud\n卖弄\n孔雀\n招摇\n色彩缤纷\n雌孔雀\n骄傲\n鸟"
+  ],
+  "🦛": [
+    "河马",
+    "animal\nhippo\nhippopotamus\n动物\n河马"
+  ],
+  "🦜": [
+    "鹦鹉",
+    "animal\nbird\nornithology\nparrot\npirate\ntalk\n剽窃\n模仿\n说话\n鸟\n鹦鹉"
+  ],
+  "🦝": [
+    "浣熊",
+    "animal\ncurious\nraccoon\nsly\n动物\n好奇\n浣熊\n淘气\n狡猾"
+  ],
+  "🦞": [
+    "龙虾",
+    "animal\nbisque\nclaws\nlobster\nseafood\n浓汤\n海鲜\n红龙虾\n贝类浓汤\n钳\n鳌\n龙虾"
+  ],
+  "🦟": [
+    "蚊子",
+    "bite\ndisease\nfever\ninsect\nmalaria\nmosquito\npest\nvirus\n发烧\n发热\n昆虫\n疟疾\n疾病\n病\n病毒\n蚊子"
+  ],
+  "🦠": [
+    "细菌",
+    "amoeba\nbacteria\nmicrobe\nscience\nvirus\n变形虫\n病毒\n科学\n细菌\n阿米巴"
+  ],
+  "🦡": [
+    "獾",
+    "animal\nbadger\nhoney\npester\n动物\n打扰\n獾\n纠缠\n蜜獾"
+  ],
+  "🦢": [
+    "天鹅",
+    "animal\nbird\ncygnet\nduckling\nornithology\nswan\nugly\n丑小鸭\n动物\n天鹅\n小天鹅\n鸟"
+  ],
+  "🦣": [
+    "猛犸",
+    "animal\nextinction\nlarge\nmammoth\ntusk\nwooly\n动物\n大型\n有绒毛的\n灭绝\n猛犸\n猛犸象\n长毛象\n长牙"
+  ],
+  "🦤": [
+    "渡渡鸟",
+    "animal\nbird\ndodo\nextinction\nlarge\nornithology\n动物\n渡渡鸟\n灭绝\n鸟"
+  ],
+  "🦥": [
+    "树懒",
+    "lazy\nsloth\nslow\n慢\n懒\n树懒\n爬树\n迟缓"
+  ],
+  "🦦": [
+    "水獭",
+    "animal\nfishing\notter\nplayful\n动物\n好玩\n捕鱼\n水獭\n爱开玩笑\n獭\n鼬"
+  ],
+  "🦧": [
+    "红毛猩猩",
+    "animal\nape\nmonkey\norangutan\n动物\n猩猩\n猴\n猴子\n猿\n红毛猩猩"
+  ],
+  "🦨": [
+    "臭鼬",
+    "animal\nskunk\nstink\n熏\n臭\n臭鼬\n鼬"
+  ],
+  "🦩": [
+    "火烈鸟",
+    "animal\nbird\nflamboyant\nflamingo\nornithology\ntropical\n华丽\n火烈鸟\n热带\n红鹳\n艳丽"
+  ],
+  "🦪": [
+    "牡蛎",
+    "diving\noyster\npearl\n海鲜\n牡蛎\n珍珠\n生蚝"
+  ],
+  "🦫": [
+    "海狸",
+    "animal\nbeaver\ndam\nteeth\n动物\n大板牙\n母畜\n海狸"
+  ],
+  "🦬": [
+    "大野牛",
+    "animal\nbison\nbuffalo\nherd\nwisent\n动物\n大野牛\n欧洲野牛\n水牛\n牛\n牦牛\n畜群\n野牛"
+  ],
+  "🦭": [
+    "海豹",
+    "animal\nlion\nocean\nsea\nseal\n动物\n海洋\n海狮\n海豹"
+  ],
+  "🦮": [
+    "导盲犬",
+    "accessibility\nanimal\nblind\ndog\nguide\n导盲犬\n指引\n无障碍\n盲\n盲人"
+  ],
+  "🦯": [
+    "盲杖",
+    "accessibility\nblind\ncane\nprobing\nwhite\n拐杖\n无障碍\n盲\n盲人\n盲杖"
+  ],
+  "🦴": [
+    "骨头",
+    "bone\nbones\ndog\nskeleton\nwishbone\n叉骨\n狗\n骨头\n骨骼"
+  ],
+  "🦵": [
+    "腿",
+    "bent\nfoot\nkick\nknee\nleg\nlimb\n弯腿\n肢体\n脚\n腿\n跛行\n踢"
+  ],
+  "🦶": [
+    "脚",
+    "ankle\nfeet\nfoot\nkick\nstomp\n脚\n足踝\n踏\n踝\n踢\n踩\n踱"
+  ],
+  "🦷": [
+    "牙齿",
+    "dentist\npearly\nteeth\ntooth\nwhite\n牙医\n牙科医生\n牙齿\n珍珠色\n白色"
+  ],
+  "🦸": [
+    "超级英雄",
+    "good\nhero\nsuperhero\nsuperpower\n女英雄\n女超人\n好人\n英雄\n蝙蝠侠\n超人\n超级英雄\n超能力"
+  ],
+  "🦸‍♀": [
+    "女超级英雄",
+    "good\nhero\nheroine\nsuperhero\nsuperpower\nwoman\n女人\n女超级英雄\n好人\n英雄\n超能力"
+  ],
+  "🦸‍♂": [
+    "男超级英雄",
+    "good\nhero\nman\nsuperhero\nsuperpower\n好人\n男人\n男超级英雄\n英雄\n超能力"
+  ],
+  "🦹": [
+    "超级大坏蛋",
+    "bad\ncriminal\nevil\nsuperpower\nsupervillain\nvillain\n人\n坏蛋\n大反派\n恶魔\n罪犯\n超级大坏蛋\n超级恶棍\n超能力\n邪恶"
+  ],
+  "🦹‍♀": [
+    "女超级大坏蛋",
+    "bad\ncriminal\nevil\nsuperpower\nsupervillain\nvillain\nwoman\n坏蛋\n女人\n女超级大坏蛋\n罪犯\n超能力"
+  ],
+  "🦹‍♂": [
+    "男超级大坏蛋",
+    "bad\ncriminal\nevil\nman\nsuperpower\nsupervillain\nvillain\n坏蛋\n男人\n男超级大坏蛋\n罪犯\n超能力"
+  ],
+  "🦺": [
+    "救生衣",
+    "emergency\nsafety\nvest\n安全\n救生衣\n紧急\n背心\n逃生"
+  ],
+  "🦻": [
+    "戴助听器的耳朵",
+    "accessibility\naid\near\nhard\nhearing\n助听器\n听力障碍\n听障\n失聪\n戴助听器的耳朵\n无障碍\n耳聋\n聋"
+  ],
+  "🦼": [
+    "电动轮椅",
+    "accessibility\nmotorized\nwheelchair\n无障碍\n电动轮椅\n轮椅"
+  ],
+  "🦽": [
+    "手动轮椅",
+    "accessibility\nmanual\nwheelchair\n手动轮椅\n无障碍\n轮椅"
+  ],
+  "🦾": [
+    "机械手臂",
+    "accessibility\narm\nmechanical\nprosthetic\n义肢\n手臂\n无障碍\n机械手臂"
+  ],
+  "🦿": [
+    "机械腿",
+    "accessibility\nleg\nmechanical\nprosthetic\n义肢\n无障碍\n机械腿\n腿"
+  ],
+  "🧀": [
+    "芝士",
+    "cheese\nwedge\n奶酪\n芝士\n起司"
+  ],
+  "🧁": [
+    "纸杯蛋糕",
+    "bakery\ncupcake\ndessert\nsprinkles\nsugar\nsweet\ntreat\n烘焙食品\n甜点\n纸杯蛋糕\n请客\n面包店"
+  ],
+  "🧂": [
+    "盐",
+    "condiment\nflavor\nmad\nsalt\nsalty\nshaker\ntaste\nupset\n佐料瓶\n味道\n咸\n火大\n盐\n调味品\n调味料"
+  ],
+  "🧃": [
+    "饮料盒",
+    "beverage\nbox\njuice\nstraw\nsweet\n吸管\n果汁\n果汁盒\n甜味\n盒装\n饮料盒"
+  ],
+  "🧄": [
+    "蒜",
+    "flavoring\ngarlic\n佐料\n大蒜\n蒜\n蒜头\n调味"
+  ],
+  "🧅": [
+    "洋葱",
+    "flavoring\nonion\n佐料\n洋葱\n调味"
+  ],
+  "🧆": [
+    "炸豆丸子",
+    "chickpea\nfalafel\nmeatball\n中东蔬菜球\n油炸鹰嘴豆饼\n炸豆丸子\n肉丸\n鹰嘴豆"
+  ],
+  "🧇": [
+    "华夫饼",
+    "breakfast\nindecisive\niron\nwaffle\n华夫饼\n松饼\n格子饼\n点心\n烤\n甜点\n窝夫饼"
+  ],
+  "🧈": [
+    "黄油",
+    "butter\ndairy\n乳制品\n牛奶\n黄油"
+  ],
+  "🧉": [
+    "马黛茶",
+    "drink\nmate\n茶\n饮料\n马黛茶"
+  ],
+  "🧊": [
+    "冰块",
+    "cold\ncube\nice\niceberg\n冰\n冰冷\n冰块\n冰山\n冷\n冷却\n冷饮"
+  ],
+  "🧋": [
+    "珍珠奶茶",
+    "boba\nbubble\nfood\nmilk\npearl\ntea\n奶茶\n泡泡\n牛奶\n珍珠\n珍珠奶茶\n茶\n茶饮\n饮料"
+  ],
+  "🧌": [
+    "穴居巨怪",
+    "fairy\nfantasy\nmonster\ntale\ntroll\ntrolling\n幻想\n怪兽\n怪物\n神话故事\n穴居巨怪"
+  ],
+  "🧍": [
+    "站立者",
+    "person\nstand\nstanding\n人物\n站着\n站着的人\n站立\n站立者"
+  ],
+  "🧍‍♀": [
+    "站立的女人",
+    "stand\nstanding\nwoman\n女\n站着\n站立\n站立的女人"
+  ],
+  "🧍‍♂": [
+    "站立的男人",
+    "man\nstand\nstanding\n男\n站着\n站立\n站立的男人"
+  ],
+  "🧎": [
+    "下跪者",
+    "kneel\nkneeling\nknees\nperson\n下跪\n下跪者\n跪下\n跪坐"
+  ],
+  "🧎‍♀": [
+    "跪下的女人",
+    "kneel\nkneeling\nknees\nwoman\n下跪\n女\n跪下的女人\n跪坐"
+  ],
+  "🧎‍♀‍➡": [
+    "跪下的女人: 面向右边",
+    "facing\nkneel\nkneeling\nknees\nright\nwoman\n下跪\n女\n跪下的女人\n跪坐\n面向右边"
+  ],
+  "🧎‍♂": [
+    "跪下的男人",
+    "kneel\nkneeling\nknees\nman\n下跪\n男\n跪下的男人\n跪坐"
+  ],
+  "🧎‍♂‍➡": [
+    "跪下的男人: 面向右边",
+    "facing\nkneel\nkneeling\nknees\nman\nright\n下跪\n男\n跪下的男人\n跪坐\n面向右边"
+  ],
+  "🧎‍➡": [
+    "下跪者: 面向右边",
+    "facing\nkneel\nkneeling\nknees\nperson\nright\n下跪\n下跪者\n跪下\n跪坐\n面向右边"
+  ],
+  "🧏": [
+    "失聪者",
+    "accessibility\ndeaf\near\ngesture\nhear\nperson\n听力\n听力障碍\n听障\n失聪者\n无障碍\n耳朵\n耳聋\n聋"
+  ],
+  "🧏‍♀": [
+    "失聪的女人",
+    "accessibility\ndeaf\near\ngesture\nhear\nwoman\n听力障碍\n失聪的女人\n女\n耳朵\n聋"
+  ],
+  "🧏‍♂": [
+    "失聪的男人",
+    "accessibility\ndeaf\near\ngesture\nhear\nman\n听力障碍\n失聪的男人\n男\n耳朵\n聋"
+  ],
+  "🧐": [
+    "带单片眼镜的脸",
+    "classy\nface\nfancy\nmonocle\nrich\nstuffy\nwealthy\n单眼镜\n古板\n奢华\n富有\n带单片眼镜的脸\n戴单眼镜的脸"
+  ],
+  "🧑": [
+    "成人",
+    "adult\nperson\n中性\n性别中立\n性格不明\n成人"
+  ],
+  "🧑‍⚕": [
+    "卫生工作者",
+    "doctor\nhealth\nhealthcare\nnurse\ntherapist\nworker\n医生\n卫生工作者\n护士\n治疗师"
+  ],
+  "🧑‍⚖": [
+    "法官",
+    "judge\njustice\nlaw\nscales\n法官\n法律"
+  ],
+  "🧑‍✈": [
+    "飞行员",
+    "pilot\nplane\n飞机\n飞行员"
+  ],
+  "🧑‍🌾": [
+    "农民",
+    "farmer\ngardener\nrancher\n农民\n园丁"
+  ],
+  "🧑‍🍳": [
+    "厨师",
+    "chef\ncook\n做饭\n厨师\n大厨"
+  ],
+  "🧑‍🍼": [
+    "哺乳的人",
+    "baby\nfeed\nfeeding\nnanny\nnewborn\nnursing\nparent\n人\n人物\n保姆\n哺乳\n哺乳的人\n哺育\n喂养\n婴儿\n宝宝\n新生儿"
+  ],
+  "🧑‍🎄": [
+    "圣诞人",
+    "celebration\nChristmas\nclaus\nfairy\nfantasy\nholiday\nmerry\nMx\nsanta\ntale\nxmas\n人\n人物\n圣诞\n圣诞人\n圣诞帽\n圣诞快乐\n圣诞老人\n圣诞老公公\n节日"
+  ],
+  "🧑‍🎓": [
+    "学生",
+    "graduate\nstudent\n学生\n毕业\n毕业生"
+  ],
+  "🧑‍🎤": [
+    "歌手",
+    "actor\nentertainer\nrock\nrockstar\nsinger\nstar\n摇滚歌手\n明星\n歌手\n演员\n艺人"
+  ],
+  "🧑‍🎨": [
+    "艺术家",
+    "artist\npalette\n画家\n艺术家"
+  ],
+  "🧑‍🏫": [
+    "老师",
+    "instructor\nlecturer\nprofessor\nteacher\n教师\n教授\n老师"
+  ],
+  "🧑‍🏭": [
+    "工人",
+    "assembly\nfactory\nindustrial\nworker\n工业\n工人\n工厂\n装配"
+  ],
+  "🧑‍💻": [
+    "程序员",
+    "coder\ncomputer\ndeveloper\ninventor\nsoftware\ntechnologist\n发明\n开发人员\n码农\n程序员\n软件"
+  ],
+  "🧑‍💼": [
+    "白领",
+    "architect\nbusiness\nmanager\noffice\nwhite-collar\nworker\n商人\n建筑师\n白领\n经理"
+  ],
+  "🧑‍🔧": [
+    "技工",
+    "electrician\nmechanic\nplumber\ntradesperson\n技工\n水管工\n电工"
+  ],
+  "🧑‍🔬": [
+    "科学家",
+    "biologist\nchemist\nengineer\nmathematician\nphysicist\nscientist\n化学家\n工程学家\n物理学家\n生物学家\n科学家"
+  ],
+  "🧑‍🚀": [
+    "宇航员",
+    "astronaut\nrocket\nspace\n宇航员\n火箭"
+  ],
+  "🧑‍🚒": [
+    "消防员",
+    "fire\nfirefighter\nfiretruck\n消防员\n消防车"
+  ],
+  "🧑‍🤝‍🧑": [
+    "手拉手的两个人",
+    "bae\nbestie\nbff\ncouple\ndating\nflirt\nfriends\nhand\nhold\npeople\ntwins\n两个人手牵手\n人\n情侣\n手\n手拉手的两个人\n手牵手的人\n拉手\n握手\n牵手"
+  ],
+  "🧑‍🦯": [
+    "拄盲杖的人",
+    "accessibility\nblind\ncane\nperson\nprobing\nwhite\n拄盲杖的人\n无障碍\n盲"
+  ],
+  "🧑‍🦯‍➡": [
+    "拄盲杖的人: 面向右边",
+    "accessibility\nblind\ncane\nfacing\nperson\nprobing\nright\nwhite\n拄盲杖的人\n无障碍\n盲\n面向右边"
+  ],
+  "🧑‍🦰": [
+    "成人: 红发",
+    "adult\nperson\nred hair\n中性\n性别中立\n性格不明\n成人\n红发"
+  ],
+  "🧑‍🦱": [
+    "成人: 卷发",
+    "adult\ncurly hair\nperson\n中性\n卷发\n性别中立\n性格不明\n成人"
+  ],
+  "🧑‍🦲": [
+    "成人: 秃顶",
+    "adult\nbald\nperson\n中性\n性别中立\n性格不明\n成人\n秃顶"
+  ],
+  "🧑‍🦳": [
+    "成人: 白发",
+    "adult\nperson\nwhite hair\n中性\n性别中立\n性格不明\n成人\n白发"
+  ],
+  "🧑‍🦼": [
+    "坐电动轮椅的人",
+    "accessibility\nmotorized\nperson\nwheelchair\n坐电动轮椅的人\n无障碍\n轮椅"
+  ],
+  "🧑‍🦼‍➡": [
+    "坐电动轮椅的人: 面向右边",
+    "accessibility\nfacing\nmotorized\nperson\nright\nwheelchair\n坐电动轮椅的人\n无障碍\n轮椅\n面向右边"
+  ],
+  "🧑‍🦽": [
+    "坐手动轮椅的人",
+    "accessibility\nmanual\nperson\nwheelchair\n坐手动轮椅的人\n无障碍\n轮椅"
+  ],
+  "🧑‍🦽‍➡": [
+    "坐手动轮椅的人: 面向右边",
+    "accessibility\nfacing\nmanual\nperson\nright\nwheelchair\n坐手动轮椅的人\n无障碍\n轮椅\n面向右边"
+  ],
+  "🧑‍🧑‍🧒": [
+    "一孩家庭",
+    "adult\nchild\nfamily\n一孩\n一孩家庭\n家庭\n父母\n独生子女"
+  ],
+  "🧑‍🧑‍🧒‍🧒": [
+    "二孩家庭",
+    "adult\nchild\nfamily\n二孩\n二孩家庭\n家庭\n父母\n非独生子女"
+  ],
+  "🧑‍🧒": [
+    "单亲一孩家庭",
+    "adult\nchild\nfamily\n一孩\n单亲\n单亲一孩家庭\n孩子\n家庭"
+  ],
+  "🧑‍🧒‍🧒": [
+    "单亲二孩家庭",
+    "adult\nchild\nfamily\n二孩\n单亲\n单亲二孩家庭\n孩子\n家庭"
+  ],
+  "🧑‍🩰": [
+    "芭蕾舞者",
+    "ballet\ndancer\n舞者\n芭蕾\n芭蕾舞"
+  ],
+  "🧒": [
+    "儿童",
+    "bright-eyed\nchild\ngrandchild\nkid\nyoung\nyounger\n中性\n儿童\n小孩\n年轻人\n性别不明\n性别中立"
+  ],
+  "🧓": [
+    "老年人",
+    "adult\nelderly\ngrandparent\nold\nperson\nwise\n中性\n性别不明\n性别中性\n成人\n熟龄\n老人\n老年人\n老男人\n老龄"
+  ],
+  "🧔": [
+    "有胡子的人",
+    "beard\nbearded\nperson\nwhiskers\n人\n大胡子\n有胡子的人\n男\n络腮胡\n胡子\n胡须\n腮帮子\n连鬓胡子"
+  ],
+  "🧔‍♀": [
+    "有络腮胡子的女人",
+    "beard\nbearded\nwhiskers\nwoman\n女人\n有络腮胡子的女人\n胡子"
+  ],
+  "🧔‍♂": [
+    "有络腮胡子的男人",
+    "beard\nbearded\nman\nwhiskers\n有络腮胡子的男人\n男人\n胡子"
+  ],
+  "🧕": [
+    "带头饰的女人",
+    "bandana\nhead\nheadscarf\nhijab\nkerchief\nmantilla\ntichel\nwoman\n头巾\n希贾布\n带头饰的女人\n戴头巾的女人"
+  ],
+  "🧖": [
+    "蒸房里的人",
+    "day\nluxurious\npamper\nperson\nrelax\nroom\nsauna\nspa\nsteam\nsteambath\nunwind\n在桑拿间的人\n放松\n桑拿\n桑拿浴\n蒸房\n蒸房里的人\n蒸气漫溢\n蒸汽浴"
+  ],
+  "🧖‍♀": [
+    "蒸房里的女人",
+    "day\nluxurious\npamper\nrelax\nroom\nsauna\nspa\nsteam\nsteambath\nunwind\nwoman\n女性桑拿\n桑拿\n蒸房里的女人"
+  ],
+  "🧖‍♂": [
+    "蒸房里的男人",
+    "day\nluxurious\nman\npamper\nrelax\nroom\nsauna\nspa\nsteam\nsteambath\nunwind\n桑拿\n蒸房里的男人\n男性桑拿"
+  ],
+  "🧗": [
+    "攀爬的人",
+    "climb\nclimber\nclimbing\nmountain\nperson\nrock\nscale\nup\n向上爬的人\n攀岩\n攀岩者\n攀爬的人\n爬山\n登山\n登山者"
+  ],
+  "🧗‍♀": [
+    "攀爬的女人",
+    "climb\nclimber\nclimbing\nmountain\nrock\nscale\nup\nwoman\n攀爬的女人\n登山者"
+  ],
+  "🧗‍♂": [
+    "攀爬的男人",
+    "climb\nclimber\nclimbing\nman\nmountain\nrock\nscale\nup\n攀爬的男人\n登山者"
+  ],
+  "🧘": [
+    "盘腿的人",
+    "cross\nlegged\nlegs\nlotus\nmeditation\npeace\nperson\nposition\nrelax\nserenity\nyoga\nyogi\nzen\n冥想\n放松\n沉思\n瑜伽\n盘腿的人\n盘腿而坐\n禅\n莲花坐的人"
+  ],
+  "🧘‍♀": [
+    "盘腿的女人",
+    "cross\nlegged\nlegs\nlotus\nmeditation\npeace\nposition\nrelax\nserenity\nwoman\nyoga\nyogi\nzen\n尼姑\n比丘尼\n瑜伽女\n盘腿的女人"
+  ],
+  "🧘‍♂": [
+    "盘腿的男人",
+    "cross\nlegged\nlegs\nlotus\nman\nmeditation\npeace\nposition\nrelax\nserenity\nyoga\nyogi\nzen\n和尚\n瑜伽男\n盘腿的男人"
+  ],
+  "🧙": [
+    "法师",
+    "fantasy\nmage\nmagic\nplay\nsorcerer\nsorceress\nsorcery\nspell\nsummon\nwitch\nwizard\n召唤\n女巫\n女魔术师\n巫师\n智者\n法师\n法术\n男巫\n男魔术师\n魔咒\n魔术师"
+  ],
+  "🧙‍♀": [
+    "女法师",
+    "fantasy\nmage\nmagic\nplay\nsorcerer\nsorceress\nsorcery\nspell\nsummon\nwitch\nwizard\nwoman\n女巫\n女法师\n女魔术师"
+  ],
+  "🧙‍♂": [
+    "男法师",
+    "fantasy\nmage\nmagic\nman\nplay\nsorcerer\nsorceress\nsorcery\nspell\nsummon\nwitch\nwizard\n男巫\n男法师\n男魔术师"
+  ],
+  "🧚": [
+    "精灵",
+    "fairy\nfairytale\nfantasy\nmyth\nperson\npixie\ntale\nwings\n仙女\n仙子\n童话\n精灵\n翅膀"
+  ],
+  "🧚‍♀": [
+    "仙女",
+    "fairy\nfairytale\nfantasy\nmyth\nperson\npixie\ntale\nTitania\nwings\nwoman\n仙女\n女精灵\n妖精王后"
+  ],
+  "🧚‍♂": [
+    "仙人",
+    "fairy\nfairytale\nfantasy\nman\nmyth\nOberon\nperson\npixie\nPuck\ntale\nwings\n仙人\n仙男\n天卫十五\n天卫四\n男精灵"
+  ],
+  "🧛": [
+    "吸血鬼",
+    "blood\nDracula\nfangs\nhalloween\nscary\nsupernatural\nteeth\nundead\nvampire\n万圣节\n不死族\n利牙\n吸血鬼\n恐怖\n毒牙\n装扮服装\n超自然"
+  ],
+  "🧛‍♀": [
+    "女吸血鬼",
+    "blood\nfangs\nhalloween\nscary\nsupernatural\nteeth\nundead\nvampire\nwoman\n女不死族\n女吸血鬼"
+  ],
+  "🧛‍♂": [
+    "男吸血鬼",
+    "blood\nfangs\nhalloween\nman\nscary\nsupernatural\nteeth\nundead\nvampire\n男不死族\n男吸血鬼"
+  ],
+  "🧜": [
+    "人鱼",
+    "creature\nfairytale\nfolklore\nmerperson\nocean\nsea\nsiren\ntrident\n三叉戟\n人鱼\n女人鱼\n民间传说\n海妖\n海底\n海洋生物\n男人鱼\n童话\n美人鱼"
+  ],
+  "🧜‍♀": [
+    "美人鱼",
+    "creature\nfairytale\nfolklore\nmermaid\nmerwoman\nocean\nsea\nsiren\ntrident\n女人鱼\n美人鱼"
+  ],
+  "🧜‍♂": [
+    "男人鱼",
+    "creature\nfairytale\nfolklore\nmerman\nNeptune\nocean\nPoseidon\nsea\nsiren\ntrident\nTriton\n特里同\n男人鱼"
+  ],
+  "🧝": [
+    "小精灵",
+    "elf\nelves\nenchantment\nfantasy\nfolklore\nmagic\nmagical\nmyth\n小精灵\n神秘\n精灵\n魔幻\n魔法"
+  ],
+  "🧝‍♀": [
+    "女小精灵",
+    "elf\nelves\nenchantment\nfantasy\nfolklore\nmagic\nmagical\nmyth\nwoman\n女小精灵\n女性魔术"
+  ],
+  "🧝‍♂": [
+    "男小精灵",
+    "elf\nelves\nenchantment\nfantasy\nfolklore\nmagic\nmagical\nman\nmyth\n男小精灵\n男性魔术"
+  ],
+  "🧞": [
+    "妖怪",
+    "djinn\nfantasy\ngenie\njinn\nlamp\nmyth\nrub\nwishes\n奇幻\n妖怪\n愿望\n擦拭神灯\n杰尼\n灯神\n神灵\n神秘\n神话\n精灵\n镇尼"
+  ],
+  "🧞‍♀": [
+    "女妖怪",
+    "djinn\nfantasy\ngenie\njinn\nlamp\nmyth\nrub\nwishes\nwoman\n女妖怪\n女神灵"
+  ],
+  "🧞‍♂": [
+    "男妖怪",
+    "djinn\nfantasy\ngenie\njinn\nlamp\nman\nmyth\nrub\nwishes\n男妖怪\n男神灵"
+  ],
+  "🧟": [
+    "僵尸",
+    "apocalypse\ndead\nhalloween\nhorror\nscary\nundead\nwalking\nzombie\n万圣节\n不死族\n僵尸\n半死不活\n吓人\n行尸走肉"
+  ],
+  "🧟‍♀": [
+    "女僵尸",
+    "apocalypse\ndead\nhalloween\nhorror\nscary\nundead\nwalking\nwoman\nzombie\n女僵尸\n女行尸走肉"
+  ],
+  "🧟‍♂": [
+    "男僵尸",
+    "apocalypse\ndead\nhalloween\nhorror\nman\nscary\nundead\nwalking\nzombie\n男僵尸\n男行尸走肉"
+  ],
+  "🧠": [
+    "脑",
+    "brain\nintelligent\nsmart\n大脑\n头脑\n智慧\n智能\n聪明\n脑"
+  ],
+  "🧡": [
+    "橙心",
+    "143\nheart\norange\n橘心\n橘色\n橘色的心\n橙\n橙心"
+  ],
+  "🧢": [
+    "鸭舌帽",
+    "baseball\nbent\nbilled\ncap\ndad\nhat\n帽子\n棒球帽\n鸭舌帽"
+  ],
+  "🧣": [
+    "围巾",
+    "bundle\ncold\nneck\nscarf\nup\n冷\n包紧\n围巾\n围脖\n头巾"
+  ],
+  "🧤": [
+    "手套",
+    "gloves\nhand\n手\n手套"
+  ],
+  "🧥": [
+    "外套",
+    "brr\nbundle\ncoat\ncold\njacket\nup\n冷\n外套\n夹克\n超冷"
+  ],
+  "🧦": [
+    "袜子",
+    "socks\nstocking\n短袜\n袜\n袜子\n长袜"
+  ],
+  "🧧": [
+    "红包",
+    "envelope\ngift\ngood\nhóngbāo\nlai\nluck\nmoney\nred\nsee\n利事\n利是\n好运\n礼物\n红信封\n红包\n运气\n钱"
+  ],
+  "🧨": [
+    "爆竹",
+    "dynamite\nexplosive\nfire\nfirecracker\nfireworks\nlight\npop\npopping\nspark\n光亮\n火花\n炸药\n烟火\n烟花\n爆炸\n爆竹\n鞭炮"
+  ],
+  "🧩": [
+    "拼图",
+    "clue\ninterlocking\njigsaw\npiece\npuzzle\n图片\n拼图\n智力游戏\n相扣\n线索\n联锁\n部件"
+  ],
+  "🧪": [
+    "试管",
+    "chemist\nchemistry\nexperiment\nlab\nscience\ntest\ntube\n化学\n化学家\n实验\n实验室\n科学\n试管"
+  ],
+  "🧫": [
+    "培养皿",
+    "bacteria\nbiologist\nbiology\nculture\ndish\nlab\npetri\n培养\n培养皿\n实验室\n生物学\n生物学家\n细菌"
+  ],
+  "🧬": [
+    "DNA",
+    "biologist\ndna\nevolution\ngene\ngenetics\nlife\nDNA\n基因\n演化\n生命\n生物学家\n进化\n遗传学"
+  ],
+  "🧭": [
+    "指南针",
+    "compass\ndirection\nmagnetic\nnavigation\norienteering\n定向\n导航\n指南针\n方向\n磁性\n罗盘"
+  ],
+  "🧮": [
+    "算盘",
+    "abacus\ncalculation\ncalculator\n算盘\n计算\n计算器"
+  ],
+  "🧯": [
+    "灭火器",
+    "extinguish\nextinguisher\nfire\nquench\n压制\n火灾\n灭火\n灭火器\n熄灭"
+  ],
+  "🧰": [
+    "工具箱",
+    "box\nchest\nmechanic\nred\ntool\ntoolbox\n大箱子\n工具\n工具箱\n机修\n箱子\n红盒子"
+  ],
+  "🧱": [
+    "砖",
+    "brick\nbricks\nclay\nmortar\nwall\n墙\n砂浆\n砖\n黏土"
+  ],
+  "🧲": [
+    "磁铁",
+    "attraction\nhorseshoe\nmagnet\nmagnetic\nnegative\npositive\nshape\nu\nU 型\n吸引\n吸引力\n正负\n磁性\n磁铁\n马蹄铁"
+  ],
+  "🧳": [
+    "行李箱",
+    "bag\nluggage\npacking\nroller\nsuitcase\ntravel\n包装\n手提箱\n旅行\n滚轮提箱\n行李\n行李箱"
+  ],
+  "🧴": [
+    "乳液瓶",
+    "bottle\nlotion\nmoisturizer\nshampoo\nsunscreen\n乳液\n乳液瓶\n保湿乳液\n护肤霜\n洗剂瓶\n洗发水\n洗发露\n防嗮霜\n防晒霜"
+  ],
+  "🧵": [
+    "线",
+    "needle\nsewing\nspool\nstring\nthread\n卷盘\n线\n线轴\n绳子\n缝纫\n针\n针线"
+  ],
+  "🧶": [
+    "毛线",
+    "ball\ncrochet\nknit\nyarn\n毛线\n毛线球\n线球\n编织\n钩针编织"
+  ],
+  "🧷": [
+    "安全别针",
+    "diaper\npin\npunk\nrock\nsafety\n别针\n安全别针\n扣针"
+  ],
+  "🧸": [
+    "泰迪熊",
+    "bear\nplaything\nplush\nstuffed\nteddy\ntoy\n填充\n毛绒玩具\n泰迪熊\n熊\n玩偶\n玩具\n玩物\n长毛绒"
+  ],
+  "🧹": [
+    "扫帚",
+    "broom\ncleaning\nsweeping\nwitch\n女巫\n巫婆\n打扫\n扫地\n扫帚\n清洁"
+  ],
+  "🧺": [
+    "筐",
+    "basket\nfarming\nlaundry\npicnic\n农作\n洗衣\n种植\n筐\n篮子\n脏衣篮\n野餐"
+  ],
+  "🧻": [
+    "卷纸",
+    "paper\nroll\ntoilet\ntowels\n卫生纸\n卷纸\n手纸\n纸卷\n纸巾"
+  ],
+  "🧼": [
+    "皂",
+    "bar\nbathing\nclean\ncleaning\nlather\nsoap\nsoapdish\n杀菌\n泡沫\n洗手\n洗澡\n清洁\n皂\n肥皂\n肥皂泡\n肥皂盒\n肥皂盘"
+  ],
+  "🧽": [
+    "海绵",
+    "absorbing\ncleaning\nporous\nsoak\nsponge\n吸收\n吸水\n多孔\n海绵\n浸泡\n清洁\n渗透"
+  ],
+  "🧾": [
+    "收据",
+    "accounting\nbookkeeping\nevidence\ninvoice\nproof\nreceipt\n会计\n信封\n凭据\n发票\n收据\n收条\n簿记\n记账\n证据\n证明\n账单"
+  ],
+  "🧿": [
+    "纳扎尔护身符",
+    "amulet\nbead\nblue\ncharm\nevil-eye\nnazar\ntalisman\n小装饰品\n恶魔之眼\n护身符\n珠子\n符咒\n纳扎尔\n纳扎尔护身符\n蓝色\n邪眼"
+  ],
+  "🩰": [
+    "芭蕾舞鞋",
+    "ballet\ndance\nshoes\n舞蹈\n舞鞋\n芭蕾舞鞋\n足尖鞋\n跳舞"
+  ],
+  "🩱": [
+    "连体泳衣",
+    "bathing\none-piece\nsuit\nswimsuit\n一片式\n泳衣\n泳装\n游泳\n连体泳衣\n连身泳衣"
+  ],
+  "🩲": [
+    "三角裤",
+    "bathing\nbriefs\none-piece\nsuit\nswimsuit\nunderwear\n一片式\n三角裤\n内裤\n泳衣\n泳装\n短裤"
+  ],
+  "🩳": [
+    "短裤",
+    "bathing\npants\nshorts\nsuit\nswimsuit\nunderwear\n内裤\n四角裤\n泳衣\n泳装\n泳裤\n短裤\n裤子"
+  ],
+  "🩴": [
+    "夹趾凉鞋",
+    "beach\nflip\nflop\nsandal\nsandals\nshoe\nthong\nthongs\nzōri\n人字拖\n凉鞋\n夹趾凉鞋\n沙滩\n沙滩凉鞋\n草屡\n鞋"
+  ],
+  "🩵": [
+    "浅蓝色的心",
+    "143\nblue\ncute\ncyan\nemotion\nheart\nily\nlight\nlike\nlove\nsky\nspecial\nteal\n可爱\n喜欢\n天蓝\n心\n感情\n我爱你\n浅蓝\n浅蓝色的心\n爱\n特殊\n蓝绿\n蓝绿色\n青色"
+  ],
+  "🩶": [
+    "灰心",
+    "143\nemotion\ngray\ngrey\nheart\nily\nlove\nsilver\nslate\nspecial\n心\n感情\n我爱你\n暗灰\n灰\n灰心\n灰色\n爱\n特殊\n银\n银色"
+  ],
+  "🩷": [
+    "粉红色的心",
+    "143\nadorable\ncute\nemotion\nheart\nily\nlike\nlove\npink\nspecial\nsweet\n可爱\n喜欢\n心\n感情\n我爱你\n爱\n特殊\n甜蜜\n粉红\n粉红色的心\n讨人喜欢"
+  ],
+  "🩸": [
+    "血滴",
+    "bleed\nblood\ndonation\ndrop\ninjury\nmedicine\nmenstruation\n医疗\n月经\n流血\n献血\n经血\n血滴\n输血"
+  ],
+  "🩹": [
+    "创可贴",
+    "adhesive\nbandage\nOK绷\n伤口\n创可贴\n受伤\n绷带\n胶布"
+  ],
+  "🩺": [
+    "听诊器",
+    "doctor\nheart\nmedicine\nstethoscope\n医生\n医疗\n听诊器\n心脏\n心跳\n诊断"
+  ],
+  "🩻": [
+    "X射线",
+    "bones\ndoctor\nmedical\nskeleton\nskull\nx-ray\nxray\nX 射线\nX射线\n医生\n医疗\n骨架\n骨骼"
+  ],
+  "🩼": [
+    "拐杖",
+    "aid\ncane\ncrutch\ndisability\nhelp\nhurt\ninjured\nmobility\nstick\n受伤\n手杖\n拐杖\n残疾\n活动助行类辅具\n辅助"
+  ],
+  "🪀": [
+    "悠悠球",
+    "fluctuate\ntoy\nyo-yo\n上下起落\n悠悠球\n溜溜球\n犹豫不决\n玩具"
+  ],
+  "🪁": [
+    "风筝",
+    "fly\nkite\nsoar\n翱翔\n风筝\n飞翔"
+  ],
+  "🪂": [
+    "降落伞",
+    "hang-glide\nparachute\nparasail\nskydive\n帆伞\n悬挂滑翔\n滑翔\n滑翔伞\n跳伞\n降落伞"
+  ],
+  "🪃": [
+    "回旋镖",
+    "boomerang\nrebound\nrepercussion\nweapon\n反弹\n回弹\n回旋镖\n土著\n武器\n飞镖"
+  ],
+  "🪄": [
+    "魔棒",
+    "magic\nmagician\nwand\nwitch\nwizard\n女巫\n巫师\n魔术\n魔术师\n魔杖\n魔棒\n魔法"
+  ],
+  "🪅": [
+    "彩罐",
+    "candy\ncelebrate\ncelebration\ncinco\nde\nfestive\nmayo\nparty\npinada\npinata\npiñata\n五月节\n庆祝\n彩罐\n皮纳塔\n糖果\n聚会\n节日\n墨西哥"
+  ],
+  "🪆": [
+    "套娃",
+    "babooshka\nbaboushka\nbabushka\ndoll\ndolls\nmatryoshka\nnesting\nrussia\n俄罗斯套娃\n俄罗斯娃娃\n套娃\n娃娃"
+  ],
+  "🪇": [
+    "沙球",
+    "cha\ndance\ninstrument\nmaracas\nmusic\nparty\npercussion\nrattle\nshake\nshaker\n乐器\n恰恰\n打击乐器\n拨浪鼓\n摇\n摇动\n沙槌\n沙球\n沙铃\n派对\n舞蹈\n音乐"
+  ],
+  "🪈": [
+    "长笛",
+    "band\nfife\nflautist\nflute\ninstrument\nmarching\nmusic\norchestra\npiccolo\npipe\nrecorder\nwoodwind\n乐器\n乐队\n木管乐器\n横笛\n短笛\n竖笛\n管乐器\n菲菲笛\n长笛\n长笛手\n音乐"
+  ],
+  "🪉": [
+    "竖琴",
+    "cupid\nharp\ninstrument\nlove\nmusic\norchestra\n丘比特\n乐器\n爱\n竖琴\n管弦乐队\n音乐"
+  ],
+  "🪊": [
+    "长号",
+    "brass\ninstrument\njazz\nmusic\nsad\nslide\n乐器\n悲伤\n滑动\n爵士\n铜管乐\n音乐"
+  ],
+  "🪎": [
+    "宝箱",
+    "gem\ngold\njewels\nloot\nmoney\nprize\nsilver\nvaluables\nwealth\n劫掠\n奖赏\n宝物\n宝石\n抢劫\n珍宝\n珠宝\n藏宝箱\n财富\n金子\n钱\n银\n黄金"
+  ],
+  "🪏": [
+    "铲",
+    "bury\ndig\ngarden\nhole\nplant\nscoop\nshovel\nsnow\nspade\n埋\n挖\n掘\n洞\n种植\n花园\n铲\n锹\n雪"
+  ],
+  "🪐": [
+    "有环行星",
+    "planet\nringed\nsaturn\nsaturnine\n土星\n有环行星\n行星"
+  ],
+  "🪑": [
+    "椅子",
+    "chair\nseat\nsit\n坐\n坐下\n座位\n椅子\n椅背"
+  ],
+  "🪒": [
+    "剃须刀",
+    "razor\nsharp\nshave\n刀\n刮\n刮刀\n剃刀\n剃须刀\n毛\n胡子\n锋利"
+  ],
+  "🪓": [
+    "斧头",
+    "ax\naxe\nchop\nhatchet\nsplit\nwood\n切\n劈\n斧头\n木头\n砍"
+  ],
+  "🪔": [
+    "印度油灯",
+    "diya\nlamp\nlight\noil\n印度油灯\n排灯节\n油\n灯\n迪亚"
+  ],
+  "🪕": [
+    "班卓琴",
+    "banjo\nmusic\nstringed\n弦乐器\n弹奏\n班卓琴\n音乐"
+  ],
+  "🪖": [
+    "军用头盔",
+    "army\nhelmet\nmilitary\nsoldier\nwar\nwarrior\n军事\n军用\n军用头盔\n军队\n士兵\n头盔\n战争\n战士\n部队"
+  ],
+  "🪗": [
+    "手风琴",
+    "accordion\nbox\nconcertina\ninstrument\nmusic\nsqueeze\nsqueezebox\n乐器\n六角形风琴\n手风琴\n音乐\n风琴"
+  ],
+  "🪘": [
+    "长鼓",
+    "beat\nconga\ndrum\ninstrument\nlong\nrhythm\n乐器\n康加鼓\n康茄鼓\n敲\n节奏\n长鼓\n非洲手鼓\n鼓"
+  ],
+  "🪙": [
+    "硬币",
+    "coin\ndollar\neuro\ngold\nmetal\nmoney\nrich\nsilver\ntreasure\n富有\n欧元\n硬币\n美元\n财富\n金\n金属\n金币\n钱\n银"
+  ],
+  "🪚": [
+    "木工锯",
+    "carpenter\ncarpentry\ncut\nlumber\nsaw\ntool\ntrim\n修剪\n工具\n木匠\n木工锯\n木材\n锯\n锯子"
+  ],
+  "🪛": [
+    "螺丝刀",
+    "flathead\nhandy\nscrew\nscrewdriver\ntool\n工具\n螺丝\n螺丝刀"
+  ],
+  "🪜": [
+    "梯子",
+    "climb\nladder\nrung\nstep\n台阶\n梯子\n梯级\n横档\n爬\n爬梯\n阶梯"
+  ],
+  "🪝": [
+    "挂钩",
+    "catch\ncrook\ncurve\nensnare\nhook\npoint\nselling\n卖点\n弯钩\n抓\n挂钩\n曲线\n钩子\n钩状物\n鱼钩"
+  ],
+  "🪞": [
+    "镜子",
+    "makeup\nmirror\nreflection\nreflector\nspeculum\n化妆\n反射\n反射镜\n窥镜\n镜子"
+  ],
+  "🪟": [
+    "窗户",
+    "air\nframe\nfresh\nopening\ntransparent\nview\nwindow\n开窗\n新鲜空气\n景色\n窗口\n窗户\n窗框\n透明"
+  ],
+  "🪠": [
+    "活塞",
+    "cup\nforce\nplumber\nplunger\npoop\nsuction\ntoilet\n便便\n吸力\n搋子\n水管工\n活塞\n通厕所\n马桶"
+  ],
+  "🪡": [
+    "缝合针",
+    "embroidery\nneedle\nsew\nsewing\nstitches\nsutures\ntailoring\nthread\n线\n绣花针\n缝合\n缝合针\n缝纫\n缝线\n缝衣针\n裁剪\n针"
+  ],
+  "🪢": [
+    "结",
+    "cord\nknot\nrope\ntangled\ntie\ntwine\ntwist\n八字结\n打结\n结\n绳子\n绳扣\n绳结\n缠结\n麻线"
+  ],
+  "🪣": [
+    "桶",
+    "bucket\ncask\npail\nvat\n大桶\n木桶\n桶\n水桶\n缸"
+  ],
+  "🪤": [
+    "捕鼠器",
+    "bait\ncheese\nlure\nmouse\nmousetrap\nsnare\ntrap\n奶酪\n捕鼠器\n老鼠夹\n诱饵\n陷进\n陷阱"
+  ],
+  "🪥": [
+    "牙刷",
+    "bathroom\nbrush\nclean\ndental\nhygiene\nteeth\ntoiletry\ntoothbrush\n刷\n刷子\n卫生\n情节\n洗漱\n浴室\n清洁\n牙刷\n牙科\n牙齿"
+  ],
+  "🪦": [
+    "墓碑",
+    "cemetery\ndead\ngrave\ngraveyard\nheadstone\nmemorial\nrip\ntomb\ntombstone\n公墓\n坟墓\n墓园\n墓地\n墓碑\n安息\n死亡\n纪念"
+  ],
+  "🪧": [
+    "标语牌",
+    "card\ndemonstration\nnotice\npicket\nplacard\nplaque\nprotest\nsign\n告示\n布告\n标志\n标牌\n标语\n标语牌\n海报\n示威\n纠察队标语牌\n警戒哨"
+  ],
+  "🪨": [
+    "岩石",
+    "boulder\nheavy\nrock\nsolid\nstone\ntough\n固体\n坚不可摧\n岩石\n巨石\n石头"
+  ],
+  "🪩": [
+    "镜球",
+    "ball\ndance\ndisco\nglitter\nmirror\nparty\n派对\n聚会\n舞会\n舞厅\n舞蹈\n蹦迪\n迪斯科\n镜球\n闪耀"
+  ],
+  "🪪": [
+    "身份证",
+    "card\ncredentials\ndocument\nID\nidentification\nlicense\nsecurity\n凭证\n安全\n执照\n证件\n身份证"
+  ],
+  "🪫": [
+    "电池电量不足",
+    "battery\ndrained\nelectronic\nenergy\nlow\npower\n低能量\n电子\n电池\n电池电量不足\n电池电量低\n电量不足"
+  ],
+  "🪬": [
+    "法蒂玛之手",
+    "amulet\nFatima\nfortune\nguide\nhamsa\nhand\nMary\nMiriam\npalm\nprotect\nprotection\n保护\n好运\n手\n手掌\n护身符\n法蒂玛\n法蒂玛之手\n玛丽\n米里亚姆"
+  ],
+  "🪭": [
+    "折扇",
+    "clack\nclap\ncool\ncooling\ndance\nfan\nflirt\nflutter\nfolding\nhand\nhot\nshy\n凉\n凉快\n啪嗒声\n害羞\n扇\n扇动\n扇子\n折扇\n拍手\n热\n羞涩\n腼腆\n舞蹈\n调情\n跳舞\n降温"
+  ],
+  "🪮": [
+    "发夹",
+    "Afro\ncomb\ngroom\nhair\npick\n发夹\n圆蓬\n头发\n夹子\n小刷子\n梳子\n梳理\n爆炸头\n非洲头"
+  ],
+  "🪯": [
+    "坎达",
+    "Deg\nFateh\nKhalsa\nKhanda\nreligion\nSikh\nSikhism\nTegh\n信仰\n卡尔萨\n善业与佩剑得胜\n坎达\n坎达长剑\n宗教\n锡克\n锡克教\n锡克教徒"
+  ],
+  "🪰": [
+    "苍蝇",
+    "animal\ndisease\nfly\ninsect\nmaggot\npest\nrotting\n动物\n害虫\n疾病\n腐烂\n苍蝇\n虫子\n蛆"
+  ],
+  "🪱": [
+    "蠕虫",
+    "animal\nannelid\nearthworm\nparasite\nworm\n动物\n寄生虫\n环节动物\n蚯蚓\n蠕虫"
+  ],
+  "🪲": [
+    "甲虫",
+    "animal\nbeetle\nbug\ninsect\n动物\n昆虫\n甲虫\n虫子"
+  ],
+  "🪳": [
+    "蟑螂",
+    "animal\ncockroach\ninsect\npest\nroach\n动物\n害虫\n小强\n昆虫\n虫子\n蟑螂"
+  ],
+  "🪴": [
+    "盆栽植物",
+    "decor\ngrow\nhouse\nnurturing\nplant\npot\npotted\n培育\n房子\n枯燥\n植物\n生长\n盆景\n盆栽\n盆栽植物\n花盆"
+  ],
+  "🪵": [
+    "木头",
+    "log\nlumber\ntimber\nwood\n原木\n圆木\n木头\n木材\n木桩"
+  ],
+  "🪶": [
+    "羽毛",
+    "bird\nfeather\nflight\nlight\nplumage\n羽毛\n轻\n飞\n鸟"
+  ],
+  "🪷": [
+    "莲花",
+    "beauty\nBuddhism\ncalm\nflower\nHinduism\nlotus\npeace\npurity\nserenity\n佛教\n印度教\n幽静\n恬静\n纯洁\n花\n花朵\n莲花"
+  ],
+  "🪸": [
+    "珊瑚",
+    "change\nclimate\ncoral\nocean\nreef\nsea\n气候变化\n海洋\n珊瑚\n珊瑚礁\n礁"
+  ],
+  "🪹": [
+    "空巢",
+    "branch\nempty\nhome\nnest\nnesting\n家\n树枝\n空巢\n筑巢\n鸟巢"
+  ],
+  "🪺": [
+    "有蛋的巢",
+    "bird\nbranch\negg\neggs\nnest\nnesting\n有蛋的巢\n树枝\n筑巢\n蛋\n鸟\n鸟巢\n鸟蛋"
+  ],
+  "🪻": [
+    "风信子",
+    "bloom\nbluebonnet\nflower\nhyacinth\nindigo\nlavender\nlilac\nlupine\nplant\npurple\nshrub\nsnapdragon\nspring\nviolet\n春天\n植物\n灌木\n矢车菊\n紫丁香\n紫罗兰\n紫色\n羽扇豆\n花\n花朵\n蓝帽花\n薰衣草\n金鱼草\n靛蓝\n风信子"
+  ],
+  "🪼": [
+    "水母",
+    "animal\naquarium\nburn\ninvertebrate\njelly\njellyfish\nlife\nmarine\nocean\nouch\nplankton\nsea\nsting\nstinger\ntentacles\n刺毛\n动物\n发光\n哎哟\n无脊椎动物\n有刺动物\n果冻\n水族馆\n水母\n浮游生物\n海洋\n海洋生物\n海蜇\n触手"
+  ],
+  "🪽": [
+    "翅膀",
+    "angelic\nascend\naviation\nbird\nfly\nflying\nheavenly\nmythology\nsoar\nwing\n升天\n天使\n天使的\n天堂的\n神话\n翅膀\n翱翔\n飞翔\n飞行\n鸟"
+  ],
+  "🪾": [
+    "无叶树",
+    "bare\nbarren\nbranches\ndead\ndrought\nleafless\ntree\ntrunk\nwinter\nwood\n冬天\n冬季\n干旱\n无叶\n木\n树\n树干\n树枝\n死\n秃\n荒芜"
+  ],
+  "🪿": [
+    "鹅",
+    "animal\nbird\nduck\nflock\nfowl\ngaggle\ngander\ngeese\ngoose\nhonk\nornithology\nsilly\n傻\n傻瓜\n动物\n嘎嘎叫声\n家禽\n雄鹅\n鸟\n鸣叫\n鸭子\n鸭群\n鹅\n鹅群"
+  ],
+  "🫀": [
+    "心脏器官",
+    "anatomical\nbeat\ncardiology\nheart\nheartbeat\norgan\npulse\nreal\nred\n中心\n器官\n心率\n心脏\n心脏器官\n心脏病学\n心跳\n真心\n红心\n解剖\n身体"
+  ],
+  "🫁": [
+    "肺",
+    "breath\nbreathe\nexhalation\ninhalation\nlung\nlungs\norgan\nrespiration\n吸气\n呼吸\n呼吸作用\n呼气\n器官\n肺\n肺部\n身体"
+  ],
+  "🫂": [
+    "人的拥抱",
+    "comfort\nembrace\nfarewell\nfriendship\ngoodbye\nhello\nhug\nhugging\nlove\npeople\nthanks\n人的拥抱\n再见\n友谊\n告别\n安慰\n您好\n感谢\n抱抱\n拥抱\n爱"
+  ],
+  "🫃": [
+    "怀孕的男人",
+    "belly\nbloated\nfull\nman\novereat\npregnant\n充满\n吃撑\n怀孕\n怀孕的男人\n男子\n腹部\n臃肿"
+  ],
+  "🫄": [
+    "怀孕的人",
+    "belly\nbloated\nfull\novereat\nperson\npregnant\nstuffed\n充满\n吃撑\n怀孕\n怀孕的人\n腹部\n臃肿"
+  ],
+  "🫅": [
+    "戴王冠的人",
+    "crown\nmonarch\nnoble\nperson\nregal\nroyal\nroyalty\n君主\n君威\n国王\n戴王冠的人\n王冠\n王后\n王室\n皇室\n贵族"
+  ],
+  "🫆": [
+    "指纹",
+    "clue\ncrime\ndetective\nfingerprint\nforensics\nidentity\nmystery\nprint\nsafety\ntrace\n侦探\n印迹\n安全\n指纹\n犯罪\n痕迹\n神秘\n线索\n身份\n鉴证"
+  ],
+  "🫈": [
+    "毛怪",
+    "bigfoot\ncryptid\nforest\ngiant\nhairy\nsasquatch\nwoodwose\nyeti\n多毛\n大型\n大脚怪\n大脚野人\n森林\n欧洲野人\n神秘生物\n雪怪"
+  ],
+  "🫍": [
+    "虎鲸",
+    "marine\nocean\nwhale\n大海\n海洋\n鲸\n鲸鱼"
+  ],
+  "🫎": [
+    "驼鹿",
+    "alces\nanimal\nantlers\nelk\nmammal\nmoose\n动物\n哺乳动物\n驼鹿\n鹿角\n麋鹿"
+  ],
+  "🫏": [
+    "驴",
+    "animal\nass\nburro\ndonkey\nhinny\nmammal\nmule\nstubborn\n倔强\n动物\n哺乳动物\n固执的\n犟\n驴\n驴子\n骡\n骡子"
+  ],
+  "🫐": [
+    "蓝莓",
+    "berries\nberry\nbilberry\nblue\nblueberries\nblueberry\nfood\nfruit\n水果\n浆果\n蓝莓\n越桔\n食物"
+  ],
+  "🫑": [
+    "灯笼椒",
+    "bell\ncapsicum\nfood\npepper\nvegetable\n灯笼椒\n蔬菜\n辣椒\n青椒\n食物"
+  ],
+  "🫒": [
+    "橄榄",
+    "food\nolive\n橄榄\n食物"
+  ],
+  "🫓": [
+    "扁面包",
+    "arepa\nbread\nflatbread\nfood\ngordita\nlavash\nnaan\npita\n圆盘状烤饼\n扁面包\n玉米饼\n皮塔饼\n薄脆饼\n面包\n面饼\n食物"
+  ],
+  "🫔": [
+    "墨西哥粽子",
+    "food\nmexican\npamonha\ntamale\nwrapped\n巴西粽\n粽子\n食物\n墨西哥\n墨西哥粽子\n墨西哥饼"
+  ],
+  "🫕": [
+    "奶酪火锅",
+    "cheese\nchocolate\nfondue\nfood\nmelted\npot\nski\n奶酪\n奶酪火锅\n奶酪锅\n巧克力\n火锅\n煮\n煲汤\n瑞士\n融化\n锅\n食物"
+  ],
+  "🫖": [
+    "茶壶",
+    "brew\ndrink\nfood\npot\ntea\nteapot\n冲泡\n壶\n茶\n茶壶\n食物"
+  ],
+  "🫗": [
+    "倾倒液体",
+    "accident\ndrink\nempty\nglass\nliquid\noops\npour\npouring\nspill\nwater\n倒出\n倾倒\n倾倒液体\n洒出\n流出\n玻璃杯\n碰倒\n空\n饮料"
+  ],
+  "🫘": [
+    "豆",
+    "beans\nfood\nkidney\nlegume\nsmall\n肾\n豆\n豆子\n豆类\n食物"
+  ],
+  "🫙": [
+    "罐",
+    "condiment\ncontainer\nempty\njar\nnothing\nsauce\nstore\n容器\n瓶子\n空\n空瓶\n罐\n调味品\n贮藏\n酱"
+  ],
+  "🫚": [
+    "姜",
+    "beer\nginger\nhealth\nherb\nnatural\nroot\nspice\n健康\n啤酒\n天然\n姜\n根\n根汁啤酒\n根茎\n草药\n香料"
+  ],
+  "🫛": [
+    "豌豆荚",
+    "beans\nbeanstalk\nedamame\nlegume\npea\npod\nsoybean\nvegetable\nveggie\n大豆\n毛豆\n素食者\n荚\n蔬菜\n豆\n豆类\n豆茎\n豆荚\n豌豆\n豌豆荚\n黄豆"
+  ],
+  "🫜": [
+    "根菜",
+    "beet\nfood\ngarden\nradish\nroot\nsalad\nturnip\nvegetable\nvegetarian\n根\n甜菜\n素食\n色拉\n芜菁\n菜园\n萝卜\n蔬菜\n食物"
+  ],
+  "🫟": [
+    "泼溅",
+    "drip\nholi\nink\nliquid\nmess\npaint\nspill\nsplatter\nstain\n喷洒\n污渍\n油漆\n泼溅\n溢出"
+  ],
+  "🫠": [
+    "融化",
+    "disappear\ndissolve\nembarrassed\nface\nhaha\nheat\nhot\nliquid\nlol\nmelt\nmelting\nsarcasm\nsarcastic\n冷笑\n哈哈\n尴尬\n微笑\n消失\n液体\n溶解\n热\n融化"
+  ],
+  "🫡": [
+    "致敬",
+    "face\ngood\nluck\nma’am\nOK\nrespect\nsalute\nsaluting\nsir\ntroops\nyes\n军队\n好\n好的\n收到\n敬礼\n是\n致敬\n阳光"
+  ],
+  "🫢": [
+    "睁眼捂嘴",
+    "amazement\nawe\ndisbelief\nembarrass\neyes\nface\ngasp\nhand\nmouth\nomg\nopen\nover\nquiet\nscared\nshock\nsurprise\n哇塞\n哑口无言\n害怕\n尴尬\n怀疑\n惊奇\n惊愕\n惊讶\n敬畏\n睁眼捂嘴\n震惊"
+  ],
+  "🫣": [
+    "偷看",
+    "captivated\nembarrass\neye\nface\nhide\nhiding\npeek\npeeking\npeep\nscared\nshy\nstare\n偷看\n偷窥\n凝视\n害怕\n害羞\n尴尬\n迷住"
+  ],
+  "🫤": [
+    "郁闷",
+    "confused\nconfusion\ndiagonal\ndisappointed\ndoubt\ndoubtful\nface\nfrustrated\nfrustration\nmeh\nmouth\nskeptical\nunsure\nwhatever\nwtv\n不相信\n不确定\n困惑\n失望\n怀疑\n无所谓\n无聊\n沮丧\n疑惑\n迷惘\n郁闷"
+  ],
+  "🫥": [
+    "虚线脸",
+    "depressed\ndisappear\ndotted\nface\nhidden\nhide\nintrovert\ninvisible\nline\nmeh\nwhatever\nwtv\n内向\n无所谓\n沮丧\n消失\n虚线脸\n隐形\n隐藏"
+  ],
+  "🫦": [
+    "咬住嘴唇",
+    "anxious\nbite\nbiting\nfear\nflirt\nflirting\nkiss\nlip\nlipstick\nnervous\nsexy\nuncomfortable\nworried\nworry\n不舒服\n口红\n咬住嘴唇\n咬嘴唇\n嘴唇\n害怕\n性感\n担心\n接吻\n焦虑\n紧张\n调情"
+  ],
+  "🫧": [
+    "气泡",
+    "bubble\nbubbles\nburp\nclean\nfloating\npearl\nsoap\nunderwater\n打嗝\n气泡\n水下\n泡泡\n清洁\n漂浮\n珍珠状\n肥皂\n肥皂泡"
+  ],
+  "🫨": [
+    "颤抖",
+    "crazy\ndaze\nearthquake\nface\nomg\npanic\nshaking\nshock\nsurprise\nvibrate\nwhoa\nwow\n哇\n地震\n天啊\n惊喜\n惊慌\n晕头转向\n疯狂\n脸\n震动\n震惊\n颤抖"
+  ],
+  "🫩": [
+    "有眼袋",
+    "bags\nbored\nexhausted\neyes\nface\nfatigued\nlate\nsleepy\ntired\nweary\n厌倦\n困倦\n晚睡\n熬夜\n疲倦\n疲劳\n疲惫\n眼\n眼袋\n脸"
+  ],
+  "🫪": [
+    "变形的脸",
+    "anxiety\nbloated\npanic\nshocked\nsurprised\nvulnerable\n惊喜\n惊恐\n惊慌\n焦虑\n脆弱\n膨胀\n震惊"
+  ],
+  "🫯": [
+    "打斗云团",
+    "argument\nbrawl\ndebate\ndisagreement\nfight\nruckus\nwrestle\n争论\n吵架\n战斗\n打斗\n打架\n摔跤\n斗殴\n骚动"
+  ],
+  "🫰": [
+    "食指与拇指交叉的手",
+    "<3\ncrossed\nexpensive\nfinger\nhand\nheart\nindex\nlove\nmoney\nsnap\nthumb\n响指\n心\n手\n昂贵\n比心\n爱\n爱心\n金钱\n钞票\n食指与拇指交叉的手"
+  ],
+  "🫱": [
+    "向右的手",
+    "hand\nhandshake\nhold\nreach\nright\nrightward\nrightwards\nshake\n伸手\n右\n右手\n向右\n向右的手\n手\n握手"
+  ],
+  "🫲": [
+    "向左的手",
+    "hand\nhandshake\nhold\nleft\nleftward\nleftwards\nreach\nshake\n伸手\n向左\n向左的手\n左\n左手\n手\n握手"
+  ],
+  "🫳": [
+    "掌心向下的手",
+    "dismiss\ndown\ndrop\ndropped\nhand\npalm\npick\nshoo\nup\n下投\n手\n扔掉\n拿起\n捡起\n掌心向下的手\n解散\n驱赶"
+  ],
+  "🫴": [
+    "掌心向上的手",
+    "beckon\ncatch\ncome\nhand\nhold\nknow\nlift\nme\noffer\npalm\ntell\n不知道\n召唤\n告诉我\n手\n拿着\n掌心向上的手\n接住\n提供\n过来\n送出"
+  ],
+  "🫵": [
+    "指向观察者的食指",
+    "at\nfinger\nhand\nindex\npointing\npoke\nviewer\nyou\n伸出手指\n你\n戳\n手指\n指\n指向\n指向观察者的食指"
+  ],
+  "🫶": [
+    "做成心形的双手",
+    "<3\nhands\nheart\nlove\nyou\n做成心形的双手\n手\n比心\n爱\n爱你\n爱心"
+  ],
+  "🫷": [
+    "向左推",
+    "block\nfive\nhalt\nhand\nhigh\nhold\nleftward\nleftwards\npause\npush\npushing\nrefuse\nslap\nstop\nwait\n中止\n停止\n击掌\n向左\n向左推\n往左\n手\n拒绝\n推\n暂停\n等等\n阻挡"
+  ],
+  "🫸": [
+    "向右推",
+    "block\nfive\nhalt\nhand\nhigh\nhold\npause\npush\npushing\nrefuse\nrightward\nrightwards\nslap\nstop\nwait\n中止\n停止\n击掌\n向右\n向右推\n往右\n手\n拒绝\n推\n暂停\n等等\n阻挡"
+  ]
+}

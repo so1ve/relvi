@@ -1,29 +1,12 @@
-mod applications;
-
 use std::collections::HashSet;
 use std::rc::Rc;
 
-use gtk::{gio, glib};
+use gtk::gio;
 use polysearch::{
     ALIAS, Config, Entry as SearchEntry, Field, IDENTIFIER, KEYWORD, PRIMARY_NAME, Searcher,
 };
 
-use crate::history::History;
-use crate::system::{self, SystemAction};
-
-pub enum Target {
-    Application(gio::AppInfo),
-    SystemAction(&'static SystemAction),
-}
-
-pub struct Entry {
-    pub target: Target,
-    pub id: Option<glib::GString>,
-    pub title: glib::GString,
-    pub subtitle: Option<glib::GString>,
-    pub icon: Option<gio::Icon>,
-    pub categories: Vec<&'static str>,
-}
+use super::{Entry, History, Target, applications, system};
 
 fn search_entry(entry: &Entry, id: u64, next_field: &mut u64) -> SearchEntry {
     let mut fields = Vec::new();

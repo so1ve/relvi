@@ -1,5 +1,4 @@
 mod activation;
-mod categories;
 mod list;
 
 use std::cell::RefCell;
@@ -8,16 +7,14 @@ use std::rc::Rc;
 use gtk::glib::Propagation;
 use gtk::prelude::*;
 use gtk::{
-    ApplicationWindow, Box as GtkBox, EventControllerKey, IconTheme, Label, Orientation,
-    PropagationPhase, SearchEntry, Widget, gdk, gio, glib,
+    Box as GtkBox, EventControllerKey, IconTheme, Label, Orientation, PropagationPhase,
+    SearchEntry, Widget, gdk, glib,
 };
 
-use self::categories::Categories;
 use self::list::ResultList;
 use super::Page;
-use crate::catalog::Catalog;
-use crate::history::History;
-use crate::ui::components::search_field;
+use crate::launcher::{Change, Launcher};
+use crate::ui::components::{CategoryBar, search_field};
 use crate::ui::keybindings::keybindings;
 
 fn icon_scale(display: &gdk::Display) -> i32 {
@@ -29,22 +26,35 @@ fn icon_scale(display: &gdk::Display) -> i32 {
         .unwrap_or(1)
 }
 
+fn category_choices(
+    launcher: &Launcher,
+) -> impl Iterator<Item = (Option<&'static str>, &'static str)> {
+    std::iter::once((None, "All")).chain(launcher.categories().into_iter().map(|category| {
+        let label = match category {
+            "AudioVideo" => "Media",
+            "Game" => "Games",
+            "Network" => "Internet",
+            "Utility" => "Utilities",
+            name => name,
+        };
+
+        (Some(category), label)
+    }))
+}
+
 pub struct LauncherPage {
-    window: ApplicationWindow,
     root: GtkBox,
     search: SearchEntry,
-    categories: Rc<Categories>,
+    categories: CategoryBar<Option<&'static str>>,
     results: ResultList,
-    catalog: RefCell<Catalog>,
-    history: RefCell<History>,
+    launcher: Rc<Launcher>,
     error: Label,
     confirmation: RefCell<Option<GtkBox>>,
-    monitor: gio::AppInfoMonitor,
     theme: IconTheme,
 }
 
 impl LauncherPage {
-    pub fn new(window: &ApplicationWindow) -> Rc<Self> {
+    pub fn new(launcher: Rc<Launcher>) -> Rc<Self> {
         let search = search_field("Search…");
 
         let error = Label::new(None);
@@ -54,13 +64,12 @@ impl LauncherPage {
         error.add_css_class("launch-error");
         error.set_visible(false);
 
-        let display = WidgetExt::display(window);
+        let display = search.display();
         let theme = IconTheme::for_display(&display);
-        let catalog = Catalog::load();
-        let categories = Categories::new(&catalog.categories());
+        let categories = CategoryBar::new(category_choices(&launcher));
 
         let results = ResultList::new();
-        results.load(catalog.entries(), &theme, icon_scale(&display));
+        results.load(&launcher.entries(), &theme, icon_scale(&display));
         let root = GtkBox::new(Orientation::Vertical, 0);
         root.append(&search);
         root.append(categories.widget());
@@ -68,16 +77,13 @@ impl LauncherPage {
         root.append(&error);
 
         let page = Rc::new(Self {
-            window: window.clone(),
             root,
             search,
             categories,
             results,
-            catalog: RefCell::new(catalog),
-            history: RefCell::new(History::load()),
+            launcher,
             error,
             confirmation: RefCell::new(None),
-            monitor: gio::AppInfoMonitor::get(),
             theme,
         });
 
@@ -125,15 +131,21 @@ impl LauncherPage {
             move || page.update_results(None)
         ));
 
-        page.monitor.connect_changed(glib::clone!(
+        page.launcher.connect_changed(glib::clone!(
             #[weak]
             page,
-            move |_| {
-                glib::idle_add_local_once(glib::clone!(
-                    #[weak]
-                    page,
-                    move || page.refresh_catalog()
-                ));
+            move |change| match change {
+                Change::Catalog => {
+                    let selected = page.results.selected();
+                    page.results.load(
+                        &page.launcher.entries(),
+                        &page.theme,
+                        icon_scale(&page.root.display()),
+                    );
+                    page.categories.set_items(category_choices(&page.launcher));
+                    page.update_results(selected.as_ref().and_then(|entry| entry.id.as_deref()));
+                }
+                Change::History => page.update_results(None),
             }
         ));
         page.theme.connect_changed(glib::clone!(
@@ -143,17 +155,7 @@ impl LauncherPage {
                 glib::idle_add_local_once(glib::clone!(
                     #[weak]
                     page,
-                    move || {
-                        let selected = page.results.selected();
-                        page.results.load(
-                            page.catalog.borrow().entries(),
-                            &page.theme,
-                            icon_scale(&page.root.display()),
-                        );
-                        page.update_results(
-                            selected.as_ref().and_then(|entry| entry.id.as_deref()),
-                        );
-                    }
+                    move || page.reload_icons()
                 ));
             }
         ));
@@ -163,35 +165,22 @@ impl LauncherPage {
         page
     }
 
-    pub fn clear_history(&self) {
-        self.history.borrow_mut().clear();
-        self.update_results(None);
-    }
-
-    fn refresh_catalog(&self) {
+    fn reload_icons(&self) {
         let selected = self.results.selected();
-
-        // Reading AppInfo::all() also rearms the desktop application monitor.
-        let catalog = Catalog::load();
         self.results.load(
-            catalog.entries(),
+            &self.launcher.entries(),
             &self.theme,
             icon_scale(&self.root.display()),
         );
-        self.catalog.replace(catalog);
-        self.categories
-            .set_categories(&self.catalog.borrow().categories());
         self.update_results(selected.as_ref().and_then(|entry| entry.id.as_deref()));
     }
 
     fn update_results(&self, selected_id: Option<&str>) {
         self.cancel_confirmation();
         self.error.set_visible(false);
-        let matches = self.catalog.borrow().search(
-            &self.search.text(),
-            self.categories.selected(),
-            &self.history.borrow(),
-        );
+        let matches = self
+            .launcher
+            .search(&self.search.text(), self.categories.selected());
 
         self.results.show_matches(matches, selected_id);
     }
@@ -203,7 +192,7 @@ impl LauncherPage {
                 if self.cancel_confirmation() {
                     self.search.grab_focus();
                 } else {
-                    self.window.set_visible(false);
+                    self.root.activate_action("win.hide", None).unwrap();
                 }
 
                 return Propagation::Stop;
@@ -219,8 +208,8 @@ impl LauncherPage {
             key, modifiers;
             Ctrl + H | Shift + Tab | Ctrl + Shift + Tab => self.categories.cycle(-1),
             Ctrl + L | Tab | Ctrl + Tab => self.categories.cycle(1),
-            Down | Ctrl + J | Ctrl + N => self.results.move_selection(1),
-            Up | Ctrl + K | Ctrl + P => self.results.move_selection(-1),
+            Down | Ctrl + J | Ctrl + N => self.results.move_items(1),
+            Up | Ctrl + K | Ctrl + P => self.results.move_items(-1),
             Ctrl + D => self.results.scroll_pages(0.5),
             Ctrl + U => self.results.scroll_pages(-0.5),
             _ => return Propagation::Proceed,

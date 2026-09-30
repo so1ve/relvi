@@ -5,18 +5,14 @@ use gtk::{Box as GtkBox, Label, Orientation, glib};
 use tracing::error;
 
 use super::LauncherPage;
-use crate::catalog::{Entry, Target};
+use crate::launcher::Entry;
 use crate::ui::components::button;
 
 impl LauncherPage {
     pub(super) fn activate(self: &Rc<Self>, entry: Rc<Entry>) {
         self.error.set_visible(false);
 
-        let question = match &entry.target {
-            Target::Application(_) => None,
-            Target::SystemAction(action) => action.confirmation,
-        };
-        let Some(question) = question else {
+        let Some(question) = entry.confirmation() else {
             self.run(entry);
 
             return;
@@ -81,32 +77,22 @@ impl LauncherPage {
         // Release the layer surface's keyboard grab before polkit can ask for
         // authentication.
         self.root.set_sensitive(false);
-        self.window.set_visible(false);
+        self.root.activate_action("win.hide", None).unwrap();
 
         glib::spawn_future_local(glib::clone!(
             #[weak(rename_to = page)]
             self,
             async move {
-                let result = match &entry.target {
-                    Target::Application(app) => app.launch(&[], Some(&context)),
-                    Target::SystemAction(action) => action.run().await,
-                };
+                let result = page.launcher.launch(&entry, &query, &context).await;
                 page.root.set_sensitive(true);
 
-                match result {
-                    Ok(()) => {
-                        if let Some(id) = entry.id.as_deref() {
-                            page.history.borrow_mut().record(id, &query);
-                        }
-                    }
-                    Err(reason) => {
-                        error!(error = %reason, entry = %entry.title, "Could not launch entry");
-                        page.error
-                            .set_text(&format!("Could not run {}: {reason}", entry.title));
-                        page.error.set_visible(true);
-                        page.window.present();
-                        page.search.grab_focus();
-                    }
+                if let Err(reason) = result {
+                    error!(error = %reason, entry = %entry.title, "Could not launch entry");
+                    page.error
+                        .set_text(&format!("Could not run {}: {reason}", entry.title));
+                    page.error.set_visible(true);
+                    page.root.activate_action("win.show", None).unwrap();
+                    page.search.grab_focus();
                 }
             }
         ));

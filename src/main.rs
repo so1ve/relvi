@@ -1,11 +1,10 @@
 mod application;
-mod catalog;
 mod cli;
 mod clipboard;
-mod history;
+mod emoji;
 mod image;
+mod launcher;
 mod store;
-mod system;
 mod ui;
 
 use clap::{CommandFactory, Parser};

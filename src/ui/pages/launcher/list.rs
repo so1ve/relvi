@@ -8,7 +8,7 @@ use gtk::{
     ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
-use crate::catalog::Entry;
+use crate::launcher::Entry;
 use crate::ui::components::ListNavigation;
 
 const VISIBLE_ROWS: usize = 12;
@@ -104,7 +104,7 @@ pub struct ResultList {
     root: GtkBox,
     list: ListView,
     frame: ScrolledWindow,
-    navigation: ListNavigation,
+    navigation: ListNavigation<ListView>,
     model: gio::ListStore,
     items: RefCell<Vec<glib::BoxedAnyObject>>,
     selection: SingleSelection,
@@ -243,8 +243,8 @@ impl ResultList {
         self.navigation.scroll_pages(pages);
     }
 
-    pub fn move_selection(&self, offset: i32) {
-        self.navigation.move_selection(offset);
+    pub fn move_items(&self, offset: i32) {
+        self.navigation.move_items(offset);
     }
 
     pub fn connect_activate(&self, activate: impl Fn(Rc<Entry>) + 'static) {

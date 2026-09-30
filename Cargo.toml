@@ -2,22 +2,34 @@
 name = "relvi"
 version = "0.1.0"
 edition = "2024"
-description = "A focused application launcher for Wayland"
+description = "A focused launcher for Wayland"
 repository = "https://github.com/so1ve/relvi"
 license = "MIT"
+
+[workspace]
+resolver = "3"
+members = ["xtask"]
+default-members = ["."]
+
+[workspace.dependencies]
+clap = { version = "4.6", features = ["derive"] }
+emojis = "0.9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 
 [dependencies]
 adw = { package = "libadwaita", version = "0.9", features = ["v1_2"] }
 async-channel = "2.5"
-clap = { version = "4.6", features = ["derive"] }
+clap.workspace = true
 clap_complete = "4.6"
+emojis.workspace = true
 gio-unix = "0.22"
 glib = { version = "0.22", features = ["v2_72"] }
 gtk = { package = "gtk4", version = "0.11", features = ["v4_12"] }
 gtk4-layer-shell = "0.8.1"
 polysearch = { version = "0.3.1", features = ["pinyin"] }
-serde = { version = "1", features = ["derive", "rc"] }
-serde_json = "1"
+serde = { workspace = true, features = ["rc"] }
+serde_json.workspace = true
 tracing = { version = "0.1", default-features = false, features = ["std"] }
 tracing-subscriber = { version = "0.3", default-features = false, features = ["env-filter", "fmt"] }
 wl-clipboard-watch = "0.1"

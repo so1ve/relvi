@@ -4,13 +4,15 @@ use std::rc::Rc;
 use gtk::prelude::*;
 use gtk::{
     Application, ApplicationWindow, Box as GtkBox, GestureClick, Orientation, Overlay, Stack, gdk,
-    glib,
+    gio, glib,
 };
 use gtk4_layer_shell::{Edge, KeyboardMode, Layer, LayerShell};
 
-use super::pages::Page;
+use super::pages::{ClipboardPage, EmojiPage, LauncherPage, Page};
+use crate::clipboard::Session;
+use crate::launcher::Launcher;
 
-pub fn create_window(application: &Application) -> ApplicationWindow {
+fn create_window(application: &Application) -> ApplicationWindow {
     adw::init().unwrap();
 
     let window = ApplicationWindow::builder()
@@ -22,6 +24,15 @@ pub fn create_window(application: &Application) -> ApplicationWindow {
         .default_height(520)
         .css_classes(["relvi-window"])
         .build();
+
+    window.add_action_entries([
+        gio::ActionEntry::builder("hide")
+            .activate(|window: &ApplicationWindow, _, _| window.set_visible(false))
+            .build(),
+        gio::ActionEntry::builder("show")
+            .activate(|window: &ApplicationWindow, _, _| window.present())
+            .build(),
+    ]);
 
     let provider = gtk::CssProvider::new();
     provider.load_from_string(include_str!("../../resources/style.css"));
@@ -45,24 +56,40 @@ pub fn create_window(application: &Application) -> ApplicationWindow {
     window
 }
 
+#[derive(Clone, Copy)]
+pub enum PageKind {
+    Launcher,
+    Clipboard,
+    Emoji,
+}
+
 pub struct Shell {
     window: ApplicationWindow,
     stack: Stack,
     width: Rc<Cell<i32>>,
+    launcher: Rc<LauncherPage>,
+    clipboard: Rc<ClipboardPage>,
+    emoji: Rc<EmojiPage>,
 }
 
 impl Shell {
-    pub fn new(window: ApplicationWindow, pages: &[&dyn Page]) -> Self {
+    pub fn new(application: &Application, launcher: Rc<Launcher>, clipboard: Rc<Session>) -> Self {
+        let window = create_window(application);
+        let launcher = LauncherPage::new(launcher);
+        let clipboard = ClipboardPage::new(clipboard);
+        let emoji = EmojiPage::new();
+
         let stack = Stack::builder()
             .hhomogeneous(false)
             .vhomogeneous(false)
             .build();
         stack.add_css_class("palette");
+        let pages: [&dyn Page; 3] = [launcher.as_ref(), clipboard.as_ref(), emoji.as_ref()];
         for page in pages {
             stack.add_child(page.widget());
         }
 
-        let width = Rc::new(Cell::new(pages[0].width()));
+        let width = Rc::new(Cell::new(launcher.width()));
 
         let backdrop = GtkBox::new(Orientation::Vertical, 0);
         backdrop.set_hexpand(true);
@@ -109,21 +136,35 @@ impl Shell {
             window,
             stack,
             width,
+            launcher,
+            clipboard,
+            emoji,
         }
     }
 
-    pub fn present(&self, page: &dyn Page) {
+    pub fn present(&self, kind: PageKind) {
+        let page = self.page(kind);
         self.width.set(page.width());
         self.stack.set_visible_child(page.widget());
         self.window.present();
         page.present();
     }
 
-    pub fn toggle(&self, page: &dyn Page) {
+    pub fn toggle(&self, kind: PageKind) {
+        let page = self.page(kind);
+
         if self.window.is_visible() && self.stack.visible_child().as_ref() == Some(page.widget()) {
             self.window.set_visible(false);
         } else {
-            self.present(page);
+            self.present(kind);
+        }
+    }
+
+    fn page(&self, kind: PageKind) -> &dyn Page {
+        match kind {
+            PageKind::Launcher => self.launcher.as_ref(),
+            PageKind::Clipboard => self.clipboard.as_ref(),
+            PageKind::Emoji => self.emoji.as_ref(),
         }
     }
 }
