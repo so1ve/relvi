@@ -117,22 +117,14 @@ impl<V: ItemView> ListNavigation<V> {
         ));
 
         let weak_list = list.downgrade();
-        selection.connect_selected_item_notify(glib::clone!(
-            #[weak]
-            adjustment,
-            move |selection| {
-                let Some(list) = weak_list.upgrade() else {
-                    return;
-                };
-                if selection.selected() != gtk::INVALID_LIST_POSITION {
-                    list.reveal(selection.selected(), ListScrollFlags::FOCUS);
-
-                    // Focusing also changes GTK's scroll anchor. Reset it from
-                    // the viewport so changing focus does not move the list.
-                    adjustment.emit_by_name::<()>("value-changed", &[]);
-                }
+        selection.connect_selected_item_notify(move |selection| {
+            let Some(list) = weak_list.upgrade() else {
+                return;
+            };
+            if selection.selected() != gtk::INVALID_LIST_POSITION {
+                list.reveal(selection.selected(), ListScrollFlags::FOCUS);
             }
-        ));
+        });
 
         Self {
             list: list.clone(),
