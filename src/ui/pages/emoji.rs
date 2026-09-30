@@ -199,7 +199,6 @@ impl EmojiPage {
         }
         self.root.clipboard().set_text(emoji.as_str());
         self.picker.record(emoji);
-        self.root.activate_action("win.hide", None).unwrap();
     }
 
     fn copy_selected(&self) {

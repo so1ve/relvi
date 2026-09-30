@@ -86,7 +86,7 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 | Change skin tone | Hand button or <kbd>Ctrl</kbd> + <kbd>T</kbd>; add <kbd>Shift</kbd> to cycle backwards |
 | Close | <kbd>Esc</kbd> |
 
-Left/right arrows edit the query while search has focus. Copying closes the picker; paste into your app as usual. The last 48 copied emoji and your skin tone preference are saved in `$XDG_STATE_HOME/relvi/emoji.json`.
+Left/right arrows edit the query while search has focus. Copying keeps the picker open; paste into your app as usual. The last 48 copied emoji and your skin tone preference are saved in `$XDG_STATE_HOME/relvi/emoji.json`.
 
 The catalog loads on first use and works offline. Search annotations come from [Unicode CLDR](https://cldr.unicode.org/) under the [Unicode License](resources/emoji/LICENSE). To update the bundled annotations, run `cargo xtask emoji`.
 

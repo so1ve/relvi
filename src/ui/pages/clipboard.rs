@@ -190,7 +190,6 @@ impl ClipboardPage {
         }
 
         self.session.record(entry);
-        self.root.activate_action("win.hide", None).unwrap();
     }
 
     fn key_pressed(
