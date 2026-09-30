@@ -33,6 +33,11 @@ const CATEGORIES: [(Category, &str); 11] = [
     (Category::Group(Group::Flags), "Flags"),
 ];
 
+struct Insertion {
+    emoji: &'static Emoji,
+    close: bool,
+}
+
 pub struct EmojiPage {
     root: GtkBox,
     search: SearchEntry,
@@ -44,7 +49,7 @@ pub struct EmojiPage {
     shortcode: Label,
     tone: Button,
     copy: Button,
-    insertions: RefCell<VecDeque<&'static Emoji>>,
+    insertions: RefCell<VecDeque<Insertion>>,
     error: Image,
 }
 
@@ -133,7 +138,7 @@ impl EmojiPage {
         page.grid.connect_activate(glib::clone!(
             #[weak]
             page,
-            move |emoji| page.insert(emoji)
+            move |emoji| page.insert(emoji, false)
         ));
         page.copy.connect_clicked(glib::clone!(
             #[weak]
@@ -220,15 +225,19 @@ impl EmojiPage {
         }
     }
 
-    fn insert(self: &Rc<Self>, emoji: &'static Emoji) {
+    fn insert(self: &Rc<Self>, emoji: &'static Emoji, close: bool) {
         if self.picker.is_pending() {
             return;
+        }
+
+        if close {
+            self.root.set_sensitive(false);
         }
 
         {
             let mut insertions = self.insertions.borrow_mut();
             // Keep the active insertion at the front until focus returns.
-            insertions.push_back(emoji);
+            insertions.push_back(Insertion { emoji, close });
 
             if insertions.len() > 1 {
                 return;
@@ -239,35 +248,41 @@ impl EmojiPage {
             #[weak(rename_to = page)]
             self,
             async move {
-                loop {
-                    let emoji = *page.insertions.borrow().front().unwrap();
+                let result = loop {
+                    let Insertion { emoji, close } = *page.insertions.borrow().front().unwrap();
                     page.copy(emoji);
 
                     if let Err(error) = text_input::paste(&page.root).await {
-                        page.insertions.borrow_mut().clear();
-                        error!(%error, "Could not insert emoji");
-                        page.error.set_tooltip_text(Some(&format!(
-                            "Emoji copied, but could not be inserted: {error}"
-                        )));
-                        page.error.set_visible(true);
-                        break;
+                        break Err(error);
+                    }
+
+                    if close {
+                        page.root.activate_action("win.hide", None).unwrap();
+
+                        break Ok(());
                     }
 
                     let mut insertions = page.insertions.borrow_mut();
                     insertions.pop_front();
 
                     if insertions.is_empty() {
-                        break;
+                        break Ok(());
                     }
+                };
+
+                page.insertions.borrow_mut().clear();
+                page.root.set_sensitive(true);
+
+                if let Err(error) = result {
+                    error!(%error, "Could not insert emoji");
+                    page.error.set_tooltip_text(Some(&format!(
+                        "Emoji copied, but could not be inserted: {error}"
+                    )));
+                    page.error.set_visible(true);
+                    page.search.grab_focus();
                 }
             }
         ));
-    }
-
-    fn insert_selected(self: &Rc<Self>) {
-        if let Some(emoji) = self.grid.selected() {
-            self.insert(emoji);
-        }
     }
 
     fn cycle_tone(&self, offset: i32) {
@@ -297,7 +312,11 @@ impl EmojiPage {
         keybindings! {
             key, modifiers;
             Escape => self.root.activate_action("win.hide", None).unwrap(),
-            Return | KP_Enter => self.insert_selected(),
+            Return | KP_Enter => {
+                if let Some(emoji) = self.grid.selected() {
+                    self.insert(emoji, true);
+                }
+            },
             Ctrl + C => self.copy_selected(),
             Down | Ctrl + J | Ctrl + N => self.grid.move_rows(1),
             Up | Ctrl + K | Ctrl + P => self.grid.move_rows(-1),

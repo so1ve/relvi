@@ -48,7 +48,8 @@ Open this view with `relvi clipboard`, or show/hide it with `relvi clipboard tog
 | Previous / next entry | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
 | Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
 | Focus search | Start typing, or press <kbd>←</kbd> / <kbd>→</kbd> |
-| Copy selected entry | <kbd>Ctrl</kbd> + <kbd>C</kbd>, <kbd>Enter</kbd>, or the Copy button |
+| Insert selected entry and close | <kbd>Enter</kbd> |
+| Copy selected entry | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
 | Delete selected entry | <kbd>Ctrl</kbd> + <kbd>Delete</kbd> |
 | Clear history | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Delete</kbd> or the Clear button |
 | Close | <kbd>Esc</kbd> |
@@ -77,7 +78,8 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 
 | Action | Shortcut |
 | --- | --- |
-| Insert and copy an emoji | <kbd>Enter</kbd> or a single click |
+| Insert and copy an emoji, then close | <kbd>Enter</kbd> |
+| Insert and copy an emoji, keeping the picker open | Single click |
 | Copy an emoji | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
 | Move left / right | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
 | Move up / down | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
@@ -87,7 +89,7 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 | Change skin tone | Hand button or <kbd>Ctrl</kbd> + <kbd>T</kbd>; add <kbd>Shift</kbd> to cycle backwards |
 | Close | <kbd>Esc</kbd> |
 
-Left/right arrows edit the query while search has focus. Inserting an emoji copies it to the clipboard and pastes it into the previous app. The picker stays open so you can insert more. The last 48 copied emoji and your skin tone preference are saved in `$XDG_STATE_HOME/relvi/emoji.json`.
+Left/right arrows edit the query while search has focus. Inserting an emoji copies it to the clipboard and pastes it into the previous app.
 
 Automatic insertion requires the compositor's virtual-keyboard protocol and an app that supports <kbd>Ctrl</kbd> + <kbd>V</kbd>.
 

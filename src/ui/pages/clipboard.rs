@@ -16,6 +16,7 @@ use super::Page;
 use crate::clipboard::{self, Change, Session};
 use crate::ui::components::{button, search_field, toolbar};
 use crate::ui::keybindings::keybindings;
+use crate::ui::text_input;
 
 pub struct ClipboardPage {
     root: GtkBox,
@@ -117,7 +118,7 @@ impl ClipboardPage {
         page.search.connect_activate(glib::clone!(
             #[weak]
             page,
-            move |_| page.copy_selected()
+            move |_| page.insert_selected()
         ));
 
         let keys = EventControllerKey::new();
@@ -139,7 +140,9 @@ impl ClipboardPage {
         page.copy.connect_clicked(glib::clone!(
             #[weak]
             page,
-            move |_| page.copy_selected()
+            move |_| {
+                page.copy_selected();
+            }
         ));
         page.remove.connect_clicked(glib::clone!(
             #[weak]
@@ -175,9 +178,9 @@ impl ClipboardPage {
         page
     }
 
-    fn copy_selected(&self) {
+    fn copy_selected(&self) -> bool {
         let Some(entry) = self.list.selected() else {
-            return;
+            return false;
         };
 
         if let Err(error) = clipboard::copy(&entry.content, &self.root.clipboard()) {
@@ -186,14 +189,45 @@ impl ClipboardPage {
                 .set_tooltip_text(Some(&format!("Could not copy entry: {error}")));
             self.error.set_visible(true);
 
-            return;
+            return false;
         }
 
         self.session.record(entry);
+
+        true
+    }
+
+    fn insert_selected(self: &Rc<Self>) {
+        if !self.copy_selected() {
+            return;
+        }
+
+        self.error.set_visible(false);
+        self.root.set_sensitive(false);
+
+        glib::spawn_future_local(glib::clone!(
+            #[weak(rename_to = page)]
+            self,
+            async move {
+                let result = text_input::paste(&page.root).await;
+                page.root.set_sensitive(true);
+
+                if let Err(error) = result {
+                    error!(%error, "Could not insert clipboard entry");
+                    page.error.set_tooltip_text(Some(&format!(
+                        "Entry copied, but could not be inserted: {error}"
+                    )));
+                    page.error.set_visible(true);
+                    page.search.grab_focus();
+                } else {
+                    page.root.activate_action("win.hide", None).unwrap();
+                }
+            }
+        ));
     }
 
     fn key_pressed(
-        &self,
+        self: &Rc<Self>,
         controller: &EventControllerKey,
         key: gdk::Key,
         modifiers: gdk::ModifierType,
@@ -201,8 +235,10 @@ impl ClipboardPage {
         keybindings! {
             key, modifiers;
             Escape => self.root.activate_action("win.hide", None).unwrap(),
-            Return | KP_Enter => self.copy_selected(),
-            Ctrl + C if self.list.selected().is_some() => self.copy_selected(),
+            Return | KP_Enter => self.insert_selected(),
+            Ctrl + C if self.list.selected().is_some() => {
+                self.copy_selected();
+            },
             Ctrl + Delete => self.remove_selected(),
             Ctrl + Shift + Delete => {
                 self.session.clear();
