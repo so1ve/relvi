@@ -31,7 +31,7 @@ impl Categories {
             "Ctrl+H / Shift+Tab: previous category\nCtrl+L / Tab: next category",
         ));
 
-        let scroll = SmoothScroll::new(&frame, Orientation::Horizontal);
+        let scroll = SmoothScroll::attach(&frame, Orientation::Horizontal);
 
         let categories = Rc::new(Self {
             frame,

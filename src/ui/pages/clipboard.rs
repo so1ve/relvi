@@ -14,6 +14,7 @@ use self::list::HistoryList;
 use super::Page;
 use crate::clipboard::{self, History};
 use crate::ui::components::{TextPreview, button, search_field, toolbar};
+use crate::ui::keybindings::keybindings;
 
 pub struct ClipboardPage {
     window: ApplicationWindow,
@@ -221,30 +222,22 @@ impl ClipboardPage {
         key: gdk::Key,
         modifiers: gdk::ModifierType,
     ) -> glib::Propagation {
-        let modifiers = modifiers & gtk::accelerator_get_default_mod_mask();
-        let control = modifiers == gdk::ModifierType::CONTROL_MASK;
-        match key {
-            gdk::Key::Escape if modifiers.is_empty() => self.window.set_visible(false),
-            gdk::Key::Return | gdk::Key::KP_Enter if modifiers.is_empty() => {
-                self.copy_selected();
-            }
-            gdk::Key::c if control && self.list.selected().is_some() => {
-                self.copy_selected();
-            }
-            gdk::Key::Delete if control => self.remove_selected(),
-            gdk::Key::Delete
-                if modifiers == gdk::ModifierType::CONTROL_MASK | gdk::ModifierType::SHIFT_MASK =>
-            {
-                self.clear();
-            }
-            gdk::Key::Down if modifiers.is_empty() => self.list.move_selection(1),
-            gdk::Key::Up if modifiers.is_empty() => self.list.move_selection(-1),
-            gdk::Key::j | gdk::Key::n if control => self.list.move_selection(1),
-            gdk::Key::k | gdk::Key::p if control => self.list.move_selection(-1),
-            gdk::Key::d if control => self.list.scroll_pages(0.5),
-            gdk::Key::u if control => self.list.scroll_pages(-0.5),
-            gdk::Key::Tab | gdk::Key::ISO_Left_Tab => return glib::Propagation::Proceed,
+        keybindings! {
+            key, modifiers;
+            Escape => self.window.set_visible(false),
+            Return | KP_Enter => self.copy_selected(),
+            Ctrl + C if self.list.selected().is_some() => self.copy_selected(),
+            Ctrl + Delete => self.remove_selected(),
+            Ctrl + Shift + Delete => self.clear(),
+            Down | Ctrl + J | Ctrl + N => self.list.move_selection(1),
+            Up | Ctrl + K | Ctrl + P => self.list.move_selection(-1),
+            Ctrl + D => self.list.scroll_pages(0.5),
+            Ctrl + U => self.list.scroll_pages(-0.5),
             _ => {
+                if matches!(key, gdk::Key::Tab | gdk::Key::ISO_Left_Tab) {
+                    return glib::Propagation::Proceed;
+                }
+
                 let input = self.search.delegate().unwrap();
                 if input.has_focus() || !controller.forward(&input) {
                     return glib::Propagation::Proceed;
@@ -253,7 +246,7 @@ impl ClipboardPage {
                 // Forward the original event so GTK handles editing and input
                 // methods.
                 self.search.grab_focus();
-            }
+            },
         }
 
         glib::Propagation::Stop

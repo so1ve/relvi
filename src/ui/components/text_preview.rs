@@ -29,7 +29,7 @@ impl TextPreview {
             .vexpand(true)
             .focusable(false)
             .build();
-        SmoothScroll::new(&frame, Orientation::Vertical);
+        SmoothScroll::attach(&frame, Orientation::Vertical);
 
         Self { frame, text }
     }

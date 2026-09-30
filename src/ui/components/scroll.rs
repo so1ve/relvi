@@ -69,7 +69,7 @@ pub struct SmoothScroll {
 }
 
 impl SmoothScroll {
-    pub fn new(frame: &ScrolledWindow, orientation: Orientation) -> Self {
+    pub fn attach(frame: &ScrolledWindow, orientation: Orientation) -> Self {
         let horizontal = orientation == Orientation::Horizontal;
         let adjustment = if horizontal {
             frame.hadjustment()

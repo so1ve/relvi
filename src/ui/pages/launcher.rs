@@ -18,6 +18,7 @@ use super::Page;
 use crate::catalog::Catalog;
 use crate::history::History;
 use crate::ui::components::search_field;
+use crate::ui::keybindings::keybindings;
 
 fn icon_scale(display: &gdk::Display) -> i32 {
     display
@@ -196,39 +197,32 @@ impl LauncherPage {
     }
 
     fn key_pressed(&self, key: gdk::Key, modifiers: gdk::ModifierType) -> Propagation {
-        let modifiers = modifiers & gtk::accelerator_get_default_mod_mask();
-        if key == gdk::Key::Escape && modifiers.is_empty() {
-            if self.cancel_confirmation() {
-                self.search.grab_focus();
-            } else {
-                self.window.set_visible(false);
-            }
+        keybindings! {
+            key, modifiers;
+            Escape => {
+                if self.cancel_confirmation() {
+                    self.search.grab_focus();
+                } else {
+                    self.window.set_visible(false);
+                }
 
-            return Propagation::Stop;
+                return Propagation::Stop;
+            },
+            _ => {},
         }
 
         if self.confirmation.borrow().is_some() {
             return Propagation::Proceed;
         }
 
-        let control = modifiers == gdk::ModifierType::CONTROL_MASK;
-        match key {
-            gdk::Key::h if control => self.categories.cycle(-1),
-            gdk::Key::l if control => self.categories.cycle(1),
-            gdk::Key::Tab | gdk::Key::ISO_Left_Tab
-                if !modifiers
-                    .intersects(gdk::ModifierType::ALT_MASK | gdk::ModifierType::SUPER_MASK) =>
-            {
-                let backwards = key == gdk::Key::ISO_Left_Tab
-                    || modifiers.contains(gdk::ModifierType::SHIFT_MASK);
-                self.categories.cycle(if backwards { -1 } else { 1 });
-            }
-            gdk::Key::Down if modifiers.is_empty() => self.results.move_selection(1),
-            gdk::Key::Up if modifiers.is_empty() => self.results.move_selection(-1),
-            gdk::Key::j | gdk::Key::n if control => self.results.move_selection(1),
-            gdk::Key::k | gdk::Key::p if control => self.results.move_selection(-1),
-            gdk::Key::d if control => self.results.scroll_pages(0.5),
-            gdk::Key::u if control => self.results.scroll_pages(-0.5),
+        keybindings! {
+            key, modifiers;
+            Ctrl + H | Shift + Tab | Ctrl + Shift + Tab => self.categories.cycle(-1),
+            Ctrl + L | Tab | Ctrl + Tab => self.categories.cycle(1),
+            Down | Ctrl + J | Ctrl + N => self.results.move_selection(1),
+            Up | Ctrl + K | Ctrl + P => self.results.move_selection(-1),
+            Ctrl + D => self.results.scroll_pages(0.5),
+            Ctrl + U => self.results.scroll_pages(-0.5),
             _ => return Propagation::Proceed,
         }
 

@@ -58,7 +58,7 @@ impl HistoryList {
             .focusable(false)
             .build();
         frame.add_css_class("list-frame");
-        let scroll = SmoothScroll::new(&frame, Orientation::Vertical);
+        let scroll = SmoothScroll::attach(&frame, Orientation::Vertical);
         scroll.follow_selection(&selection);
 
         let empty = Label::new(Some("Loading clipboard…"));

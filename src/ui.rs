@@ -1,4 +1,5 @@
 mod components;
+mod keybindings;
 mod pages;
 mod shell;
 
