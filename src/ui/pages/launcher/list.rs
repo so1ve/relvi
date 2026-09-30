@@ -4,12 +4,12 @@ use std::rc::Rc;
 use gtk::pango::EllipsizeMode;
 use gtk::prelude::*;
 use gtk::{
-    Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListScrollFlags, ListView,
-    Orientation, PolicyType, ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
+    Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListView, Orientation, PolicyType,
+    ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
 use crate::catalog::Entry;
-use crate::ui::components::SmoothScroll;
+use crate::ui::components::ListNavigation;
 
 const VISIBLE_ROWS: usize = 12;
 const MAX_CONTENT_HEIGHT: i32 = 480;
@@ -104,7 +104,7 @@ pub struct ResultList {
     root: GtkBox,
     list: ListView,
     frame: ScrolledWindow,
-    scroll: SmoothScroll,
+    navigation: ListNavigation,
     model: gio::ListStore,
     items: RefCell<Vec<glib::BoxedAnyObject>>,
     selection: SingleSelection,
@@ -131,8 +131,7 @@ impl ResultList {
             .focusable(false)
             .build();
         frame.add_css_class("list-frame");
-        let scroll = SmoothScroll::attach(&frame, Orientation::Vertical);
-        scroll.follow_selection(&selection);
+        let navigation = ListNavigation::attach(&list, &selection, &frame);
 
         let empty = Label::new(Some("No result"));
         empty.add_css_class("empty-state");
@@ -163,7 +162,7 @@ impl ResultList {
             root,
             list,
             frame,
-            scroll,
+            navigation,
             model,
             items: RefCell::new(Vec::new()),
             selection,
@@ -190,8 +189,6 @@ impl ResultList {
     }
 
     pub fn show_matches(&self, matches: Vec<usize>, selected_id: Option<&str>) {
-        self.scroll.stop();
-
         let items = self.items.borrow();
         let selected = selected_id
             .and_then(|id| {
@@ -231,13 +228,7 @@ impl ResultList {
 
         self.empty.set_visible(!has_entries);
         self.frame.set_visible(has_entries);
-        self.selection
-            .set_selected(selected.map_or(gtk::INVALID_LIST_POSITION, |index| index as u32));
-
-        if let Some(selected) = selected {
-            self.list
-                .scroll_to(selected as u32, ListScrollFlags::NONE, None);
-        }
+        self.navigation.select(selected.map(|index| index as u32));
     }
 
     pub fn selected(&self) -> Option<Rc<Entry>> {
@@ -249,26 +240,11 @@ impl ResultList {
     }
 
     pub fn scroll_pages(&self, pages: f64) {
-        self.scroll.scroll_pages(pages);
+        self.navigation.scroll_pages(pages);
     }
 
     pub fn move_selection(&self, offset: i32) {
-        self.scroll.stop();
-
-        let count = self.model.n_items() as i32;
-        if count == 0 {
-            return;
-        }
-
-        let current = self.selection.selected();
-        let next = if current == gtk::INVALID_LIST_POSITION {
-            if offset > 0 { 0 } else { count - 1 }
-        } else {
-            (current as i32 + offset).rem_euclid(count)
-        };
-        self.selection.set_selected(next as u32);
-        self.list
-            .scroll_to(next as u32, ListScrollFlags::NONE, None);
+        self.navigation.move_selection(offset);
     }
 
     pub fn connect_activate(&self, activate: impl Fn(Rc<Entry>) + 'static) {

@@ -2,17 +2,16 @@ use std::sync::Arc;
 
 use gtk::prelude::*;
 use gtk::{
-    Align, Label, ListItem, ListScrollFlags, ListView, Orientation, Overlay, PolicyType,
-    ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
+    Align, Label, ListItem, ListView, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
+    SingleSelection, gio, glib,
 };
 
 use crate::clipboard::Entry;
-use crate::ui::components::SmoothScroll;
+use crate::ui::components::ListNavigation;
 
 pub struct HistoryList {
     root: Overlay,
-    list: ListView,
-    scroll: SmoothScroll,
+    navigation: ListNavigation,
     model: gio::ListStore,
     selection: SingleSelection,
     empty: Label,
@@ -49,6 +48,7 @@ impl HistoryList {
 
         let list = ListView::new(Some(selection.clone()), Some(factory));
         list.add_css_class("item-list");
+        list.set_focusable(true);
         list.set_single_click_activate(false);
 
         let frame = ScrolledWindow::builder()
@@ -58,8 +58,7 @@ impl HistoryList {
             .focusable(false)
             .build();
         frame.add_css_class("list-frame");
-        let scroll = SmoothScroll::attach(&frame, Orientation::Vertical);
-        scroll.follow_selection(&selection);
+        let navigation = ListNavigation::attach(&list, &selection, &frame);
 
         let empty = Label::new(Some("Loading clipboard…"));
         empty.add_css_class("empty-state");
@@ -71,22 +70,9 @@ impl HistoryList {
         root.set_child(Some(&frame));
         root.add_overlay(&empty);
 
-        selection.connect_selected_item_notify(glib::clone!(
-            #[weak]
-            list,
-            move |selection| {
-                if selection.selected() != gtk::INVALID_LIST_POSITION
-                    && list.state_flags().contains(gtk::StateFlags::FOCUS_WITHIN)
-                {
-                    list.scroll_to(selection.selected(), ListScrollFlags::FOCUS, None);
-                }
-            }
-        ));
-
         Self {
             root,
-            list,
-            scroll,
+            navigation,
             model,
             selection,
             empty,
@@ -114,14 +100,8 @@ impl HistoryList {
 
         self.empty.set_text(empty_text);
         self.empty.set_visible(items.is_empty());
-        self.scroll.stop();
         self.model.splice(0, self.model.n_items(), &items);
-        self.selection
-            .set_selected(selected.map_or(gtk::INVALID_LIST_POSITION, |index| index as u32));
-        if let Some(selected) = selected {
-            self.list
-                .scroll_to(selected as u32, ListScrollFlags::NONE, None);
-        }
+        self.navigation.select(selected.map(|index| index as u32));
     }
 
     pub fn connect_changed(&self, changed: impl Fn() + 'static) {
@@ -138,20 +118,10 @@ impl HistoryList {
     }
 
     pub fn move_selection(&self, offset: i32) {
-        self.scroll.stop();
-        let count = self.model.n_items() as i32;
-        if count == 0 {
-            return;
-        }
-
-        let next = (self.selection.selected() as i32 + offset).rem_euclid(count) as u32;
-        self.list.grab_focus();
-        self.selection.set_selected(next);
-        self.list.scroll_to(next, ListScrollFlags::FOCUS, None);
+        self.navigation.move_selection(offset);
     }
 
     pub fn scroll_pages(&self, pages: f64) {
-        self.move_selection(0);
-        self.scroll.scroll_pages(pages);
+        self.navigation.scroll_pages(pages);
     }
 }
