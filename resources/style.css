@@ -56,13 +56,15 @@ window.relvi-window {
 }
 
 .pane-toolbar {
-  padding: 8px 10px;
+  min-height: 26px;
+  padding: 6px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   color: #96969e;
   font-size: 12px;
 }
 
-.pane-toolbar .action-button {
+.pane-toolbar .action-button,
+.preview-actions .action-button {
   min-width: 24px;
   min-height: 26px;
   padding: 0 8px;
@@ -71,8 +73,9 @@ window.relvi-window {
   color: #b0b0b8;
 }
 
-.pane-toolbar .action-button:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+.pane-toolbar .action-button:hover,
+.preview-actions .action-button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .action-button.primary-action {
@@ -91,6 +94,7 @@ window.relvi-window {
 }
 
 .pane-toolbar .action-button:disabled,
+.preview-actions .action-button:disabled,
 .action-button.primary-action:disabled {
   background-color: transparent;
   color: #62626a;
@@ -259,23 +263,38 @@ window.relvi-window {
 .split-pane {
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 0 0 5px 5px;
-  background-color: #18181b;
+  background-color: #1b1b1e;
 }
 
 .history-item {
   font-size: 12px;
 }
 
+.history-item image {
+  color: #7e7e88;
+}
+
+.item-list > row:selected .history-item image {
+  color: #a0a0aa;
+}
+
 .preview-pane {
   border-left: 1px solid rgba(255, 255, 255, 0.07);
-  background-color: #202024;
+  background-color: #1e1e22;
 }
 
 .preview-pane .pane-toolbar {
   padding-left: 20px;
-  padding-right: 14px;
+  padding-right: 20px;
+}
+
+.preview-actions {
+  padding: 10px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background-color: #1b1b1e;
+  font-size: 12px;
 }
 
 .image-preview {
-    margin: 12px 20px 20px;
+  margin: 20px;
 }

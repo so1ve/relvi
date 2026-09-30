@@ -6,7 +6,7 @@ use std::rc::Rc;
 
 use gtk::prelude::*;
 use gtk::{
-    ApplicationWindow, Box as GtkBox, Button, EventControllerKey, Image, Label, Orientation,
+    Align, ApplicationWindow, Box as GtkBox, Button, EventControllerKey, Image, Label, Orientation,
     PropagationPhase, SearchEntry, Widget, gdk, gio, glib,
 };
 use tracing::error;
@@ -37,6 +37,7 @@ impl ClipboardPage {
     pub fn new(window: &ApplicationWindow) -> Rc<Self> {
         let search = search_field("Search clipboard…");
         let count = Label::new(Some("History"));
+        count.add_css_class("pane-title");
 
         let error = Image::from_icon_name("dialog-warning-symbolic");
         error.add_css_class("error-indicator");
@@ -57,28 +58,32 @@ impl ClipboardPage {
         history_pane.append(&history_toolbar);
         history_pane.append(list.widget());
 
-        let heading = Label::new(Some("Preview"));
-        heading.add_css_class("pane-title");
-
-        let remove = button::icon("edit-delete-symbolic")
+        let remove = button::icon_text("edit-delete-symbolic", "Delete")
             .tooltip_text("Remove selected (Ctrl+Delete)")
             .sensitive(false)
+            .focusable(false)
+            .hexpand(true)
+            .halign(Align::Start)
             .build();
         let copy = button::icon_text("edit-copy-symbolic", "Copy")
             .tooltip_text("Copy (Ctrl+C)")
             .sensitive(false)
+            .focusable(false)
             .build();
         copy.add_css_class("primary-action");
 
-        let preview_toolbar = toolbar(&heading, &[remove.upcast_ref(), copy.upcast_ref()]);
+        let actions = GtkBox::new(Orientation::Horizontal, 8);
+        actions.add_css_class("preview-actions");
+        actions.append(&remove);
+        actions.append(&copy);
 
         let preview = Preview::new();
 
         let detail = GtkBox::new(Orientation::Vertical, 0);
         detail.add_css_class("preview-pane");
         detail.set_hexpand(true);
-        detail.append(&preview_toolbar);
         detail.append(preview.widget());
+        detail.append(&actions);
 
         let body = GtkBox::new(Orientation::Horizontal, 0);
         body.add_css_class("split-pane");

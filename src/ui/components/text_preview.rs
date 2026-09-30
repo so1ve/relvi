@@ -17,7 +17,7 @@ impl TextPreview {
             .wrap_mode(WrapMode::WordChar)
             .left_margin(20)
             .right_margin(20)
-            .top_margin(12)
+            .top_margin(16)
             .bottom_margin(20)
             .pixels_above_lines(3)
             .css_classes(["text-preview"])

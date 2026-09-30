@@ -26,8 +26,8 @@ impl HistoryList {
         let factory = SignalListItemFactory::new();
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
-            let icon = Image::from_icon_name("image-x-generic-symbolic");
-            icon.set_pixel_size(16);
+            let icon = Image::new();
+            icon.set_pixel_size(12);
 
             let label = Label::new(None);
             label.set_xalign(0.0);
@@ -36,7 +36,7 @@ impl HistoryList {
             label.set_max_width_chars(18);
             label.set_hexpand(true);
 
-            let row = GtkBox::new(Orientation::Horizontal, 8);
+            let row = GtkBox::new(Orientation::Horizontal, 6);
             row.add_css_class("history-item");
             row.append(&icon);
             row.append(&label);
@@ -49,7 +49,10 @@ impl HistoryList {
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
                 let entry = object.borrow::<Arc<Entry>>();
                 label.set_text(entry.preview.trim_end());
-                icon.set_visible(matches!(entry.content, Content::Image(_)));
+                icon.set_icon_name(Some(match entry.content {
+                    Content::Text(_) => "format-justify-left-symbolic",
+                    Content::Image(_) => "image-x-generic-symbolic",
+                }));
             });
         });
 

@@ -8,12 +8,6 @@ pub fn text(label: &str) -> ButtonBuilder {
         .css_classes(["action-button"])
 }
 
-pub fn icon(name: &str) -> ButtonBuilder {
-    Button::builder()
-        .icon_name(name)
-        .css_classes(["action-button"])
-}
-
 pub fn icon_text(name: &str, label: &str) -> ButtonBuilder {
     let content = GtkBox::new(Orientation::Horizontal, 6);
     content.append(&Image::from_icon_name(name));
