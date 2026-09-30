@@ -275,3 +275,7 @@ window.relvi-window {
   padding-left: 20px;
   padding-right: 14px;
 }
+
+.image-preview {
+    margin: 12px 20px 20px;
+}

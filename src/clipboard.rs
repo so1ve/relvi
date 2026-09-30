@@ -1,24 +1,34 @@
+mod history;
+mod watch;
+
+use std::error::Error;
 use std::sync::Arc;
-use std::thread;
-use std::time::Duration;
 
-use wl_clipboard_watch::{Config, Event, Transfer, Watcher};
+use gtk::{gdk, glib};
 
-use crate::store::JsonStore;
+pub use self::history::History;
+pub use self::watch::watch;
+use crate::image::Image;
 
-const MAX_ENTRIES: usize = 100;
+pub const MAX_IMAGE_BYTES: usize = 16 * 1024 * 1024;
 const MAX_TEXT_BYTES: usize = 64 * 1024;
 
+pub enum Content {
+    Text(Arc<str>),
+    Image(Image),
+}
+
 pub struct Entry {
-    pub text: Arc<str>,
+    pub id: String,
+    pub content: Content,
     pub preview: String,
     searchable: String,
 }
 
 impl Entry {
-    fn new(text: Arc<str>) -> Option<Self> {
+    pub fn from_text(text: Arc<str>) -> Result<Self, Box<dyn Error>> {
         if text.len() > MAX_TEXT_BYTES || text.trim().is_empty() || text.contains('\0') {
-            return None;
+            return Err("invalid clipboard text".into());
         }
 
         let preview = text
@@ -27,157 +37,59 @@ impl Entry {
             .take(160)
             .collect::<String>();
         let searchable = text.to_lowercase();
+        let id = glib::compute_checksum_for_data(glib::ChecksumType::Sha256, text.as_bytes())
+            .unwrap()
+            .to_string();
 
-        Some(Self {
-            text,
+        Ok(Self {
+            id,
+            content: Content::Text(text),
             preview,
             searchable,
         })
     }
-}
 
-pub struct History {
-    entries: Vec<Arc<Entry>>,
-    store: JsonStore<Vec<Arc<str>>>,
-}
-
-impl History {
-    pub fn load() -> Self {
-        let store =
-            JsonStore::<Vec<Arc<str>>>::new(glib::user_state_dir().join("relvi/clipboard.json"));
-        let saved = match store.load() {
-            Ok(entries) => entries.unwrap_or_default(),
-            Err(error) => {
-                eprintln!("Could not load clipboard history: {error}");
-                Vec::new()
-            }
-        };
-        let mut entries: Vec<Arc<Entry>> = Vec::new();
-
-        for text in saved.into_iter().take(MAX_ENTRIES) {
-            if !entries.iter().any(|entry| entry.text == text)
-                && let Some(entry) = Entry::new(text)
-            {
-                entries.push(Arc::new(entry));
-            }
+    pub fn from_image(mime_type: &str, bytes: Vec<u8>) -> Result<Self, Box<dyn Error>> {
+        if bytes.len() > MAX_IMAGE_BYTES {
+            return Err("clipboard image exceeds 16 MiB".into());
         }
 
-        Self { entries, store }
+        let image = Image::decode(mime_type, bytes)?;
+        let id = glib::compute_checksum_for_bytes(glib::ChecksumType::Sha256, &image.bytes)
+            .unwrap()
+            .to_string();
+        let preview = format!("Image · {} × {}", image.width, image.height);
+        let searchable = format!("{preview} {mime_type}").to_lowercase();
+
+        Ok(Self {
+            id,
+            content: Content::Image(image),
+            preview,
+            searchable,
+        })
     }
 
-    pub fn entries(&self) -> &[Arc<Entry>] {
-        &self.entries
-    }
-
-    pub fn record(&mut self, entry: Arc<Entry>) -> bool {
-        if self
-            .entries
-            .first()
-            .is_some_and(|first| first.text == entry.text)
-        {
-            return false;
-        }
-
-        self.entries.retain(|previous| previous.text != entry.text);
-        self.entries.insert(0, entry);
-        self.entries.truncate(MAX_ENTRIES);
-        self.save();
-
-        true
-    }
-
-    pub fn remove(&mut self, text: &str) {
-        self.entries.retain(|entry| entry.text.as_ref() != text);
-        self.save();
-    }
-
-    pub fn clear(&mut self) {
-        self.entries.clear();
-        self.save();
-    }
-
-    pub fn search(&self, query: &str) -> Vec<usize> {
-        let query = query.to_lowercase();
-        let terms: Vec<_> = query.split_whitespace().collect();
-
-        self.entries
-            .iter()
-            .enumerate()
-            .filter(|(_, entry)| terms.iter().all(|term| entry.searchable.contains(term)))
-            .map(|(index, _)| index)
-            .collect()
-    }
-
-    fn save(&mut self) {
-        self.store.save(
-            self.entries
-                .iter()
-                .map(|entry| Arc::clone(&entry.text))
-                .collect(),
-        );
+    fn memory_size(&self) -> usize {
+        self.preview.len()
+            + self.searchable.len()
+            + match &self.content {
+                Content::Text(text) => text.len(),
+                Content::Image(image) => image.memory_size(),
+            }
     }
 }
 
-pub fn watch() -> async_channel::Receiver<Result<Arc<Entry>, String>> {
-    let (updates, events) = async_channel::bounded(8);
+pub fn copy(content: &Content, clipboard: &gdk::Clipboard) -> Result<(), glib::BoolError> {
+    match content {
+        Content::Text(text) => {
+            clipboard.set_text(text);
 
-    thread::spawn(move || {
-        let config = Config::new(MAX_TEXT_BYTES, Duration::from_secs(2)).unwrap();
-        let mut watcher = match Watcher::connect_with(config) {
-            Ok(watcher) => watcher,
-            Err(error) => {
-                let _ = updates.send_blocking(Err(error.to_string()));
-
-                return;
-            }
-        };
-
-        while !updates.is_closed() {
-            let selection = match watcher.next_event() {
-                Ok(Event::Selection(selection)) => selection,
-                Ok(Event::Cleared) => continue,
-                Err(error) => {
-                    let _ = updates.send_blocking(Err(error.to_string()));
-                    break;
-                }
-            };
-
-            if selection.offers("x-kde-passwordManagerHint") {
-                continue;
-            }
-
-            let mime_type = ["text/plain;charset=utf-8", "UTF8_STRING", "text/plain"]
-                .into_iter()
-                .find_map(|preferred| {
-                    selection
-                        .mime_types()
-                        .iter()
-                        .find(|mime| mime.eq_ignore_ascii_case(preferred))
-                });
-            let Some(mime_type) = mime_type else {
-                continue;
-            };
-
-            let bytes = match watcher.receive(&selection, mime_type) {
-                Ok(Transfer::Complete(bytes)) => bytes,
-                Ok(Transfer::Stale) => continue,
-                Err(error) => {
-                    eprintln!("Could not read clipboard text: {error}");
-                    continue;
-                }
-            };
-            let Ok(text) = String::from_utf8(bytes) else {
-                continue;
-            };
-            let Some(entry) = Entry::new(text.into()) else {
-                continue;
-            };
-
-            if updates.send_blocking(Ok(Arc::new(entry))).is_err() {
-                break;
-            }
+            Ok(())
         }
-    });
+        Content::Image(image) => {
+            let content = gdk::ContentProvider::for_bytes(&image.mime_type, &image.bytes);
 
-    events
+            clipboard.set_content(Some(&content))
+        }
+    }
 }

@@ -1,10 +1,12 @@
 pub mod button;
+mod image_preview;
 mod list_navigation;
 mod scroll;
 mod search_field;
 mod text_preview;
 mod toolbar;
 
+pub use self::image_preview::ImagePreview;
 pub use self::list_navigation::ListNavigation;
 pub use self::scroll::SmoothScroll;
 pub use self::search_field::search_field;

@@ -2,11 +2,11 @@ use std::sync::Arc;
 
 use gtk::prelude::*;
 use gtk::{
-    Align, Label, ListItem, ListView, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
-    SingleSelection, gio, glib,
+    Align, Box as GtkBox, Image, Label, ListItem, ListView, Orientation, Overlay, PolicyType,
+    ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
 };
 
-use crate::clipboard::Entry;
+use crate::clipboard::{Content, Entry};
 use crate::ui::components::ListNavigation;
 
 pub struct HistoryList {
@@ -26,13 +26,21 @@ impl HistoryList {
         let factory = SignalListItemFactory::new();
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
+            let icon = Image::from_icon_name("image-x-generic-symbolic");
+            icon.set_pixel_size(16);
+
             let label = Label::new(None);
-            label.add_css_class("history-item");
             label.set_xalign(0.0);
             label.set_single_line_mode(true);
             label.set_ellipsize(gtk::pango::EllipsizeMode::End);
             label.set_max_width_chars(18);
-            item.set_child(Some(&label));
+            label.set_hexpand(true);
+
+            let row = GtkBox::new(Orientation::Horizontal, 8);
+            row.add_css_class("history-item");
+            row.append(&icon);
+            row.append(&label);
+            item.set_child(Some(&row));
 
             item.connect_item_notify(move |item| {
                 let Some(object) = item.item() else {
@@ -41,6 +49,7 @@ impl HistoryList {
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
                 let entry = object.borrow::<Arc<Entry>>();
                 label.set_text(entry.preview.trim_end());
+                icon.set_visible(matches!(entry.content, Content::Image(_)));
             });
         });
 
@@ -89,10 +98,10 @@ impl HistoryList {
     ) {
         let items: Vec<_> = entries.map(glib::BoxedAnyObject::new).collect();
         let selected = selected
-            .and_then(|text| {
+            .and_then(|id| {
                 items
                     .iter()
-                    .position(|item| item.borrow::<Arc<Entry>>().text.as_ref() == text)
+                    .position(|item| item.borrow::<Arc<Entry>>().id == id)
             })
             .or_else(|| (!items.is_empty()).then_some(0));
 

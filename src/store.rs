@@ -1,17 +1,19 @@
+mod clipboard;
+mod writer;
+
 use std::error::Error;
 use std::fs::{self, DirBuilder};
 use std::io;
 use std::os::unix::fs::DirBuilderExt;
 use std::path::{Path, PathBuf};
-use std::sync::mpsc::{self, Sender};
-use std::thread::{self, JoinHandle};
 
 use serde::Serialize;
 use serde::de::DeserializeOwned;
 
-fn write_json(path: &Path, value: &impl Serialize) -> Result<(), Box<dyn Error>> {
-    let contents = serde_json::to_vec(value)?;
+pub use self::clipboard::ClipboardStore;
+use self::writer::Writer;
 
+fn write_file(path: &Path, contents: &[u8]) -> Result<(), Box<dyn Error>> {
     if let Some(directory) = path.parent() {
         DirBuilder::new()
             .recursive(true)
@@ -21,7 +23,7 @@ fn write_json(path: &Path, value: &impl Serialize) -> Result<(), Box<dyn Error>>
 
     glib::file_set_contents_full(
         path,
-        &contents,
+        contents,
         glib::FileSetContentsFlags::CONSISTENT,
         0o600,
     )?;
@@ -29,60 +31,41 @@ fn write_json(path: &Path, value: &impl Serialize) -> Result<(), Box<dyn Error>>
     Ok(())
 }
 
-pub struct JsonStore<T> {
-    path: PathBuf,
-    writer: Option<(Sender<T>, JoinHandle<()>)>,
+fn load_json<T: DeserializeOwned>(path: &Path) -> io::Result<Option<T>> {
+    match fs::read(path) {
+        Ok(contents) => serde_json::from_slice(&contents)
+            .map(Some)
+            .map_err(Into::into),
+        Err(error) if error.kind() == io::ErrorKind::NotFound => Ok(None),
+        Err(error) => Err(error),
+    }
 }
 
-impl<T> JsonStore<T> {
-    pub const fn new(path: PathBuf) -> Self {
-        Self { path, writer: None }
+fn save_json<T: Serialize>(path: &Path, value: &T) -> Result<(), Box<dyn Error>> {
+    write_file(path, &serde_json::to_vec(value)?)
+}
+
+pub struct JsonStore<T> {
+    path: PathBuf,
+    writer: Writer<T>,
+}
+
+impl<T: Serialize + Send + 'static> JsonStore<T> {
+    pub fn new(path: PathBuf) -> Self {
+        Self {
+            writer: Writer::new(path.clone(), save_json),
+            path,
+        }
     }
 
     pub fn load(&self) -> io::Result<Option<T>>
     where
         T: DeserializeOwned,
     {
-        match fs::read(&self.path) {
-            Ok(contents) => serde_json::from_slice(&contents)
-                .map(Some)
-                .map_err(Into::into),
-            Err(error) if error.kind() == io::ErrorKind::NotFound => Ok(None),
-            Err(error) => Err(error),
-        }
+        load_json(&self.path)
     }
 
-    pub fn save(&mut self, value: T)
-    where
-        T: Serialize + Send + 'static,
-    {
-        let (updates, _) = self.writer.get_or_insert_with(|| {
-            let path = self.path.clone();
-            let (updates, pending) = mpsc::channel();
-            let writer = thread::spawn(move || {
-                while let Ok(mut value) = pending.recv() {
-                    while let Ok(newer) = pending.try_recv() {
-                        value = newer;
-                    }
-
-                    if let Err(error) = write_json(&path, &value) {
-                        eprintln!("Could not save {}: {error}", path.display());
-                    }
-                }
-            });
-
-            (updates, writer)
-        });
-        updates.send(value).unwrap();
-    }
-}
-
-impl<T> Drop for JsonStore<T> {
-    fn drop(&mut self) {
-        if let Some((updates, writer)) = self.writer.take() {
-            drop(updates);
-            // Closing the queue drains pending writes before exit
-            writer.join().unwrap();
-        }
+    pub fn save(&mut self, value: T) {
+        self.writer.save(value);
     }
 }

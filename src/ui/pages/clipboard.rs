@@ -1,8 +1,8 @@
 mod list;
+mod preview;
 
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
-use std::sync::Arc;
 
 use gtk::prelude::*;
 use gtk::{
@@ -11,9 +11,10 @@ use gtk::{
 };
 
 use self::list::HistoryList;
+use self::preview::Preview;
 use super::Page;
 use crate::clipboard::{self, History};
-use crate::ui::components::{TextPreview, button, search_field, toolbar};
+use crate::ui::components::{button, search_field, toolbar};
 use crate::ui::keybindings::keybindings;
 
 pub struct ClipboardPage {
@@ -21,7 +22,7 @@ pub struct ClipboardPage {
     root: GtkBox,
     search: SearchEntry,
     list: HistoryList,
-    preview: TextPreview,
+    preview: Preview,
     history: RefCell<Option<History>>,
     pending_clear: Cell<bool>,
     count: Label,
@@ -70,7 +71,7 @@ impl ClipboardPage {
 
         let preview_toolbar = toolbar(&heading, &[remove.upcast_ref(), copy.upcast_ref()]);
 
-        let preview = TextPreview::new();
+        let preview = Preview::new();
 
         let detail = GtkBox::new(Orientation::Vertical, 0);
         detail.add_css_class("preview-pane");
@@ -109,7 +110,7 @@ impl ClipboardPage {
             page,
             move |_| {
                 let selected = page.list.selected();
-                page.refresh(selected.as_ref().map(|entry| entry.text.as_ref()));
+                page.refresh(selected.as_ref().map(|entry| entry.id.as_str()));
             }
         ));
         page.search.connect_activate(glib::clone!(
@@ -176,7 +177,7 @@ impl ClipboardPage {
                         let selected = page.list.selected();
                         let changed = page.history.borrow_mut().as_mut().unwrap().record(entry);
                         if changed {
-                            page.refresh(selected.as_ref().map(|entry| entry.text.as_ref()));
+                            page.refresh(selected.as_ref().map(|entry| entry.id.as_str()));
                         }
                     }
                     Err(error) => {
@@ -197,7 +198,14 @@ impl ClipboardPage {
             return;
         };
 
-        self.root.clipboard().set_text(&entry.text);
+        if let Err(error) = clipboard::copy(&entry.content, &self.root.clipboard()) {
+            self.error
+                .set_tooltip_text(Some(&format!("Could not copy entry: {error}")));
+            self.error.set_visible(true);
+
+            return;
+        }
+
         self.history.borrow_mut().as_mut().unwrap().record(entry);
         self.refresh(None);
         self.window.set_visible(false);
@@ -258,7 +266,7 @@ impl ClipboardPage {
                 .borrow_mut()
                 .as_mut()
                 .unwrap()
-                .remove(&entry.text);
+                .remove(&entry.id);
             self.refresh(None);
         }
 
@@ -271,14 +279,11 @@ impl ClipboardPage {
             return;
         };
         let query = self.search.text();
-        let matches = history.search(&query);
         self.count
             .set_text(&format!("History · {}", history.entries().len()));
         self.clear.set_sensitive(!history.entries().is_empty());
         self.list.show(
-            matches
-                .into_iter()
-                .map(|index| Arc::clone(&history.entries()[index])),
+            history.search(&query).cloned(),
             selected,
             if query.trim().is_empty() {
                 "Clipboard is empty"
@@ -293,7 +298,7 @@ impl ClipboardPage {
         self.copy.set_sensitive(selected.is_some());
         self.remove.set_sensitive(selected.is_some());
         self.preview
-            .set_text(selected.as_ref().map_or("", |entry| &entry.text));
+            .show(selected.as_ref().map(|entry| &entry.content));
     }
 }
 

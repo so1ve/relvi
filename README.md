@@ -39,10 +39,6 @@ Show the launcher with `relvi`, or show/hide it with `relvi toggle`. Clear launc
   <img src="docs/screenshots/clipboard.png" width="720" alt="Relvi clipboard history with sample text and a preview" />
 </p>
 
-### Browse and copy
-
-Search the full text of saved entries. Select a record on the left to preview it on the right. Copying closes the window; paste in the target app as usual.
-
 Open this view with `relvi clipboard`, or show/hide it with `relvi clipboard toggle`. Toggling also switches from the launcher to clipboard history.
 
 ### Shortcuts
@@ -61,9 +57,9 @@ Up/down navigation returns focus to the last selected entry.
 
 ### Storage
 
-Relvi records text while it is running and keeps up to 100 entries of at most 64 KiB each. Duplicates move to the front. Entries marked by password managers are excluded.
+Relvi records text (up to 64 KiB) and PNG/JPEG images (up to 16 MiB and 64 megapixels). It keeps up to 100 entries within a 64 MiB memory budget, including image previews. Copying an image preserves its original data. Duplicates move to the front; entries marked by password managers are excluded.
 
-History survives restarts in `$XDG_STATE_HOME/relvi/clipboard.json` (normally `~/.local/state/relvi/clipboard.json`). The file is plain text, with access restricted to your user. Run `relvi clipboard clear` to erase history without changing the current clipboard.
+History survives restarts in `$XDG_STATE_HOME/relvi/clipboard.json` (normally `~/.local/state/relvi/clipboard.json`). Images are stored separately in the adjacent `clipboard/` directory. Both are unencrypted, with access restricted to your user. Removing an image also removes its stored file. Run `relvi clipboard clear` to erase history without changing the current clipboard.
 
 Clipboard monitoring requires `ext-data-control` or `wlr-data-control` support in the compositor.
 

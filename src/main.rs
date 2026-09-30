@@ -3,6 +3,7 @@ mod catalog;
 mod cli;
 mod clipboard;
 mod history;
+mod image;
 mod store;
 mod system;
 mod ui;
