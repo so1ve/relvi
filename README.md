@@ -3,9 +3,9 @@
 </p>
 
 <h1 align="center">Relvi</h1>
-<h4 align="center">A small launcher and clipboard history for Wayland</h4>
+<h4 align="center">A focused launcher for Wayland</h4>
 
-Relvi focuses on finding apps and reusing copied text. Start it once, then open either view with a keyboard shortcut.
+Relvi is a launcher for Wayland which focuses on finding apps and providing best fuzzy matching experience.
 
 ## Launcher
 
