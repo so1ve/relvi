@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2](https://github.com/so1ve/relvi/compare/relvi-v0.1.1...relvi-v0.1.2) - 2026-09-30
+
+### Added
+
+- *(clipboard, emoji)* split `Enter` and `Ctrl + C` behavior
+- use zwp virtual keyboard protocol instead of wtype and remove
+- insert emoji into the previous application
+
+### Fixed
+
+- reset state when reopening launcher
+- keep pickers open after copying
+- do not trigger `value-changed` to avoid focus change
+
 ## [0.1.1](https://github.com/so1ve/relvi/compare/relvi-v0.1.0...relvi-v0.1.1) - 2026-09-30
 
 ### Added
