@@ -1,7 +1,7 @@
 use emojis::Emoji;
 use gtk::prelude::*;
 use gtk::{
-    GridView, Label, ListItem, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
+    Button, GridView, Label, ListItem, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
     SingleSelection, gio, glib,
 };
 
@@ -27,9 +27,28 @@ impl EmojiGrid {
         let factory = SignalListItemFactory::new();
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
-            let label = Label::new(None);
-            label.add_css_class("emoji-cell");
-            item.set_child(Some(&label));
+            let button = Button::builder()
+                .has_frame(false)
+                .focusable(false)
+                .css_classes(["emoji-cell"])
+                .build();
+            button.connect_clicked(glib::clone!(
+                #[weak]
+                item,
+                move |button| {
+                    let position = item.position();
+                    button
+                        .activate_action(
+                            "list.select-item",
+                            Some(&(position, false, false).to_variant()),
+                        )
+                        .unwrap();
+                    button
+                        .activate_action("list.activate-item", Some(&position.to_variant()))
+                        .unwrap();
+                }
+            ));
+            item.set_child(Some(&button));
 
             item.connect_item_notify(move |item| {
                 let Some(object) = item.item() else {
@@ -37,9 +56,9 @@ impl EmojiGrid {
                 };
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
                 let emoji = *object.borrow::<&'static Emoji>();
-                label.set_text(emoji.as_str());
-                label.set_tooltip_text(Some(emoji.name()));
-                label.update_property(&[gtk::accessible::Property::Label(emoji.name())]);
+                button.set_label(emoji.as_str());
+                button.set_tooltip_text(Some(emoji.name()));
+                button.update_property(&[gtk::accessible::Property::Label(emoji.name())]);
             });
         });
 

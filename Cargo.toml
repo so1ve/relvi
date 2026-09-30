@@ -28,10 +28,13 @@ glib = { version = "0.22", features = ["v2_72"] }
 gtk = { package = "gtk4", version = "0.11", features = ["v4_12"] }
 gtk4-layer-shell = "0.8.1"
 polysearch = { version = "0.3.1", features = ["pinyin"] }
+rustix = { version = "1.1", features = ["fs", "time"] }
 serde = { workspace = true, features = ["rc"] }
 serde_json.workspace = true
 tracing = { version = "0.1", default-features = false, features = ["std"] }
 tracing-subscriber = { version = "0.3", default-features = false, features = ["env-filter", "fmt"] }
+wayland-client = "0.31"
+wayland-protocols-misc = { version = "0.3", features = ["client"] }
 wl-clipboard-watch = "0.1"
 
 [lints.clippy]

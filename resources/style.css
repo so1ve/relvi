@@ -307,6 +307,10 @@ window.relvi-window {
   min-width: 32px;
   min-height: 44px;
   padding: 2px;
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
   font-family: emoji;
   font-size: 26px;
 }

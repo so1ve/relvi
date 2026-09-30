@@ -1,6 +1,7 @@
 mod grid;
 
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
+use std::collections::VecDeque;
 use std::rc::Rc;
 
 use emojis::{Emoji, Group};
@@ -43,8 +44,7 @@ pub struct EmojiPage {
     shortcode: Label,
     tone: Button,
     copy: Button,
-    insert: Button,
-    inserting: Cell<bool>,
+    insertions: RefCell<VecDeque<&'static Emoji>>,
     error: Image,
 }
 
@@ -81,12 +81,7 @@ impl EmojiPage {
             .focusable(false)
             .sensitive(false)
             .build();
-        let insert = button::text("Insert")
-            .tooltip_text("Insert and copy (Enter)")
-            .focusable(false)
-            .sensitive(false)
-            .build();
-        insert.add_css_class("primary-action");
+        copy.add_css_class("primary-action");
 
         let error = Image::from_icon_name("dialog-warning-symbolic");
         error.add_css_class("error-indicator");
@@ -98,7 +93,6 @@ impl EmojiPage {
         footer.append(&error);
         footer.append(&tone);
         footer.append(&copy);
-        footer.append(&insert);
 
         let root = GtkBox::new(Orientation::Vertical, 0);
         root.append(&search);
@@ -117,8 +111,7 @@ impl EmojiPage {
             shortcode,
             tone,
             copy,
-            insert,
-            inserting: Cell::new(false),
+            insertions: RefCell::new(VecDeque::new()),
             error,
         });
 
@@ -146,11 +139,6 @@ impl EmojiPage {
             #[weak]
             page,
             move |_| page.copy_selected()
-        ));
-        page.insert.connect_clicked(glib::clone!(
-            #[weak]
-            page,
-            move |_| page.insert_selected()
         ));
         page.tone.connect_clicked(glib::clone!(
             #[weak]
@@ -200,17 +188,14 @@ impl EmojiPage {
     fn refresh(&self, selected: Option<&'static Emoji>) {
         self.preserved.set(selected);
         self.copy.set_sensitive(false);
-        self.insert.set_sensitive(false);
         self.picker
             .search(&self.search.text(), self.categories.selected());
     }
 
     fn update_selection(&self) {
         let selected = self.grid.selected();
-        let available = !self.picker.is_pending() && selected.is_some();
-        self.copy.set_sensitive(available);
-        self.insert
-            .set_sensitive(available && !self.inserting.get());
+        self.copy
+            .set_sensitive(!self.picker.is_pending() && selected.is_some());
         self.name.set_text(selected.map_or("", Emoji::name));
         if let Some(shortcode) = selected.and_then(Emoji::shortcode) {
             self.shortcode.set_text(&format!(":{shortcode}:"));
@@ -221,42 +206,59 @@ impl EmojiPage {
     }
 
     fn copy(&self, emoji: &'static Emoji) {
-        if self.picker.is_pending() {
-            return;
-        }
         self.error.set_visible(false);
         self.root.clipboard().set_text(emoji.as_str());
         self.picker.record(emoji);
     }
 
     fn copy_selected(&self) {
+        if self.picker.is_pending() {
+            return;
+        }
         if let Some(emoji) = self.grid.selected() {
             self.copy(emoji);
         }
     }
 
     fn insert(self: &Rc<Self>, emoji: &'static Emoji) {
-        if self.picker.is_pending() || self.inserting.replace(true) {
+        if self.picker.is_pending() {
             return;
         }
 
-        self.copy(emoji);
-        self.update_selection();
+        {
+            let mut insertions = self.insertions.borrow_mut();
+            // Keep the active insertion at the front until focus returns.
+            insertions.push_back(emoji);
+
+            if insertions.len() > 1 {
+                return;
+            }
+        }
 
         glib::spawn_future_local(glib::clone!(
             #[weak(rename_to = page)]
             self,
             async move {
-                let result = text_input::insert(&page.root, emoji.as_str()).await;
-                page.inserting.set(false);
-                page.update_selection();
+                loop {
+                    let emoji = *page.insertions.borrow().front().unwrap();
+                    page.copy(emoji);
 
-                if let Err(error) = result {
-                    error!(%error, "Could not insert emoji");
-                    page.error.set_tooltip_text(Some(&format!(
-                        "Emoji copied, but could not be inserted: {error}"
-                    )));
-                    page.error.set_visible(true);
+                    if let Err(error) = text_input::paste(&page.root).await {
+                        page.insertions.borrow_mut().clear();
+                        error!(%error, "Could not insert emoji");
+                        page.error.set_tooltip_text(Some(&format!(
+                            "Emoji copied, but could not be inserted: {error}"
+                        )));
+                        page.error.set_visible(true);
+                        break;
+                    }
+
+                    let mut insertions = page.insertions.borrow_mut();
+                    insertions.pop_front();
+
+                    if insertions.is_empty() {
+                        break;
+                    }
                 }
             }
         ));

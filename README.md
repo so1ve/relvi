@@ -77,7 +77,7 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 
 | Action | Shortcut |
 | --- | --- |
-| Insert and copy an emoji | <kbd>Enter</kbd>, a single click, or the Insert button |
+| Insert and copy an emoji | <kbd>Enter</kbd> or a single click |
 | Copy an emoji | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
 | Move left / right | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
 | Move up / down | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
@@ -87,9 +87,9 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 | Change skin tone | Hand button or <kbd>Ctrl</kbd> + <kbd>T</kbd>; add <kbd>Shift</kbd> to cycle backwards |
 | Close | <kbd>Esc</kbd> |
 
-Left/right arrows edit the query while search has focus. Inserting an emoji types it into the previous app and copies it to the clipboard. The picker stays open so you can insert more. The last 48 copied emoji and your skin tone preference are saved in `$XDG_STATE_HOME/relvi/emoji.json`.
+Left/right arrows edit the query while search has focus. Inserting an emoji copies it to the clipboard and pastes it into the previous app. The picker stays open so you can insert more. The last 48 copied emoji and your skin tone preference are saved in `$XDG_STATE_HOME/relvi/emoji.json`.
 
-Automatic insertion uses [wtype](https://github.com/atx/wtype) and requires the compositor's virtual-keyboard protocol.
+Automatic insertion requires the compositor's virtual-keyboard protocol and an app that supports <kbd>Ctrl</kbd> + <kbd>V</kbd>.
 
 The catalog loads on first use and works offline. Search annotations come from [Unicode CLDR](https://cldr.unicode.org/) under the [Unicode License](resources/emoji/LICENSE). To update the bundled annotations, run `cargo xtask emoji`.
 

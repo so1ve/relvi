@@ -1,0 +1,21 @@
+// XKB keycodes are Linux evdev codes plus 8.
+xkb_keymap {
+    xkb_keycodes "relvi" {
+        minimum = 8;
+        maximum = 255;
+        <LCTL> = 37;
+        <AB04> = 55;
+    };
+    xkb_types "relvi" {
+        type "ONE_LEVEL" {
+            modifiers = None;
+            map[None] = Level1;
+        };
+    };
+    xkb_compatibility "relvi" {};
+    xkb_symbols "relvi" {
+        key <LCTL> { type = "ONE_LEVEL", [ Control_L ] };
+        key <AB04> { type = "ONE_LEVEL", [ v ] };
+        modifier_map Control { <LCTL> };
+    };
+};
