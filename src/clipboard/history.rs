@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use gtk::glib;
+use tracing::warn;
 
 use super::Entry;
 use crate::store::ClipboardStore;
@@ -39,7 +40,7 @@ impl History {
                     }
                 }
             }
-            Err(error) => eprintln!("Could not load clipboard history: {error}"),
+            Err(error) => warn!(%error, "Could not load clipboard history"),
         }
 
         Self { entries, store }

@@ -2,6 +2,7 @@ use std::sync::Arc;
 use std::thread;
 use std::time::Duration;
 
+use tracing::{debug, error, warn};
 use wl_clipboard_watch::{Config, Event, Transfer, Watcher};
 
 use super::{Entry, MAX_IMAGE_BYTES};
@@ -14,17 +15,21 @@ pub fn watch() -> async_channel::Receiver<Result<Arc<Entry>, String>> {
         let mut watcher = match Watcher::connect_with(config) {
             Ok(watcher) => watcher,
             Err(error) => {
+                error!(%error, "Could not connect to clipboard");
                 let _ = updates.send_blocking(Err(error.to_string()));
 
                 return;
             }
         };
 
+        debug!("Clipboard monitoring started");
+
         while !updates.is_closed() {
             let selection = match watcher.next_event() {
                 Ok(Event::Selection(selection)) => selection,
                 Ok(Event::Cleared) => continue,
                 Err(error) => {
+                    error!(%error, "Clipboard monitoring failed");
                     let _ = updates.send_blocking(Err(error.to_string()));
                     break;
                 }
@@ -57,7 +62,7 @@ pub fn watch() -> async_channel::Receiver<Result<Arc<Entry>, String>> {
                 Ok(Transfer::Complete(bytes)) => bytes,
                 Ok(Transfer::Stale) => continue,
                 Err(error) => {
-                    eprintln!("Could not read clipboard content: {error}");
+                    warn!(%error, mime_type = format, "Could not read clipboard content");
                     continue;
                 }
             };
@@ -71,7 +76,7 @@ pub fn watch() -> async_channel::Receiver<Result<Arc<Entry>, String>> {
             let entry = match decoded {
                 Ok(entry) => entry,
                 Err(error) => {
-                    eprintln!("Could not record clipboard content: {error}");
+                    warn!(%error, mime_type = format, "Could not record clipboard content");
                     continue;
                 }
             };

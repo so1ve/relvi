@@ -4,6 +4,7 @@ use std::rc::Rc;
 use clap::Parser;
 use gtk::prelude::*;
 use gtk::{Application, gio, glib};
+use tracing::{debug, error};
 
 use crate::cli::{Cli, ClipboardCommand, Command};
 use crate::ui::{self, ClipboardPage, LauncherPage, Shell};
@@ -65,18 +66,22 @@ impl App {
 }
 
 pub fn run(command: Option<&Command>) -> glib::ExitCode {
+    debug!("Registering application");
+
     let application = Application::builder()
         .application_id(APP_ID)
         .flags(gio::ApplicationFlags::HANDLES_COMMAND_LINE)
         .build();
 
     if let Err(error) = application.register(gio::Cancellable::NONE) {
-        eprintln!("Could not register Relvi: {error}");
+        error!(%error, "Could not register Relvi");
 
         return glib::ExitCode::FAILURE;
     }
 
     if application.is_remote() {
+        debug!("Forwarding command to resident process");
+
         return application.run();
     }
 
@@ -111,6 +116,8 @@ pub fn run(command: Option<&Command>) -> glib::ExitCode {
         glib::ExitCode::FAILURE,
         move |application, command_line| app.command_line(application, command_line)
     ));
+
+    debug!("Application ready");
 
     application.run()
 }

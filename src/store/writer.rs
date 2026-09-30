@@ -3,6 +3,7 @@ use std::path::{Path, PathBuf};
 use std::thread::{self, JoinHandle};
 
 use async_channel::Sender;
+use tracing::error;
 
 type Write<T> = fn(&Path, &T) -> Result<(), Box<dyn Error>>;
 
@@ -29,7 +30,7 @@ impl<T: Send + 'static> Writer<T> {
             let worker = thread::spawn(move || {
                 while let Ok(value) = pending.recv_blocking() {
                     if let Err(error) = write(&path, &value) {
-                        eprintln!("Could not save {}: {error}", path.display());
+                        error!(%error, path = %path.display(), "Could not save snapshot");
                     }
                 }
             });

@@ -2,6 +2,7 @@ use std::rc::Rc;
 
 use gtk::prelude::*;
 use gtk::{Box as GtkBox, Label, Orientation, glib};
+use tracing::error;
 
 use super::LauncherPage;
 use crate::catalog::{Entry, Target};
@@ -99,6 +100,7 @@ impl LauncherPage {
                         }
                     }
                     Err(reason) => {
+                        error!(error = %reason, entry = %entry.title, "Could not launch entry");
                         page.error
                             .set_text(&format!("Could not run {}: {reason}", entry.title));
                         page.error.set_visible(true);

@@ -2,6 +2,7 @@ use std::cmp::Ordering;
 use std::collections::BTreeMap;
 
 use serde::{Deserialize, Serialize};
+use tracing::warn;
 
 use crate::store::JsonStore;
 
@@ -121,7 +122,7 @@ impl History {
             Ok(Some(entries)) => entries,
             Ok(None) => BTreeMap::new(),
             Err(error) => {
-                eprintln!("Could not read {}: {error}", path.display());
+                warn!(%error, path = %path.display(), "Could not load launch history");
 
                 BTreeMap::new()
             }

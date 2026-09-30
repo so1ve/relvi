@@ -9,6 +9,7 @@ use gtk::{
     ApplicationWindow, Box as GtkBox, Button, EventControllerKey, Image, Label, Orientation,
     PropagationPhase, SearchEntry, Widget, gdk, gio, glib,
 };
+use tracing::error;
 
 use self::list::HistoryList;
 use self::preview::Preview;
@@ -199,6 +200,7 @@ impl ClipboardPage {
         };
 
         if let Err(error) = clipboard::copy(&entry.content, &self.root.clipboard()) {
+            error!(%error, "Could not copy clipboard entry");
             self.error
                 .set_tooltip_text(Some(&format!("Could not copy entry: {error}")));
             self.error.set_visible(true);

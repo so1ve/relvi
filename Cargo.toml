@@ -18,6 +18,8 @@ gtk4-layer-shell = "0.8.1"
 polysearch = { version = "0.3.1", features = ["pinyin"] }
 serde = { version = "1", features = ["derive", "rc"] }
 serde_json = "1"
+tracing = { version = "0.1", default-features = false, features = ["std"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = ["env-filter", "fmt"] }
 wl-clipboard-watch = "0.1"
 
 [lints.clippy]

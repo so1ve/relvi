@@ -6,6 +6,7 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use serde::{Deserialize, Serialize};
+use tracing::warn;
 
 use super::{Writer, load_json, save_json, write_file};
 use crate::clipboard::{Content, Entry, MAX_IMAGE_BYTES};
@@ -105,7 +106,7 @@ impl ClipboardStore {
             match entry {
                 Ok(entry) => Some(Arc::new(entry)),
                 Err(error) => {
-                    eprintln!("Could not load clipboard entry: {error}");
+                    warn!(%error, "Could not load clipboard entry");
 
                     None
                 }
