@@ -25,11 +25,11 @@ Search uses [Polysearch](https://github.com/so1ve/polysearch). I tune its matchi
 
 | Action | Shortcut |
 | --- | --- |
-| Open an app | `Enter` or a single click |
-| Previous / next result | `↑` / `↓`, `Ctrl+K` / `Ctrl+J`, or `Ctrl+P` / `Ctrl+N` |
-| Scroll half a page | `Ctrl+U` / `Ctrl+D` |
-| Previous / next category | `Shift+Tab` / `Tab` or `Ctrl+H` / `Ctrl+L` |
-| Close | `Escape` |
+| Open an app | <kbd>Enter</kbd> or a single click |
+| Previous / next result | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
+| Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
+| Previous / next category | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Tab</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
+| Close | <kbd>Esc</kbd> |
 
 Show the launcher with `relvi`, or show/hide it with `relvi toggle`. Clear launch and query history with `relvi clear-history`.
 
@@ -49,13 +49,13 @@ Open this view with `relvi clipboard`, or show/hide it with `relvi clipboard tog
 
 | Action | Shortcut |
 | --- | --- |
-| Previous / next entry | `↑` / `↓`, `Ctrl+K` / `Ctrl+J`, or `Ctrl+P` / `Ctrl+N` |
-| Scroll half a page | `Ctrl+U` / `Ctrl+D` |
-| Focus search | Start typing, or press `←` / `→` |
-| Copy selected entry | `Ctrl+C`, `Enter`, or the Copy button |
-| Delete selected entry | `Ctrl+Delete` |
-| Clear history | `Ctrl+Shift+Delete` or the Clear button |
-| Close | `Escape` |
+| Previous / next entry | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
+| Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
+| Focus search | Start typing, or press <kbd>←</kbd> / <kbd>→</kbd> |
+| Copy selected entry | <kbd>Ctrl</kbd> + <kbd>C</kbd>, <kbd>Enter</kbd>, or the Copy button |
+| Delete selected entry | <kbd>Ctrl</kbd> + <kbd>Delete</kbd> |
+| Clear history | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Delete</kbd> or the Clear button |
+| Close | <kbd>Esc</kbd> |
 
 Up/down navigation returns focus to the last selected entry.
 
