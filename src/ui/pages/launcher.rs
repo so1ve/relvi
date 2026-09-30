@@ -229,6 +229,8 @@ impl Page for LauncherPage {
     }
 
     fn present(&self) {
+        self.search.set_text("");
+        self.categories.reset();
         self.update_results(None);
         self.search.grab_focus();
     }

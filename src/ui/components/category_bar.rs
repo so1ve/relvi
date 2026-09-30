@@ -147,6 +147,13 @@ impl<T: Copy + Eq> CategoryBar<T> {
         button.set_active(true);
     }
 
+    pub fn reset(&self) {
+        let first = self.buttons.borrow()[0].1.clone();
+        first.set_active(true);
+        self.scroll.stop();
+        self.frame.hadjustment().set_value(0.0);
+    }
+
     pub fn connect_changed(&self, changed: impl Fn() + 'static) {
         self.changed.replace(Some(Box::new(changed)));
     }

@@ -274,6 +274,8 @@ impl Page for ClipboardPage {
     }
 
     fn present(&self) {
+        self.search.set_text("");
+        self.refresh(None);
         self.search.grab_focus();
     }
 }

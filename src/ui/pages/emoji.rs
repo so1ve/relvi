@@ -343,8 +343,10 @@ impl Page for EmojiPage {
     }
 
     fn present(&self) {
+        self.search.set_text("");
+        self.categories.reset();
         self.refresh(None);
+        self.error.set_visible(false);
         self.search.grab_focus();
-        self.search.select_region(0, -1);
     }
 }
