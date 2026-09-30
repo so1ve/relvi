@@ -6,15 +6,17 @@ use std::rc::Rc;
 use emojis::{Emoji, Group};
 use gtk::prelude::*;
 use gtk::{
-    Box as GtkBox, Button, EventControllerKey, Label, Orientation, PropagationPhase, SearchEntry,
-    Widget, gdk, glib,
+    Box as GtkBox, Button, EventControllerKey, Image, Label, Orientation, PropagationPhase,
+    SearchEntry, Widget, gdk, glib,
 };
+use tracing::error;
 
 use self::grid::EmojiGrid;
 use super::Page;
 use crate::emoji::{Category, Picker, SKIN_TONES};
 use crate::ui::components::{CategoryBar, button, search_field};
 use crate::ui::keybindings::keybindings;
+use crate::ui::text_input;
 
 const CATEGORIES: [(Category, &str); 11] = [
     (Category::All, "All"),
@@ -41,6 +43,9 @@ pub struct EmojiPage {
     shortcode: Label,
     tone: Button,
     copy: Button,
+    insert: Button,
+    inserting: Cell<bool>,
+    error: Image,
 }
 
 impl EmojiPage {
@@ -71,18 +76,29 @@ impl EmojiPage {
             .sensitive(false)
             .build();
         tone.add_css_class("emoji-tone");
-        let copy = button::icon_text("edit-copy-symbolic", "Copy")
-            .tooltip_text("Copy (Enter / Ctrl+C)")
+        let copy = button::text("Copy")
+            .tooltip_text("Copy (Ctrl+C)")
             .focusable(false)
             .sensitive(false)
             .build();
-        copy.add_css_class("primary-action");
+        let insert = button::text("Insert")
+            .tooltip_text("Insert and copy (Enter)")
+            .focusable(false)
+            .sensitive(false)
+            .build();
+        insert.add_css_class("primary-action");
+
+        let error = Image::from_icon_name("dialog-warning-symbolic");
+        error.add_css_class("error-indicator");
+        error.set_visible(false);
 
         let footer = GtkBox::new(Orientation::Horizontal, 10);
         footer.add_css_class("emoji-footer");
         footer.append(&detail);
+        footer.append(&error);
         footer.append(&tone);
         footer.append(&copy);
+        footer.append(&insert);
 
         let root = GtkBox::new(Orientation::Vertical, 0);
         root.append(&search);
@@ -101,6 +117,9 @@ impl EmojiPage {
             shortcode,
             tone,
             copy,
+            insert,
+            inserting: Cell::new(false),
+            error,
         });
 
         page.search.connect_changed(glib::clone!(
@@ -121,12 +140,17 @@ impl EmojiPage {
         page.grid.connect_activate(glib::clone!(
             #[weak]
             page,
-            move |emoji| page.copy(emoji)
+            move |emoji| page.insert(emoji)
         ));
         page.copy.connect_clicked(glib::clone!(
             #[weak]
             page,
             move |_| page.copy_selected()
+        ));
+        page.insert.connect_clicked(glib::clone!(
+            #[weak]
+            page,
+            move |_| page.insert_selected()
         ));
         page.tone.connect_clicked(glib::clone!(
             #[weak]
@@ -176,14 +200,17 @@ impl EmojiPage {
     fn refresh(&self, selected: Option<&'static Emoji>) {
         self.preserved.set(selected);
         self.copy.set_sensitive(false);
+        self.insert.set_sensitive(false);
         self.picker
             .search(&self.search.text(), self.categories.selected());
     }
 
     fn update_selection(&self) {
         let selected = self.grid.selected();
-        self.copy
-            .set_sensitive(!self.picker.is_pending() && selected.is_some());
+        let available = !self.picker.is_pending() && selected.is_some();
+        self.copy.set_sensitive(available);
+        self.insert
+            .set_sensitive(available && !self.inserting.get());
         self.name.set_text(selected.map_or("", Emoji::name));
         if let Some(shortcode) = selected.and_then(Emoji::shortcode) {
             self.shortcode.set_text(&format!(":{shortcode}:"));
@@ -197,6 +224,7 @@ impl EmojiPage {
         if self.picker.is_pending() {
             return;
         }
+        self.error.set_visible(false);
         self.root.clipboard().set_text(emoji.as_str());
         self.picker.record(emoji);
     }
@@ -204,6 +232,39 @@ impl EmojiPage {
     fn copy_selected(&self) {
         if let Some(emoji) = self.grid.selected() {
             self.copy(emoji);
+        }
+    }
+
+    fn insert(self: &Rc<Self>, emoji: &'static Emoji) {
+        if self.picker.is_pending() || self.inserting.replace(true) {
+            return;
+        }
+
+        self.copy(emoji);
+        self.update_selection();
+
+        glib::spawn_future_local(glib::clone!(
+            #[weak(rename_to = page)]
+            self,
+            async move {
+                let result = text_input::insert(&page.root, emoji.as_str()).await;
+                page.inserting.set(false);
+                page.update_selection();
+
+                if let Err(error) = result {
+                    error!(%error, "Could not insert emoji");
+                    page.error.set_tooltip_text(Some(&format!(
+                        "Emoji copied, but could not be inserted: {error}"
+                    )));
+                    page.error.set_visible(true);
+                }
+            }
+        ));
+    }
+
+    fn insert_selected(self: &Rc<Self>) {
+        if let Some(emoji) = self.grid.selected() {
+            self.insert(emoji);
         }
     }
 
@@ -225,7 +286,7 @@ impl EmojiPage {
     }
 
     fn key_pressed(
-        &self,
+        self: &Rc<Self>,
         controller: &EventControllerKey,
         key: gdk::Key,
         modifiers: gdk::ModifierType,
@@ -234,7 +295,8 @@ impl EmojiPage {
         keybindings! {
             key, modifiers;
             Escape => self.root.activate_action("win.hide", None).unwrap(),
-            Return | KP_Enter | Ctrl + C => self.copy_selected(),
+            Return | KP_Enter => self.insert_selected(),
+            Ctrl + C => self.copy_selected(),
             Down | Ctrl + J | Ctrl + N => self.grid.move_rows(1),
             Up | Ctrl + K | Ctrl + P => self.grid.move_rows(-1),
             Left if !input.has_focus() => self.grid.move_items(-1),

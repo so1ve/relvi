@@ -14,5 +14,6 @@
     nixfmt-tree
     pkg-config
     tombi
+    wtype
   ];
 }
