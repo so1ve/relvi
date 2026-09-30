@@ -31,8 +31,8 @@ impl ScrollSelection {
         let count = selection.n_items();
         let row_height = content_height / f64::from(count);
         let top = self.scroll_offset - adjustment.lower();
-        let first = ((top / row_height).floor() as u32).min(count - 1);
-        let last = (((top + page_size) / row_height).ceil() as u32)
+        let first = ((top / row_height).ceil() as u32).min(count - 1);
+        let last = (((top + page_size) / row_height).floor() as u32)
             .saturating_sub(1)
             .max(first)
             .min(count - 1);
@@ -42,7 +42,7 @@ impl ScrollSelection {
 
             // Keep a selection made by keyboard navigation while GTK reveals
             // it.
-            if position + row_height <= previous_offset || position >= previous_offset + page_size {
+            if position < previous_offset || position + row_height > previous_offset + page_size {
                 if (first..=last).contains(&selected) {
                     self.selected = selected;
                 }
@@ -92,7 +92,7 @@ impl ListNavigation {
                     list.scroll_to(selection.selected(), ListScrollFlags::FOCUS, None);
 
                     // Focusing also changes GTK's scroll anchor. Reset it from
-                    // the viewport so a partially visible row stays in place.
+                    // the viewport so changing focus does not move the list.
                     adjustment.emit_by_name::<()>("value-changed", &[]);
                 }
             }
