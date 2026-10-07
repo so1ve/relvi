@@ -1,9 +1,6 @@
-use std::cell::Cell;
-
 use gtk::prelude::*;
 use gtk::{
-    Adjustment, GridView, ListScrollFlags, ListView, Orientation, ScrolledWindow, SingleSelection,
-    Widget, glib,
+    GridView, ListScrollFlags, ListView, Orientation, ScrolledWindow, SingleSelection, Widget,
 };
 
 use super::SmoothScroll;
@@ -33,62 +30,64 @@ impl ItemView for GridView {
     }
 }
 
-#[derive(Clone, Copy)]
-struct ScrollSelection {
-    scroll_offset: f64,
-    selected: u32,
-}
-
-impl ScrollSelection {
-    fn update(
-        &mut self,
-        adjustment: &Adjustment,
-        selection: &SingleSelection,
-        columns: u32,
-    ) -> u32 {
-        let previous_offset = self.scroll_offset;
-        self.scroll_offset = adjustment.value().floor();
-
-        let selected = selection.selected();
-        let page_size = adjustment.page_size();
-        let content_height = adjustment.upper() - adjustment.lower();
-
-        if selected == gtk::INVALID_LIST_POSITION || content_height <= page_size {
-            self.selected = selected;
-
-            return selected;
-        }
-
-        let count = selection.n_items();
-        let rows = count.div_ceil(columns);
-        let row_height = content_height / f64::from(rows);
-        let top = self.scroll_offset - adjustment.lower();
-        let first = ((top / row_height).ceil() as u32).min(rows - 1);
-        let last = (((top + page_size) / row_height).floor() as u32)
-            .saturating_sub(1)
-            .max(first)
-            .min(rows - 1);
-
-        if selected != self.selected {
-            let position = f64::from(selected / columns) * row_height;
-
-            // Keep a selection made by keyboard navigation while GTK reveals
-            // it.
-            if position < previous_offset || position + row_height > previous_offset + page_size {
-                if (first..=last).contains(&(selected / columns)) {
-                    self.selected = selected;
-                }
-
-                return selected;
-            }
-        }
-
-        self.selected =
-            ((selected / columns).clamp(first, last) * columns + selected % columns).min(count - 1);
-
-        self.selected
-    }
-}
+// Disabled for now: scrolling should keep the selection and preview unchanged.
+// #[derive(Clone, Copy)]
+// struct ScrollSelection {
+// scroll_offset: f64,
+// selected: u32,
+// }
+//
+// impl ScrollSelection {
+// fn update(
+// &mut self,
+// adjustment: &Adjustment,
+// selection: &SingleSelection,
+// columns: u32,
+// ) -> u32 {
+// let previous_offset = self.scroll_offset;
+// self.scroll_offset = adjustment.value().floor();
+//
+// let selected = selection.selected();
+// let page_size = adjustment.page_size();
+// let content_height = adjustment.upper() - adjustment.lower();
+//
+// if selected == gtk::INVALID_LIST_POSITION || content_height <= page_size {
+// self.selected = selected;
+//
+// return selected;
+// }
+//
+// let count = selection.n_items();
+// let rows = count.div_ceil(columns);
+// let row_height = content_height / f64::from(rows);
+// let top = self.scroll_offset - adjustment.lower();
+// let first = ((top / row_height).ceil() as u32).min(rows - 1);
+// let last = (((top + page_size) / row_height).floor() as u32)
+// .saturating_sub(1)
+// .max(first)
+// .min(rows - 1);
+//
+// if selected != self.selected {
+// let position = f64::from(selected / columns) * row_height;
+//
+// Keep a selection made by keyboard navigation while GTK reveals
+// it.
+// if position < previous_offset || position + row_height > previous_offset +
+// page_size { if (first..=last).contains(&(selected / columns)) {
+// self.selected = selected;
+// }
+//
+// return selected;
+// }
+// }
+//
+// self.selected =
+// ((selected / columns).clamp(first, last) * columns + selected %
+// columns).min(count - 1);
+//
+// self.selected
+// }
+// }
 
 pub struct ListNavigation<V> {
     list: V,
@@ -99,22 +98,23 @@ pub struct ListNavigation<V> {
 impl<V: ItemView> ListNavigation<V> {
     pub fn attach(list: &V, selection: &SingleSelection, frame: &ScrolledWindow) -> Self {
         let scroll = SmoothScroll::attach(frame, Orientation::Vertical);
-        let adjustment = frame.vadjustment();
-        let columns = list.columns();
-        let previous = Cell::new(ScrollSelection {
-            scroll_offset: adjustment.value(),
-            selected: selection.selected(),
-        });
-        adjustment.connect_value_changed(glib::clone!(
-            #[weak]
-            selection,
-            move |adjustment| {
-                let mut state = previous.get();
-                let selected = state.update(adjustment, &selection, columns);
-                previous.set(state);
-                selection.set_selected(selected);
-            }
-        ));
+
+        // let adjustment = frame.vadjustment();
+        // let columns = list.columns();
+        // let previous = Cell::new(ScrollSelection {
+        // scroll_offset: adjustment.value(),
+        // selected: selection.selected(),
+        // });
+        // adjustment.connect_value_changed(glib::clone!(
+        // #[weak]
+        // selection,
+        // move |adjustment| {
+        // let mut state = previous.get();
+        // let selected = state.update(adjustment, &selection, columns);
+        // previous.set(state);
+        // selection.set_selected(selected);
+        // }
+        // ));
 
         let weak_list = list.downgrade();
         selection.connect_selected_item_notify(move |selection| {
@@ -151,9 +151,9 @@ impl<V: ItemView> ListNavigation<V> {
     }
 
     pub fn scroll_pages(&self, pages: f64) {
-        if self.list.is_focusable() {
-            self.list.grab_focus();
-        }
+        // if self.list.is_focusable() {
+        // self.list.grab_focus();
+        // }
 
         self.scroll.scroll_pages(pages);
     }
