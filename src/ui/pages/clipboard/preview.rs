@@ -7,7 +7,7 @@ use crate::ui::components::{ImagePreview, TextPreview, toolbar};
 pub struct Preview {
     root: GtkBox,
     heading: Label,
-    dimensions: Label,
+    metadata: Label,
     content: Stack,
     text: TextPreview,
     image: ImagePreview,
@@ -19,10 +19,9 @@ impl Preview {
         let heading = Label::new(Some("Preview"));
         heading.add_css_class("pane-title");
 
-        let dimensions = Label::new(None);
-        dimensions.set_visible(false);
+        let metadata = Label::new(None);
 
-        let header = toolbar(&heading, &[dimensions.upcast_ref()]);
+        let header = toolbar(&heading, &[metadata.upcast_ref()]);
         let text = TextPreview::new();
         let image = ImagePreview::new();
 
@@ -42,7 +41,7 @@ impl Preview {
         Self {
             root,
             heading,
-            dimensions,
+            metadata,
             content,
             text,
             image,
@@ -58,7 +57,8 @@ impl Preview {
         let child: &Widget = match content {
             Some(Content::Text(text)) => {
                 self.heading.set_text("Text");
-                self.dimensions.set_visible(false);
+                self.metadata
+                    .set_text(&format!("{} characters", text.chars().count()));
                 self.text.set_text(text);
                 self.image.set_paintable(gdk::Paintable::NONE);
 
@@ -66,9 +66,8 @@ impl Preview {
             }
             Some(Content::Image(image)) => {
                 self.heading.set_text("Image");
-                self.dimensions
+                self.metadata
                     .set_text(&format!("{} × {}", image.width, image.height));
-                self.dimensions.set_visible(true);
                 self.text.set_text("");
                 self.image.set_paintable(Some(&image.texture));
 
@@ -76,7 +75,7 @@ impl Preview {
             }
             None => {
                 self.heading.set_text("Preview");
-                self.dimensions.set_visible(false);
+                self.metadata.set_text("");
                 self.text.set_text("");
                 self.image.set_paintable(gdk::Paintable::NONE);
 

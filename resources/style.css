@@ -177,8 +177,8 @@ window.relvi-window {
 .text-preview,
 .text-preview text {
   background-color: transparent;
-  color: #e8e8ed;
-  font-size: 14px;
+  color: #ececf0;
+  font-size: 15px;
 }
 
 .error-indicator {
@@ -219,8 +219,7 @@ window.relvi-window {
   color: #d6d6dc;
 }
 
-.result-row,
-.history-item {
+.result-row {
   min-height: 32px;
   margin: 1px 0;
   padding: 0 10px;
@@ -270,16 +269,33 @@ window.relvi-window {
   background-color: #1b1b1e;
 }
 
+.history-pane .item-list > row + row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .history-item {
+  min-height: 36px;
+  margin: 1px 0;
+  padding: 4px 8px;
+}
+
+.history-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.history-detail {
+  color: #96969e;
   font-size: 12px;
 }
 
-.history-item image {
-  color: #7e7e88;
+.item-list > row:selected .history-detail {
+  color: #b0b0b8;
 }
 
-.item-list > row:selected .history-item image {
-  color: #a0a0aa;
+.history-thumbnail {
+  min-width: 36px;
+  min-height: 36px;
 }
 
 .preview-pane {

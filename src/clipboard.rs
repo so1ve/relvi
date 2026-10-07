@@ -32,11 +32,7 @@ impl Entry {
             return Err("invalid clipboard text".into());
         }
 
-        let preview = text
-            .split_whitespace()
-            .flat_map(|word| word.chars().chain(std::iter::once(' ')))
-            .take(160)
-            .collect::<String>();
+        let preview = text.trim().chars().take(160).collect();
         let searchable = text.to_lowercase();
         let id = glib::compute_checksum_for_data(glib::ChecksumType::Sha256, text.as_bytes())
             .unwrap()

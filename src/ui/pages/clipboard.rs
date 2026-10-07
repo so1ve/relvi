@@ -51,7 +51,7 @@ impl ClipboardPage {
 
         let history_pane = GtkBox::new(Orientation::Vertical, 0);
         history_pane.add_css_class("history-pane");
-        history_pane.set_width_request(208);
+        history_pane.set_width_request(248);
         history_pane.set_hexpand(false);
         history_pane.append(&history_toolbar);
         history_pane.append(list.widget());

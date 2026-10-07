@@ -1,12 +1,15 @@
+mod row;
+
 use std::sync::Arc;
 
 use gtk::prelude::*;
 use gtk::{
-    Align, Box as GtkBox, Image, Label, ListItem, ListView, Orientation, Overlay, PolicyType,
-    ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
+    Align, Label, ListItem, ListView, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
+    SingleSelection, gio, glib,
 };
 
-use crate::clipboard::{Content, Entry};
+use self::row::HistoryRow;
+use crate::clipboard::Entry;
 use crate::ui::components::ListNavigation;
 
 pub struct HistoryList {
@@ -26,33 +29,18 @@ impl HistoryList {
         let factory = SignalListItemFactory::new();
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
-            let icon = Image::new();
-            icon.set_pixel_size(12);
-
-            let label = Label::new(None);
-            label.set_xalign(0.0);
-            label.set_single_line_mode(true);
-            label.set_ellipsize(gtk::pango::EllipsizeMode::End);
-            label.set_max_width_chars(18);
-            label.set_hexpand(true);
-
-            let row = GtkBox::new(Orientation::Horizontal, 6);
-            row.add_css_class("history-item");
-            row.append(&icon);
-            row.append(&label);
-            item.set_child(Some(&row));
+            let row = HistoryRow::new();
+            item.set_child(Some(row.widget()));
 
             item.connect_item_notify(move |item| {
                 let Some(object) = item.item() else {
+                    row.show(None);
+
                     return;
                 };
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
                 let entry = object.borrow::<Arc<Entry>>();
-                label.set_text(entry.preview.trim_end());
-                icon.set_icon_name(Some(match entry.content {
-                    Content::Text(_) => "format-justify-left-symbolic",
-                    Content::Image(_) => "image-x-generic-symbolic",
-                }));
+                row.show(Some(&entry));
             });
         });
 
