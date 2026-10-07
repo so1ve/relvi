@@ -1,5 +1,7 @@
 use adw::prelude::*;
-use adw::{AnimationState, Easing, PropertyAnimationTarget, TimedAnimation};
+use adw::{
+    AnimationState, CallbackAnimationTarget, Easing, PropertyAnimationTarget, TimedAnimation,
+};
 use gtk::{
     Adjustment, EventControllerScroll, EventControllerScrollFlags, GestureClick, Orientation,
     PropagationPhase, ScrolledWindow, gdk, glib,
@@ -20,7 +22,7 @@ impl SmoothScroll {
             frame.vadjustment()
         };
         let target = PropertyAnimationTarget::new(&adjustment, "value");
-        let animation = TimedAnimation::new(frame, 0.0, 0.0, 120, target);
+        let animation = TimedAnimation::new(frame, 0.0, 0.0, 120, target.clone());
         animation.set_easing(Easing::EaseOutCubic);
 
         let scroll = Self {
@@ -41,7 +43,11 @@ impl SmoothScroll {
         controller.connect_scroll(glib::clone!(
             #[strong]
             scroll,
+            #[strong]
+            target,
             move |controller, dx, dy| {
+                scroll.animation.set_target(&target);
+
                 if controller.unit() != gdk::ScrollUnit::Wheel {
                     scroll.stop();
 
@@ -71,7 +77,18 @@ impl SmoothScroll {
         scroll
     }
 
-    pub fn scroll_pages(&self, pages: f64) {
+    pub fn scroll_pages(&self, pages: f64, scrolled: impl Fn(&Adjustment) + 'static) {
+        scrolled(&self.adjustment);
+
+        let target = CallbackAnimationTarget::new(glib::clone!(
+            #[strong(rename_to = adjustment)]
+            self.adjustment,
+            move |value| {
+                adjustment.set_value(value);
+                scrolled(&adjustment);
+            }
+        ));
+        self.animation.set_target(&target);
         self.scroll_by(pages * self.adjustment.page_size());
     }
 
