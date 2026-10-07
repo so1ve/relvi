@@ -32,14 +32,12 @@ impl Index {
             entries.iter().enumerate().map(|(id, emoji)| {
                 let mut fields = Vec::new();
                 let mut add = |role, text: String| {
-                    if !text.is_empty() {
-                        fields.push(Field {
-                            id: field_id,
-                            role,
-                            text,
-                        });
-                        field_id += 1;
-                    }
+                    fields.push(Field {
+                        id: field_id,
+                        role,
+                        text,
+                    });
+                    field_id += 1;
                 };
 
                 add(PRIMARY_NAME, emoji.name().to_owned());
@@ -76,7 +74,7 @@ impl Index {
         let recent: Vec<_> = preferences
             .recent
             .iter()
-            .filter_map(|value| emojis::get(value))
+            .map(|value| emojis::get(value).unwrap())
             .collect();
         let rank = |emoji: &Emoji| {
             let base = emoji.with_skin_tone(SkinTone::Default).unwrap_or(emoji);
@@ -84,7 +82,6 @@ impl Index {
             recent
                 .iter()
                 .position(|used| used.with_skin_tone(SkinTone::Default).unwrap_or(used) == base)
-                .unwrap_or(usize::MAX)
         };
         let matches_category = |emoji: &&Emoji| match category {
             Category::All => true,
@@ -100,19 +97,16 @@ impl Index {
             if category == Category::Recent {
                 return recent;
             }
+
             let mut entries = self.entries.clone();
-            entries.sort_by_key(|emoji| rank(emoji));
+            entries.sort_by_key(|emoji| rank(emoji).unwrap_or(usize::MAX));
 
             entries
         } else {
             self.searcher
-                .search(
-                    &query.replace('_', " "),
-                    self.entries.len(),
-                    |left, right| {
-                        rank(self.entries[left as usize]).cmp(&rank(self.entries[right as usize]))
-                    },
-                )
+                .search(&query.replace('_', " "), self.entries.len(), |id| {
+                    rank(self.entries[id as usize]).map_or(0, |rank| (255 / (rank + 1)) as u8)
+                })
                 .into_iter()
                 .map(|result| self.entries[result.entry as usize])
                 .collect()

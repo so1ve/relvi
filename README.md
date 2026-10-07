@@ -19,7 +19,7 @@ Search app names, keywords, or executable names, including typos. Chinese names 
 
 Category tabs filter the results. The catalog updates when apps are installed or removed.
 
-Search uses [Polysearch](https://github.com/so1ve/polysearch). I tune its matching rules based on everyday use.
+Search uses [Polysearch](https://github.com/so1ve/polysearch), built on [Frizbee](https://github.com/saghen/frizbee), with pinyin and history-aware ranking.
 
 ### Shortcuts
 

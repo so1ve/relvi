@@ -8,7 +8,7 @@ use polysearch::{
 
 use super::{Entry, History, Target, applications, system};
 
-fn search_entry(entry: &Entry, id: u64, next_field: &mut u64) -> SearchEntry {
+fn search_entry(entry: &Entry, id: u64, next_field: &mut u32) -> SearchEntry {
     let mut fields = Vec::new();
     let mut seen = HashSet::new();
     let mut add = |role, text: &str| {
@@ -18,7 +18,7 @@ fn search_entry(entry: &Entry, id: u64, next_field: &mut u64) -> SearchEntry {
             return;
         }
 
-        let id = u32::try_from(*next_field).unwrap();
+        let id = *next_field;
         *next_field += 1;
         fields.push(Field {
             id,
@@ -85,24 +85,21 @@ impl Catalog {
 
     pub fn search(&self, query: &str, category: Option<&str>, history: &History) -> Vec<usize> {
         let query = query.trim();
-        let mut compare_history = history.comparator(query);
-        let mut matches = if query.is_empty() {
-            let mut matches: Vec<_> = (0..self.entries.len()).collect();
-            matches.sort_by(|&left, &right| {
-                compare_history(
-                    self.entries[left].id.as_deref(),
-                    self.entries[right].id.as_deref(),
-                )
-            });
+        let history_score = history.scorer(query);
+        let mut matches: Vec<usize> = if query.is_empty() {
+            let mut matches: Vec<_> = self
+                .entries
+                .iter()
+                .enumerate()
+                .map(|(index, entry)| (index, history_score(entry.id.as_deref())))
+                .collect();
+            matches.sort_by(|(_, left), (_, right)| right.total_cmp(left));
 
-            matches
+            matches.into_iter().map(|(index, _)| index).collect()
         } else {
             self.searcher
-                .search(query, self.entries.len(), |left, right| {
-                    compare_history(
-                        self.entries[left as usize].id.as_deref(),
-                        self.entries[right as usize].id.as_deref(),
-                    )
+                .search(query, self.entries.len(), |id| {
+                    (history_score(self.entries[id as usize].id.as_deref()) * 255.0) as u8
                 })
                 .into_iter()
                 .map(|result| result.entry as usize)

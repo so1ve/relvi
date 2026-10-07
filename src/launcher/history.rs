@@ -1,4 +1,3 @@
-use std::cmp::Ordering;
 use std::collections::BTreeMap;
 
 use serde::{Deserialize, Serialize};
@@ -7,22 +6,6 @@ use tracing::warn;
 use crate::store::JsonStore;
 
 const MAX_LEARNED_QUERIES: usize = 256;
-
-#[derive(Clone, Copy, Default)]
-struct Rank {
-    strength: u8,
-    score: f64,
-    last_used: i64,
-}
-
-impl Rank {
-    fn compare(&self, other: &Self) -> Ordering {
-        self.strength
-            .cmp(&other.strength)
-            .then_with(|| self.score.total_cmp(&other.score))
-            .then_with(|| self.last_used.cmp(&other.last_used))
-    }
-}
 
 #[derive(Clone, Default, Deserialize, Serialize)]
 struct Usage {
@@ -37,36 +20,14 @@ impl Usage {
         self.last_used = now;
     }
 
-    fn rank(&self, strength: u8, now: i64) -> Rank {
+    fn score(&self, now: i64) -> f64 {
         let age = now.saturating_sub(self.last_used).max(0) as f64;
         // Frequency grows logarithmically and the score halves after a week.
         let score =
             (self.count as f64).ln_1p() * (-age / (7.0 * 24.0 * 60.0 * 60.0 * 1_000_000.0)).exp2();
 
-        Rank {
-            strength,
-            score,
-            last_used: self.last_used,
-        }
+        score / (1.0 + score)
     }
-}
-
-fn query_strength(query: &str, learned: &str) -> u8 {
-    if query == learned {
-        return 2;
-    }
-
-    let query_len = query.chars().count();
-    let learned_len = learned.chars().count();
-    if query_len >= 2
-        && learned_len >= 2
-        && query_len.abs_diff(learned_len) <= 2
-        && (query.starts_with(learned) || learned.starts_with(query))
-    {
-        return 1;
-    }
-
-    0
 }
 
 #[derive(Clone, Default, Deserialize, Serialize)]
@@ -78,20 +39,33 @@ struct EntryUsage {
 }
 
 impl EntryUsage {
-    fn rank(&self, query: &str, now: i64) -> Rank {
+    fn score(&self, query: &str, now: i64) -> f64 {
         if query.is_empty() {
-            return self.total.rank(0, now);
+            return self.total.score(now);
         }
+
+        let query_len = query.chars().count();
 
         self.queries
             .iter()
-            .filter_map(|(learned, usage)| {
-                let strength = query_strength(query, learned);
+            .map(|(learned, usage)| {
+                if query == learned {
+                    return usage.score(now);
+                }
 
-                (strength != 0).then(|| usage.rank(strength, now))
+                let learned_len = learned.chars().count();
+
+                if query_len >= 2
+                    && learned_len >= 2
+                    && query_len.abs_diff(learned_len) <= 2
+                    && (query.starts_with(learned) || learned.starts_with(query))
+                {
+                    usage.score(now) * 0.5
+                } else {
+                    0.0
+                }
             })
-            .max_by(Rank::compare)
-            .unwrap_or_default()
+            .fold(0.0, f64::max)
     }
 }
 
@@ -150,28 +124,14 @@ impl History {
         self.store.save(BTreeMap::new());
     }
 
-    pub fn comparator(
-        &self,
-        query: &str,
-    ) -> impl FnMut(Option<&str>, Option<&str>) -> Ordering + '_ {
+    pub fn scorer(&self, query: &str) -> impl Fn(Option<&str>) -> f64 + '_ {
         let query = normalize_query(query);
         let now = glib::real_time();
-        let mut ranks = BTreeMap::new();
 
-        // Score each compared entry once per search. Unmatched
-        // entries need no work, and the cache borrows IDs from the
-        // loaded history.
-        let mut rank = move |id: Option<&str>| {
-            let Some((id, usage)) = id.and_then(|id| self.entries.get_key_value(id)) else {
-                return Rank::default();
-            };
-
-            *ranks
-                .entry(id.as_str())
-                .or_insert_with(|| usage.rank(&query, now))
-        };
-
-        move |left, right| rank(right).compare(&rank(left))
+        move |id| {
+            id.and_then(|id| self.entries.get(id))
+                .map_or(0.0, |usage| usage.score(&query, now))
+        }
     }
 
     fn prune_queries(&mut self) {
