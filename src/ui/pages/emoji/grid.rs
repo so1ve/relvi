@@ -1,7 +1,7 @@
 use emojis::Emoji;
 use gtk::prelude::*;
 use gtk::{
-    Button, GridView, Label, ListItem, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
+    GridView, Label, ListItem, Overlay, PolicyType, ScrolledWindow, SignalListItemFactory,
     SingleSelection, gio, glib,
 };
 
@@ -27,28 +27,8 @@ impl EmojiGrid {
         let factory = SignalListItemFactory::new();
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
-            let button = Button::builder()
-                .has_frame(false)
-                .focusable(false)
-                .css_classes(["emoji-cell"])
-                .build();
-            button.connect_clicked(glib::clone!(
-                #[weak]
-                item,
-                move |button| {
-                    let position = item.position();
-                    button
-                        .activate_action(
-                            "list.select-item",
-                            Some(&(position, false, false).to_variant()),
-                        )
-                        .unwrap();
-                    button
-                        .activate_action("list.activate-item", Some(&position.to_variant()))
-                        .unwrap();
-                }
-            ));
-            item.set_child(Some(&button));
+            let label = Label::builder().css_classes(["emoji-cell"]).build();
+            item.set_child(Some(&label));
 
             item.connect_item_notify(move |item| {
                 let Some(object) = item.item() else {
@@ -56,16 +36,16 @@ impl EmojiGrid {
                 };
                 let object = object.downcast::<glib::BoxedAnyObject>().unwrap();
                 let emoji = *object.borrow::<&'static Emoji>();
-                button.set_label(emoji.as_str());
-                button.set_tooltip_text(Some(emoji.name()));
-                button.update_property(&[gtk::accessible::Property::Label(emoji.name())]);
+                label.set_text(emoji.as_str());
+                label.set_tooltip_text(Some(emoji.name()));
+                label.update_property(&[gtk::accessible::Property::Label(emoji.name())]);
             });
         });
 
         let view = GridView::new(Some(selection.clone()), Some(factory));
         view.set_min_columns(COLUMNS);
         view.set_max_columns(COLUMNS);
-        view.set_single_click_activate(true);
+        view.set_single_click_activate(false);
         view.add_css_class("item-grid");
 
         let frame = ScrolledWindow::builder()

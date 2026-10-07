@@ -137,6 +137,11 @@ impl ClipboardPage {
             page,
             move || page.update_preview()
         ));
+        page.list.connect_activate(glib::clone!(
+            #[weak]
+            page,
+            move || page.insert_selected()
+        ));
         page.copy.connect_clicked(glib::clone!(
             #[weak]
             page,

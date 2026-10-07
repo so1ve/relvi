@@ -14,6 +14,7 @@ use crate::ui::components::ListNavigation;
 
 pub struct HistoryList {
     root: Overlay,
+    view: ListView,
     navigation: ListNavigation<ListView>,
     model: gio::ListStore,
     selection: SingleSelection,
@@ -70,6 +71,7 @@ impl HistoryList {
 
         Self {
             root,
+            view: list,
             navigation,
             model,
             selection,
@@ -105,6 +107,10 @@ impl HistoryList {
     pub fn connect_changed(&self, changed: impl Fn() + 'static) {
         self.selection
             .connect_selected_item_notify(move |_| changed());
+    }
+
+    pub fn connect_activate(&self, activate: impl Fn() + 'static) {
+        self.view.connect_activate(move |_, _| activate());
     }
 
     pub fn selected(&self) -> Option<Arc<Entry>> {

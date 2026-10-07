@@ -48,7 +48,7 @@ Open this view with `relvi clipboard`, or show/hide it with `relvi clipboard tog
 | Previous / next entry | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
 | Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
 | Focus search | Start typing, or press <kbd>←</kbd> / <kbd>→</kbd> |
-| Insert selected entry and close | <kbd>Enter</kbd> |
+| Insert selected entry and close | <kbd>Enter</kbd> or a double click |
 | Copy selected entry | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
 | Delete selected entry | <kbd>Ctrl</kbd> + <kbd>Delete</kbd> |
 | Clear history | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Delete</kbd> or the Clear button |
@@ -78,8 +78,7 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 
 | Action | Shortcut |
 | --- | --- |
-| Insert and copy an emoji, then close | <kbd>Enter</kbd> |
-| Insert and copy an emoji, keeping the picker open | Single click |
+| Insert and copy an emoji, then close | <kbd>Enter</kbd> or a double click |
 | Copy an emoji | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
 | Move left / right | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
 | Move up / down | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |

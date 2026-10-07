@@ -1,7 +1,6 @@
 mod grid;
 
-use std::cell::{Cell, RefCell};
-use std::collections::VecDeque;
+use std::cell::Cell;
 use std::rc::Rc;
 
 use emojis::{Emoji, Group};
@@ -33,11 +32,6 @@ const CATEGORIES: [(Category, &str); 11] = [
     (Category::Group(Group::Flags), "Flags"),
 ];
 
-struct Insertion {
-    emoji: &'static Emoji,
-    close: bool,
-}
-
 pub struct EmojiPage {
     root: GtkBox,
     search: SearchEntry,
@@ -49,7 +43,6 @@ pub struct EmojiPage {
     shortcode: Label,
     tone: Button,
     copy: Button,
-    insertions: RefCell<VecDeque<Insertion>>,
     error: Image,
 }
 
@@ -116,7 +109,6 @@ impl EmojiPage {
             shortcode,
             tone,
             copy,
-            insertions: RefCell::new(VecDeque::new()),
             error,
         });
 
@@ -138,7 +130,7 @@ impl EmojiPage {
         page.grid.connect_activate(glib::clone!(
             #[weak]
             page,
-            move |emoji| page.insert(emoji, false)
+            move |emoji| page.insert(emoji)
         ));
         page.copy.connect_clicked(glib::clone!(
             #[weak]
@@ -225,52 +217,19 @@ impl EmojiPage {
         }
     }
 
-    fn insert(self: &Rc<Self>, emoji: &'static Emoji, close: bool) {
+    fn insert(self: &Rc<Self>, emoji: &'static Emoji) {
         if self.picker.is_pending() {
             return;
         }
 
-        if close {
-            self.root.set_sensitive(false);
-        }
-
-        {
-            let mut insertions = self.insertions.borrow_mut();
-            // Keep the active insertion at the front until focus returns.
-            insertions.push_back(Insertion { emoji, close });
-
-            if insertions.len() > 1 {
-                return;
-            }
-        }
+        self.copy(emoji);
+        self.root.set_sensitive(false);
 
         glib::spawn_future_local(glib::clone!(
             #[weak(rename_to = page)]
             self,
             async move {
-                let result = loop {
-                    let Insertion { emoji, close } = *page.insertions.borrow().front().unwrap();
-                    page.copy(emoji);
-
-                    if let Err(error) = text_input::paste(&page.root).await {
-                        break Err(error);
-                    }
-
-                    if close {
-                        page.root.activate_action("win.hide", None).unwrap();
-
-                        break Ok(());
-                    }
-
-                    let mut insertions = page.insertions.borrow_mut();
-                    insertions.pop_front();
-
-                    if insertions.is_empty() {
-                        break Ok(());
-                    }
-                };
-
-                page.insertions.borrow_mut().clear();
+                let result = text_input::paste(&page.root).await;
                 page.root.set_sensitive(true);
 
                 if let Err(error) = result {
@@ -280,6 +239,8 @@ impl EmojiPage {
                     )));
                     page.error.set_visible(true);
                     page.search.grab_focus();
+                } else {
+                    page.root.activate_action("win.hide", None).unwrap();
                 }
             }
         ));
@@ -314,7 +275,7 @@ impl EmojiPage {
             Escape => self.root.activate_action("win.hide", None).unwrap(),
             Return | KP_Enter => {
                 if let Some(emoji) = self.grid.selected() {
-                    self.insert(emoji, true);
+                    self.insert(emoji);
                 }
             },
             Ctrl + C => self.copy_selected(),
