@@ -15,14 +15,14 @@ use crate::clipboard::{Content, Entry, MAX_IMAGE_BYTES};
 #[serde(untagged)]
 enum StoredEntry {
     Text(Arc<str>),
-    Image { image: String, mime_type: String },
+    Image { image: String },
 }
 
 fn is_image_name(name: &str) -> bool {
     name.len() == 64 && name.bytes().all(|byte| byte.is_ascii_hexdigit())
 }
 
-fn read_image(directory: &Path, name: &str, mime_type: &str) -> Result<Entry, Box<dyn Error>> {
+fn read_image(directory: &Path, name: &str) -> Result<Entry, Box<dyn Error>> {
     if !is_image_name(name) {
         return Err("invalid clipboard image filename".into());
     }
@@ -32,7 +32,7 @@ fn read_image(directory: &Path, name: &str, mime_type: &str) -> Result<Entry, Bo
         .take(MAX_IMAGE_BYTES as u64 + 1)
         .read_to_end(&mut bytes)?;
 
-    Entry::from_image(mime_type, bytes)
+    Entry::from_image(bytes)
 }
 
 fn save_entries(path: &Path, entries: &[Arc<Entry>]) -> Result<(), Box<dyn Error>> {
@@ -52,7 +52,6 @@ fn save_entries(path: &Path, entries: &[Arc<Entry>]) -> Result<(), Box<dyn Error
 
                 StoredEntry::Image {
                     image: entry.id.clone(),
-                    mime_type: image.mime_type.clone(),
                 }
             }
         });
@@ -98,9 +97,7 @@ impl ClipboardStore {
         Ok(saved.into_iter().filter_map(move |entry| {
             let entry = match entry {
                 StoredEntry::Text(text) => Entry::from_text(text),
-                StoredEntry::Image { image, mime_type } => {
-                    read_image(&directory, &image, &mime_type)
-                }
+                StoredEntry::Image { image } => read_image(&directory, &image),
             };
 
             match entry {

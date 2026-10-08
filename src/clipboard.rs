@@ -46,17 +46,17 @@ impl Entry {
         })
     }
 
-    pub fn from_image(mime_type: &str, bytes: Vec<u8>) -> Result<Self, Box<dyn Error>> {
+    pub fn from_image(bytes: Vec<u8>) -> Result<Self, Box<dyn Error>> {
         if bytes.len() > MAX_IMAGE_BYTES {
             return Err("clipboard image exceeds 16 MiB".into());
         }
 
-        let image = Image::decode(mime_type, bytes)?;
+        let image = Image::decode(bytes)?;
         let id = glib::compute_checksum_for_bytes(glib::ChecksumType::Sha256, &image.bytes)
             .unwrap()
             .to_string();
         let preview = format!("Image · {} × {}", image.width, image.height);
-        let searchable = format!("{preview} {mime_type}").to_lowercase();
+        let searchable = format!("{preview} {}", image.mime_type).to_lowercase();
 
         Ok(Self {
             id,

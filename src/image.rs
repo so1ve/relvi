@@ -17,12 +17,8 @@ pub struct Image {
 }
 
 impl Image {
-    pub fn decode(mime_type: &str, bytes: Vec<u8>) -> Result<Self, Box<dyn Error>> {
-        if !matches!(mime_type, "image/png" | "image/jpeg") {
-            return Err("unsupported image format".into());
-        }
-
-        let loader = gdk_pixbuf::PixbufLoader::with_mime_type(mime_type)?;
+    pub fn decode(bytes: Vec<u8>) -> Result<Self, Box<dyn Error>> {
+        let loader = gdk_pixbuf::PixbufLoader::new();
         let dimensions = Rc::new(Cell::new(None));
         loader.connect_size_prepared({
             let dimensions = Rc::clone(&dimensions);
@@ -61,7 +57,7 @@ impl Image {
 
         Ok(Self {
             bytes: glib::Bytes::from_owned(bytes),
-            mime_type: mime_type.to_owned(),
+            mime_type: loader.format().unwrap().mime_types()[0].to_string(),
             texture: gdk::Texture::for_pixbuf(&pixbuf),
             width,
             height,

@@ -67,7 +67,7 @@ pub fn watch() -> async_channel::Receiver<Result<Arc<Entry>, String>> {
                 }
             };
             let decoded = if format.starts_with("image/") {
-                Entry::from_image(format, bytes)
+                Entry::from_image(bytes)
             } else {
                 String::from_utf8(bytes)
                     .map_err(Into::into)
