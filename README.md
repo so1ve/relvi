@@ -58,7 +58,7 @@ Up/down navigation returns focus to the last selected entry.
 
 ### Storage
 
-Relvi records text (up to 64 KiB) and PNG/JPEG images (up to 16 MiB and 64 megapixels). It keeps up to 100 entries within a 64 MiB memory budget, including image previews. Copying an image preserves its original data. Duplicates move to the front; entries marked by password managers are excluded.
+Relvi records text (up to 64 KiB) and images (up to 16 MiB and 64 megapixels). Supported image formats depend on the installed GdkPixbuf decoders. It keeps up to 100 entries within a 64 MiB memory budget, including image previews. Copying an image preserves its original data. Duplicates move to the front; entries marked by password managers are excluded.
 
 History survives restarts in `$XDG_STATE_HOME/relvi/clipboard.json` (normally `~/.local/state/relvi/clipboard.json`). Images are stored separately in the adjacent `clipboard/` directory. Both are unencrypted, with access restricted to your user. Removing an image also removes its stored file. Run `relvi clipboard clear` to erase history without changing the current clipboard.
 
