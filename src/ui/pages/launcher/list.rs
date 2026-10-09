@@ -143,6 +143,10 @@ impl ResultList {
 
         factory.connect_setup(|_, object| {
             let item = object.downcast_ref::<ListItem>().unwrap();
+
+            // Select on activation or keyboard navigation, not on hover.
+            item.set_selectable(false);
+
             let row = ResultRow::new();
             item.set_child(Some(&row.widget));
 
@@ -249,7 +253,10 @@ impl ResultList {
 
     pub fn connect_activate(&self, activate: impl Fn(Rc<Entry>) + 'static) {
         self.list.connect_activate(move |list, position| {
-            let object = list.model().unwrap().item(position).unwrap();
+            let model = list.model().unwrap();
+            model.select_item(position, true);
+
+            let object = model.item(position).unwrap();
             let entry = object.downcast_ref::<glib::BoxedAnyObject>().unwrap();
 
             activate(Rc::clone(&entry.borrow::<ResultItem>().entry));
