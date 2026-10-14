@@ -51,6 +51,10 @@
             libadwaita
           ];
 
+          preFixup = ''
+            gappsWrapperArgs+=(--prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.xdg-terminal-exec ]})
+          '';
+
           postInstall = ''
             install -Dm644 data/dev.so1ve.Relvi.desktop \
               "$out/share/applications/dev.so1ve.Relvi.desktop"
