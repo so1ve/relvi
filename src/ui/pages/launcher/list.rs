@@ -4,8 +4,9 @@ use std::rc::Rc;
 use gtk::pango::EllipsizeMode;
 use gtk::prelude::*;
 use gtk::{
-    Align, Box as GtkBox, IconTheme, Image, Label, ListItem, ListView, Orientation, PolicyType,
-    ScrolledWindow, SignalListItemFactory, SingleSelection, gio, glib,
+    Align, Box as GtkBox, EventSequenceState, GestureClick, IconTheme, Image, Label, ListItem,
+    ListView, Orientation, PolicyType, PropagationPhase, ScrolledWindow, SignalListItemFactory,
+    SingleSelection, gdk, gio, glib,
 };
 
 use crate::launcher::Entry;
@@ -149,6 +150,17 @@ impl ResultList {
 
             let row = ResultRow::new();
             item.set_child(Some(&row.widget));
+
+            // Cancel releases outside the row before GTK activates it.
+            let click = GestureClick::new();
+            click.set_button(gdk::BUTTON_PRIMARY);
+            click.set_propagation_phase(PropagationPhase::Capture);
+            click.connect_released(|click, _, x, y| {
+                if !click.widget().unwrap().contains(x, y) {
+                    click.set_state(EventSequenceState::Claimed);
+                }
+            });
+            row.widget.add_controller(click);
 
             item.connect_item_notify(move |item| {
                 let Some(object) = item.item() else {
