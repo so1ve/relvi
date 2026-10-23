@@ -1,6 +1,7 @@
 mod applications;
 mod catalog;
 mod history;
+mod spawn;
 mod system;
 
 use std::cell::{Ref, RefCell};
@@ -98,7 +99,7 @@ impl Launcher {
         context: &impl IsA<gio::AppLaunchContext>,
     ) -> Result<(), glib::Error> {
         match &entry.target {
-            Target::Application(app) => app.launch(&[], Some(context)),
+            Target::Application(app) => spawn::launch(app, context).await,
             Target::SystemAction(action) => action.run().await,
         }?;
 
