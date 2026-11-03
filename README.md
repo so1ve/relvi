@@ -23,13 +23,13 @@ Search uses [Polysearch](https://github.com/so1ve/polysearch), built on [Frizbee
 
 ### Shortcuts
 
-| Action | Shortcut |
-| --- | --- |
-| Open an app | <kbd>Enter</kbd> or a single click |
-| Previous / next result | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
-| Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
-| Previous / next category | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Tab</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
-| Close | <kbd>Esc</kbd> |
+| Action                   | Shortcut                                                                                                                                                         |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Open an app              | <kbd>Enter</kbd> or a single click                                                                                                                               |
+| Previous / next result   | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
+| Scroll half a page       | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd>                                                                                                  |
+| Previous / next category | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Tab</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd>                                            |
+| Close                    | <kbd>Esc</kbd>                                                                                                                                                   |
 
 Show the launcher with `relvi`, or show/hide it with `relvi toggle`. Clear launch and query history with `relvi clear-history`.
 
@@ -43,16 +43,16 @@ Open this view with `relvi clipboard`, or show/hide it with `relvi clipboard tog
 
 ### Shortcuts
 
-| Action | Shortcut |
-| --- | --- |
-| Previous / next entry | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
-| Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
-| Focus search | Start typing, or press <kbd>←</kbd> / <kbd>→</kbd> |
-| Insert selected entry and close | <kbd>Enter</kbd> or a double click |
-| Copy selected entry | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
-| Delete selected entry | <kbd>Ctrl</kbd> + <kbd>Delete</kbd> |
-| Clear history | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Delete</kbd> or the Clear button |
-| Close | <kbd>Esc</kbd> |
+| Action                          | Shortcut                                                                                                                                                         |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Previous / next entry           | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
+| Scroll half a page              | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd>                                                                                                  |
+| Focus search                    | Start typing, or press <kbd>←</kbd> / <kbd>→</kbd>                                                                                                               |
+| Insert selected entry and close | <kbd>Enter</kbd> or a double click                                                                                                                               |
+| Copy selected entry             | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button                                                                                                                |
+| Delete selected entry           | <kbd>Ctrl</kbd> + <kbd>Delete</kbd>                                                                                                                              |
+| Clear history                   | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Delete</kbd> or the Clear button                                                                                       |
+| Close                           | <kbd>Esc</kbd>                                                                                                                                                   |
 
 Up/down navigation returns focus to the last selected entry.
 
@@ -76,17 +76,17 @@ Search English or Chinese names and keywords, Pinyin, or shortcodes such as `:ro
 
 ### Shortcuts
 
-| Action | Shortcut |
-| --- | --- |
-| Insert and copy an emoji, then close | <kbd>Enter</kbd> or a double click |
-| Copy an emoji | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button |
-| Move left / right | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd> |
-| Move up / down | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
-| Previous / next category | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Tab</kbd> |
-| Focus search | Start typing, or <kbd>Ctrl</kbd> + <kbd>F</kbd> |
-| Scroll half a page | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd> |
-| Change skin tone | Hand button or <kbd>Ctrl</kbd> + <kbd>T</kbd>; add <kbd>Shift</kbd> to cycle backwards |
-| Close | <kbd>Esc</kbd> |
+| Action                               | Shortcut                                                                                                                                                         |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Insert and copy an emoji, then close | <kbd>Enter</kbd> or a double click                                                                                                                               |
+| Copy an emoji                        | <kbd>Ctrl</kbd> + <kbd>C</kbd> or the Copy button                                                                                                                |
+| Move left / right                    | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Ctrl</kbd> + <kbd>H</kbd> / <kbd>Ctrl</kbd> + <kbd>L</kbd>                                                                   |
+| Move up / down                       | <kbd>↑</kbd> / <kbd>↓</kbd>, <kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>J</kbd>, or <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>N</kbd> |
+| Previous / next category             | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Tab</kbd>                                                                                                               |
+| Focus search                         | Start typing, or <kbd>Ctrl</kbd> + <kbd>F</kbd>                                                                                                                  |
+| Scroll half a page                   | <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>D</kbd>                                                                                                  |
+| Change skin tone                     | Hand button or <kbd>Ctrl</kbd> + <kbd>T</kbd>; add <kbd>Shift</kbd> to cycle backwards                                                                           |
+| Close                                | <kbd>Esc</kbd>                                                                                                                                                   |
 
 Left/right arrows edit the query while search has focus. Inserting an emoji copies it to the clipboard and pastes it into the previous app.
 
@@ -127,10 +127,11 @@ Then install its package:
 Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
 
 ```sh
-cargo build --locked --release
+cargo build --locked --release # --no-default-features (disables systemd app-scope support)
 install -Dm755 target/release/relvi "$HOME/.local/bin/relvi"
 install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev.so1ve.Relvi.desktop"
 install -Dm644 data/dev.so1ve.Relvi.svg "$HOME/.local/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
+install -Dm644 data/relvi.service "$HOME/.config/systemd/user/relvi.service"
 ```
 
 Ensure `~/.local/bin` is on the graphical session's `PATH`. Released Linux binaries also need compatible GTK 4, gtk4-layer-shell, and libadwaita libraries at runtime.
@@ -147,6 +148,21 @@ Start `relvi daemon` with your Wayland session. This keeps the app catalog in me
 ```kdl
 spawn-at-startup "relvi" "daemon"
 
+binds {
+    Alt+Space { spawn "relvi" "toggle"; }
+    Alt+V { spawn "relvi" "clipboard" "toggle"; }
+    Alt+. { spawn "relvi" "emoji" "toggle"; }
+}
+```
+
+Alternatively, using the systemd service:
+
+```sh
+systemctl --user daemon-reload
+systemctl --user add-wants niri.service relvi.service
+```
+
+```kdl
 binds {
     Alt+Space { spawn "relvi" "toggle"; }
     Alt+V { spawn "relvi" "clipboard" "toggle"; }
