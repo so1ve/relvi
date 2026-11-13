@@ -115,19 +115,34 @@ Then install its package:
 ```nix
 { inputs, pkgs, ... }:
 
+let
+  relvi = inputs.relvi.packages.${pkgs.stdenv.hostPlatform.system}.default;
+in
 {
-  environment.systemPackages = [
-    inputs.relvi.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+  environment.systemPackages = [ relvi ];
 }
 ```
+
+For a systemd-managed Niri session on NixOS, add these options alongside
+`environment.systemPackages`:
+
+```nix
+systemd.packages = [ relvi ];
+systemd.user.services.relvi.wantedBy = [ "niri.service" ];
+```
+
+The package includes `lib/systemd/user/relvi.service` with the executable path set
+to the packaged `relvi`. Registering it with `systemd.packages` makes the user
+service available; `wantedBy` starts it with Niri. Keep the keybindings from
+[Session setup](#session-setup), and remove `spawn-at-startup "relvi" "daemon"`
+when using the service.
 
 ### From source
 
 Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
 
 ```sh
-cargo build --locked --release # --no-default-features (disables systemd app-scope support)
+cargo build --locked --release
 install -Dm755 target/release/relvi "$HOME/.local/bin/relvi"
 install -Dm644 data/dev.so1ve.Relvi.desktop "$HOME/.local/share/applications/dev.so1ve.Relvi.desktop"
 install -Dm644 data/dev.so1ve.Relvi.svg "$HOME/.local/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
@@ -135,6 +150,10 @@ install -Dm644 data/relvi.service "$HOME/.config/systemd/user/relvi.service"
 ```
 
 Ensure `~/.local/bin` is on the graphical session's `PATH`. Released Linux binaries also need compatible GTK 4, gtk4-layer-shell, and libadwaita libraries at runtime.
+
+Systemd app scopes are enabled by default. Build with `--no-default-features`
+to disable them. The user service runs `~/.local/bin/relvi`; update its `ExecStart`
+if you install the binary elsewhere.
 
 ## Session setup
 
@@ -155,19 +174,12 @@ binds {
 }
 ```
 
-Alternatively, using the systemd service:
+To use the installed user service with a systemd-managed Niri session, remove
+`spawn-at-startup "relvi" "daemon"` and run:
 
 ```sh
 systemctl --user daemon-reload
 systemctl --user add-wants niri.service relvi.service
-```
-
-```kdl
-binds {
-    Alt+Space { spawn "relvi" "toggle"; }
-    Alt+V { spawn "relvi" "clipboard" "toggle"; }
-    Alt+. { spawn "relvi" "emoji" "toggle"; }
-}
 ```
 
 </details>

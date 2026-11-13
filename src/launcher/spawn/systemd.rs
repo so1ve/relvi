@@ -1,8 +1,8 @@
 use std::cell::RefCell;
 use std::fmt::Write;
-use std::path::Path;
 use std::rc::Rc;
 
+use gio_unix::DesktopAppInfo;
 use gtk::gio::prelude::*;
 use gtk::glib::variant::ToVariant;
 use gtk::{gio, glib};
@@ -18,7 +18,7 @@ pub fn is_systemd() -> bool {
 }
 
 pub async fn launch(
-    app: &gio::AppInfo,
+    app: &DesktopAppInfo,
     context: &impl IsA<gio::AppLaunchContext>,
 ) -> Result<(), glib::Error> {
     let pids = Rc::new(RefCell::new(Vec::new()));
@@ -38,19 +38,15 @@ pub async fn launch(
     context.disconnect(handler);
     result?;
 
-    let id = app.id().map_or_else(
-        || {
-            Path::new(&app.executable())
-                .file_name()
-                .unwrap_or_default()
-                .to_string_lossy()
-                .into_owned()
-        },
-        |id| id.trim_end_matches(".desktop").to_owned(),
-    );
-
+    let id = app.id().unwrap();
     for pid in pids.take() {
-        if let Err(error) = start_scope(scope_name(&id, pid), &app.display_name(), pid).await {
+        if let Err(error) = start_scope(
+            scope_name(id.trim_end_matches(".desktop"), pid),
+            &app.display_name(),
+            pid,
+        )
+        .await
+        {
             warn!(%error, pid, "Could not move application into its own scope");
         }
     }

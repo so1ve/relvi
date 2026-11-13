@@ -7,6 +7,7 @@ mod system;
 use std::cell::{Ref, RefCell};
 use std::rc::Rc;
 
+use gio_unix::DesktopAppInfo;
 use gtk::gio::prelude::*;
 use gtk::{gio, glib};
 
@@ -15,7 +16,7 @@ pub use self::history::History;
 use self::system::SystemAction;
 
 enum Target {
-    Application(gio::AppInfo),
+    Application(DesktopAppInfo),
     SystemAction(&'static SystemAction),
 }
 

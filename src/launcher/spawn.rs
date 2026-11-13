@@ -1,11 +1,12 @@
 #[cfg(feature = "systemd")]
 mod systemd;
 
+use gio_unix::DesktopAppInfo;
 use gtk::gio::prelude::*;
 use gtk::{gio, glib};
 
 pub async fn launch(
-    app: &gio::AppInfo,
+    app: &DesktopAppInfo,
     context: &impl IsA<gio::AppLaunchContext>,
 ) -> Result<(), glib::Error> {
     context.unsetenv("NOTIFY_SOCKET");

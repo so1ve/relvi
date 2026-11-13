@@ -7,6 +7,6 @@ Requisite=graphical-session.target
 [Service]
 Type=dbus
 BusName=dev.so1ve.Relvi
-ExecStart=/usr/bin/relvi daemon
+ExecStart="%h/.local/bin/relvi" daemon
 Restart=on-failure
 Slice=session.slice

@@ -27,9 +27,8 @@ pub fn scan() -> Vec<Rc<Entry>> {
         .into_iter()
         .filter(AppInfoExt::should_show)
         .map(|app| {
-            let categories = app
-                .downcast_ref::<DesktopAppInfo>()
-                .and_then(DesktopAppInfo::categories);
+            let app = app.downcast::<DesktopAppInfo>().unwrap();
+            let categories = app.categories();
             let categories = MAIN_CATEGORIES
                 .iter()
                 .copied()
@@ -52,21 +51,19 @@ pub fn scan() -> Vec<Rc<Entry>> {
         .collect()
 }
 
-pub fn search_fields(app: &gio::AppInfo, mut add: impl FnMut(Role, &str)) {
+pub fn search_fields(app: &DesktopAppInfo, mut add: impl FnMut(Role, &str)) {
     add(LOCALIZED_NAME, &app.name());
 
-    if let Some(desktop) = app.downcast_ref::<DesktopAppInfo>() {
-        if let Some(name) = desktop.string("Name") {
-            add(ALIAS, &name);
-        }
+    if let Some(name) = app.string("Name") {
+        add(ALIAS, &name);
+    }
 
-        if let Some(name) = desktop.generic_name() {
-            add(KEYWORD, &name);
-        }
+    if let Some(name) = app.generic_name() {
+        add(KEYWORD, &name);
+    }
 
-        for keyword in desktop.keywords() {
-            add(KEYWORD, &keyword);
-        }
+    for keyword in app.keywords() {
+        add(KEYWORD, &keyword);
     }
 
     if let Some(executable) = app.executable().file_name().and_then(|name| name.to_str()) {

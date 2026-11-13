@@ -60,6 +60,10 @@
               "$out/share/applications/dev.so1ve.Relvi.desktop"
             install -Dm644 data/dev.so1ve.Relvi.svg \
               "$out/share/icons/hicolor/scalable/apps/dev.so1ve.Relvi.svg"
+            install -Dm644 data/relvi.service \
+              "$out/lib/systemd/user/relvi.service"
+            substituteInPlace "$out/lib/systemd/user/relvi.service" \
+              --replace-fail %h/.local/bin/relvi "$out/bin/relvi"
 
             installShellCompletion --cmd relvi \
               --bash <("$out/bin/relvi" completions --shell bash) \
