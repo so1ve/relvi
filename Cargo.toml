@@ -37,6 +37,10 @@ wayland-client = "0.31"
 wayland-protocols-misc = { version = "0.3", features = ["client"] }
 wl-clipboard-watch = "0.1"
 
+[features]
+default = ["systemd"]
+systemd = []
+
 [lints.clippy]
 all = { level = "warn", priority = -1 }
 clone_on_ref_ptr = "warn"

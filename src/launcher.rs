@@ -1,11 +1,13 @@
 mod applications;
 mod catalog;
 mod history;
+mod spawn;
 mod system;
 
 use std::cell::{Ref, RefCell};
 use std::rc::Rc;
 
+use gio_unix::DesktopAppInfo;
 use gtk::gio::prelude::*;
 use gtk::{gio, glib};
 
@@ -14,7 +16,7 @@ pub use self::history::History;
 use self::system::SystemAction;
 
 enum Target {
-    Application(gio::AppInfo),
+    Application(DesktopAppInfo),
     SystemAction(&'static SystemAction),
 }
 
@@ -98,7 +100,7 @@ impl Launcher {
         context: &impl IsA<gio::AppLaunchContext>,
     ) -> Result<(), glib::Error> {
         match &entry.target {
-            Target::Application(app) => app.launch(&[], Some(context)),
+            Target::Application(app) => spawn::launch(app, context).await,
             Target::SystemAction(action) => action.run().await,
         }?;
 
