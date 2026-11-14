@@ -148,12 +148,6 @@ With Home Manager, import the module and enable the service instead:
 }
 ```
 
-The module installs Relvi and starts it with `graphical-session.target`. It uses
-the packaged service and keeps launched applications running when Relvi stops.
-Remove any existing `systemd.user.services.relvi` definition and compositor
-autostart command; keep the keybindings. Override `services.relvi.package` to use
-a different Relvi package.
-
 ### From source
 
 Build with nightly Rust and the GTK 4, gtk4-layer-shell, libadwaita, and pkg-config development packages installed:
