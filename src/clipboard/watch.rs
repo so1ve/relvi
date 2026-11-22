@@ -44,7 +44,9 @@ pub fn watch() -> async_channel::Receiver<Result<Arc<Entry>, String>> {
                 }
             };
 
-            if selection.offers("x-kde-passwordManagerHint") {
+            if selection.offers("x-kde-passwordManagerHint")
+                || selection.offers(super::INTERNAL_MIME_TYPE)
+            {
                 continue;
             }
 
