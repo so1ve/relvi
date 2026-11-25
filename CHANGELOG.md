@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4](https://github.com/so1ve/relvi/compare/relvi-v0.1.3...relvi-v0.1.4) - 2026-11-25
+
+### Other
+
+- *(deps)* update rust crate clap to v4.6.10 ([#26](https://github.com/so1ve/relvi/pull/26))
+- pin firn@v1 and push explicit build outputs
+- migrate binary cache from oranc to firn
+
 ## [0.1.3](https://github.com/so1ve/relvi/compare/relvi-v0.1.2...relvi-v0.1.3) - 2026-11-22
 
 ### Added
